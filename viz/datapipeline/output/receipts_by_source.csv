@@ -1,0 +1,276 @@
+year,category,amount
+1970,Individual Income Tax,90412.0
+1971,Individual Income Tax,86230.0
+1972,Individual Income Tax,94737.0
+1973,Individual Income Tax,103246.0
+1974,Individual Income Tax,118952.0
+1975,Individual Income Tax,122386.0
+1976,Individual Income Tax,131603.0
+1977,Individual Income Tax,157626.0
+1978,Individual Income Tax,180988.0
+1979,Individual Income Tax,217841.0
+1980,Individual Income Tax,244069.0
+1981,Individual Income Tax,285917.0
+1982,Individual Income Tax,297744.0
+1983,Individual Income Tax,288938.0
+1984,Individual Income Tax,298415.0
+1985,Individual Income Tax,334531.0
+1986,Individual Income Tax,348959.0
+1987,Individual Income Tax,392557.0
+1988,Individual Income Tax,401181.0
+1989,Individual Income Tax,445690.0
+1990,Individual Income Tax,466884.0
+1991,Individual Income Tax,467827.0
+1992,Individual Income Tax,475964.0
+1993,Individual Income Tax,509680.0
+1994,Individual Income Tax,543055.0
+1995,Individual Income Tax,590244.0
+1996,Individual Income Tax,656417.0
+1997,Individual Income Tax,737466.0
+1998,Individual Income Tax,828586.0
+1999,Individual Income Tax,879480.0
+2000,Individual Income Tax,1004462.0
+2001,Individual Income Tax,994339.0
+2002,Individual Income Tax,858345.0
+2003,Individual Income Tax,793699.0
+2004,Individual Income Tax,808959.0
+2005,Individual Income Tax,927222.0
+2006,Individual Income Tax,1043908.0
+2007,Individual Income Tax,1163472.0
+2008,Individual Income Tax,1145747.0
+2009,Individual Income Tax,915308.0
+2010,Individual Income Tax,898549.0
+2011,Individual Income Tax,1091473.0
+2012,Individual Income Tax,1132206.0
+2013,Individual Income Tax,1316405.0
+2014,Individual Income Tax,1394568.0
+2015,Individual Income Tax,1540802.0
+2016,Individual Income Tax,1546075.0
+2017,Individual Income Tax,1587120.0
+2018,Individual Income Tax,1683538.0
+2019,Individual Income Tax,1717857.0
+2020,Individual Income Tax,1608663.0
+2021,Individual Income Tax,2044377.0
+2022,Individual Income Tax,2632146.0
+2023,Individual Income Tax,2176481.0
+2024,Individual Income Tax,2426067.0
+1970,Corporate Income Tax,32829.0
+1971,Corporate Income Tax,26785.0
+1972,Corporate Income Tax,32166.0
+1973,Corporate Income Tax,36153.0
+1974,Corporate Income Tax,38620.0
+1975,Corporate Income Tax,40621.0
+1976,Corporate Income Tax,41409.0
+1977,Corporate Income Tax,54892.0
+1978,Corporate Income Tax,59952.0
+1979,Corporate Income Tax,65677.0
+1980,Corporate Income Tax,64600.0
+1981,Corporate Income Tax,61137.0
+1982,Corporate Income Tax,49207.0
+1983,Corporate Income Tax,37022.0
+1984,Corporate Income Tax,56893.0
+1985,Corporate Income Tax,61331.0
+1986,Corporate Income Tax,63143.0
+1987,Corporate Income Tax,83926.0
+1988,Corporate Income Tax,94508.0
+1989,Corporate Income Tax,103291.0
+1990,Corporate Income Tax,93507.0
+1991,Corporate Income Tax,98086.0
+1992,Corporate Income Tax,100270.0
+1993,Corporate Income Tax,117520.0
+1994,Corporate Income Tax,140385.0
+1995,Corporate Income Tax,157004.0
+1996,Corporate Income Tax,171824.0
+1997,Corporate Income Tax,182293.0
+1998,Corporate Income Tax,188677.0
+1999,Corporate Income Tax,184680.0
+2000,Corporate Income Tax,207289.0
+2001,Corporate Income Tax,151075.0
+2002,Corporate Income Tax,148044.0
+2003,Corporate Income Tax,131778.0
+2004,Corporate Income Tax,189371.0
+2005,Corporate Income Tax,278282.0
+2006,Corporate Income Tax,353915.0
+2007,Corporate Income Tax,370243.0
+2008,Corporate Income Tax,304346.0
+2009,Corporate Income Tax,138229.0
+2010,Corporate Income Tax,191437.0
+2011,Corporate Income Tax,181085.0
+2012,Corporate Income Tax,242289.0
+2013,Corporate Income Tax,273506.0
+2014,Corporate Income Tax,320731.0
+2015,Corporate Income Tax,343797.0
+2016,Corporate Income Tax,299571.0
+2017,Corporate Income Tax,297048.0
+2018,Corporate Income Tax,204733.0
+2019,Corporate Income Tax,230245.0
+2020,Corporate Income Tax,211845.0
+2021,Corporate Income Tax,371831.0
+2022,Corporate Income Tax,424865.0
+2023,Corporate Income Tax,419584.0
+2024,Corporate Income Tax,529867.0
+1970,Payroll Taxes (FICA),44362.0
+1971,Payroll Taxes (FICA),47325.0
+1972,Payroll Taxes (FICA),52574.0
+1973,Payroll Taxes (FICA),63115.0
+1974,Payroll Taxes (FICA),75071.0
+1975,Payroll Taxes (FICA),84534.0
+1976,Payroll Taxes (FICA),90769.0
+1977,Payroll Taxes (FICA),106485.0
+1978,Payroll Taxes (FICA),120967.0
+1979,Payroll Taxes (FICA),138939.0
+1980,Payroll Taxes (FICA),157803.0
+1981,Payroll Taxes (FICA),182720.0
+1982,Payroll Taxes (FICA),201498.0
+1983,Payroll Taxes (FICA),208994.0
+1984,Payroll Taxes (FICA),239376.0
+1985,Payroll Taxes (FICA),265163.0
+1986,Payroll Taxes (FICA),283901.0
+1987,Payroll Taxes (FICA),303318.0
+1988,Payroll Taxes (FICA),334335.0
+1989,Payroll Taxes (FICA),359416.0
+1990,Payroll Taxes (FICA),380047.0
+1991,Payroll Taxes (FICA),396015.0
+1992,Payroll Taxes (FICA),413688.0
+1993,Payroll Taxes (FICA),428299.0
+1994,Payroll Taxes (FICA),461475.0
+1995,Payroll Taxes (FICA),484473.0
+1996,Payroll Taxes (FICA),509414.0
+1997,Payroll Taxes (FICA),539371.0
+1998,Payroll Taxes (FICA),571831.0
+1999,Payroll Taxes (FICA),611833.0
+2000,Payroll Taxes (FICA),652852.0
+2001,Payroll Taxes (FICA),693967.0
+2002,Payroll Taxes (FICA),700760.0
+2003,Payroll Taxes (FICA),712978.0
+2004,Payroll Taxes (FICA),733407.0
+2005,Payroll Taxes (FICA),794125.0
+2006,Payroll Taxes (FICA),837821.0
+2007,Payroll Taxes (FICA),869607.0
+2008,Payroll Taxes (FICA),900155.0
+2009,Payroll Taxes (FICA),890917.0
+2010,Payroll Taxes (FICA),864814.0
+2011,Payroll Taxes (FICA),818792.0
+2012,Payroll Taxes (FICA),845314.0
+2013,Payroll Taxes (FICA),947820.0
+2014,Payroll Taxes (FICA),1023458.0
+2015,Payroll Taxes (FICA),1065257.0
+2016,Payroll Taxes (FICA),1115065.0
+2017,Payroll Taxes (FICA),1161897.0
+2018,Payroll Taxes (FICA),1170701.0
+2019,Payroll Taxes (FICA),1243113.0
+2020,Payroll Taxes (FICA),1309955.0
+2021,Payroll Taxes (FICA),1314088.0
+2022,Payroll Taxes (FICA),1483527.0
+2023,Payroll Taxes (FICA),1614456.0
+2024,Payroll Taxes (FICA),1708926.0
+1970,Excise Taxes,15705.0
+1971,Excise Taxes,16614.0
+1972,Excise Taxes,15477.0
+1973,Excise Taxes,16260.0
+1974,Excise Taxes,16844.0
+1975,Excise Taxes,16551.0
+1976,Excise Taxes,16963.0
+1977,Excise Taxes,17548.0
+1978,Excise Taxes,18376.0
+1979,Excise Taxes,18745.0
+1980,Excise Taxes,24329.0
+1981,Excise Taxes,40839.0
+1982,Excise Taxes,36311.0
+1983,Excise Taxes,35300.0
+1984,Excise Taxes,37361.0
+1985,Excise Taxes,35992.0
+1986,Excise Taxes,32919.0
+1987,Excise Taxes,32457.0
+1988,Excise Taxes,35227.0
+1989,Excise Taxes,34386.0
+1990,Excise Taxes,35345.0
+1991,Excise Taxes,42402.0
+1992,Excise Taxes,45569.0
+1993,Excise Taxes,48057.0
+1994,Excise Taxes,55225.0
+1995,Excise Taxes,57484.0
+1996,Excise Taxes,54014.0
+1997,Excise Taxes,56924.0
+1998,Excise Taxes,57673.0
+1999,Excise Taxes,70414.0
+2000,Excise Taxes,68865.0
+2001,Excise Taxes,66232.0
+2002,Excise Taxes,66989.0
+2003,Excise Taxes,67524.0
+2004,Excise Taxes,69855.0
+2005,Excise Taxes,73094.0
+2006,Excise Taxes,73961.0
+2007,Excise Taxes,65069.0
+2008,Excise Taxes,67334.0
+2009,Excise Taxes,62483.0
+2010,Excise Taxes,66909.0
+2011,Excise Taxes,72381.0
+2012,Excise Taxes,79061.0
+2013,Excise Taxes,84007.0
+2014,Excise Taxes,93368.0
+2015,Excise Taxes,98279.0
+2016,Excise Taxes,95026.0
+2017,Excise Taxes,83823.0
+2018,Excise Taxes,94986.0
+2019,Excise Taxes,98914.0
+2020,Excise Taxes,86780.0
+2021,Excise Taxes,75274.0
+2022,Excise Taxes,87728.0
+2023,Excise Taxes,75802.0
+2024,Excise Taxes,101436.0
+1970,Other,9499.0
+1971,Other,10185.0
+1972,Other,12355.0
+1973,Other,12026.0
+1974,Other,13737.0
+1975,Other,14998.0
+1976,Other,17317.0
+1977,Other,19008.0
+1978,Other,19278.0
+1979,Other,22101.0
+1980,Other,26311.0
+1981,Other,28659.0
+1982,Other,33006.0
+1983,Other,30309.0
+1984,Other,34392.0
+1985,Other,37020.0
+1986,Other,40233.0
+1987,Other,42029.0
+1988,Other,43987.0
+1989,Other,48321.0
+1990,Other,56174.0
+1991,Other,50657.0
+1992,Other,55717.0
+1993,Other,50778.0
+1994,Other,58427.0
+1995,Other,62585.0
+1996,Other,61384.0
+1997,Other,63178.0
+1998,Other,74961.0
+1999,Other,81045.0
+2000,Other,91723.0
+2001,Other,85469.0
+2002,Other,78998.0
+2003,Other,76335.0
+2004,Other,78522.0
+2005,Other,80888.0
+2006,Other,97264.0
+2007,Other,99594.0
+2008,Other,106409.0
+2009,Other,98052.0
+2010,Other,140997.0
+2011,Other,139735.0
+2012,Other,151120.0
+2013,Other,153368.0
+2014,Other,189366.0
+2015,Other,201755.0
+2016,Other,212228.0
+2017,Other,186296.0
+2018,Other,175949.0
+2019,Other,173235.0
+2020,Other,203921.0
+2021,Other,241541.0
+2022,Other,269073.0
+2023,Other,154625.0
+2024,Other,153587.0

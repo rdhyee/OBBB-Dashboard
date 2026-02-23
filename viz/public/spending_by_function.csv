@@ -1,0 +1,2971 @@
+category,year,amount
+National Defense,1970,81692.0
+National Defense,1971,78872.0
+National Defense,1972,79174.0
+National Defense,1973,76681.0
+National Defense,1974,79347.0
+National Defense,1975,86509.0
+National Defense,1976,89619.0
+National Defense,1977,97241.0
+National Defense,1978,104495.0
+National Defense,1979,116342.0
+National Defense,1980,133995.0
+National Defense,1981,157513.0
+National Defense,1982,185309.0
+National Defense,1983,209903.0
+National Defense,1984,227411.0
+National Defense,1985,252743.0
+National Defense,1986,273373.0
+National Defense,1987,281996.0
+National Defense,1988,290360.0
+National Defense,1989,303555.0
+National Defense,1990,299321.0
+National Defense,1991,273285.0
+National Defense,1992,298346.0
+National Defense,1993,291084.0
+National Defense,1994,281640.0
+National Defense,1995,272063.0
+National Defense,1996,265748.0
+National Defense,1997,270502.0
+National Defense,1998,268194.0
+National Defense,1999,274769.0
+National Defense,2000,294363.0
+National Defense,2001,304732.0
+National Defense,2002,348456.0
+National Defense,2003,404733.0
+National Defense,2004,455813.0
+National Defense,2005,495294.0
+National Defense,2006,521820.0
+National Defense,2007,551258.0
+National Defense,2008,616066.0
+National Defense,2009,661012.0
+National Defense,2010,693485.0
+National Defense,2011,705554.0
+National Defense,2012,677852.0
+National Defense,2013,633446.0
+National Defense,2014,603457.0
+National Defense,2015,589659.0
+National Defense,2016,593372.0
+National Defense,2017,598723.0
+National Defense,2018,631251.0
+National Defense,2019,685707.0
+National Defense,2020,724588.0
+National Defense,2021,753897.0
+National Defense,2022,765649.0
+National Defense,2023,820263.0
+National Defense,2024,873523.0
+"Education, Training, Employment, and Social Services",1970,8634.0
+"Education, Training, Employment, and Social Services",1971,9849.0
+"Education, Training, Employment, and Social Services",1972,12529.0
+"Education, Training, Employment, and Social Services",1973,12744.0
+"Education, Training, Employment, and Social Services",1974,12455.0
+"Education, Training, Employment, and Social Services",1975,16022.0
+"Education, Training, Employment, and Social Services",1976,18910.0
+"Education, Training, Employment, and Social Services",1977,21104.0
+"Education, Training, Employment, and Social Services",1978,26706.0
+"Education, Training, Employment, and Social Services",1979,30218.0
+"Education, Training, Employment, and Social Services",1980,31835.0
+"Education, Training, Employment, and Social Services",1981,33146.0
+"Education, Training, Employment, and Social Services",1982,26609.0
+"Education, Training, Employment, and Social Services",1983,26192.0
+"Education, Training, Employment, and Social Services",1984,26913.0
+"Education, Training, Employment, and Social Services",1985,28584.0
+"Education, Training, Employment, and Social Services",1986,29771.0
+"Education, Training, Employment, and Social Services",1987,28915.0
+"Education, Training, Employment, and Social Services",1988,30939.0
+"Education, Training, Employment, and Social Services",1989,35314.0
+"Education, Training, Employment, and Social Services",1990,37167.0
+"Education, Training, Employment, and Social Services",1991,41260.0
+"Education, Training, Employment, and Social Services",1992,42807.0
+"Education, Training, Employment, and Social Services",1993,47455.0
+"Education, Training, Employment, and Social Services",1994,43337.0
+"Education, Training, Employment, and Social Services",1995,51067.0
+"Education, Training, Employment, and Social Services",1996,48334.0
+"Education, Training, Employment, and Social Services",1997,49014.0
+"Education, Training, Employment, and Social Services",1998,50534.0
+"Education, Training, Employment, and Social Services",1999,50608.0
+"Education, Training, Employment, and Social Services",2000,53766.0
+"Education, Training, Employment, and Social Services",2001,57089.0
+"Education, Training, Employment, and Social Services",2002,70592.0
+"Education, Training, Employment, and Social Services",2003,82733.0
+"Education, Training, Employment, and Social Services",2004,87997.0
+"Education, Training, Employment, and Social Services",2005,97553.0
+"Education, Training, Employment, and Social Services",2006,118473.0
+"Education, Training, Employment, and Social Services",2007,91647.0
+"Education, Training, Employment, and Social Services",2008,91304.0
+"Education, Training, Employment, and Social Services",2009,79744.0
+"Education, Training, Employment, and Social Services",2010,128595.0
+"Education, Training, Employment, and Social Services",2011,101256.0
+"Education, Training, Employment, and Social Services",2012,90822.0
+"Education, Training, Employment, and Social Services",2013,72860.0
+"Education, Training, Employment, and Social Services",2014,90610.0
+"Education, Training, Employment, and Social Services",2015,122035.0
+"Education, Training, Employment, and Social Services",2016,109709.0
+"Education, Training, Employment, and Social Services",2017,143953.0
+"Education, Training, Employment, and Social Services",2018,95503.0
+"Education, Training, Employment, and Social Services",2019,136700.0
+"Education, Training, Employment, and Social Services",2020,237754.0
+"Education, Training, Employment, and Social Services",2021,298406.0
+"Education, Training, Employment, and Social Services",2022,677305.0
+"Education, Training, Employment, and Social Services",2023,-2189.0
+"Education, Training, Employment, and Social Services",2024,306370.0
+Health,1970,5907.0
+Health,1971,6843.0
+Health,1972,8674.0
+Health,1973,9356.0
+Health,1974,10733.0
+Health,1975,12930.0
+Health,1976,15734.0
+Health,1977,17302.0
+Health,1978,18524.0
+Health,1979,20494.0
+Health,1980,23169.0
+Health,1981,26866.0
+Health,1982,27445.0
+Health,1983,28643.0
+Health,1984,30420.0
+Health,1985,33546.0
+Health,1986,35935.0
+Health,1987,39967.0
+Health,1988,44471.0
+Health,1989,48390.0
+Health,1990,57700.0
+Health,1991,71139.0
+Health,1992,89415.0
+Health,1993,99321.0
+Health,1994,107051.0
+Health,1995,115352.0
+Health,1996,119342.0
+Health,1997,123790.0
+Health,1998,131403.0
+Health,1999,141045.0
+Health,2000,154502.0
+Health,2001,172238.0
+Health,2002,196471.0
+Health,2003,219605.0
+Health,2004,240148.0
+Health,2005,250605.0
+Health,2006,252779.0
+Health,2007,266425.0
+Health,2008,280626.0
+Health,2009,334368.0
+Health,2010,369081.0
+Health,2011,372481.0
+Health,2012,346755.0
+Health,2013,358264.0
+Health,2014,409497.0
+Health,2015,482257.0
+Health,2016,511325.0
+Health,2017,533152.0
+Health,2018,551219.0
+Health,2019,584816.0
+Health,2020,747582.0
+Health,2021,796450.0
+Health,2022,914081.0
+Health,2023,888555.0
+Health,2024,911289.0
+Medicare,1970,6213.0
+Medicare,1971,6622.0
+Medicare,1972,7479.0
+Medicare,1973,8052.0
+Medicare,1974,9639.0
+Medicare,1975,12875.0
+Medicare,1976,15834.0
+Medicare,1977,19345.0
+Medicare,1978,22768.0
+Medicare,1979,26495.0
+Medicare,1980,32090.0
+Medicare,1981,39149.0
+Medicare,1982,46567.0
+Medicare,1983,52588.0
+Medicare,1984,57540.0
+Medicare,1985,65822.0
+Medicare,1986,70164.0
+Medicare,1987,75120.0
+Medicare,1988,78878.0
+Medicare,1989,84964.0
+Medicare,1990,98102.0
+Medicare,1991,104489.0
+Medicare,1992,119024.0
+Medicare,1993,130552.0
+Medicare,1994,144747.0
+Medicare,1995,159855.0
+Medicare,1996,174225.0
+Medicare,1997,190016.0
+Medicare,1998,192822.0
+Medicare,1999,190447.0
+Medicare,2000,197113.0
+Medicare,2001,217384.0
+Medicare,2002,230855.0
+Medicare,2003,249433.0
+Medicare,2004,269360.0
+Medicare,2005,298638.0
+Medicare,2006,329868.0
+Medicare,2007,375407.0
+Medicare,2008,390758.0
+Medicare,2009,430093.0
+Medicare,2010,451636.0
+Medicare,2011,485653.0
+Medicare,2012,471793.0
+Medicare,2013,497826.0
+Medicare,2014,511688.0
+Medicare,2015,546202.0
+Medicare,2016,594536.0
+Medicare,2017,597307.0
+Medicare,2018,588706.0
+Medicare,2019,650996.0
+Medicare,2020,776225.0
+Medicare,2021,696458.0
+Medicare,2022,755094.0
+Medicare,2023,847544.0
+Medicare,2024,874133.0
+Income Security,1970,15645.0
+Income Security,1971,22936.0
+Income Security,1972,27638.0
+Income Security,1973,28265.0
+Income Security,1974,33700.0
+Income Security,1975,50161.0
+Income Security,1976,60784.0
+Income Security,1977,61045.0
+Income Security,1978,61492.0
+Income Security,1979,66364.0
+Income Security,1980,86548.0
+Income Security,1981,100286.0
+Income Security,1982,108138.0
+Income Security,1983,123018.0
+Income Security,1984,113378.0
+Income Security,1985,129002.0
+Income Security,1986,120656.0
+Income Security,1987,124105.0
+Income Security,1988,130387.0
+Income Security,1989,137554.0
+Income Security,1990,148783.0
+Income Security,1991,172589.0
+Income Security,1992,199657.0
+Income Security,1993,210088.0
+Income Security,1994,217233.0
+Income Security,1995,223758.0
+Income Security,1996,229699.0
+Income Security,1997,234986.0
+Income Security,1998,237698.0
+Income Security,1999,242417.0
+Income Security,2000,253673.0
+Income Security,2001,269724.0
+Income Security,2002,312670.0
+Income Security,2003,334574.0
+Income Security,2004,333027.0
+Income Security,2005,345800.0
+Income Security,2006,352425.0
+Income Security,2007,365931.0
+Income Security,2008,431211.0
+Income Security,2009,533080.0
+Income Security,2010,622106.0
+Income Security,2011,597269.0
+Income Security,2012,541248.0
+Income Security,2013,536411.0
+Income Security,2014,513596.0
+Income Security,2015,508800.0
+Income Security,2016,514098.0
+Income Security,2017,503443.0
+Income Security,2018,495289.0
+Income Security,2019,514787.0
+Income Security,2020,1263639.0
+Income Security,2021,1647729.0
+Income Security,2022,866097.0
+Income Security,2023,774656.0
+Income Security,2024,670548.0
+Social Security,1970,30270.0
+Social Security,1971,35872.0
+Social Security,1972,40157.0
+Social Security,1973,49090.0
+Social Security,1974,55867.0
+Social Security,1975,64658.0
+Social Security,1976,73899.0
+Social Security,1977,85061.0
+Social Security,1978,93861.0
+Social Security,1979,104073.0
+Social Security,1980,118547.0
+Social Security,1981,139584.0
+Social Security,1982,155964.0
+Social Security,1983,170724.0
+Social Security,1984,178223.0
+Social Security,1985,188623.0
+Social Security,1986,198756.0
+Social Security,1987,207352.0
+Social Security,1988,219341.0
+Social Security,1989,232542.0
+Social Security,1990,248623.0
+Social Security,1991,269014.0
+Social Security,1992,287584.0
+Social Security,1993,304585.0
+Social Security,1994,319565.0
+Social Security,1995,335846.0
+Social Security,1996,349671.0
+Social Security,1997,365251.0
+Social Security,1998,379215.0
+Social Security,1999,390037.0
+Social Security,2000,409423.0
+Social Security,2001,432958.0
+Social Security,2002,455980.0
+Social Security,2003,474680.0
+Social Security,2004,495548.0
+Social Security,2005,523305.0
+Social Security,2006,548549.0
+Social Security,2007,586153.0
+Social Security,2008,617027.0
+Social Security,2009,682963.0
+Social Security,2010,706737.0
+Social Security,2011,730811.0
+Social Security,2012,773290.0
+Social Security,2013,813551.0
+Social Security,2014,850533.0
+Social Security,2015,887753.0
+Social Security,2016,916067.0
+Social Security,2017,944878.0
+Social Security,2018,987791.0
+Social Security,2019,1044409.0
+Social Security,2020,1095816.0
+Social Security,2021,1134586.0
+Social Security,2022,1218663.0
+Social Security,2023,1354317.0
+Social Security,2024,1460918.0
+Veterans Benefits and Services,1970,8679.0
+Veterans Benefits and Services,1971,9778.0
+Veterans Benefits and Services,1972,10732.0
+Veterans Benefits and Services,1973,12015.0
+Veterans Benefits and Services,1974,13388.0
+Veterans Benefits and Services,1975,16599.0
+Veterans Benefits and Services,1976,18433.0
+Veterans Benefits and Services,1977,18038.0
+Veterans Benefits and Services,1978,18978.0
+Veterans Benefits and Services,1979,19931.0
+Veterans Benefits and Services,1980,21185.0
+Veterans Benefits and Services,1981,22991.0
+Veterans Benefits and Services,1982,23958.0
+Veterans Benefits and Services,1983,24846.0
+Veterans Benefits and Services,1984,25601.0
+Veterans Benefits and Services,1985,26281.0
+Veterans Benefits and Services,1986,26343.0
+Veterans Benefits and Services,1987,26761.0
+Veterans Benefits and Services,1988,29409.0
+Veterans Benefits and Services,1989,30038.0
+Veterans Benefits and Services,1990,29088.0
+Veterans Benefits and Services,1991,31319.0
+Veterans Benefits and Services,1992,34112.0
+Veterans Benefits and Services,1993,35690.0
+Veterans Benefits and Services,1994,37617.0
+Veterans Benefits and Services,1995,37910.0
+Veterans Benefits and Services,1996,37003.0
+Veterans Benefits and Services,1997,39332.0
+Veterans Benefits and Services,1998,41793.0
+Veterans Benefits and Services,1999,43216.0
+Veterans Benefits and Services,2000,47040.0
+Veterans Benefits and Services,2001,45024.0
+Veterans Benefits and Services,2002,50979.0
+Veterans Benefits and Services,2003,56832.0
+Veterans Benefits and Services,2004,59729.0
+Veterans Benefits and Services,2005,70112.0
+Veterans Benefits and Services,2006,69832.0
+Veterans Benefits and Services,2007,72828.0
+Veterans Benefits and Services,2008,84711.0
+Veterans Benefits and Services,2009,95545.0
+Veterans Benefits and Services,2010,108478.0
+Veterans Benefits and Services,2011,127269.0
+Veterans Benefits and Services,2012,124679.0
+Veterans Benefits and Services,2013,139038.0
+Veterans Benefits and Services,2014,149621.0
+Veterans Benefits and Services,2015,159781.0
+Veterans Benefits and Services,2016,174557.0
+Veterans Benefits and Services,2017,176584.0
+Veterans Benefits and Services,2018,178895.0
+Veterans Benefits and Services,2019,199843.0
+Veterans Benefits and Services,2020,218655.0
+Veterans Benefits and Services,2021,234282.0
+Veterans Benefits and Services,2022,274404.0
+Veterans Benefits and Services,2023,301600.0
+Veterans Benefits and Services,2024,325637.0
+Energy,1970,997.0
+Energy,1971,1035.0
+Energy,1972,1296.0
+Energy,1973,1237.0
+Energy,1974,1303.0
+Energy,1975,2916.0
+Energy,1976,4204.0
+Energy,1977,5770.0
+Energy,1978,7991.0
+Energy,1979,9179.0
+Energy,1980,10156.0
+Energy,1981,15166.0
+Energy,1982,13527.0
+Energy,1983,9353.0
+Energy,1984,7073.0
+Energy,1985,5608.0
+Energy,1986,4690.0
+Energy,1987,4072.0
+Energy,1988,2296.0
+Energy,1989,2705.0
+Energy,1990,3341.0
+Energy,1991,2436.0
+Energy,1992,4499.0
+Energy,1993,4319.0
+Energy,1994,5218.0
+Energy,1995,4936.0
+Energy,1996,2839.0
+Energy,1997,1475.0
+Energy,1998,1270.0
+Energy,1999,911.0
+Energy,2000,-761.0
+Energy,2001,9.0
+Energy,2002,475.0
+Energy,2003,-725.0
+Energy,2004,-147.0
+Energy,2005,440.0
+Energy,2006,785.0
+Energy,2007,-852.0
+Energy,2008,631.0
+Energy,2009,4755.0
+Energy,2010,11618.0
+Energy,2011,12174.0
+Energy,2012,14858.0
+Energy,2013,11042.0
+Energy,2014,5270.0
+Energy,2015,6841.0
+Energy,2016,3721.0
+Energy,2017,3856.0
+Energy,2018,2169.0
+Energy,2019,5041.0
+Energy,2020,7083.0
+Energy,2021,5977.0
+Energy,2022,-9132.0
+Energy,2023,-406.0
+Energy,2024,13571.0
+Natural Resources and Environment,1970,3065.0
+Natural Resources and Environment,1971,3915.0
+Natural Resources and Environment,1972,4241.0
+Natural Resources and Environment,1973,4775.0
+Natural Resources and Environment,1974,5697.0
+Natural Resources and Environment,1975,7346.0
+Natural Resources and Environment,1976,8184.0
+Natural Resources and Environment,1977,10032.0
+Natural Resources and Environment,1978,10983.0
+Natural Resources and Environment,1979,12135.0
+Natural Resources and Environment,1980,13858.0
+Natural Resources and Environment,1981,13568.0
+Natural Resources and Environment,1982,12998.0
+Natural Resources and Environment,1983,12672.0
+Natural Resources and Environment,1984,12586.0
+Natural Resources and Environment,1985,13345.0
+Natural Resources and Environment,1986,13628.0
+Natural Resources and Environment,1987,13355.0
+Natural Resources and Environment,1988,14601.0
+Natural Resources and Environment,1989,16169.0
+Natural Resources and Environment,1990,17055.0
+Natural Resources and Environment,1991,18544.0
+Natural Resources and Environment,1992,20001.0
+Natural Resources and Environment,1993,20224.0
+Natural Resources and Environment,1994,21000.0
+Natural Resources and Environment,1995,21889.0
+Natural Resources and Environment,1996,21503.0
+Natural Resources and Environment,1997,21201.0
+Natural Resources and Environment,1998,22278.0
+Natural Resources and Environment,1999,23943.0
+Natural Resources and Environment,2000,25003.0
+Natural Resources and Environment,2001,25532.0
+Natural Resources and Environment,2002,29426.0
+Natural Resources and Environment,2003,29667.0
+Natural Resources and Environment,2004,30694.0
+Natural Resources and Environment,2005,27983.0
+Natural Resources and Environment,2006,33025.0
+Natural Resources and Environment,2007,31721.0
+Natural Resources and Environment,2008,31820.0
+Natural Resources and Environment,2009,35573.0
+Natural Resources and Environment,2010,43667.0
+Natural Resources and Environment,2011,45473.0
+Natural Resources and Environment,2012,41631.0
+Natural Resources and Environment,2013,38145.0
+Natural Resources and Environment,2014,36171.0
+Natural Resources and Environment,2015,36033.0
+Natural Resources and Environment,2016,39081.0
+Natural Resources and Environment,2017,37896.0
+Natural Resources and Environment,2018,39075.0
+Natural Resources and Environment,2019,37836.0
+Natural Resources and Environment,2020,42450.0
+Natural Resources and Environment,2021,44151.0
+Natural Resources and Environment,2022,41384.0
+Natural Resources and Environment,2023,47387.0
+Natural Resources and Environment,2024,58469.0
+Commerce and Housing Credit,1970,2112.0
+Commerce and Housing Credit,1971,2366.0
+Commerce and Housing Credit,1972,2222.0
+Commerce and Housing Credit,1973,931.0
+Commerce and Housing Credit,1974,4705.0
+Commerce and Housing Credit,1975,9947.0
+Commerce and Housing Credit,1976,7619.0
+Commerce and Housing Credit,1977,3093.0
+Commerce and Housing Credit,1978,6254.0
+Commerce and Housing Credit,1979,4686.0
+Commerce and Housing Credit,1980,9390.0
+Commerce and Housing Credit,1981,8206.0
+Commerce and Housing Credit,1982,6256.0
+Commerce and Housing Credit,1983,6681.0
+Commerce and Housing Credit,1984,6959.0
+Commerce and Housing Credit,1985,4337.0
+Commerce and Housing Credit,1986,5058.0
+Commerce and Housing Credit,1987,6434.0
+Commerce and Housing Credit,1988,19163.0
+Commerce and Housing Credit,1989,29709.0
+Commerce and Housing Credit,1990,67599.0
+Commerce and Housing Credit,1991,76270.0
+Commerce and Housing Credit,1992,10918.0
+Commerce and Housing Credit,1993,-21853.0
+Commerce and Housing Credit,1994,-4228.0
+Commerce and Housing Credit,1995,-17808.0
+Commerce and Housing Credit,1996,-10478.0
+Commerce and Housing Credit,1997,-14640.0
+Commerce and Housing Credit,1998,1007.0
+Commerce and Housing Credit,1999,2641.0
+Commerce and Housing Credit,2000,3207.0
+Commerce and Housing Credit,2001,5731.0
+Commerce and Housing Credit,2002,-407.0
+Commerce and Housing Credit,2003,727.0
+Commerce and Housing Credit,2004,5265.0
+Commerce and Housing Credit,2005,7566.0
+Commerce and Housing Credit,2006,6187.0
+Commerce and Housing Credit,2007,487.0
+Commerce and Housing Credit,2008,27870.0
+Commerce and Housing Credit,2009,291535.0
+Commerce and Housing Credit,2010,-82316.0
+Commerce and Housing Credit,2011,-12564.0
+Commerce and Housing Credit,2012,40647.0
+Commerce and Housing Credit,2013,-83198.0
+Commerce and Housing Credit,2014,-94861.0
+Commerce and Housing Credit,2015,-37905.0
+Commerce and Housing Credit,2016,-34077.0
+Commerce and Housing Credit,2017,-26685.0
+Commerce and Housing Credit,2018,-9470.0
+Commerce and Housing Credit,2019,-25715.0
+Commerce and Housing Credit,2020,572071.0
+Commerce and Housing Credit,2021,307847.0
+Commerce and Housing Credit,2022,-19075.0
+Commerce and Housing Credit,2023,100765.0
+Commerce and Housing Credit,2024,36032.0
+Transportation,1970,7008.0
+Transportation,1971,8052.0
+Transportation,1972,8392.0
+Transportation,1973,9066.0
+Transportation,1974,9172.0
+Transportation,1975,10918.0
+Transportation,1976,13739.0
+Transportation,1977,14829.0
+Transportation,1978,15521.0
+Transportation,1979,18079.0
+Transportation,1980,21329.0
+Transportation,1981,23379.0
+Transportation,1982,20625.0
+Transportation,1983,21334.0
+Transportation,1984,23669.0
+Transportation,1985,25838.0
+Transportation,1986,28113.0
+Transportation,1987,26222.0
+Transportation,1988,27272.0
+Transportation,1989,27608.0
+Transportation,1990,29485.0
+Transportation,1991,31099.0
+Transportation,1992,33332.0
+Transportation,1993,35004.0
+Transportation,1994,38066.0
+Transportation,1995,39350.0
+Transportation,1996,39565.0
+Transportation,1997,40767.0
+Transportation,1998,40343.0
+Transportation,1999,42532.0
+Transportation,2000,46853.0
+Transportation,2001,54447.0
+Transportation,2002,61833.0
+Transportation,2003,67069.0
+Transportation,2004,64627.0
+Transportation,2005,67894.0
+Transportation,2006,70244.0
+Transportation,2007,72905.0
+Transportation,2008,77616.0
+Transportation,2009,84289.0
+Transportation,2010,91972.0
+Transportation,2011,92966.0
+Transportation,2012,93019.0
+Transportation,2013,91673.0
+Transportation,2014,91915.0
+Transportation,2015,89533.0
+Transportation,2016,92566.0
+Transportation,2017,93552.0
+Transportation,2018,92785.0
+Transportation,2019,95756.0
+Transportation,2020,145623.0
+Transportation,2021,154291.0
+Transportation,2022,131024.0
+Transportation,2023,126417.0
+Transportation,2024,136582.0
+Community and Regional Development,1970,2392.0
+Community and Regional Development,1971,2917.0
+Community and Regional Development,1972,3423.0
+Community and Regional Development,1973,4605.0
+Community and Regional Development,1974,4229.0
+Community and Regional Development,1975,4322.0
+Community and Regional Development,1976,5442.0
+Community and Regional Development,1977,7021.0
+Community and Regional Development,1978,11841.0
+Community and Regional Development,1979,10480.0
+Community and Regional Development,1980,11252.0
+Community and Regional Development,1981,10568.0
+Community and Regional Development,1982,8347.0
+Community and Regional Development,1983,7564.0
+Community and Regional Development,1984,7673.0
+Community and Regional Development,1985,7676.0
+Community and Regional Development,1986,7233.0
+Community and Regional Development,1987,5049.0
+Community and Regional Development,1988,5293.0
+Community and Regional Development,1989,5362.0
+Community and Regional Development,1990,8531.0
+Community and Regional Development,1991,6810.0
+Community and Regional Development,1992,6836.0
+Community and Regional Development,1993,9146.0
+Community and Regional Development,1994,10620.0
+Community and Regional Development,1995,10746.0
+Community and Regional Development,1996,10741.0
+Community and Regional Development,1997,11049.0
+Community and Regional Development,1998,9771.0
+Community and Regional Development,1999,11865.0
+Community and Regional Development,2000,10623.0
+Community and Regional Development,2001,11773.0
+Community and Regional Development,2002,12981.0
+Community and Regional Development,2003,18850.0
+Community and Regional Development,2004,15820.0
+Community and Regional Development,2005,26262.0
+Community and Regional Development,2006,54465.0
+Community and Regional Development,2007,29567.0
+Community and Regional Development,2008,23952.0
+Community and Regional Development,2009,27676.0
+Community and Regional Development,2010,23894.0
+Community and Regional Development,2011,23883.0
+Community and Regional Development,2012,25132.0
+Community and Regional Development,2013,32335.0
+Community and Regional Development,2014,20670.0
+Community and Regional Development,2015,20669.0
+Community and Regional Development,2016,20140.0
+Community and Regional Development,2017,24907.0
+Community and Regional Development,2018,42159.0
+Community and Regional Development,2019,26784.0
+Community and Regional Development,2020,81878.0
+Community and Regional Development,2021,44655.0
+Community and Regional Development,2022,69963.0
+Community and Regional Development,2023,86553.0
+Community and Regional Development,2024,85215.0
+Net interest,1970,14380.0
+Net interest,1971,14841.0
+Net interest,1972,15478.0
+Net interest,1973,17349.0
+Net interest,1974,21449.0
+Net interest,1975,23244.0
+Net interest,1976,26727.0
+Net interest,1977,29901.0
+Net interest,1978,35458.0
+Net interest,1979,42633.0
+Net interest,1980,52533.0
+Net interest,1981,68766.0
+Net interest,1982,85032.0
+Net interest,1983,89808.0
+Net interest,1984,111102.0
+Net interest,1985,129478.0
+Net interest,1986,136017.0
+Net interest,1987,138611.0
+Net interest,1988,151803.0
+Net interest,1989,168981.0
+Net interest,1990,184347.0
+Net interest,1991,194448.0
+Net interest,1992,199344.0
+Net interest,1993,198713.0
+Net interest,1994,202932.0
+Net interest,1995,232134.0
+Net interest,1996,241053.0
+Net interest,1997,243984.0
+Net interest,1998,241118.0
+Net interest,1999,229755.0
+Net interest,2000,222949.0
+Net interest,2001,206167.0
+Net interest,2002,170949.0
+Net interest,2003,153073.0
+Net interest,2004,160245.0
+Net interest,2005,183986.0
+Net interest,2006,226603.0
+Net interest,2007,237109.0
+Net interest,2008,252757.0
+Net interest,2009,186902.0
+Net interest,2010,196194.0
+Net interest,2011,229962.0
+Net interest,2012,220408.0
+Net interest,2013,220885.0
+Net interest,2014,228956.0
+Net interest,2015,223181.0
+Net interest,2016,240033.0
+Net interest,2017,262551.0
+Net interest,2018,324975.0
+Net interest,2019,375158.0
+Net interest,2020,345470.0
+Net interest,2021,352338.0
+Net interest,2022,475887.0
+Net interest,2023,658267.0
+Net interest,2024,879879.0
+International Affairs,1970,4330.0
+International Affairs,1971,4159.0
+International Affairs,1972,4781.0
+International Affairs,1973,4149.0
+International Affairs,1974,5710.0
+International Affairs,1975,7097.0
+International Affairs,1976,6433.0
+International Affairs,1977,6353.0
+International Affairs,1978,7482.0
+International Affairs,1979,7459.0
+International Affairs,1980,12714.0
+International Affairs,1981,13104.0
+International Affairs,1982,12300.0
+International Affairs,1983,11848.0
+International Affairs,1984,15869.0
+International Affairs,1985,16169.0
+International Affairs,1986,14146.0
+International Affairs,1987,11645.0
+International Affairs,1988,10466.0
+International Affairs,1989,9583.0
+International Affairs,1990,13758.0
+International Affairs,1991,15846.0
+International Affairs,1992,16090.0
+International Affairs,1993,17218.0
+International Affairs,1994,17067.0
+International Affairs,1995,16429.0
+International Affairs,1996,13487.0
+International Affairs,1997,15173.0
+International Affairs,1998,13054.0
+International Affairs,1999,15239.0
+International Affairs,2000,17213.0
+International Affairs,2001,16485.0
+International Affairs,2002,22315.0
+International Affairs,2003,21199.0
+International Affairs,2004,26870.0
+International Affairs,2005,34565.0
+International Affairs,2006,29499.0
+International Affairs,2007,28482.0
+International Affairs,2008,28857.0
+International Affairs,2009,37529.0
+International Affairs,2010,45195.0
+International Affairs,2011,45685.0
+International Affairs,2012,36802.0
+International Affairs,2013,46464.0
+International Affairs,2014,46879.0
+International Affairs,2015,52040.0
+International Affairs,2016,45306.0
+International Affairs,2017,46308.0
+International Affairs,2018,48875.0
+International Affairs,2019,53035.0
+International Affairs,2020,67722.0
+International Affairs,2021,46951.0
+International Affairs,2022,71873.0
+International Affairs,2023,69313.0
+International Affairs,2024,72000.0
+"General Science, Space, and Technology",1970,4511.0
+"General Science, Space, and Technology",1971,4182.0
+"General Science, Space, and Technology",1972,4175.0
+"General Science, Space, and Technology",1973,4032.0
+"General Science, Space, and Technology",1974,3980.0
+"General Science, Space, and Technology",1975,3991.0
+"General Science, Space, and Technology",1976,4373.0
+"General Science, Space, and Technology",1977,4736.0
+"General Science, Space, and Technology",1978,4926.0
+"General Science, Space, and Technology",1979,5234.0
+"General Science, Space, and Technology",1980,5831.0
+"General Science, Space, and Technology",1981,6468.0
+"General Science, Space, and Technology",1982,7199.0
+"General Science, Space, and Technology",1983,7934.0
+"General Science, Space, and Technology",1984,8311.0
+"General Science, Space, and Technology",1985,8622.0
+"General Science, Space, and Technology",1986,8962.0
+"General Science, Space, and Technology",1987,9200.0
+"General Science, Space, and Technology",1988,10820.0
+"General Science, Space, and Technology",1989,12821.0
+"General Science, Space, and Technology",1990,14426.0
+"General Science, Space, and Technology",1991,16092.0
+"General Science, Space, and Technology",1992,16389.0
+"General Science, Space, and Technology",1993,17006.0
+"General Science, Space, and Technology",1994,16189.0
+"General Science, Space, and Technology",1995,16692.0
+"General Science, Space, and Technology",1996,16684.0
+"General Science, Space, and Technology",1997,17136.0
+"General Science, Space, and Technology",1998,18172.0
+"General Science, Space, and Technology",1999,18084.0
+"General Science, Space, and Technology",2000,18594.0
+"General Science, Space, and Technology",2001,19753.0
+"General Science, Space, and Technology",2002,20734.0
+"General Science, Space, and Technology",2003,20831.0
+"General Science, Space, and Technology",2004,23029.0
+"General Science, Space, and Technology",2005,23597.0
+"General Science, Space, and Technology",2006,23584.0
+"General Science, Space, and Technology",2007,24407.0
+"General Science, Space, and Technology",2008,26773.0
+"General Science, Space, and Technology",2009,28417.0
+"General Science, Space, and Technology",2010,30100.0
+"General Science, Space, and Technology",2011,29466.0
+"General Science, Space, and Technology",2012,29060.0
+"General Science, Space, and Technology",2013,28908.0
+"General Science, Space, and Technology",2014,28570.0
+"General Science, Space, and Technology",2015,29412.0
+"General Science, Space, and Technology",2016,30174.0
+"General Science, Space, and Technology",2017,30398.0
+"General Science, Space, and Technology",2018,31536.0
+"General Science, Space, and Technology",2019,32414.0
+"General Science, Space, and Technology",2020,34022.0
+"General Science, Space, and Technology",2021,35534.0
+"General Science, Space, and Technology",2022,37404.0
+"General Science, Space, and Technology",2023,41276.0
+"General Science, Space, and Technology",2024,41476.0
+Agriculture,1970,5166.0
+Agriculture,1971,4290.0
+Agriculture,1972,5227.0
+Agriculture,1973,4821.0
+Agriculture,1974,2194.0
+Agriculture,1975,2997.0
+Agriculture,1976,3109.0
+Agriculture,1977,6734.0
+Agriculture,1978,11301.0
+Agriculture,1979,11176.0
+Agriculture,1980,8774.0
+Agriculture,1981,11241.0
+Agriculture,1982,15866.0
+Agriculture,1983,22807.0
+Agriculture,1984,13477.0
+Agriculture,1985,25427.0
+Agriculture,1986,31319.0
+Agriculture,1987,26466.0
+Agriculture,1988,17088.0
+Agriculture,1989,16698.0
+Agriculture,1990,11637.0
+Agriculture,1991,14886.0
+Agriculture,1992,14922.0
+Agriculture,1993,20081.0
+Agriculture,1994,14795.0
+Agriculture,1995,9671.0
+Agriculture,1996,9035.0
+Agriculture,1997,8889.0
+Agriculture,1998,12077.0
+Agriculture,1999,22879.0
+Agriculture,2000,36458.0
+Agriculture,2001,26252.0
+Agriculture,2002,21965.0
+Agriculture,2003,22496.0
+Agriculture,2004,15439.0
+Agriculture,2005,26565.0
+Agriculture,2006,25969.0
+Agriculture,2007,17662.0
+Agriculture,2008,18387.0
+Agriculture,2009,22237.0
+Agriculture,2010,21356.0
+Agriculture,2011,20662.0
+Agriculture,2012,17791.0
+Agriculture,2013,29678.0
+Agriculture,2014,24386.0
+Agriculture,2015,18500.0
+Agriculture,2016,18344.0
+Agriculture,2017,18872.0
+Agriculture,2018,21789.0
+Agriculture,2019,38257.0
+Agriculture,2020,47298.0
+Agriculture,2021,47398.0
+Agriculture,2022,33065.0
+Agriculture,2023,33651.0
+Agriculture,2024,32841.0
+Administration of Justice,1970,959.0
+Administration of Justice,1971,1307.0
+Administration of Justice,1972,1684.0
+Administration of Justice,1973,2174.0
+Administration of Justice,1974,2505.0
+Administration of Justice,1975,3028.0
+Administration of Justice,1976,3430.0
+Administration of Justice,1977,3701.0
+Administration of Justice,1978,3923.0
+Administration of Justice,1979,4286.0
+Administration of Justice,1980,4702.0
+Administration of Justice,1981,4908.0
+Administration of Justice,1982,4842.0
+Administration of Justice,1983,5246.0
+Administration of Justice,1984,5811.0
+Administration of Justice,1985,6426.0
+Administration of Justice,1986,6735.0
+Administration of Justice,1987,7715.0
+Administration of Justice,1988,9397.0
+Administration of Justice,1989,9644.0
+Administration of Justice,1990,10185.0
+Administration of Justice,1991,12486.0
+Administration of Justice,1992,14650.0
+Administration of Justice,1993,15193.0
+Administration of Justice,1994,15516.0
+Administration of Justice,1995,16508.0
+Administration of Justice,1996,17898.0
+Administration of Justice,1997,20617.0
+Administration of Justice,1998,23359.0
+Administration of Justice,1999,26536.0
+Administration of Justice,2000,28499.0
+Administration of Justice,2001,30201.0
+Administration of Justice,2002,35061.0
+Administration of Justice,2003,35340.0
+Administration of Justice,2004,45576.0
+Administration of Justice,2005,40019.0
+Administration of Justice,2006,41016.0
+Administration of Justice,2007,42362.0
+Administration of Justice,2008,48097.0
+Administration of Justice,2009,52581.0
+Administration of Justice,2010,54383.0
+Administration of Justice,2011,56056.0
+Administration of Justice,2012,56277.0
+Administration of Justice,2013,52601.0
+Administration of Justice,2014,50457.0
+Administration of Justice,2015,51906.0
+Administration of Justice,2016,55768.0
+Administration of Justice,2017,57944.0
+Administration of Justice,2018,60418.0
+Administration of Justice,2019,65832.0
+Administration of Justice,2020,71997.0
+Administration of Justice,2021,71430.0
+Administration of Justice,2022,71323.0
+Administration of Justice,2023,80432.0
+Administration of Justice,2024,83793.0
+General Government,1970,2320.0
+General Government,1971,2442.0
+General Government,1972,2960.0
+General Government,1973,9774.0
+General Government,1974,10032.0
+General Government,1975,10374.0
+General Government,1976,9706.0
+General Government,1977,12791.0
+General Government,1978,11961.0
+General Government,1979,12241.0
+General Government,1980,12975.0
+General Government,1981,11373.0
+General Government,1982,10861.0
+General Government,1983,11181.0
+General Government,1984,11746.0
+General Government,1985,11515.0
+General Government,1986,12491.0
+General Government,1987,7487.0
+General Government,1988,9399.0
+General Government,1989,9317.0
+General Government,1990,10462.0
+General Government,1991,11568.0
+General Government,1992,12883.0
+General Government,1993,12944.0
+General Government,1994,11159.0
+General Government,1995,13799.0
+General Government,1996,11755.0
+General Government,1997,12547.0
+General Government,1998,15544.0
+General Government,1999,15363.0
+General Government,2000,13013.0
+General Government,2001,14358.0
+General Government,2002,16951.0
+General Government,2003,23164.0
+General Government,2004,22338.0
+General Government,2005,16997.0
+General Government,2006,18177.0
+General Government,2007,17425.0
+General Government,2008,20323.0
+General Government,2009,22017.0
+General Government,2010,23014.0
+General Government,2011,27476.0
+General Government,2012,28035.0
+General Government,2013,27737.0
+General Government,2014,26913.0
+General Government,2015,20956.0
+General Government,2016,23146.0
+General Government,2017,23821.0
+General Government,2018,23885.0
+General Government,2019,23488.0
+General Government,2020,180109.0
+General Government,2021,273941.0
+General Government,2022,133216.0
+General Government,2023,38199.0
+General Government,2024,35316.0
+National Defense (Real 2024$),1970,516281.88175846386
+National Defense (Real 2024$),1971,474255.81923076924
+National Defense (Real 2024$),1972,454442.04589261126
+National Defense (Real 2024$),1973,421931.0457545094
+National Defense (Real 2024$),1974,407553.5642710472
+National Defense (Real 2024$),1975,402667.68254558987
+National Defense (Real 2024$),1976,390001.6816283925
+National Defense (Real 2024$),1977,394611.6765087606
+National Defense (Real 2024$),1978,397360.5852842809
+National Defense (Real 2024$),1979,409307.84641350206
+National Defense (Real 2024$),1980,433602.9663648124
+National Defense (Real 2024$),1981,464188.2872290292
+National Defense (Real 2024$),1982,510610.192333113
+National Defense (Real 2024$),1983,554202.4110196326
+National Defense (Real 2024$),1984,579626.9364173629
+National Defense (Real 2024$),1985,623359.6334056398
+National Defense (Real 2024$),1986,659416.8005785921
+National Defense (Real 2024$),1987,665331.8189020939
+National Defense (Real 2024$),1988,663535.9985382789
+National Defense (Real 2024$),1989,666765.4346680716
+National Defense (Real 2024$),1990,634294.7724500169
+National Defense (Real 2024$),1991,559132.2583019794
+National Defense (Real 2024$),1992,595501.6632620491
+National Defense (Real 2024$),1993,567688.69296741
+National Defense (Real 2024$),1994,537535.7057836106
+National Defense (Real 2024$),1995,508471.59907352057
+National Defense (Real 2024$),1996,487490.501026694
+National Defense (Real 2024$),1997,487558.51188932126
+National Defense (Real 2024$),1998,477412.80358667806
+National Defense (Real 2024$),1999,483134.52593842254
+National Defense (Real 2024$),2000,507037.3283294312
+National Defense (Real 2024$),2001,512475.8805970149
+National Defense (Real 2024$),2002,576931.3200953137
+National Defense (Real 2024$),2003,657487.4179763605
+National Defense (Real 2024$),2004,722816.4309623431
+National Defense (Real 2024$),2005,762229.8582502769
+National Defense (Real 2024$),2006,777786.0493385771
+National Defense (Real 2024$),2007,799650.1746694503
+National Defense (Real 2024$),2008,875484.3156459492
+National Defense (Real 2024$),2009,929847.8330896412
+National Defense (Real 2024$),2010,967151.7501115076
+National Defense (Real 2024$),2011,964622.1991692173
+National Defense (Real 2024$),2012,910231.3682628301
+National Defense (Real 2024$),2013,835443.3324897183
+National Defense (Real 2024$),2014,781631.8039560894
+National Defense (Real 2024$),2015,755931.2333948339
+National Defense (Real 2024$),2016,754657.6778523489
+National Defense (Real 2024$),2017,748822.8561
+National Defense (Real 2024$),2018,772359.2503423986
+National Defense (Real 2024$),2019,823915.5969833797
+National Defense (Real 2024$),2020,859486.1642640363
+National Defense (Real 2024$),2021,864648.3061898212
+National Defense (Real 2024$),2022,820141.4904933197
+National Defense (Real 2024$),2023,840352.9932011793
+National Defense (Real 2024$),2024,873523.0
+"Education, Training, Employment, and Social Services (Real 2024$)",1970,54565.65841334007
+"Education, Training, Employment, and Social Services (Real 2024$)",1971,59221.84759615385
+"Education, Training, Employment, and Social Services (Real 2024$)",1972,71913.8150527765
+"Education, Training, Employment, and Social Services (Real 2024$)",1973,70122.83677958645
+"Education, Training, Employment, and Social Services (Real 2024$)",1974,63973.17659137576
+"Education, Training, Employment, and Social Services (Real 2024$)",1975,74576.53665798287
+"Education, Training, Employment, and Social Services (Real 2024$)",1976,82292.05636743216
+"Education, Training, Employment, and Social Services (Real 2024$)",1977,85641.70279039585
+"Education, Training, Employment, and Social Services (Real 2024$)",1978,101554.25418060199
+"Education, Training, Employment, and Social Services (Real 2024$)",1979,106311.25907172995
+"Education, Training, Employment, and Social Services (Real 2024$)",1980,103016.90685640361
+"Education, Training, Employment, and Social Services (Real 2024$)",1981,97680.73091423186
+"Education, Training, Employment, and Social Services (Real 2024$)",1982,73319.84203569067
+"Education, Training, Employment, and Social Services (Real 2024$)",1983,69154.17859404685
+"Education, Training, Employment, and Social Services (Real 2024$)",1984,68596.06500917058
+"Education, Training, Employment, and Social Services (Real 2024$)",1985,70498.93275488069
+"Education, Training, Employment, and Social Services (Real 2024$)",1986,71812.1305689489
+"Education, Training, Employment, and Social Services (Real 2024$)",1987,68221.07243916241
+"Education, Training, Employment, and Social Services (Real 2024$)",1988,70702.37036360314
+"Education, Training, Employment, and Social Services (Real 2024$)",1989,77568.00105374077
+"Education, Training, Employment, and Social Services (Real 2024$)",1990,78761.04185022027
+"Education, Training, Employment, and Social Services (Real 2024$)",1991,84416.62358907248
+"Education, Training, Employment, and Social Services (Real 2024$)",1992,85443.20922438556
+"Education, Training, Employment, and Social Services (Real 2024$)",1993,92549.45969125214
+"Education, Training, Employment, and Social Services (Real 2024$)",1994,82712.62917747596
+"Education, Training, Employment, and Social Services (Real 2024$)",1995,95441.56739390315
+"Education, Training, Employment, and Social Services (Real 2024$)",1996,88664.32062188325
+"Education, Training, Employment, and Social Services (Real 2024$)",1997,88343.86770428016
+"Education, Training, Employment, and Social Services (Real 2024$)",1998,89955.69854824936
+"Education, Training, Employment, and Social Services (Real 2024$)",1999,88985.55546183043
+"Education, Training, Employment, and Social Services (Real 2024$)",2000,92611.39815452417
+"Education, Training, Employment, and Social Services (Real 2024$)",2001,96008.08430818879
+"Education, Training, Employment, and Social Services (Real 2024$)",2002,116877.69976171564
+"Education, Training, Employment, and Social Services (Real 2024$)",2003,134399.4844785037
+"Education, Training, Employment, and Social Services (Real 2024$)",2004,139543.359832636
+"Education, Training, Employment, and Social Services (Real 2024$)",2005,150128.62938353638
+"Education, Training, Employment, and Social Services (Real 2024$)",2006,176587.03503754022
+"Education, Training, Employment, and Social Services (Real 2024$)",2007,132942.36012526095
+"Education, Training, Employment, and Social Services (Real 2024$)",2008,129751.06556073172
+"Education, Training, Employment, and Social Services (Real 2024$)",2009,112176.15656281632
+"Education, Training, Employment, and Social Services (Real 2024$)",2010,179341.8448929527
+"Education, Training, Employment, and Social Services (Real 2024$)",2011,138435.59160472234
+"Education, Training, Employment, and Social Services (Real 2024$)",2012,121957.34958127548
+"Education, Training, Employment, and Social Services (Real 2024$)",2013,96094.06516925023
+"Education, Training, Employment, and Social Services (Real 2024$)",2014,117363.22183098592
+"Education, Training, Employment, and Social Services (Real 2024$)",2015,156446.46832718325
+"Education, Training, Employment, and Social Services (Real 2024$)",2016,139529.23154362416
+"Education, Training, Employment, and Social Services (Real 2024$)",2017,180042.0171
+"Education, Training, Employment, and Social Services (Real 2024$)",2018,116851.49882606142
+"Education, Training, Employment, and Social Services (Real 2024$)",2019,164252.75242578535
+"Education, Training, Employment, and Social Services (Real 2024$)",2020,282017.1925265554
+"Education, Training, Employment, and Social Services (Real 2024$)",2021,342243.3601100413
+"Education, Training, Employment, and Social Services (Real 2024$)",2022,725509.9036485098
+"Education, Training, Employment, and Social Services (Real 2024$)",2023,-2242.613286369593
+"Education, Training, Employment, and Social Services (Real 2024$)",2024,306370.0
+Health (Real 2024$),1970,37331.40424456796
+Health (Real 2024$),1971,41146.82740384615
+Health (Real 2024$),1972,49786.928866452494
+Health (Real 2024$),1973,51480.638803343594
+Health (Real 2024$),1974,55128.39055441478
+Health (Real 2024$),1975,60184.41012281354
+Health (Real 2024$),1976,68470.82045929019
+Health (Real 2024$),1977,70212.88578844907
+Health (Real 2024$),1978,70440.762541806
+Health (Real 2024$),1979,72100.83206751055
+Health (Real 2024$),1980,74974.0447606727
+Health (Real 2024$),1981,79173.67153628652
+Health (Real 2024$),1982,75623.40052875082
+Health (Real 2024$),1983,75625.50158328055
+Health (Real 2024$),1984,77534.73405339311
+Health (Real 2024$),1985,82737.09761388286
+Health (Real 2024$),1986,86680.62584378014
+Health (Real 2024$),1987,94296.78720996037
+Health (Real 2024$),1988,101625.94500274073
+Health (Real 2024$),1989,106289.73129610115
+Health (Real 2024$),1990,122272.77194171467
+Health (Real 2024$),1991,145548.08980860462
+Health (Real 2024$),1992,178473.25327162462
+Health (Real 2024$),1993,193701.50428816467
+Health (Real 2024$),1994,204316.6270410499
+Health (Real 2024$),1995,215586.8894202032
+Health (Real 2024$),1996,218922.02904077442
+Health (Real 2024$),1997,223121.70773886726
+Health (Real 2024$),1998,233910.80572160546
+Health (Real 2024$),1999,248003.62927035004
+Health (Real 2024$),2000,266128.152320617
+Health (Real 2024$),2001,289657.2093586123
+Health (Real 2024$),2002,325292.93050039717
+Health (Real 2024$),2003,356747.59514222626
+Health (Real 2024$),2004,380820.46861924685
+Health (Real 2024$),2005,385667.1262458472
+Health (Real 2024$),2006,376773.5613156954
+Health (Real 2024$),2007,386473.8430758525
+Health (Real 2024$),2008,398794.3849562549
+Health (Real 2024$),2009,470356.6051062872
+Health (Real 2024$),2010,514729.71309099015
+Health (Real 2024$),2011,509250.09477481415
+Health (Real 2024$),2012,465628.60049388016
+Health (Real 2024$),2013,472509.52736475796
+Health (Real 2024$),2014,530403.7882145816
+Health (Real 2024$),2015,618243.9830873308
+Health (Real 2024$),2016,650309.3120805369
+Health (Real 2024$),2017,666813.2063999999
+Health (Real 2024$),2018,674437.0996869496
+Health (Real 2024$),2019,702689.3757325391
+Health (Real 2024$),2020,886761.0085356601
+Health (Real 2024$),2021,913452.5584594223
+Health (Real 2024$),2022,979137.6384892086
+Health (Real 2024$),2023,910317.6101736564
+Health (Real 2024$),2024,911289.0
+Medicare (Real 2024$),1970,39265.28094997473
+Medicare (Real 2024$),1971,39817.95865384616
+Medicare (Real 2024$),1972,42927.881138136756
+Medicare (Real 2024$),1973,44305.483501979754
+Medicare (Real 2024$),1974,49509.22915811088
+Medicare (Real 2024$),1975,59928.405284704124
+Medicare (Real 2024$),1976,68905.99791231733
+Medicare (Real 2024$),1977,78503.54153147308
+Medicare (Real 2024$),1978,86579.3177257525
+Medicare (Real 2024$),1979,93213.21097046413
+Medicare (Real 2024$),1980,103842.07761966364
+Medicare (Real 2024$),1981,115371.47573044298
+Medicare (Real 2024$),1982,128313.16787838729
+Medicare (Real 2024$),1983,138846.97403419885
+Medicare (Real 2024$),1984,146658.40228245364
+Medicare (Real 2024$),1985,162341.89587852493
+Medicare (Real 2024$),1986,169246.1230472517
+Medicare (Real 2024$),1987,177235.58573853987
+Medicare (Real 2024$),1988,180253.45258541935
+Medicare (Real 2024$),1989,186625.35089567964
+Medicare (Real 2024$),1990,207889.14164689934
+Medicare (Real 2024$),1991,213781.10960248654
+Medicare (Real 2024$),1992,237573.1196935844
+Medicare (Real 2024$),1993,254609.98970840478
+Medicare (Real 2024$),1994,276262.89165267814
+Medicare (Real 2024$),1995,298760.6821578003
+Medicare (Real 2024$),1996,319599.893663831
+Medicare (Real 2024$),1997,342488.8473843493
+Medicare (Real 2024$),1998,343242.9197267293
+Medicare (Real 2024$),1999,334868.6389708983
+Medicare (Real 2024$),2000,339525.1743561493
+Medicare (Real 2024$),2001,365580.4340459863
+Medicare (Real 2024$),2002,382221.80103256553
+Medicare (Real 2024$),2003,405203.0823483569
+Medicare (Real 2024$),2004,427144.10041841003
+Medicare (Real 2024$),2005,459587.23588039866
+Medicare (Real 2024$),2006,491676.6864497676
+Medicare (Real 2024$),2007,544562.2070285317
+Medicare (Real 2024$),2008,555301.7050335188
+Medicare (Real 2024$),2009,605013.2888314025
+Medicare (Real 2024$),2010,629863.0075825156
+Medicare (Real 2024$),2011,663977.0519239177
+Medicare (Real 2024$),2012,633531.7855915825
+Medicare (Real 2024$),2013,656575.9550775071
+Medicare (Real 2024$),2014,662767.3794531897
+Medicare (Real 2024$),2015,700220.2146371462
+Medicare (Real 2024$),2016,756138.0671140939
+Medicare (Real 2024$),2017,747051.8648999999
+Medicare (Real 2024$),2018,720303.8487575816
+Medicare (Real 2024$),2019,782208.3746757613
+Medicare (Real 2024$),2020,920736.5397382397
+Medicare (Real 2024$),2021,798771.2247592848
+Medicare (Real 2024$),2022,808835.2738951696
+Medicare (Real 2024$),2023,868302.1631716905
+Medicare (Real 2024$),2024,874133.0
+Income Security (Real 2024$),1970,98874.18645780697
+Income Security (Real 2024$),1971,137913.72692307693
+Income Security (Real 2024$),1972,158636.2854520422
+Income Security (Real 2024$),1973,155525.89309282883
+Income Security (Real 2024$),1974,173094.8254620123
+Income Security (Real 2024$),1975,233481.0669892073
+Income Security (Real 2024$),1976,264518.2630480167
+Income Security (Real 2024$),1977,247725.44289422457
+Income Security (Real 2024$),1978,233834.12709030096
+Income Security (Real 2024$),1979,233478.07257383966
+Income Security (Real 2024$),1980,280066.1930142303
+Income Security (Real 2024$),1981,295541.2351555137
+Income Security (Real 2024$),1982,297969.14871116984
+Income Security (Real 2024$),1983,324801.7998733375
+Income Security (Real 2024$),1984,288978.7336458121
+Income Security (Real 2024$),1985,318167.6225596529
+Income Security (Real 2024$),1986,291040.4227579557
+Income Security (Real 2024$),1987,292809.13695529144
+Income Security (Real 2024$),1988,297962.76429746026
+Income Security (Real 2024$),1989,302140.4773445732
+Income Security (Real 2024$),1990,315287.8652998983
+Income Security (Real 2024$),1991,353111.50384426635
+Income Security (Real 2024$),1992,398517.411267156
+Income Security (Real 2024$),1993,409725.653516295
+Income Security (Real 2024$),1994,414609.05402105907
+Income Security (Real 2024$),1995,418192.0660490137
+Income Security (Real 2024$),1996,421361.8939571722
+Income Security (Real 2024$),1997,423543.72416774754
+Income Security (Real 2024$),1998,423126.79846285225
+Income Security (Real 2024$),1999,426249.03964571905
+Income Security (Real 2024$),2000,436949.209613001
+Income Security (Real 2024$),2001,453601.9991932231
+Income Security (Real 2024$),2002,517681.1874503574
+Income Security (Real 2024$),2003,543514.3548512794
+Income Security (Real 2024$),2004,528105.5774058577
+Income Security (Real 2024$),2005,532166.9250645995
+Income Security (Real 2024$),2006,525298.4715766893
+Income Security (Real 2024$),2007,530816.4018789144
+Income Security (Real 2024$),2008,612788.9986365185
+Income Security (Real 2024$),2009,749885.4527049825
+Income Security (Real 2024$),2010,867604.7883586084
+Income Security (Real 2024$),2011,816576.6706383908
+Income Security (Real 2024$),2012,726797.1586858492
+Income Security (Real 2024$),2013,707465.1879152167
+Income Security (Real 2024$),2014,665238.7294946148
+Income Security (Real 2024$),2015,652271.586715867
+Income Security (Real 2024$),2016,653836.0469798658
+Income Security (Real 2024$),2017,629656.1601
+Income Security (Real 2024$),2018,606004.6490901975
+Income Security (Real 2024$),2019,618545.5864156018
+Income Security (Real 2024$),2020,1498893.4913694991
+Income Security (Real 2024$),2021,1889788.7760660248
+Income Security (Real 2024$),2022,927738.5387975335
+Income Security (Real 2024$),2023,793628.98034076
+Income Security (Real 2024$),2024,670548.0
+Social Security (Real 2024$),1970,191302.1172309247
+Social Security (Real 2024$),1971,215697.64615384617
+Social Security (Real 2024$),1972,230492.70261587884
+Social Security (Real 2024$),1973,270113.78354597447
+Social Security (Real 2024$),1974,286952.1843942505
+Social Security (Real 2024$),1975,300959.28768142906
+Social Security (Real 2024$),1976,321591.78601252614
+Social Security (Real 2024$),1977,345184.27222582744
+Social Security (Real 2024$),1978,356922.93311036786
+Social Security (Real 2024$),1979,366143.74430379743
+Social Security (Real 2024$),1980,383613.79793014226
+Social Security (Real 2024$),1981,411351.81149858626
+Social Security (Real 2024$),1982,429751.43159286183
+Social Security (Real 2024$),1983,450758.93350221653
+Social Security (Real 2024$),1984,454256.1770939474
+Social Security (Real 2024$),1985,465215.5119305856
+Social Security (Real 2024$),1986,479429.3716489875
+Social Security (Real 2024$),1987,489219.2914544425
+Social Security (Real 2024$),1988,501242.07692307694
+Social Security (Real 2024$),1989,510783.7713382507
+Social Security (Real 2024$),1990,526860.0238902067
+Social Security (Real 2024$),1991,550393.9306396205
+Social Security (Real 2024$),1992,574020.601340568
+Social Security (Real 2024$),1993,594019.1166380788
+Social Security (Real 2024$),1994,609919.0378452617
+Social Security (Real 2024$),1995,627678.7092050208
+Social Security (Real 2024$),1996,641439.6006160164
+Social Security (Real 2024$),1997,658336.1085170774
+Social Security (Real 2024$),1998,675041.5606319385
+Social Security (Real 2024$),1999,685813.6874736397
+Social Security (Real 2024$),2000,705227.0294725244
+Social Security (Real 2024$),2001,728116.9431222266
+Social Security (Real 2024$),2002,754956.5607625099
+Social Security (Real 2024$),2003,771116.0878036108
+Social Security (Real 2024$),2004,785827.1631799163
+Social Security (Real 2024$),2005,805337.2259136213
+Social Security (Real 2024$),2006,817626.3071147657
+Social Security (Real 2024$),2007,850268.5654140571
+Social Security (Real 2024$),2008,876849.9817066242
+Social Security (Real 2024$),2009,960726.3795973456
+Social Security (Real 2024$),2010,985633.325044603
+Social Security (Real 2024$),2011,999153.1675776126
+Social Security (Real 2024$),2012,1038387.1623362679
+Social Security (Real 2024$),2013,1072981.3726668775
+Social Security (Real 2024$),2014,1101658.6817522782
+Social Security (Real 2024$),2015,1138081.8748462482
+Social Security (Real 2024$),2016,1165065.077181208
+Social Security (Real 2024$),2017,1181758.9146
+Social Security (Real 2024$),2018,1208599.2992565054
+Social Security (Real 2024$),2019,1254916.2612162551
+Social Security (Real 2024$),2020,1299826.509104704
+Social Security (Real 2024$),2021,1301262.4577716645
+Social Security (Real 2024$),2022,1305397.2371531348
+Social Security (Real 2024$),2023,1387487.1165629092
+Social Security (Real 2024$),2024,1460918.0
+Veterans Benefits and Services (Real 2024$),1970,54850.05204648812
+Veterans Benefits and Services (Real 2024$),1971,58794.925961538465
+Veterans Benefits and Services (Real 2024$),1972,61599.41441027994
+Veterans Benefits and Services (Real 2024$),1973,66111.57281126264
+Veterans Benefits and Services (Real 2024$),1974,68765.3864476386
+Veterans Benefits and Services (Real 2024$),1975,77262.26014142165
+Veterans Benefits and Services (Real 2024$),1976,80216.2599164927
+Veterans Benefits and Services (Real 2024$),1977,73199.63205710579
+Veterans Benefits and Services (Real 2024$),1978,72167.17725752508
+Veterans Benefits and Services (Real 2024$),1979,70120.11729957805
+Veterans Benefits and Services (Real 2024$),1980,68553.89262613196
+Veterans Benefits and Services (Real 2024$),1981,67754.10862393968
+Veterans Benefits and Services (Real 2024$),1982,66015.13681427627
+Veterans Benefits and Services (Real 2024$),1983,65600.36352121594
+Veterans Benefits and Services (Real 2024$),1984,65252.02914204198
+Veterans Benefits and Services (Real 2024$),1985,64818.86550976138
+Veterans Benefits and Services (Real 2024$),1986,63543.27888138862
+Veterans Benefits and Services (Real 2024$),1987,63138.997736276164
+Veterans Benefits and Services (Real 2024$),1988,67205.98629636398
+Veterans Benefits and Services (Real 2024$),1989,65979.14752370917
+Veterans Benefits and Services (Real 2024$),1990,61640.73466621484
+Veterans Benefits and Services (Real 2024$),1991,64077.65957794864
+Veterans Benefits and Services (Real 2024$),1992,68087.90041493776
+Veterans Benefits and Services (Real 2024$),1993,69604.68267581475
+Veterans Benefits and Services (Real 2024$),1994,71795.48588432779
+Veterans Benefits and Services (Real 2024$),1995,70851.81858936042
+Veterans Benefits and Services (Real 2024$),1996,67878.63317688472
+Veterans Benefits and Services (Real 2024$),1997,70892.82663207955
+Veterans Benefits and Services (Real 2024$),1998,74395.82280102477
+Veterans Benefits and Services (Real 2024$),1999,75987.98144242934
+Veterans Benefits and Services (Real 2024$),2000,81025.93031262912
+Veterans Benefits and Services (Real 2024$),2001,75718.05405405405
+Veterans Benefits and Services (Real 2024$),2002,84404.86536934075
+Veterans Benefits and Services (Real 2024$),2003,92323.39576568385
+Veterans Benefits and Services (Real 2024$),2004,94716.69874476988
+Veterans Benefits and Services (Real 2024$),2005,107898.45994832042
+Veterans Benefits and Services (Real 2024$),2006,104086.38112263138
+Veterans Benefits and Services (Real 2024$),2007,105643.67849686848
+Veterans Benefits and Services (Real 2024$),2008,120381.8289967049
+Veterans Benefits and Services (Real 2024$),2009,134403.47711168596
+Veterans Benefits and Services (Real 2024$),2010,151286.1670383586
+Veterans Benefits and Services (Real 2024$),2011,174000.1511805859
+Veterans Benefits and Services (Real 2024$),2012,167421.11369980674
+Veterans Benefits and Services (Real 2024$),2013,183375.3312242961
+Veterans Benefits and Services (Real 2024$),2014,193797.62292874896
+Veterans Benefits and Services (Real 2024$),2015,204836.09747847475
+Veterans Benefits and Services (Real 2024$),2016,222003.70134228186
+Veterans Benefits and Services (Real 2024$),2017,220853.6088
+Veterans Benefits and Services (Real 2024$),2018,218884.73537468203
+Veterans Benefits and Services (Real 2024$),2019,240122.62474781438
+Veterans Benefits and Services (Real 2024$),2020,259362.4890933232
+Veterans Benefits and Services (Real 2024$),2021,268699.2181568088
+Veterans Benefits and Services (Real 2024$),2022,293933.7810894142
+Veterans Benefits and Services (Real 2024$),2023,308986.8283093053
+Veterans Benefits and Services (Real 2024$),2024,325637.0
+Energy (Real 2024$),1970,6300.8989388580085
+Energy (Real 2024$),1971,6223.435096153847
+Energy (Real 2024$),1972,7438.766406608535
+Energy (Real 2024$),1973,6806.493180818301
+Energy (Real 2024$),1974,6692.657494866529
+Energy (Real 2024$),1975,13572.911053219203
+Energy (Real 2024$),1976,18294.860125260962
+Energy (Real 2024$),1977,23415.116807268012
+Energy (Real 2024$),1978,30387.180602006683
+Energy (Real 2024$),1979,32293.038818565397
+Energy (Real 2024$),1980,32864.44812419146
+Energy (Real 2024$),1981,44693.95900094251
+Energy (Real 2024$),1982,37273.009253139455
+Energy (Real 2024$),1983,24694.52628245725
+Energy (Real 2024$),1984,18027.717750152842
+Energy (Real 2024$),1985,13831.444685466377
+Energy (Real 2024$),1986,11312.985535197686
+Energy (Real 2024$),1987,9607.338992642897
+Energy (Real 2024$),1988,5246.861319203362
+Energy (Real 2024$),1989,5941.593782929399
+Energy (Real 2024$),1990,7079.953744493392
+Energy (Real 2024$),1991,4983.977097987895
+Energy (Real 2024$),1992,8980.049952122565
+Energy (Real 2024$),1993,8423.161234991423
+Energy (Real 2024$),1994,9959.030367770487
+Energy (Real 2024$),1995,9225.127316198445
+Energy (Real 2024$),1996,5207.886916984453
+Energy (Real 2024$),1997,2658.5711197578903
+Energy (Real 2024$),1998,2260.730145175064
+Energy (Real 2024$),1999,1601.8384647827918
+Energy (Real 2024$),2000,-1310.8149015287152
+Energy (Real 2024$),2001,15.135538523598225
+Energy (Real 2024$),2002,786.4475774424146
+Energy (Real 2024$),2003,-1177.7600987141186
+Energy (Real 2024$),2004,-233.10878661087867
+Energy (Real 2024$),2005,677.1354743447766
+Energy (Real 2024$),2006,1170.06256703611
+Energy (Real 2024$),2007,-1235.9039665970772
+Energy (Real 2024$),2008,896.7068514941483
+Energy (Real 2024$),2009,6688.87470475762
+Energy (Real 2024$),2010,16202.757136485281
+Energy (Real 2024$),2011,16644.099038041102
+Energy (Real 2024$),2012,19951.578913463603
+Energy (Real 2024$),2013,14563.143941790571
+Energy (Real 2024$),2014,6826.0035211267605
+Energy (Real 2024$),2015,8770.027367773677
+Energy (Real 2024$),2016,4732.412751677852
+Energy (Real 2024$),2017,4822.6992
+Energy (Real 2024$),2018,2653.852768538446
+Energy (Real 2024$),2019,6057.045537515611
+Energy (Real 2024$),2020,8401.657909711685
+Energy (Real 2024$),2021,6855.0517193947735
+Energy (Real 2024$),2022,-9781.939362795478
+Energy (Real 2024$),2023,-415.94380733944945
+Energy (Real 2024$),2024,13571.0
+Natural Resources and Environment (Real 2024$),1970,19370.366346639716
+Natural Resources and Environment (Real 2024$),1971,23540.81971153846
+Natural Resources and Environment (Real 2024$),1972,24342.444699403393
+Natural Resources and Environment (Real 2024$),1973,26274.054113506376
+Natural Resources and Environment (Real 2024$),1974,29261.75728952772
+Natural Resources and Environment (Real 2024$),1975,34192.93710457759
+Natural Resources and Environment (Real 2024$),1976,35614.92275574113
+Natural Resources and Environment (Real 2024$),1977,40710.65022712525
+Natural Resources and Environment (Real 2024$),1978,41764.78595317725
+Natural Resources and Environment (Real 2024$),1979,42692.670886075946
+Natural Resources and Environment (Real 2024$),1980,44843.98602846054
+Natural Resources and Environment (Real 2024$),1981,39984.67860508954
+Natural Resources and Environment (Real 2024$),1982,35815.37475214805
+Natural Resources and Environment (Real 2024$),1983,33457.611146295116
+Natural Resources and Environment (Real 2024$),1984,32079.295292439372
+Natural Resources and Environment (Real 2024$),1985,32913.80694143166
+Natural Resources and Environment (Real 2024$),1986,32872.78611378978
+Natural Resources and Environment (Real 2024$),1987,31509.3350311262
+Natural Resources and Environment (Real 2024$),1988,33366.47304951581
+Natural Resources and Environment (Real 2024$),1989,35515.57481559536
+Natural Resources and Environment (Real 2024$),1990,36141.45798034564
+Natural Resources and Environment (Real 2024$),1991,37940.42336005235
+Natural Resources and Environment (Real 2024$),1992,39922.2002872646
+Natural Resources and Environment (Real 2024$),1993,39442.00343053173
+Natural Resources and Environment (Real 2024$),1994,40080.42118113841
+Natural Resources and Environment (Real 2024$),1995,40909.40271966527
+Natural Resources and Environment (Real 2024$),1996,39445.29495453212
+Natural Resources and Environment (Real 2024$),1997,38213.12970168612
+Natural Resources and Environment (Real 2024$),1998,39657.12297181896
+Natural Resources and Environment (Real 2024$),1999,42099.690847743565
+Natural Resources and Environment (Real 2024$),2000,43067.41784878116
+Natural Resources and Environment (Real 2024$),2001,42937.84106494554
+Natural Resources and Environment (Real 2024$),2002,48720.013502779984
+Natural Resources and Environment (Real 2024$),2003,48193.94323938173
+Natural Resources and Environment (Real 2024$),2004,48673.74895397489
+Natural Resources and Environment (Real 2024$),2005,43064.277224067926
+Natural Resources and Environment (Real 2024$),2006,49224.606721487304
+Natural Resources and Environment (Real 2024$),2007,46014.21329157968
+Natural Resources and Environment (Real 2024$),2008,45219.03647312805
+Natural Resources and Environment (Real 2024$),2009,50040.66033067146
+Natural Resources and Environment (Real 2024$),2010,60899.10448260482
+Natural Resources and Environment (Real 2024$),2011,62169.9618495846
+Natural Resources and Environment (Real 2024$),2012,55902.82553145802
+Natural Resources and Environment (Real 2024$),2013,50308.92280923758
+Natural Resources and Environment (Real 2024$),2014,46850.73498342999
+Natural Resources and Environment (Real 2024$),2015,46193.59686346863
+Natural Resources and Environment (Real 2024$),2016,49703.68791946308
+Natural Resources and Environment (Real 2024$),2017,47396.5272
+Natural Resources and Environment (Real 2024$),2018,47809.726570142826
+Natural Resources and Environment (Real 2024$),2019,45462.08588721298
+Natural Resources and Environment (Real 2024$),2020,50353.011191198784
+Natural Resources and Environment (Real 2024$),2021,50637.00660247593
+Natural Resources and Environment (Real 2024$),2022,44329.366906474825
+Natural Resources and Environment (Real 2024$),2023,48547.608863040616
+Natural Resources and Environment (Real 2024$),2024,58469.0
+Commerce and Housing Credit (Real 2024$),1970,13347.54118241536
+Commerce and Housing Credit (Real 2024$),1971,14226.712500000001
+Commerce and Housing Credit (Real 2024$),1972,12753.810922441486
+Commerce and Housing Credit (Real 2024$),1973,5122.752749670039
+Commerce and Housing Credit (Real 2024$),1974,24166.503080082133
+Commerce and Housing Credit (Real 2024$),1975,46299.63863044287
+Commerce and Housing Credit (Real 2024$),1976,33156.17014613779
+Commerce and Housing Credit (Real 2024$),1977,12551.638870863078
+Commerce and Housing Credit (Real 2024$),1978,23781.93311036789
+Commerce and Housing Credit (Real 2024$),1979,16486.020253164555
+Commerce and Housing Credit (Real 2024$),1980,30385.699870633893
+Commerce and Housing Credit (Real 2024$),1981,24182.950518378886
+Commerce and Housing Credit (Real 2024$),1982,17238.11235955056
+Commerce and Housing Credit (Real 2024$),1983,17639.701709942998
+Commerce and Housing Credit (Real 2024$),1984,17737.153658039533
+Commerce and Housing Credit (Real 2024$),1985,10696.678958785249
+Commerce and Housing Credit (Real 2024$),1986,12200.656894889104
+Commerce and Housing Credit (Real 2024$),1987,15180.161856253535
+Commerce and Housing Credit (Real 2024$),1988,43791.639137584505
+Commerce and Housing Credit (Real 2024$),1989,65256.491570073755
+Commerce and Housing Credit (Real 2024$),1990,143249.86326668924
+Commerce and Housing Credit (Real 2024$),1991,156045.9496155734
+Commerce and Housing Credit (Real 2024$),1992,21792.439514842
+Commerce and Housing Credit (Real 2024$),1993,-42618.972555746135
+Commerce and Housing Credit (Real 2024$),1994,-8069.524797802533
+Commerce and Housing Credit (Real 2024$),1995,-33282.22594142259
+Commerce and Housing Credit (Real 2024$),1996,-19220.936638310355
+Commerce and Housing Credit (Real 2024$),1997,-26387.4448767834
+Commerce and Housing Credit (Real 2024$),1998,1792.563193851409
+Commerce and Housing Credit (Real 2024$),1999,4643.749051033318
+Commerce and Housing Credit (Real 2024$),2000,5524.025478584217
+Commerce and Housing Credit (Real 2024$),2001,9637.974586526825
+Commerce and Housing Credit (Real 2024$),2002,-673.8613979348689
+Commerce and Housing Credit (Real 2024$),2003,1181.0090920898817
+Commerce and Housing Credit (Real 2024$),2004,8349.100418410042
+Commerce and Housing Credit (Real 2024$),2005,11643.65227021041
+Commerce and Housing Credit (Real 2024$),2006,9221.88165892027
+Commerce and Housing Credit (Real 2024$),2007,706.4380654140571
+Commerce and Housing Credit (Real 2024$),2008,39605.73684808544
+Commerce and Housing Credit (Real 2024$),2009,410103.2780339669
+Commerce and Housing Credit (Real 2024$),2010,-114799.97903657448
+Commerce and Housing Credit (Real 2024$),2011,-17177.300830782682
+Commerce and Housing Credit (Real 2024$),2012,54581.49334335409
+Commerce and Housing Credit (Real 2024$),2013,-109728.7130654856
+Commerce and Housing Credit (Real 2024$),2014,-122869.3586371168
+Commerce and Housing Credit (Real 2024$),2015,-48593.464022140215
+Commerce and Housing Credit (Real 2024$),2016,-43339.540268456374
+Commerce and Housing Credit (Real 2024$),2017,-33374.9295
+Commerce and Housing Credit (Real 2024$),2018,-11586.899823909214
+Commerce and Housing Credit (Real 2024$),2019,-30898.021423767892
+Commerce and Housing Credit (Real 2024$),2020,678574.7341616085
+Commerce and Housing Credit (Real 2024$),2021,353071.29105914716
+Commerce and Housing Credit (Real 2024$),2022,-20432.59892086331
+Commerce and Housing Credit (Real 2024$),2023,103232.95011467887
+Commerce and Housing Credit (Real 2024$),2024,36032.0
+Transportation (Real 2024$),1970,44289.568468923695
+Transportation (Real 2024$),1971,48416.52115384616
+Transportation (Real 2024$),1972,48168.308398347865
+Transportation (Real 2024$),1973,49884.937087549486
+Transportation (Real 2024$),1974,47110.55605749486
+Transportation (Real 2024$),1975,50819.2876814291
+Transportation (Real 2024$),1976,59789.030271398755
+Transportation (Real 2024$),1977,60177.25600259573
+Transportation (Real 2024$),1978,59021.32775919732
+Transportation (Real 2024$),1979,63604.51561181434
+Transportation (Real 2024$),1980,69019.87141009055
+Transportation (Real 2024$),1981,68897.53840716305
+Transportation (Real 2024$),1982,56831.212822207526
+Transportation (Real 2024$),1983,56327.70487650411
+Transportation (Real 2024$),1984,60327.73242306908
+Transportation (Real 2024$),1985,63726.26030368763
+Transportation (Real 2024$),1986,67812.78514946962
+Transportation (Real 2024$),1987,61867.29937747594
+Transportation (Real 2024$),1988,62322.47469395213
+Transportation (Real 2024$),1989,60641.59747102212
+Transportation (Real 2024$),1990,62482.02219586581
+Transportation (Real 2024$),1991,63627.54670374612
+Transportation (Real 2024$),1992,66531.01244813278
+Transportation (Real 2024$),1993,68266.80617495712
+Transportation (Real 2024$),1994,72652.44346101022
+Transportation (Real 2024$),1995,73543.1037059175
+Transportation (Real 2024$),1996,72578.38882370196
+Transportation (Real 2024$),1997,73479.3009079118
+Transportation (Real 2024$),1998,71814.67421007686
+Transportation (Real 2024$),1999,74785.28384647827
+Transportation (Real 2024$),2000,80703.82467979618
+Transportation (Real 2024$),2001,91564.96288826139
+Transportation (Real 2024$),2002,102375.60643367752
+Transportation (Real 2024$),2003,108953.3683595272
+Transportation (Real 2024$),2004,102483.820083682
+Transportation (Real 2024$),2005,104485.08157991878
+Transportation (Real 2024$),2006,104700.47765462995
+Transportation (Real 2024$),2007,105755.37404314545
+Transportation (Real 2024$),2008,110299.20599931825
+Transportation (Real 2024$),2009,118569.6235519064
+Transportation (Real 2024$),2010,128266.48126672613
+Transportation (Real 2024$),2011,127101.63554875381
+Transportation (Real 2024$),2012,124907.51911101566
+Transportation (Real 2024$),2013,120906.27554571338
+Transportation (Real 2024$),2014,119053.53200082849
+Transportation (Real 2024$),2015,114779.5439729397
+Transportation (Real 2024$),2016,117726.55704697985
+Transportation (Real 2024$),2017,117005.4864
+Transportation (Real 2024$),2018,113525.92398747797
+Transportation (Real 2024$),2019,115056.2294168508
+Transportation (Real 2024$),2020,172733.95874430955
+Transportation (Real 2024$),2021,176957.13314993124
+Transportation (Real 2024$),2022,140349.19218910587
+Transportation (Real 2024$),2023,129513.22239515069
+Transportation (Real 2024$),2024,136582.0
+Community and Regional Development (Real 2024$),1970,15117.1015664477
+Community and Regional Development (Real 2024$),1971,17539.864903846155
+Community and Regional Development (Real 2024$),1972,19647.297384121153
+Community and Regional Development (Real 2024$),1973,25338.64276286845
+Community and Regional Development (Real 2024$),1974,21721.602874743323
+Community and Regional Development (Real 2024$),1975,20117.3256419799
+Community and Regional Development (Real 2024$),1976,23682.356993736954
+Community and Regional Development (Real 2024$),1977,28491.773848150555
+Community and Regional Development (Real 2024$),1978,45027.48160535117
+Community and Regional Development (Real 2024$),1979,36870.14345991561
+Community and Regional Development (Real 2024$),1980,36411.06442432083
+Community and Regional Development (Real 2024$),1981,31143.726672950048
+Community and Regional Development (Real 2024$),1982,22999.76404494382
+Community and Regional Development (Real 2024$),1983,19971.06776440785
+Community and Regional Development (Real 2024$),1984,19557.00244548604
+Community and Regional Development (Real 2024$),1985,18931.913232104118
+Community and Regional Development (Real 2024$),1986,17447.084088717456
+Community and Regional Development (Real 2024$),1987,11912.43972835314
+Community and Regional Development (Real 2024$),1988,12095.660697971862
+Community and Regional Development (Real 2024$),1989,11777.754478398312
+Community and Regional Development (Real 2024$),1990,18078.145882751607
+Community and Regional Development (Real 2024$),1991,13933.039424177983
+Community and Regional Development (Real 2024$),1992,13644.725821895945
+Community and Regional Development (Real 2024$),1993,17837.053173241853
+Community and Regional Development (Real 2024$),1994,20269.24156874714
+Community and Regional Development (Real 2024$),1995,20083.71518230723
+Community and Regional Development (Real 2024$),1996,19703.386183631563
+Community and Regional Development (Real 2024$),1997,19914.950713359274
+Community and Regional Development (Real 2024$),1998,17393.381298035867
+Community and Regional Development (Real 2024$),1999,20862.583298186415
+Community and Regional Development (Real 2024$),2000,18298.01143093238
+Community and Regional Development (Real 2024$),2001,19798.9661153691
+Community and Regional Development (Real 2024$),2002,21492.37053216839
+Community and Regional Development (Real 2024$),2003,30621.762566567086
+Community and Regional Development (Real 2024$),2004,25086.94560669456
+Community and Regional Development (Real 2024$),2005,40415.75415282392
+Community and Regional Development (Real 2024$),2006,81181.4747944226
+Community and Regional Development (Real 2024$),2007,42889.639178844816
+Community and Regional Development (Real 2024$),2008,34037.91205544824
+Community and Regional Development (Real 2024$),2009,38931.92351816443
+Community and Regional Development (Real 2024$),2010,33323.177743086526
+Community and Regional Development (Real 2024$),2011,32652.45747704416
+Community and Regional Development (Real 2024$),2012,33747.683487223534
+Community and Regional Development (Real 2024$),2013,42646.192660550456
+Community and Regional Development (Real 2024$),2014,26772.95878210439
+Community and Regional Development (Real 2024$),2015,26497.251230012294
+Community and Regional Development (Real 2024$),2016,25614.29530201342
+Community and Regional Development (Real 2024$),2017,31151.184899999997
+Community and Regional Development (Real 2024$),2018,51583.1161220896
+Community and Regional Development (Real 2024$),2019,32182.485157075604
+Community and Regional Development (Real 2024$),2020,97121.40990136571
+Community and Regional Development (Real 2024$),2021,51215.046767537824
+Community and Regional Development (Real 2024$),2022,74942.38103802672
+Community and Regional Development (Real 2024$),2023,88672.86787352554
+Community and Regional Development (Real 2024$),2024,85215.0
+Net interest (Real 2024$),1970,90879.56543708943
+Net interest (Real 2024$),1971,89238.64759615385
+Net interest (Real 2024$),1972,88840.4525011473
+Net interest (Real 2024$),1973,95461.4795424549
+Net interest (Real 2024$),1974,110169.46324435317
+Net interest (Real 2024$),1975,108192.29921845924
+Net interest (Real 2024$),1976,116309.87787056368
+Net interest (Real 2024$),1977,121340.62524334849
+Net interest (Real 2024$),1978,134835.27090301
+Net interest (Real 2024$),1979,149989.01012658226
+Net interest (Real 2024$),1980,169994.8851228978
+Net interest (Real 2024$),1981,202652.30018850142
+Net interest (Real 2024$),1982,234301.65763384002
+Net interest (Real 2024$),1983,237118.14566181123
+Net interest (Real 2024$),1984,283177.64703484817
+Net interest (Real 2024$),1985,319341.6182212581
+Net interest (Real 2024$),1986,328093.4655737705
+Net interest (Real 2024$),1987,327034.1024335031
+Net interest (Real 2024$),1988,346903.0003654303
+Net interest (Real 2024$),1989,371170.59483667015
+Net interest (Real 2024$),1990,390651.97034903424
+Net interest (Real 2024$),1991,397834.3098315067
+Net interest (Real 2024$),1992,397892.6600702202
+Net interest (Real 2024$),1993,387541.4768439108
+Net interest (Real 2024$),1994,387314.2871967038
+Net interest (Real 2024$),1995,433846.3744769874
+Net interest (Real 2024$),1996,442189.7728072748
+Net interest (Real 2024$),1997,439761.90920881974
+Net interest (Real 2024$),1998,429214.7489325363
+Net interest (Real 2024$),1999,403985.067482075
+Net interest (Real 2024$),2000,384027.4263875499
+Net interest (Real 2024$),2001,346716.50786607503
+Net interest (Real 2024$),2002,283036.6882446386
+Net interest (Real 2024$),2003,248666.58150409145
+Net interest (Real 2024$),2004,254112.3640167364
+Net interest (Real 2024$),2005,283144.1985972684
+Net interest (Real 2024$),2006,337757.56417590275
+Net interest (Real 2024$),2007,343948.30236604036
+Net interest (Real 2024$),2008,359190.06919668213
+Net interest (Real 2024$),2009,262915.68035091663
+Net interest (Real 2024$),2010,273617.1228813559
+Net interest (Real 2024$),2011,314400.3863139484
+Net interest (Real 2024$),2012,295967.6675971655
+Net interest (Real 2024$),2013,291322.22872508696
+Net interest (Real 2024$),2014,296556.82394366193
+Net interest (Real 2024$),2015,286113.6497539975
+Net interest (Real 2024$),2016,305276.86912751675
+Net interest (Real 2024$),2017,328372.5357
+Net interest (Real 2024$),2018,397619.0887301897
+Net interest (Real 2024$),2019,450773.47545393405
+Net interest (Real 2024$),2020,409786.9205235205
+Net interest (Real 2024$),2021,404098.245392022
+Net interest (Real 2024$),2022,509756.65544707095
+Net interest (Real 2024$),2023,674389.3650884664
+Net interest (Real 2024$),2024,879879.0
+International Affairs (Real 2024$),1970,27364.987367357247
+International Affairs (Real 2024$),1971,25007.98701923077
+International Affairs (Real 2024$),1972,27441.93070215695
+International Affairs (Real 2024$),1973,22829.539375274962
+International Affairs (Real 2024$),1974,29328.529774127306
+International Affairs (Real 2024$),1975,33033.933382954965
+International Affairs (Real 2024$),1976,27994.96555323591
+International Affairs (Real 2024$),1977,25780.976963011035
+International Affairs (Real 2024$),1978,28451.618729096986
+International Affairs (Real 2024$),1979,26241.832067510546
+International Affairs (Real 2024$),1980,41142.043467011645
+International Affairs (Real 2024$),1981,38617.2780395853
+International Affairs (Real 2024$),1982,33892.0687376074
+International Affairs (Real 2024$),1983,31282.021532615574
+International Affairs (Real 2024$),1984,40447.031383737514
+International Affairs (Real 2024$),1985,39878.8568329718
+International Affairs (Real 2024$),1986,34122.28003857281
+International Affairs (Real 2024$),1987,27474.818902093943
+International Affairs (Real 2024$),1988,23917.09519459163
+International Affairs (Real 2024$),1989,21049.276606954685
+International Affairs (Real 2024$),1990,29154.74517112843
+International Affairs (Real 2024$),1991,32420.402748241457
+International Affairs (Real 2024$),1992,32115.804340887324
+International Affairs (Real 2024$),1993,33579.530017152654
+International Affairs (Real 2024$),1994,32573.93087135663
+International Affairs (Real 2024$),1995,30704.94665271966
+International Affairs (Real 2024$),1996,24740.6730712819
+International Affairs (Real 2024$),1997,27348.13532209252
+International Affairs (Real 2024$),1998,23237.45772843723
+International Affairs (Real 2024$),1999,26795.188106284262
+International Affairs (Real 2024$),2000,29649.22063076711
+International Affairs (Real 2024$),2001,27723.261395724083
+International Affairs (Real 2024$),2002,36946.479348689434
+International Affairs (Real 2024$),2003,34437.70528640083
+International Affairs (Real 2024$),2004,42609.74895397489
+International Affairs (Real 2024$),2005,53193.608342561834
+International Affairs (Real 2024$),2006,43969.01358598498
+International Affairs (Real 2024$),2007,41315.74739039666
+International Affairs (Real 2024$),2008,41008.35121008976
+International Affairs (Real 2024$),2009,52792.1721966033
+International Affairs (Real 2024$),2010,63030.091993755574
+International Affairs (Real 2024$),2011,62459.80487538259
+International Affairs (Real 2024$),2012,49418.360961992694
+International Affairs (Real 2024$),2013,61280.73900664346
+International Affairs (Real 2024$),2014,60720.345173985086
+International Affairs (Real 2024$),2015,66714.25584255841
+International Affairs (Real 2024$),2016,57620.718120805366
+International Affairs (Real 2024$),2017,57917.41559999999
+International Affairs (Real 2024$),2018,59800.39375855996
+International Affairs (Real 2024$),2019,63724.54078201556
+International Affairs (Real 2024$),2020,80329.95580424886
+International Affairs (Real 2024$),2021,53848.340852819805
+International Affairs (Real 2024$),2022,76988.31885919836
+International Affairs (Real 2024$),2023,71010.62344364349
+International Affairs (Real 2024$),2024,72000.0
+"General Science, Space, and Technology (Real 2024$)",1970,28508.881758463867
+"General Science, Space, and Technology (Real 2024$)",1971,25146.285576923077
+"General Science, Space, and Technology (Real 2024$)",1972,23963.618632400183
+"General Science, Space, and Technology (Real 2024$)",1973,22185.756269247686
+"General Science, Space, and Technology (Real 2024$)",1974,20442.65297741273
+"General Science, Space, and Technology (Real 2024$)",1975,18576.641979903237
+"General Science, Space, and Technology (Real 2024$)",1976,19030.310020876826
+"General Science, Space, and Technology (Real 2024$)",1977,19219.062946138874
+"General Science, Space, and Technology (Real 2024$)",1978,18731.979933110364
+"General Science, Space, and Technology (Real 2024$)",1979,18413.962869198313
+"General Science, Space, and Technology (Real 2024$)",1980,18868.904786545925
+"General Science, Space, and Technology (Real 2024$)",1981,19061.09236569274
+"General Science, Space, and Technology (Real 2024$)",1982,19836.504296100462
+"General Science, Space, and Technology (Real 2024$)",1983,20947.97086763774
+"General Science, Space, and Technology (Real 2024$)",1984,21183.14183819034
+"General Science, Space, and Technology (Real 2024$)",1985,21265.106290672447
+"General Science, Space, and Technology (Real 2024$)",1986,21617.692189006753
+"General Science, Space, and Technology (Real 2024$)",1987,21706.168647425013
+"General Science, Space, and Technology (Real 2024$)",1988,24726.062488580304
+"General Science, Space, and Technology (Real 2024$)",1989,28161.61696522655
+"General Science, Space, and Technology (Real 2024$)",1990,30570.312097594033
+"General Science, Space, and Technology (Real 2024$)",1991,32923.710780304275
+"General Science, Space, and Technology (Real 2024$)",1992,32712.611394829233
+"General Science, Space, and Technology (Real 2024$)",1993,33166.07547169811
+"General Science, Space, and Technology (Real 2024$)",1994,30898.18754768808
+"General Science, Space, and Technology (Real 2024$)",1995,31196.47997609085
+"General Science, Space, and Technology (Real 2024$)",1996,30605.27838075682
+"General Science, Space, and Technology (Real 2024$)",1997,30886.287937743193
+"General Science, Space, and Technology (Real 2024$)",1998,32348.02220324509
+"General Science, Space, and Technology (Real 2024$)",1999,31797.636440320533
+"General Science, Space, and Technology (Real 2024$)",2000,32027.97934168847
+"General Science, Space, and Technology (Real 2024$)",2001,33219.143606292855
+"General Science, Space, and Technology (Real 2024$)",2002,34328.850675139
+"General Science, Space, and Technology (Real 2024$)",2003,33839.890505260424
+"General Science, Space, and Technology (Real 2024$)",2004,36518.79079497908
+"General Science, Space, and Technology (Real 2024$)",2005,36314.4677002584
+"General Science, Space, and Technology (Real 2024$)",2006,35152.55488022882
+"General Science, Space, and Technology (Real 2024$)",2007,35404.58698677801
+"General Science, Space, and Technology (Real 2024$)",2008,38046.80274968753
+"General Science, Space, and Technology (Real 2024$)",2009,39974.29074344843
+"General Science, Space, and Technology (Real 2024$)",2010,41978.2225691347
+"General Science, Space, and Technology (Real 2024$)",2011,40285.44621775251
+"General Science, Space, and Technology (Real 2024$)",2012,39022.26970152459
+"General Science, Space, and Technology (Real 2024$)",2013,38126.36887061056
+"General Science, Space, and Technology (Real 2024$)",2014,37005.48777961889
+"General Science, Space, and Technology (Real 2024$)",2015,37705.60516605165
+"General Science, Space, and Technology (Real 2024$)",2016,38375.657718120805
+"General Science, Space, and Technology (Real 2024$)",2017,38018.7786
+"General Science, Space, and Technology (Real 2024$)",2018,38585.47759733907
+"General Science, Space, and Technology (Real 2024$)",2019,38947.247382073205
+"General Science, Space, and Technology (Real 2024$)",2020,40355.951631259486
+"General Science, Space, and Technology (Real 2024$)",2021,40754.12544704264
+"General Science, Space, and Technology (Real 2024$)",2022,40066.10380267215
+"General Science, Space, and Technology (Real 2024$)",2023,42286.93741808649
+"General Science, Space, and Technology (Real 2024$)",2024,41476.0
+Agriculture (Real 2024$),1970,32648.389085396662
+Agriculture (Real 2024$),1971,25795.6875
+Agriculture (Real 2024$),1972,30001.87654887563
+Agriculture (Real 2024$),1973,26527.165420149577
+Agriculture (Real 2024$),1974,11269.140862422997
+Agriculture (Real 2024$),1975,13949.936360253068
+Agriculture (Real 2024$),1976,13529.66701461378
+Agriculture (Real 2024$),1977,27327.10512654121
+Agriculture (Real 2024$),1978,42974.03678929765
+Agriculture (Real 2024$),1979,39318.771308016876
+Agriculture (Real 2024$),1980,28392.34618369987
+Agriculture (Real 2024$),1981,33127.04688972667
+Agriculture (Real 2024$),1982,43718.01321877065
+Agriculture (Real 2024$),1983,60216.83533882203
+Agriculture (Real 2024$),1984,34350.28306500917
+Agriculture (Real 2024$),1985,62712.57917570498
+Agriculture (Real 2024$),1986,75546.13944069431
+Agriculture (Real 2024$),1987,62442.98471986417
+Agriculture (Real 2024$),1988,39049.811072537916
+Agriculture (Real 2024$),1989,36677.535300316114
+Agriculture (Real 2024$),1990,24660.1082683836
+Agriculture (Real 2024$),1991,30456.273842630464
+Agriculture (Real 2024$),1992,29784.46441110756
+Agriculture (Real 2024$),1993,39163.1166380789
+Agriculture (Real 2024$),1994,28237.61101785442
+Agriculture (Real 2024$),1995,18074.596084877463
+Agriculture (Real 2024$),1996,16573.884570255206
+Agriculture (Real 2024$),1997,16021.721141374837
+Agriculture (Real 2024$),1998,21498.297608881297
+Agriculture (Real 2024$),1999,40228.82792070856
+Agriculture (Real 2024$),2000,62798.54097231786
+Agriculture (Real 2024$),2001,44148.6841468334
+Agriculture (Real 2024$),2002,36366.99166004766
+Agriculture (Real 2024$),2003,36544.67749058319
+Agriculture (Real 2024$),2004,24482.765690376567
+Agriculture (Real 2024$),2005,40882.05426356589
+Agriculture (Real 2024$),2006,38707.45834823025
+Agriculture (Real 2024$),2007,25620.347251217816
+Agriculture (Real 2024$),2008,26129.55448244517
+Agriculture (Real 2024$),2009,31280.863682375435
+Agriculture (Real 2024$),2010,29783.618644067796
+Agriculture (Real 2024$),2011,28248.757542632266
+Agriculture (Real 2024$),2012,23890.061949753057
+Agriculture (Real 2024$),2013,39141.91142043657
+Agriculture (Real 2024$),2014,31586.13318144159
+Agriculture (Real 2024$),2015,23716.63591635916
+Agriculture (Real 2024$),2016,23330.120805369126
+Agriculture (Real 2024$),2017,23603.2104
+Agriculture (Real 2024$),2018,26659.65789473684
+Agriculture (Real 2024$),2019,45967.94110865597
+Agriculture (Real 2024$),2020,56103.574165402126
+Agriculture (Real 2024$),2021,54361.00742778542
+Agriculture (Real 2024$),2022,35418.29008221994
+Agriculture (Real 2024$),2023,34475.184878768014
+Agriculture (Real 2024$),2024,32841.0
+Administration of Justice (Real 2024$),1970,6060.744315310762
+Administration of Justice (Real 2024$),1971,7858.965865384615
+Administration of Justice (Real 2024$),1972,9665.804497475905
+Administration of Justice (Real 2024$),1973,11962.260448746149
+Administration of Justice (Real 2024$),1974,12866.54414784394
+Administration of Justice (Real 2024$),1975,14094.229996278376
+Administration of Justice (Real 2024$),1976,14926.586638830899
+Administration of Justice (Real 2024$),1977,15018.951005840365
+Administration of Justice (Real 2024$),1978,14917.896321070231
+Administration of Justice (Real 2024$),1979,15078.762869198312
+Administration of Justice (Real 2024$),1980,15215.501681759379
+Administration of Justice (Real 2024$),1981,14463.797360980207
+Administration of Justice (Real 2024$),1982,13341.902181097157
+Administration of Justice (Real 2024$),1983,13850.901836605444
+Administration of Justice (Real 2024$),1984,14811.122274302017
+Administration of Justice (Real 2024$),1985,15848.94143167028
+Administration of Justice (Real 2024$),1986,16245.83317261331
+Administration of Justice (Real 2024$),1987,18202.509903791735
+Administration of Justice (Real 2024$),1988,21474.19678421341
+Administration of Justice (Real 2024$),1989,21183.264488935718
+Administration of Justice (Real 2024$),1990,21583.15740426974
+Administration of Justice (Real 2024$),1991,25545.95157860298
+Administration of Justice (Real 2024$),1992,29241.54963293967
+Administration of Justice (Real 2024$),1993,29630.259005145796
+Administration of Justice (Real 2024$),1994,29613.705478406835
+Administration of Justice (Real 2024$),1995,30852.59354453078
+Administration of Justice (Real 2024$),1996,32832.25080668818
+Administration of Justice (Real 2024$),1997,37160.51578037181
+Administration of Justice (Real 2024$),1998,41581.41374893254
+Administration of Justice (Real 2024$),1999,46659.04006748207
+Administration of Justice (Real 2024$),2000,49089.24294174356
+Administration of Justice (Real 2024$),2001,50789.822105687774
+Administration of Justice (Real 2024$),2002,58049.76528991263
+Administration of Justice (Real 2024$),2003,57409.71294973373
+Administration of Justice (Real 2024$),2004,72273.23849372385
+Administration of Justice (Real 2024$),2005,61587.010335917315
+Administration of Justice (Real 2024$),2006,61135.39649624598
+Administration of Justice (Real 2024$),2007,61449.95755045233
+Administration of Justice (Real 2024$),2008,68350.0941938416
+Administration of Justice (Real 2024$),2009,73965.87189292542
+Administration of Justice (Real 2024$),2010,75843.90956735058
+Administration of Justice (Real 2024$),2011,76638.87101005684
+Administration of Justice (Real 2024$),2012,75569.72718488297
+Administration of Justice (Real 2024$),2013,69374.74501739955
+Administration of Justice (Real 2024$),2014,65354.77413007456
+Administration of Justice (Real 2024$),2015,66542.47047970479
+Administration of Justice (Real 2024$),2016,70926.41610738254
+Administration of Justice (Real 2024$),2017,72470.56079999999
+Administration of Justice (Real 2024$),2018,73923.68675405986
+Administration of Justice (Real 2024$),2019,79100.85733499855
+Administration of Justice (Real 2024$),2020,85400.84209028831
+Administration of Justice (Real 2024$),2021,81923.43053645117
+Administration of Justice (Real 2024$),2022,76399.17446043166
+Administration of Justice (Real 2024$),2023,82401.95150720837
+Administration of Justice (Real 2024$),2024,83793.0
+General Government (Real 2024$),1970,14662.071753410812
+General Government (Real 2024$),1971,14683.699038461538
+General Government (Real 2024$),1972,16989.77512620468
+General Government (Real 2024$),1973,53780.65024197096
+General Government (Real 2024$),1974,51527.81273100615
+General Government (Real 2024$),1975,48287.16710085597
+General Government (Real 2024$),1976,42238.3235908142
+General Government (Real 2024$),1977,51906.89065541857
+General Government (Real 2024$),1978,45483.80267558528
+General Government (Real 2024$),1979,43065.594092827
+General Government (Real 2024$),1980,41986.63001293661
+General Government (Real 2024$),1981,33516.04877474081
+General Government (Real 2024$),1982,29926.97224058162
+General Government (Real 2024$),1983,29520.95566814439
+General Government (Real 2024$),1984,29938.296718972895
+General Government (Real 2024$),1985,28400.336225596526
+General Government (Real 2024$),1986,30130.171070395372
+General Government (Real 2024$),1987,17664.57441992077
+General Government (Real 2024$),1988,21478.767220902613
+General Government (Real 2024$),1989,20465.001580611166
+General Government (Real 2024$),1990,22170.15147407658
+General Government (Real 2024$),1991,23667.75331261247
+General Government (Real 2024$),1992,25714.59958506224
+General Government (Real 2024$),1993,25244.130360205832
+General Government (Real 2024$),1994,21297.972379063023
+General Government (Real 2024$),1995,25789.61341900777
+General Government (Real 2024$),1996,21563.476826048693
+General Government (Real 2024$),1997,22614.977518374406
+General Government (Real 2024$),1998,27669.91289496157
+General Government (Real 2024$),1999,27013.22100379586
+General Government (Real 2024$),2000,22414.76256713951
+General Government (Real 2024$),2001,24146.229124647034
+General Government (Real 2024$),2002,28065.41660047657
+General Government (Real 2024$),2003,37629.84127808806
+General Government (Real 2024$),2004,35423.020920502095
+General Government (Real 2024$),2005,26157.435585086747
+General Government (Real 2024$),2006,27093.28316052914
+General Government (Real 2024$),2007,25276.557063326374
+General Government (Real 2024$),2008,28880.781842972385
+General Government (Real 2024$),2009,30971.3889326285
+General Government (Real 2024$),2010,32095.90744870651
+General Government (Real 2024$),2011,37564.749890686486
+General Government (Real 2024$),2012,37645.88200558299
+General Government (Real 2024$),2013,36581.95286301803
+General Government (Real 2024$),2014,34859.2472038111
+General Government (Real 2024$),2015,26865.179581795812
+General Government (Real 2024$),2016,29437.36241610738
+General Government (Real 2024$),2017,29792.9247
+General Government (Real 2024$),2018,29224.19242809626
+General Government (Real 2024$),2019,28222.15544240561
+General Government (Real 2024$),2020,213640.2942905918
+General Government (Real 2024$),2021,314184.3270976616
+General Government (Real 2024$),2022,142697.2004110997
+General Government (Real 2024$),2023,39134.57511467889
+General Government (Real 2024$),2024,35316.0
+National Defense (CPI Real 2024$),1970,664344.1109960852
+National Defense (CPI Real 2024$),1971,612377.0456312293
+National Defense (CPI Real 2024$),1972,594955.8551889068
+National Defense (CPI Real 2024$),1973,548867.0093281011
+National Defense (CPI Real 2024$),1974,515815.2309648818
+National Defense (CPI Real 2024$),1975,509814.5115791962
+National Defense (CPI Real 2024$),1976,496748.1799985176
+National Defense (CPI Real 2024$),1977,507901.6009959492
+National Defense (CPI Real 2024$),1978,509893.19109356654
+National Defense (CPI Real 2024$),1979,514584.629389638
+National Defense (CPI Real 2024$),1980,521915.13107812504
+National Defense (CPI Real 2024$),1981,552201.2071338835
+National Defense (CPI Real 2024$),1982,604689.3515987433
+National Defense (CPI Real 2024$),1983,662063.4537317588
+National Defense (CPI Real 2024$),1984,688759.6920160376
+National Defense (CPI Real 2024$),1985,738274.3270986642
+National Defense (CPI Real 2024$),1986,779179.3146649897
+National Defense (CPI Real 2024$),1987,781768.0523932385
+National Defense (CPI Real 2024$),1988,773087.221503845
+National Defense (CPI Real 2024$),1989,771836.5791615667
+National Defense (CPI Real 2024$),1990,724796.6330740837
+National Defense (CPI Real 2024$),1991,629971.204244498
+National Defense (CPI Real 2024$),1992,667695.2409731866
+National Defense (CPI Real 2024$),1993,632110.4004715721
+National Defense (CPI Real 2024$),1994,595890.6705822442
+National Defense (CPI Real 2024$),1995,559944.3789514531
+National Defense (CPI Real 2024$),1996,532126.8562086324
+National Defense (CPI Real 2024$),1997,527549.1602597403
+National Defense (CPI Real 2024$),1998,514619.9287740545
+National Defense (CPI Real 2024$),1999,517307.94631539204
+National Defense (CPI Real 2024$),2000,537211.11014642
+National Defense (CPI Real 2024$),2001,538830.0707220882
+National Defense (CPI Real 2024$),2002,607043.5027245621
+National Defense (CPI Real 2024$),2003,688812.976099859
+National Defense (CPI Real 2024$),2004,758147.3294911258
+National Defense (CPI Real 2024$),2005,797562.4088118514
+National Defense (CPI Real 2024$),2006,810638.3731034483
+National Defense (CPI Real 2024$),2007,836674.4065494401
+National Defense (CPI Real 2024$),2008,895311.9298438305
+National Defense (CPI Real 2024$),2009,963529.959004098
+National Defense (CPI Real 2024$),2010,993941.9063251393
+National Defense (CPI Real 2024$),2011,985506.2567755099
+National Defense (CPI Real 2024$),2012,924356.1763866455
+National Defense (CPI Real 2024$),2013,849862.699155843
+National Defense (CPI Real 2024$),2014,796661.4667760909
+National Defense (CPI Real 2024$),2015,776042.444251762
+National Defense (CPI Real 2024$),2016,773848.2950014857
+National Defense (CPI Real 2024$),2017,765091.2240589226
+National Defense (CPI Real 2024$),2018,787644.6456068123
+National Defense (CPI Real 2024$),2019,840028.254998198
+National Defense (CPI Real 2024$),2020,874944.3306312808
+National Defense (CPI Real 2024$),2021,881285.628493103
+National Defense (CPI Real 2024$),2022,829316.5359324925
+National Defense (CPI Real 2024$),2023,845535.4498532036
+National Defense (CPI Real 2024$),2024,873523.0
+"Education, Training, Employment, and Social Services (CPI Real 2024$)",1970,70214.30561548499
+"Education, Training, Employment, and Social Services (CPI Real 2024$)",1971,76469.48882267442
+"Education, Training, Employment, and Social Services (CPI Real 2024$)",1972,94149.61868368168
+"Education, Training, Employment, and Social Services (CPI Real 2024$)",1973,91218.9612404288
+"Education, Training, Employment, and Social Services (CPI Real 2024$)",1974,80966.87589534075
+"Education, Training, Employment, and Social Services (CPI Real 2024$)",1975,94420.78979669031
+"Education, Training, Employment, and Social Services (CPI Real 2024$)",1976,104816.03324933293
+"Education, Training, Employment, and Social Services (CPI Real 2024$)",1977,110228.7655147367
+"Education, Training, Employment, and Social Services (CPI Real 2024$)",1978,130314.44146939841
+"Education, Training, Employment, and Social Services (CPI Real 2024$)",1979,133655.24342796308
+"Education, Training, Employment, and Social Services (CPI Real 2024$)",1980,123998.419328125
+"Education, Training, Employment, and Social Services (CPI Real 2024$)",1981,116201.59105381588
+"Education, Training, Employment, and Social Services (CPI Real 2024$)",1982,86828.91255519677
+"Education, Training, Employment, and Social Services (CPI Real 2024$)",1983,82613.23554280895
+"Education, Training, Employment, and Social Services (CPI Real 2024$)",1984,81511.40266402074
+"Education, Training, Employment, and Social Services (CPI Real 2024$)",1985,83495.22386688541
+"Education, Training, Employment, and Social Services (CPI Real 2024$)",1986,84854.56638691973
+"Education, Training, Employment, and Social Services (CPI Real 2024$)",1987,80160.08466414592
+"Education, Training, Employment, and Social Services (CPI Real 2024$)",1988,82375.48404087154
+"Education, Training, Employment, and Social Services (CPI Real 2024$)",1989,89791.42809873521
+"Education, Training, Employment, and Social Services (CPI Real 2024$)",1990,89998.75204701464
+"Education, Training, Employment, and Social Services (CPI Real 2024$)",1991,95111.74007767711
+"Education, Training, Employment, and Social Services (CPI Real 2024$)",1992,95801.62020050276
+"Education, Training, Employment, and Social Services (CPI Real 2024$)",1993,103052.03671235264
+"Education, Training, Employment, and Social Services (CPI Real 2024$)",1994,91691.92583092854
+"Education, Training, Employment, and Social Services (CPI Real 2024$)",1995,105103.1547836856
+"Education, Training, Employment, and Social Services (CPI Real 2024$)",1996,96782.73954267967
+"Education, Training, Employment, and Social Services (CPI Real 2024$)",1997,95590.03090909091
+"Education, Training, Employment, and Social Services (CPI Real 2024$)",1998,96966.38806486376
+"Education, Training, Employment, and Social Services (CPI Real 2024$)",1999,95279.74606716682
+"Education, Training, Employment, and Social Services (CPI Real 2024$)",2000,98122.70070672067
+"Education, Training, Employment, and Social Services (CPI Real 2024$)",2001,100945.32214356647
+"Education, Training, Employment, and Social Services (CPI Real 2024$)",2002,122977.97984345882
+"Education, Training, Employment, and Social Services (CPI Real 2024$)",2003,140802.86003777708
+"Education, Training, Employment, and Social Services (CPI Real 2024$)",2004,146364.16809794938
+"Education, Training, Employment, and Social Services (CPI Real 2024$)",2005,157087.72096335216
+"Education, Training, Employment, and Social Services (CPI Real 2024$)",2006,184045.76286206895
+"Education, Training, Employment, and Social Services (CPI Real 2024$)",2007,139097.66268614068
+"Education, Training, Employment, and Social Services (CPI Real 2024$)",2008,132689.61514263263
+"Education, Training, Employment, and Social Services (CPI Real 2024$)",2009,116239.54338321056
+"Education, Training, Employment, and Social Services (CPI Real 2024$)",2010,184309.62377539714
+"Education, Training, Employment, and Social Services (CPI Real 2024$)",2011,141432.7202964777
+"Education, Training, Employment, and Social Services (CPI Real 2024$)",2012,123849.86199316064
+"Education, Training, Employment, and Social Services (CPI Real 2024$)",2013,97752.60442167876
+"Education, Training, Employment, and Social Services (CPI Real 2024$)",2014,119619.94890204538
+"Education, Training, Employment, and Social Services (CPI Real 2024$)",2015,160608.6563323273
+"Education, Training, Employment, and Social Services (CPI Real 2024$)",2016,143077.39933181545
+"Education, Training, Employment, and Social Services (CPI Real 2024$)",2017,183953.4759428886
+"Education, Training, Employment, and Social Services (CPI Real 2024$)",2018,119164.05136686895
+"Education, Training, Employment, and Social Services (CPI Real 2024$)",2019,167464.91206631064
+"Education, Training, Employment, and Social Services (CPI Real 2024$)",2020,287089.37269856734
+"Education, Training, Employment, and Social Services (CPI Real 2024$)",2021,348828.71168888174
+"Education, Training, Employment, and Social Services (CPI Real 2024$)",2022,733626.2913812423
+"Education, Training, Employment, and Social Services (CPI Real 2024$)",2023,-2256.4434818206632
+"Education, Training, Employment, and Social Services (CPI Real 2024$)",2024,306370.0
+Health (CPI Real 2024$),1970,48037.514856459326
+Health (CPI Real 2024$),1971,53130.33932516612
+Health (CPI Real 2024$),1972,65181.083283762055
+Health (CPI Real 2024$),1973,66968.34599540582
+Health (CPI Real 2024$),1974,69772.57960535465
+Health (CPI Real 2024$),1975,76199.02709219858
+Health (CPI Real 2024$),1976,87211.81740587014
+Health (CPI Real 2024$),1977,90370.45588210644
+Health (CPI Real 2024$),1978,90389.60210361477
+Health (CPI Real 2024$),1979,90645.66016323633
+Health (CPI Real 2024$),1980,90244.05143437501
+Health (CPI Real 2024$),1981,94185.48075942248
+Health (CPI Real 2024$),1982,89556.89823283008
+Health (CPI Real 2024$),1983,90344.03274483341
+Health (CPI Real 2024$),1984,92133.05350720882
+Health (CPI Real 2024$),1985,97989.46193109914
+Health (CPI Real 2024$),1986,102423.46051909444
+Health (CPI Real 2024$),1987,110799.17356983987
+Health (CPI Real 2024$),1988,118404.60747863856
+Health (CPI Real 2024$),1989,123039.22539779682
+Health (CPI Real 2024$),1990,139718.7826058801
+Health (CPI Real 2024$),1991,163988.22291289072
+Health (CPI Real 2024$),1992,200109.8388167345
+Health (CPI Real 2024$),1993,215682.88564550786
+Health (CPI Real 2024$),1994,226497.2737413003
+Health (CPI Real 2024$),1995,237410.834993395
+Health (CPI Real 2024$),1996,238967.3046406769
+Health (CPI Real 2024$),1997,241422.65324675327
+Health (CPI Real 2024$),1998,252140.623953918
+Health (CPI Real 2024$),1999,265545.60117063596
+Health (CPI Real 2024$),2000,281965.4336307287
+Health (CPI Real 2024$),2001,304552.8980252518
+Health (CPI Real 2024$),2002,342271.1734732575
+Health (CPI Real 2024$),2003,373744.60104911024
+Health (CPI Real 2024$),2004,399434.77891730797
+Health (CPI Real 2024$),2005,403544.41495413636
+Health (CPI Real 2024$),2006,392687.8182413793
+Health (CPI Real 2024$),2007,404367.7892473843
+Health (CPI Real 2024$),2008,407826.1186696795
+Health (CPI Real 2024$),2009,487394.45778939297
+Health (CPI Real 2024$),2010,528987.7542100964
+Health (CPI Real 2024$),2011,520275.3524606178
+Health (CPI Real 2024$),2012,472854.14211797155
+Health (CPI Real 2024$),2013,480664.8239161175
+Health (CPI Real 2024$),2014,540602.6952382836
+Health (CPI Real 2024$),2015,634692.0865068149
+Health (CPI Real 2024$),2016,666846.3955859641
+Health (CPI Real 2024$),2017,681299.8937563159
+Health (CPI Real 2024$),2018,687784.5641539443
+Health (CPI Real 2024$),2019,716431.3095462437
+Health (CPI Real 2024$),2020,902709.7227417431
+Health (CPI Real 2024$),2021,931028.9586154764
+Health (CPI Real 2024$),2022,990091.3976008702
+Health (CPI Real 2024$),2023,915931.5385971492
+Health (CPI Real 2024$),2024,911289.0
+Medicare (CPI Real 2024$),1970,50525.99962809917
+Medicare (CPI Real 2024$),1971,51414.45375
+Medicare (CPI Real 2024$),1972,56201.213036575566
+Medicare (CPI Real 2024$),1973,57634.579088820836
+Medicare (CPI Real 2024$),1974,62660.75606223922
+Medicare (CPI Real 2024$),1975,75874.90130023641
+Medicare (CPI Real 2024$),1976,87766.10631781796
+Medicare (CPI Real 2024$),1977,101041.29401452717
+Medicare (CPI Real 2024$),1978,111098.59969202663
+Medicare (CPI Real 2024$),1979,117188.28759758694
+Medicare (CPI Real 2024$),1980,124991.65309375
+Medicare (CPI Real 2024$),1981,137246.6085852241
+Medicare (CPI Real 2024$),1982,151954.67589754777
+Medicare (CPI Real 2024$),1983,165869.91565078028
+Medicare (CPI Real 2024$),1984,174271.39706787627
+Medicare (CPI Real 2024$),1985,192269.1934426998
+Medicare (CPI Real 2024$),1986,199984.40750971873
+Medicare (CPI Real 2024$),1987,208252.65640569397
+Medicare (CPI Real 2024$),1988,210013.68596838505
+Medicare (CPI Real 2024$),1989,216034.4027009384
+Medicare (CPI Real 2024$),1990,237550.98806242718
+Medicare (CPI Real 2024$),1991,240865.98664508975
+Medicare (CPI Real 2024$),1992,266374.47246349056
+Medicare (CPI Real 2024$),1993,283503.3083314943
+Medicare (CPI Real 2024$),1994,306254.03669495846
+Medicare (CPI Real 2024$),1995,329004.3434692867
+Medicare (CPI Real 2024$),1996,348863.59078130027
+Medicare (CPI Real 2024$),1997,370580.55480519484
+Medicare (CPI Real 2024$),1998,369993.5267234567
+Medicare (CPI Real 2024$),1999,358554.8095015357
+Medicare (CPI Real 2024$),2000,359730.31105910486
+Medicare (CPI Real 2024$),2001,384380.4920187261
+Medicare (CPI Real 2024$),2002,402171.3726309169
+Medicare (CPI Real 2024$),2003,424508.7182599791
+Medicare (CPI Real 2024$),2004,448022.686215026
+Medicare (CPI Real 2024$),2005,480891.03167563846
+Medicare (CPI Real 2024$),2006,512444.25062068965
+Medicare (CPI Real 2024$),2007,569775.7292220806
+Medicare (CPI Real 2024$),2008,567877.9531444935
+Medicare (CPI Real 2024$),2009,626928.8464626202
+Medicare (CPI Real 2024$),2010,647310.2472368698
+Medicare (CPI Real 2024$),2011,678352.1461458609
+Medicare (CPI Real 2024$),2012,643362.8189132505
+Medicare (CPI Real 2024$),2013,667908.1532916093
+Medicare (CPI Real 2024$),2014,675511.4492196202
+Medicare (CPI Real 2024$),2015,718849.2588686019
+Medicare (CPI Real 2024$),2016,775366.3299195165
+Medicare (CPI Real 2024$),2017,763281.7576224111
+Medicare (CPI Real 2024$),2018,734559.0402812891
+Medicare (CPI Real 2024$),2019,797505.3979189463
+Medicare (CPI Real 2024$),2020,937296.3160365144
+Medicare (CPI Real 2024$),2021,814140.9585779615
+Medicare (CPI Real 2024$),2022,817883.8349993398
+Medicare (CPI Real 2024$),2023,873656.9823463738
+Medicare (CPI Real 2024$),2024,874133.0
+Income Security (CPI Real 2024$),1970,127229.88317746847
+Income Security (CPI Real 2024$),1971,178079.4187873754
+Income Security (CPI Real 2024$),1972,207686.73965836014
+Income Security (CPI Real 2024$),1973,202315.12393759572
+Income Security (CPI Real 2024$),1974,219075.36874130738
+Income Security (CPI Real 2024$),1975,295608.61546572106
+Income Security (CPI Real 2024$),1976,336918.97223836347
+Income Security (CPI Real 2024$),1977,318845.4790962425
+Income Security (CPI Real 2024$),1978,300056.0037009005
+Income Security (CPI Real 2024$),1979,293530.23280340666
+Income Security (CPI Real 2024$),1980,337107.4350875
+Income Security (CPI Real 2024$),1981,351577.6492012001
+Income Security (CPI Real 2024$),1982,352869.5157989353
+Income Security (CPI Real 2024$),1983,388015.99763306626
+Income Security (CPI Real 2024$),1984,343387.9467633242
+Income Security (CPI Real 2024$),1985,376820.979193813
+Income Security (CPI Real 2024$),1986,343898.84659501485
+Income Security (CPI Real 2024$),1987,344052.12890346977
+Income Security (CPI Real 2024$),1988,347157.0586520934
+Income Security (CPI Real 2024$),1989,349752.7921134231
+Income Security (CPI Real 2024$),1990,360273.47716552264
+Income Security (CPI Real 2024$),1991,397848.76656001486
+Income Security (CPI Real 2024$),1992,446830.286737491
+Income Security (CPI Real 2024$),1993,456221.6054962541
+Income Security (CPI Real 2024$),1994,459619.081247666
+Income Security (CPI Real 2024$),1995,460525.8133058124
+Income Security (CPI Real 2024$),1996,459943.2798902218
+Income Security (CPI Real 2024$),1997,458283.73532467533
+Income Security (CPI Real 2024$),1998,456103.1485780264
+Income Security (CPI Real 2024$),1999,456398.7947036907
+Income Security (CPI Real 2024$),2000,462952.04881106934
+Income Security (CPI Real 2024$),2001,476928.5864150944
+Income Security (CPI Real 2024$),2002,544700.8861861721
+Income Security (CPI Real 2024$),2003,569409.7409048291
+Income Security (CPI Real 2024$),2004,553919.1087100218
+Income Security (CPI Real 2024$),2005,556835.0938374747
+Income Security (CPI Real 2024$),2006,547486.1612068965
+Income Security (CPI Real 2024$),2007,555393.4859231851
+Income Security (CPI Real 2024$),2008,626667.1956898904
+Income Security (CPI Real 2024$),2009,777048.7533447267
+Income Security (CPI Real 2024$),2010,891637.4883037227
+Income Security (CPI Real 2024$),2011,834255.544548046
+Income Security (CPI Real 2024$),2012,738075.4674426262
+Income Security (CPI Real 2024$),2013,719675.7108212616
+Income Security (CPI Real 2024$),2014,678030.3197913574
+Income Security (CPI Real 2024$),2015,669624.9792427429
+Income Security (CPI Real 2024$),2016,670462.8138228192
+Income Security (CPI Real 2024$),2017,643335.6011275601
+Income Security (CPI Real 2024$),2018,617997.7994141039
+Income Security (CPI Real 2024$),2019,630641.9874753464
+Income Security (CPI Real 2024$),2020,1525851.627427698
+Income Security (CPI Real 2024$),2021,1926151.5662634445
+Income Security (CPI Real 2024$),2022,938117.2884984163
+Income Security (CPI Real 2024$),2023,798523.2900197661
+Income Security (CPI Real 2024$),2024,670548.0
+Social Security (CPI Real 2024$),1970,246164.81711613745
+Social Security (CPI Real 2024$),1971,278516.956345515
+Social Security (CPI Real 2024$),1972,301761.2129843248
+Social Security (CPI Real 2024$),1973,351376.24037136295
+Social Security (CPI Real 2024$),1974,363177.55565194716
+Social Security (CPI Real 2024$),1975,381042.28103073285
+Social Security (CPI Real 2024$),1976,409613.9630403202
+Social Security (CPI Real 2024$),1977,444283.9757130884
+Social Security (CPI Real 2024$),1978,458003.5868628475
+Social Security (CPI Real 2024$),1979,460318.4244251242
+Social Security (CPI Real 2024$),1980,461744.64005312504
+Social Security (CPI Real 2024$),1981,489346.614543409
+Social Security (CPI Real 2024$),1982,508932.4859167466
+Social Security (CPI Real 2024$),1983,538487.4016803037
+Social Security (CPI Real 2024$),1984,539783.9972128626
+Social Security (CPI Real 2024$),1985,550976.7566276073
+Social Security (CPI Real 2024$),1986,566502.777763549
+Social Security (CPI Real 2024$),1987,574834.9948220642
+Social Security (CPI Real 2024$),1988,583998.2237631729
+Social Security (CPI Real 2024$),1989,591274.7995960832
+Social Security (CPI Real 2024$),1990,602032.9789917109
+Social Security (CPI Real 2024$),1991,620125.7790900685
+Social Security (CPI Real 2024$),1992,643609.9970505148
+Social Security (CPI Real 2024$),1993,661428.8189238631
+Social Security (CPI Real 2024$),1994,676131.9491003226
+Social Security (CPI Real 2024$),1995,691218.8717073976
+Social Security (CPI Real 2024$),1996,700172.0800808612
+Social Security (CPI Real 2024$),1997,712334.3203896105
+Social Security (CPI Real 2024$),1998,727650.8657540925
+Social Security (CPI Real 2024$),1999,734323.156749912
+Social Security (CPI Real 2024$),2000,747195.0766552784
+Social Security (CPI Real 2024$),2001,765560.5245254646
+Social Security (CPI Real 2024$),2002,794360.5401323145
+Social Security (CPI Real 2024$),2003,807855.4096035684
+Social Security (CPI Real 2024$),2004,824237.99416574
+Social Security (CPI Real 2024$),2005,842667.9837496233
+Social Security (CPI Real 2024$),2006,852161.4137586206
+Social Security (CPI Real 2024$),2007,889636.4559283928
+Social Security (CPI Real 2024$),2008,896708.5249563346
+Social Security (CPI Real 2024$),2009,995527.0273328105
+Social Security (CPI Real 2024$),2010,1012935.4218916198
+Social Security (CPI Real 2024$),2011,1020784.820184376
+Social Security (CPI Real 2024$),2012,1054500.6692287242
+Social Security (CPI Real 2024$),2013,1091500.5363692173
+Social Security (CPI Real 2024$),2014,1122842.0041883164
+Social Security (CPI Real 2024$),2015,1168360.0318350683
+Social Security (CPI Real 2024$),2016,1194692.1763364736
+Social Security (CPI Real 2024$),2017,1207432.9290946675
+Social Security (CPI Real 2024$),2018,1232518.114234431
+Social Security (CPI Real 2024$),2019,1279457.6543252629
+Social Security (CPI Real 2024$),2020,1323204.354219291
+Social Security (CPI Real 2024$),2021,1326300.9881846933
+Social Security (CPI Real 2024$),2022,1320000.9111604653
+Social Security (CPI Real 2024$),2023,1396043.749186348
+Social Security (CPI Real 2024$),2024,1460918.0
+Veterans Benefits and Services (CPI Real 2024$),1970,70580.2592583732
+Veterans Benefits and Services (CPI Real 2024$),1971,75918.23146594685
+Veterans Benefits and Services (CPI Real 2024$),1972,80645.99790192927
+Veterans Benefits and Services (CPI Real 2024$),1973,86000.9274406585
+Veterans Benefits and Services (CPI Real 2024$),1974,87032.07824061195
+Veterans Benefits and Services (CPI Real 2024$),1975,97821.1640141844
+Veterans Benefits and Services (CPI Real 2024$),1976,102172.07513934183
+Veterans Benefits and Services (CPI Real 2024$),1977,94214.673633189
+Veterans Benefits and Services (CPI Real 2024$),1978,92604.93784940624
+Veterans Benefits and Services (CPI Real 2024$),1979,88155.49198367636
+Veterans Benefits and Services (CPI Real 2024$),1980,82516.30323437501
+Veterans Benefits and Services (CPI Real 2024$),1981,80600.69932777049
+Veterans Benefits and Services (CPI Real 2024$),1982,78178.32639322802
+Veterans Benefits and Services (CPI Real 2024$),1983,78367.76306874737
+Veterans Benefits and Services (CPI Real 2024$),1984,77537.74828527459
+Veterans Benefits and Services (CPI Real 2024$),1985,76768.05130302321
+Veterans Benefits and Services (CPI Real 2024$),1986,75083.93545163503
+Veterans Benefits and Services (CPI Real 2024$),1987,74188.62271129894
+Veterans Benefits and Services (CPI Real 2024$),1988,78301.83943107376
+Veterans Benefits and Services (CPI Real 2024$),1989,76376.36396980824
+Veterans Benefits and Services (CPI Real 2024$),1990,70435.70101282217
+Veterans Benefits and Services (CPI Real 2024$),1991,72195.94249861292
+Veterans Benefits and Services (CPI Real 2024$),1992,76342.3007517357
+Veterans Benefits and Services (CPI Real 2024$),1993,77503.47045124571
+Veterans Benefits and Services (CPI Real 2024$),1994,79589.61566287559
+Veterans Benefits and Services (CPI Real 2024$),1995,78024.17604029062
+Veterans Benefits and Services (CPI Real 2024$),1996,74093.84100835388
+Veterans Benefits and Services (CPI Real 2024$),1997,76707.61610389611
+Veterans Benefits and Services (CPI Real 2024$),1998,80193.85475907015
+Veterans Benefits and Services (CPI Real 2024$),1999,81362.81825084337
+Veterans Benefits and Services (CPI Real 2024$),2000,85847.78189272292
+Veterans Benefits and Services (CPI Real 2024$),2001,79611.87241310824
+Veterans Benefits and Services (CPI Real 2024$),2002,88810.26794027208
+Veterans Benefits and Services (CPI Real 2024$),2003,96722.08359018707
+Veterans Benefits and Services (CPI Real 2024$),2004,99346.40267648236
+Veterans Benefits and Services (CPI Real 2024$),2005,112900.00607036735
+Veterans Benefits and Services (CPI Real 2024$),2006,108482.808
+Veterans Benefits and Services (CPI Real 2024$),2007,110535.03746010512
+Veterans Benefits and Services (CPI Real 2024$),2008,123108.18790356995
+Veterans Benefits and Services (CPI Real 2024$),2009,139272.01008914594
+Veterans Benefits and Services (CPI Real 2024$),2010,155476.8021144487
+Veterans Benefits and Services (CPI Real 2024$),2011,177767.2521076521
+Veterans Benefits and Services (CPI Real 2024$),2012,170019.12469936
+Veterans Benefits and Services (CPI Real 2024$),2013,186540.30488033724
+Veterans Benefits and Services (CPI Real 2024$),2014,197524.07432593455
+Veterans Benefits and Services (CPI Real 2024$),2015,210285.66982780013
+Veterans Benefits and Services (CPI Real 2024$),2016,227649.1590950944
+Veterans Benefits and Services (CPI Real 2024$),2017,225651.70990461498
+Veterans Benefits and Services (CPI Real 2024$),2018,223216.57926218046
+Veterans Benefits and Services (CPI Real 2024$),2019,244818.5107686007
+Veterans Benefits and Services (CPI Real 2024$),2020,264027.21631352254
+Veterans Benefits and Services (CPI Real 2024$),2021,273869.4538041949
+Veterans Benefits and Services (CPI Real 2024$),2022,297222.0622321973
+Veterans Benefits and Services (CPI Real 2024$),2023,310892.3499849758
+Veterans Benefits and Services (CPI Real 2024$),2024,325637.0
+Energy (CPI Real 2024$),1970,8107.906265767725
+Energy (CPI Real 2024$),1971,8035.934707225914
+Energy (CPI Real 2024$),1972,9738.838360128617
+Energy (CPI Real 2024$),1973,8854.194527182237
+Energy (CPI Real 2024$),1974,8470.480874478442
+Energy (CPI Real 2024$),1975,17184.560170212768
+Energy (CPI Real 2024$),1976,23302.305858286392
+Energy (CPI Real 2024$),1977,30137.413619220562
+Energy (CPI Real 2024$),1978,38992.83688242203
+Energy (CPI Real 2024$),1979,40599.02969836764
+Energy (CPI Real 2024$),1980,39557.9691125
+Energy (CPI Real 2024$),1981,53168.20521095069
+Energy (CPI Real 2024$),1982,44140.50509730342
+Energy (CPI Real 2024$),1983,29500.671656684943
+Energy (CPI Real 2024$),1984,21421.99498542038
+Energy (CPI Real 2024$),1985,16381.234797281464
+Energy (CPI Real 2024$),1986,13367.636839698147
+Energy (CPI Real 2024$),1987,11288.669021352314
+Energy (CPI Real 2024$),1988,6113.129427513529
+Energy (CPI Real 2024$),1989,6877.890157078743
+Energy (CPI Real 2024$),1990,8090.129162673229
+Energy (CPI Real 2024$),1991,5615.419263917145
+Energy (CPI Real 2024$),1992,10068.715146636343
+Energy (CPI Real 2024$),1993,9379.027427260584
+Energy (CPI Real 2024$),1994,11040.184345611951
+Energy (CPI Real 2024$),1995,10158.990581241744
+Energy (CPI Real 2024$),1996,5684.739470386635
+Energy (CPI Real 2024$),1997,2876.633116883117
+Energy (CPI Real 2024$),1998,2436.9199517627135
+Energy (CPI Real 2024$),1999,1715.1408604803385
+Energy (CPI Real 2024$),2000,-1388.8214715213041
+Energy (CPI Real 2024$),2001,15.91388707618102
+Energy (CPI Real 2024$),2002,827.4951896198286
+Energy (CPI Real 2024$),2003,-1233.8737085248738
+Energy (CPI Real 2024$),2004,-244.50302522129797
+Energy (CPI Real 2024$),2005,708.5235433443866
+Energy (CPI Real 2024$),2006,1219.4839655172414
+Energy (CPI Real 2024$),2007,-1293.1269829737128
+Energy (CPI Real 2024$),2008,917.0151050885084
+Energy (CPI Real 2024$),2009,6931.167596147249
+Energy (CPI Real 2024$),2010,16651.574392647955
+Energy (CPI Real 2024$),2011,17004.44355780714
+Energy (CPI Real 2024$),2012,20261.183958670594
+Energy (CPI Real 2024$),2013,14814.497090642011
+Energy (CPI Real 2024$),2014,6957.257816066429
+Energy (CPI Real 2024$),2015,9003.350005895449
+Energy (CPI Real 2024$),2016,4852.755953601667
+Energy (CPI Real 2024$),2017,4927.47357287294
+Energy (CPI Real 2024$),2018,2706.3739088273537
+Energy (CPI Real 2024$),2019,6175.498330111718
+Energy (CPI Real 2024$),2020,8552.764735078916
+Energy (CPI Real 2024$),2021,6986.954718619753
+Energy (CPI Real 2024$),2022,-9891.371380535364
+Energy (CPI Real 2024$),2023,-418.50893267208284
+Energy (CPI Real 2024$),2024,13571.0
+Natural Resources and Environment (CPI Real 2024$),1970,24925.5092322749
+Natural Resources and Environment (CPI Real 2024$),1971,30396.796501245848
+Natural Resources and Environment (CPI Real 2024$),1972,31869.14620779743
+Natural Resources and Environment (CPI Real 2024$),1973,34178.479278330786
+Natural Resources and Environment (CPI Real 2024$),1974,37034.788597009734
+Natural Resources and Environment (CPI Real 2024$),1975,43291.419413711585
+Natural Resources and Environment (CPI Real 2024$),1976,45363.00455380967
+Natural Resources and Environment (CPI Real 2024$),1977,52398.359346277415
+Natural Resources and Environment (CPI Real 2024$),1978,53592.58259036931
+Natural Resources and Environment (CPI Real 2024$),1979,53673.51839957416
+Natural Resources and Environment (CPI Real 2024$),1980,53977.386368750005
+Natural Resources and Environment (CPI Real 2024$),1981,47566.016636039756
+Natural Resources and Environment (CPI Real 2024$),1982,42414.30363382494
+Natural Resources and Environment (CPI Real 2024$),1983,39969.26240067482
+Natural Resources and Environment (CPI Real 2024$),1984,38119.21799611211
+Natural Resources and Environment (CPI Real 2024$),1985,38981.37988047809
+Natural Resources and Environment (CPI Real 2024$),1986,38843.103379830776
+Natural Resources and Environment (CPI Real 2024$),1987,37023.61856094307
+Natural Resources and Environment (CPI Real 2024$),1988,38875.349638991735
+Natural Resources and Environment (CPI Real 2024$),1989,41112.23879844961
+Natural Resources and Environment (CPI Real 2024$),1990,41298.16009260459
+Natural Resources and Environment (CPI Real 2024$),1991,42747.26388755318
+Natural Resources and Environment (CPI Real 2024$),1992,44762.0297061288
+Natural Resources and Environment (CPI Real 2024$),1993,43917.90939775829
+Natural Resources and Environment (CPI Real 2024$),1994,44431.558309285356
+Natural Resources and Environment (CPI Real 2024$),1995,45050.67764035667
+Natural Resources and Environment (CPI Real 2024$),1996,43057.04573149834
+Natural Resources and Environment (CPI Real 2024$),1997,41347.456753246755
+Natural Resources and Environment (CPI Real 2024$),1998,42747.79739005491
+Natural Resources and Environment (CPI Real 2024$),1999,45077.51659986909
+Natural Resources and Environment (CPI Real 2024$),2000,45630.35907023281
+Natural Resources and Environment (CPI Real 2024$),2001,45145.92942545042
+Natural Resources and Environment (CPI Real 2024$),2002,51262.89147316437
+Natural Resources and Environment (CPI Real 2024$),2003,50490.112152837835
+Natural Resources and Environment (CPI Real 2024$),2004,51052.89698056136
+Natural Resources and Environment (CPI Real 2024$),2005,45060.48707592266
+Natural Resources and Environment (CPI Real 2024$),2006,51303.768103448274
+Natural Resources and Environment (CPI Real 2024$),2007,48144.69604097318
+Natural Resources and Environment (CPI Real 2024$),2008,46243.138896856326
+Natural Resources and Environment (CPI Real 2024$),2009,51853.29650846395
+Natural Resources and Environment (CPI Real 2024$),2010,62586.012997396996
+Natural Resources and Environment (CPI Real 2024$),2011,63515.940685408576
+Natural Resources and Environment (CPI Real 2024$),2012,56770.31561336758
+Natural Resources and Environment (CPI Real 2024$),2013,51177.23161769059
+Natural Resources and Environment (CPI Real 2024$),2014,47751.60767835651
+Natural Resources and Environment (CPI Real 2024$),2015,47422.55675521571
+Natural Resources and Environment (CPI Real 2024$),2016,50967.631126768814
+Natural Resources and Environment (CPI Real 2024$),2017,48426.22886867037
+Natural Resources and Environment (CPI Real 2024$),2018,48755.90617216637
+Natural Resources and Environment (CPI Real 2024$),2019,46351.151521147985
+Natural Resources and Environment (CPI Real 2024$),2020,51258.62812425526
+Natural Resources and Environment (CPI Real 2024$),2021,51611.34980454756
+Natural Resources and Environment (CPI Real 2024$),2022,44825.286159885625
+Natural Resources and Environment (CPI Real 2024$),2023,48847.001952049235
+Natural Resources and Environment (CPI Real 2024$),2024,58469.0
+Commerce and Housing Credit (CPI Real 2024$),1970,17175.424306220095
+Commerce and Housing Credit (CPI Real 2024$),1971,18370.06909883721
+Commerce and Housing Credit (CPI Real 2024$),1972,16697.29848472669
+Commerce and Housing Credit (CPI Real 2024$),1973,6663.908734686065
+Commerce and Housing Credit (CPI Real 2024$),1974,30586.041837621695
+Commerce and Housing Credit (CPI Real 2024$),1975,58619.622775413714
+Commerce and Housing Credit (CPI Real 2024$),1976,42231.27220130448
+Commerce and Housing Credit (CPI Real 2024$),1977,16155.116174046654
+Commerce and Housing Credit (CPI Real 2024$),1978,30516.981837400497
+Commerce and Housing Credit (CPI Real 2024$),1979,20726.337636621716
+Commerce and Housing Credit (CPI Real 2024$),1980,36574.37278125
+Commerce and Housing Credit (CPI Real 2024$),1981,28768.184884680297
+Commerce and Housing Credit (CPI Real 2024$),1982,20414.20861157169
+Commerce and Housing Credit (CPI Real 2024$),1983,21072.809509067905
+Commerce and Housing Credit (CPI Real 2024$),1984,21076.723187267133
+Commerce and Housing Credit (CPI Real 2024$),1985,12668.583330208578
+Commerce and Housing Credit (CPI Real 2024$),1986,14416.526041619025
+Commerce and Housing Credit (CPI Real 2024$),1987,17836.762397686834
+Commerce and Housing Credit (CPI Real 2024$),1988,51021.733109512956
+Commerce and Housing Credit (CPI Real 2024$),1989,75539.82945532436
+Commerce and Housing Credit (CPI Real 2024$),1990,163688.90789211245
+Commerce and Housing Credit (CPI Real 2024$),1991,175816.10314407252
+Commerce and Housing Credit (CPI Real 2024$),1992,24434.37029806081
+Commerce and Housing Credit (CPI Real 2024$),1993,-47455.40318775771
+Commerce and Housing Credit (CPI Real 2024$),1994,-8945.553739602785
+Commerce and Housing Credit (CPI Real 2024$),1995,-36651.39875825628
+Commerce and Housing Credit (CPI Real 2024$),1996,-20980.873607154335
+Commerce and Housing Credit (CPI Real 2024$),1997,-28551.8025974026
+Commerce and Housing Credit (CPI Real 2024$),1998,1932.2664499409864
+Commerce and Housing Credit (CPI Real 2024$),1999,4972.214064246514
+Commerce and Housing Credit (CPI Real 2024$),2000,5852.760130313826
+Commerce and Housing Credit (CPI Real 2024$),2001,10133.609648177047
+Commerce and Housing Credit (CPI Real 2024$),2002,-709.0327203689899
+Commerce and Housing Credit (CPI Real 2024$),2003,1237.277498065632
+Commerce and Housing Credit (CPI Real 2024$),2004,8757.20018904853
+Commerce and Housing Credit (CPI Real 2024$),2005,12183.384383962793
+Commerce and Housing Credit (CPI Real 2024$),2006,9611.397827586206
+Commerce and Housing Credit (CPI Real 2024$),2007,739.1465266528147
+Commerce and Housing Credit (CPI Real 2024$),2008,40502.71153536724
+Commerce and Housing Credit (CPI Real 2024$),2009,424958.55838965054
+Commerce and Housing Credit (CPI Real 2024$),2010,-117979.94471554563
+Commerce and Housing Credit (CPI Real 2024$),2011,-17549.189162172574
+Commerce and Housing Credit (CPI Real 2024$),2012,55428.47922789633
+Commerce and Housing Credit (CPI Real 2024$),2013,-111622.58005318185
+Commerce and Housing Credit (CPI Real 2024$),2014,-125231.96085196917
+Commerce and Housing Credit (CPI Real 2024$),2015,-49886.27130148618
+Commerce and Housing Credit (CPI Real 2024$),2016,-44441.64596368826
+Commerce and Housing Credit (CPI Real 2024$),2017,-34100.008374511
+Commerce and Housing Credit (CPI Real 2024$),2018,-11816.210657720167
+Commerce and Housing Credit (CPI Real 2024$),2019,-31502.269303476063
+Commerce and Housing Credit (CPI Real 2024$),2020,690779.1436907145
+Commerce and Housing Credit (CPI Real 2024$),2021,359864.9906747424
+Commerce and Housing Credit (CPI Real 2024$),2022,-20661.181459013587
+Commerce and Housing Credit (CPI Real 2024$),2023,103869.58768645918
+Commerce and Housing Credit (CPI Real 2024$),2024,36032.0
+Transportation (CPI Real 2024$),1970,56991.18065245759
+Transportation (CPI Real 2024$),1971,62517.242765780735
+Transportation (CPI Real 2024$),1972,63061.98419614148
+Transportation (CPI Real 2024$),1973,64892.58495022971
+Transportation (CPI Real 2024$),1974,59624.904513212794
+Transportation (CPI Real 2024$),1975,64341.916302600475
+Transportation (CPI Real 2024$),1976,76153.75361251112
+Transportation (CPI Real 2024$),1977,77453.67531359129
+Transportation (CPI Real 2024$),1978,75736.18085997652
+Transportation (CPI Real 2024$),1979,79964.03289212206
+Transportation (CPI Real 2024$),1980,83077.188184375
+Transportation (CPI Real 2024$),1981,81960.93034595913
+Transportation (CPI Real 2024$),1982,67302.27823108473
+Transportation (CPI Real 2024$),1983,67290.42329987348
+Transportation (CPI Real 2024$),1984,71686.29991657218
+Transportation (CPI Real 2024$),1985,75474.02722756035
+Transportation (CPI Real 2024$),1986,80128.86449348273
+Transportation (CPI Real 2024$),1987,72694.37108985765
+Transportation (CPI Real 2024$),1988,72612.04954144117
+Transportation (CPI Real 2024$),1989,70197.70478988168
+Transportation (CPI Real 2024$),1990,71397.0243524155
+Transportation (CPI Real 2024$),1991,71688.8028278158
+Transportation (CPI Real 2024$),1992,74596.66887479053
+Transportation (CPI Real 2024$),1993,76013.77079505198
+Transportation (CPI Real 2024$),1994,80539.60469529792
+Transportation (CPI Real 2024$),1995,80987.90100726552
+Transportation (CPI Real 2024$),1996,79223.92291153477
+Transportation (CPI Real 2024$),1997,79506.23883116884
+Transportation (CPI Real 2024$),1998,77411.54457792375
+Transportation (CPI Real 2024$),1999,80075.05057952773
+Transportation (CPI Real 2024$),2000,85506.50775977354
+Transportation (CPI Real 2024$),2001,96273.71218186978
+Transportation (CPI Real 2024$),2002,107718.96854686918
+Transportation (CPI Real 2024$),2003,114144.38035455829
+Transportation (CPI Real 2024$),2004,107493.17694542058
+Transportation (CPI Real 2024$),2005,109328.40329959951
+Transportation (CPI Real 2024$),2006,109122.84289655172
+Transportation (CPI Real 2024$),2007,110651.9045700687
+Transportation (CPI Real 2024$),2008,112797.21774413578
+Transportation (CPI Real 2024$),2009,122864.60263126298
+Transportation (CPI Real 2024$),2010,131819.46979175572
+Transportation (CPI Real 2024$),2011,129853.38424470992
+Transportation (CPI Real 2024$),2012,126845.81172779512
+Transportation (CPI Real 2024$),2013,122993.06210744657
+Transportation (CPI Real 2024$),2014,121342.76132139389
+Transportation (CPI Real 2024$),2015,117833.20217480444
+Transportation (CPI Real 2024$),2016,120720.29228731307
+Transportation (CPI Real 2024$),2017,119547.46050036549
+Transportation (CPI Real 2024$),2018,115772.66165539235
+Transportation (CPI Real 2024$),2019,117306.2920250303
+Transportation (CPI Real 2024$),2020,175840.6408324717
+Transportation (CPI Real 2024$),2021,180362.09310533048
+Transportation (CPI Real 2024$),2022,141919.29957985826
+Transportation (CPI Real 2024$),2023,130311.93039804605
+Transportation (CPI Real 2024$),2024,136582.0
+Community and Regional Development (CPI Real 2024$),1970,19452.469195302307
+Community and Regional Development (CPI Real 2024$),1971,22648.136754568106
+Community and Regional Development (CPI Real 2024$),1972,25722.25594654341
+Community and Regional Development (CPI Real 2024$),1973,32961.653838055136
+Community and Regional Development (CPI Real 2024$),1974,27491.6835135605
+Community and Regional Development (CPI Real 2024$),1975,25470.39405200946
+Community and Regional Development (CPI Real 2024$),1976,30164.402588200413
+Community and Regional Development (CPI Real 2024$),1977,36671.53917167202
+Community and Regional Development (CPI Real 2024$),1978,57779.27437426596
+Community and Regional Development (CPI Real 2024$),1979,46353.39701916253
+Community and Regional Development (CPI Real 2024$),1980,43826.9267875
+Community and Regional Development (CPI Real 2024$),1981,37048.766495405966
+Community and Regional Development (CPI Real 2024$),1982,27237.43594641766
+Community and Regional Development (CPI Real 2024$),1983,23857.915151412908
+Community and Regional Development (CPI Real 2024$),1984,23239.214975700634
+Community and Regional Development (CPI Real 2024$),1985,22421.961181157723
+Community and Regional Development (CPI Real 2024$),1986,20615.803254059
+Community and Regional Development (CPI Real 2024$),1987,13997.173351868329
+Community and Regional Development (CPI Real 2024$),1988,14092.680339646822
+Community and Regional Development (CPI Real 2024$),1989,13633.732725418196
+Community and Regional Development (CPI Real 2024$),1990,20657.555189094677
+Community and Regional Development (CPI Real 2024$),1991,15698.277991492512
+Community and Regional Development (CPI Real 2024$),1992,15298.89680871439
+Community and Regional Development (CPI Real 2024$),1993,19861.21436668796
+Community and Regional Development (CPI Real 2024$),1994,22469.67377355288
+Community and Regional Development (CPI Real 2024$),1995,22116.797566050198
+Community and Regional Development (CPI Real 2024$),1996,21507.497939916466
+Community and Regional Development (CPI Real 2024$),1997,21548.41987012987
+Community and Regional Development (CPI Real 2024$),1998,18748.9329517114
+Community and Regional Development (CPI Real 2024$),1999,22338.25061426917
+Community and Regional Development (CPI Real 2024$),2000,19386.92574503392
+Community and Regional Development (CPI Real 2024$),2001,20817.132505319903
+Community and Regional Development (CPI Real 2024$),2002,22614.136960957883
+Community and Regional Development (CPI Real 2024$),2003,32080.716421646717
+Community and Regional Development (CPI Real 2024$),2004,26313.182714292067
+Community and Regional Development (CPI Real 2024$),2005,42289.193852977915
+Community and Regional Development (CPI Real 2024$),2006,84610.43844827586
+Community and Regional Development (CPI Real 2024$),2007,44875.45247134245
+Community and Regional Development (CPI Real 2024$),2008,34808.78890186998
+Community and Regional Development (CPI Real 2024$),2009,40342.16496129785
+Community and Regional Development (CPI Real 2024$),2010,34246.23158357121
+Community and Regional Development (CPI Real 2024$),2011,33359.38274117857
+Community and Regional Development (CPI Real 2024$),2012,34271.37402404828
+Community and Regional Development (CPI Real 2024$),2013,43382.24628019466
+Community and Regional Development (CPI Real 2024$),2014,27287.764527152387
+Community and Regional Development (CPI Real 2024$),2015,27202.198694906157
+Community and Regional Development (CPI Real 2024$),2016,26265.655712318618
+Community and Regional Development (CPI Real 2024$),2017,31827.95235465413
+Community and Regional Development (CPI Real 2024$),2018,52603.97308540913
+Community and Regional Development (CPI Real 2024$),2019,32811.85226615994
+Community and Regional Development (CPI Real 2024$),2020,98868.1732286872
+Community and Regional Development (CPI Real 2024$),2021,52200.51245774888
+Community and Regional Development (CPI Real 2024$),2022,75780.77265619751
+Community and Regional Development (CPI Real 2024$),2023,89219.7134225783
+Community and Regional Development (CPI Real 2024$),2024,85215.0
+Net interest (CPI Real 2024$),1970,116942.51966072206
+Net interest (CPI Real 2024$),1971,115228.31593230898
+Net interest (CPI Real 2024$),1972,116309.9846744373
+Net interest (CPI Real 2024$),1973,124180.61507848393
+Net interest (CPI Real 2024$),1974,139434.6464134214
+Net interest (CPI Real 2024$),1975,136981.45287943262
+Net interest (CPI Real 2024$),1976,148144.7974962941
+Net interest (CPI Real 2024$),1977,156176.56925967315
+Net interest (CPI Real 2024$),1978,173020.6495028057
+Net interest (CPI Real 2024$),1979,188567.21136621718
+Net interest (CPI Real 2024$),1980,204617.84082187503
+Net interest (CPI Real 2024$),1981,241076.40772360776
+Net interest (CPI Real 2024$),1982,277471.38533554407
+Net interest (CPI Real 2024$),1983,283267.00739266135
+Net interest (CPI Real 2024$),1984,336494.62560019444
+Net interest (CPI Real 2024$),1985,378211.39783923136
+Net interest (CPI Real 2024$),1986,387681.42004802194
+Net interest (CPI Real 2024$),1987,384266.6261588079
+Net interest (CPI Real 2024$),1988,404177.43313799484
+Net interest (CPI Real 2024$),1989,429660.90818237455
+Net interest (CPI Real 2024$),1990,446390.6138136252
+Net interest (CPI Real 2024$),1991,448237.70321435184
+Net interest (CPI Real 2024$),1992,446129.79599712713
+Net interest (CPI Real 2024$),1993,431519.9530338579
+Net interest (CPI Real 2024$),1994,429361.1900390426
+Net interest (CPI Real 2024$),1995,477764.8135303831
+Net interest (CPI Real 2024$),1996,482678.23302399064
+Net interest (CPI Real 2024$),1997,475832.1724675325
+Net interest (CPI Real 2024$),1998,462665.56293631654
+Net interest (CPI Real 2024$),1999,432560.0311741604
+Net interest (CPI Real 2024$),2000,406880.8912670213
+Net interest (CPI Real 2024$),2001,364546.48409277917
+Net interest (CPI Real 2024$),2002,297809.42141120014
+Net interest (CPI Real 2024$),2003,260514.13818624552
+Net interest (CPI Real 2024$),2004,266533.24677950266
+Net interest (CPI Real 2024$),2005,296269.11964945524
+Net interest (CPI Real 2024$),2006,352023.8535517241
+Net interest (CPI Real 2024$),2007,359873.29319942964
+Net interest (CPI Real 2024$),2008,367324.86040706205
+Net interest (CPI Real 2024$),2009,272439.34512200067
+Net interest (CPI Real 2024$),2010,281196.332104594
+Net interest (CPI Real 2024$),2011,321207.1504386763
+Net interest (CPI Real 2024$),2012,300560.4411066542
+Net interest (CPI Real 2024$),2013,296350.3160538363
+Net interest (CPI Real 2024$),2014,302259.18795736344
+Net interest (CPI Real 2024$),2015,293725.57486708846
+Net interest (CPI Real 2024$),2016,313039.9273880325
+Net interest (CPI Real 2024$),2017,335506.51297493867
+Net interest (CPI Real 2024$),2018,405488.17935508036
+Net interest (CPI Real 2024$),2019,459588.8915945352
+Net interest (CPI Real 2024$),2020,417157.08499614755
+Net interest (CPI Real 2024$),2021,411873.7914754972
+Net interest (CPI Real 2024$),2022,515459.37934393703
+Net interest (CPI Real 2024$),2023,678548.3240966846
+Net interest (CPI Real 2024$),2024,879879.0
+International Affairs (CPI Real 2024$),1970,35212.87274902131
+International Affairs (CPI Real 2024$),1971,32291.258403239204
+International Affairs (CPI Real 2024$),1972,35926.99552451768
+International Affairs (CPI Real 2024$),1973,29697.698539433386
+International Affairs (CPI Real 2024$),1974,37119.298383171066
+International Affairs (CPI Real 2024$),1975,41824.01355555555
+International Affairs (CPI Real 2024$),1976,35657.40570560332
+International Affairs (CPI Real 2024$),1977,33182.49371280905
+International Affairs (CPI Real 2024$),1978,36509.12345817565
+International Affairs (CPI Real 2024$),1979,32991.41110361959
+International Affairs (CPI Real 2024$),1980,49521.46704375
+International Affairs (CPI Real 2024$),1981,45939.3486142884
+International Affairs (CPI Real 2024$),1982,40136.631381446896
+International Affairs (CPI Real 2024$),1983,37370.25101982286
+International Affairs (CPI Real 2024$),1984,48062.44004292889
+International Affairs (CPI Real 2024$),1985,47230.418230606985
+International Affairs (CPI Real 2024$),1986,40319.52894123027
+International Affairs (CPI Real 2024$),1987,32283.04291592527
+International Affairs (CPI Real 2024$),1988,27865.85914127029
+International Affairs (CPI Real 2024$),1989,24366.292560179518
+International Affairs (CPI Real 2024$),1990,33314.57558217848
+International Affairs (CPI Real 2024$),1991,36527.8873793231
+International Affairs (CPI Real 2024$),1992,36009.25243595882
+International Affairs (CPI Real 2024$),1993,37390.15842615715
+International Affairs (CPI Real 2024$),1994,36110.162174503486
+International Affairs (CPI Real 2024$),1995,33813.22047391017
+International Affairs (CPI Real 2024$),1996,27006.016638641966
+International Affairs (CPI Real 2024$),1997,29591.29103896104
+International Affairs (CPI Real 2024$),1998,25048.466968748395
+International Affairs (CPI Real 2024$),1999,28690.48471225014
+International Affairs (CPI Real 2024$),2000,31413.645189613937
+International Affairs (CPI Real 2024$),2001,29148.936494538233
+International Affairs (CPI Real 2024$),2002,38874.852960771525
+International Affairs (CPI Real 2024$),2003,36078.46723726731
+International Affairs (CPI Real 2024$),2004,44692.491753035894
+International Affairs (CPI Real 2024$),2005,55659.35517204255
+International Affairs (CPI Real 2024$),2006,45826.187896551724
+International Affairs (CPI Real 2024$),2007,43228.68864912827
+International Affairs (CPI Real 2024$),2008,41937.091739364645
+International Affairs (CPI Real 2024$),2009,54704.47712214724
+International Affairs (CPI Real 2024$),2010,64776.028978802235
+International Affairs (CPI Real 2024$),2011,63812.058808807225
+International Affairs (CPI Real 2024$),2012,50185.226278570146
+International Affairs (CPI Real 2024$),2013,62338.416303168844
+International Affairs (CPI Real 2024$),2014,61887.91065642848
+International Affairs (CPI Real 2024$),2015,68489.1586473906
+International Affairs (CPI Real 2024$),2016,59085.98796933005
+International Affairs (CPI Real 2024$),2017,59175.68625845439
+International Affairs (CPI Real 2024$),2018,60983.87496262651
+International Affairs (CPI Real 2024$),2019,64970.75063231005
+International Affairs (CPI Real 2024$),2020,81774.71881815817
+International Affairs (CPI Real 2024$),2021,54884.47565566606
+International Affairs (CPI Real 2024$),2022,77849.59868957712
+International Affairs (CPI Real 2024$),2023,71448.5459366997
+International Affairs (CPI Real 2024$),2024,72000.0
+"General Science, Space, and Technology (CPI Real 2024$)",1970,36684.819623749456
+"General Science, Space, and Technology (CPI Real 2024$)",1971,32469.834730066446
+"General Science, Space, and Technology (CPI Real 2024$)",1972,31373.18684686495
+"General Science, Space, and Technology (CPI Real 2024$)",1973,28860.236324655438
+"General Science, Space, and Technology (CPI Real 2024$)",1974,25872.996070931847
+"General Science, Space, and Technology (CPI Real 2024$)",1975,23519.746104018912
+"General Science, Space, and Technology (CPI Real 2024$)",1976,24239.05411947821
+"General Science, Space, and Technology (CPI Real 2024$)",1977,24736.705528705126
+"General Science, Space, and Technology (CPI Real 2024$)",1978,24036.880801252773
+"General Science, Space, and Technology (CPI Real 2024$)",1979,23150.16030518098
+"General Science, Space, and Technology (CPI Real 2024$)",1980,22711.945440625
+"General Science, Space, and Technology (CPI Real 2024$)",1981,22675.191303206455
+"General Science, Space, and Technology (CPI Real 2024$)",1982,23491.350350815952
+"General Science, Space, and Technology (CPI Real 2024$)",1983,25024.946960776044
+"General Science, Space, and Technology (CPI Real 2024$)",1984,25171.525565365304
+"General Science, Space, and Technology (CPI Real 2024$)",1985,25185.27218654793
+"General Science, Space, and Technology (CPI Real 2024$)",1986,25543.872357649212
+"General Science, Space, and Technology (CPI Real 2024$)",1987,25504.851423487547
+"General Science, Space, and Technology (CPI Real 2024$)",1988,28808.388678439187
+"General Science, Space, and Technology (CPI Real 2024$)",1989,32599.41948388413
+"General Science, Space, and Technology (CPI Real 2024$)",1990,34932.11712083927
+"General Science, Space, and Technology (CPI Real 2024$)",1991,37094.96173848715
+"General Science, Space, and Technology (CPI Real 2024$)",1992,36678.411322121145
+"General Science, Space, and Technology (CPI Real 2024$)",1993,36929.78477147337
+"General Science, Space, and Technology (CPI Real 2024$)",1994,34252.499879477175
+"General Science, Space, and Technology (CPI Real 2024$)",1995,34354.51190885073
+"General Science, Space, and Technology (CPI Real 2024$)",1996,33407.60596122952
+"General Science, Space, and Technology (CPI Real 2024$)",1997,33419.65090909091
+"General Science, Space, and Technology (CPI Real 2024$)",1998,34869.06249089137
+"General Science, Space, and Technology (CPI Real 2024$)",1999,34046.76983636272
+"General Science, Space, and Technology (CPI Real 2024$)",2000,33933.963786421984
+"General Science, Space, and Technology (CPI Real 2024$)",2001,34927.44571286708
+"General Science, Space, and Technology (CPI Real 2024$)",2002,36120.60055068952
+"General Science, Space, and Technology (CPI Real 2024$)",2003,35452.16996176779
+"General Science, Space, and Technology (CPI Real 2024$)",2004,38303.81066545082
+"General Science, Space, and Technology (CPI Real 2024$)",2005,37997.79557340339
+"General Science, Space, and Technology (CPI Real 2024$)",2006,36637.337379310346
+"General Science, Space, and Technology (CPI Real 2024$)",2007,37043.83834910729
+"General Science, Space, and Technology (CPI Real 2024$)",2008,38908.471328898
+"General Science, Space, and Technology (CPI Real 2024$)",2009,41422.29013243247
+"General Science, Space, and Technology (CPI Real 2024$)",2010,43141.02162323149
+"General Science, Space, and Technology (CPI Real 2024$)",2011,41157.625585209884
+"General Science, Space, and Technology (CPI Real 2024$)",2012,39627.81032702702
+"General Science, Space, and Technology (CPI Real 2024$)",2013,38784.41241589198
+"General Science, Space, and Technology (CPI Real 2024$)",2014,37717.050437384794
+"General Science, Space, and Technology (CPI Real 2024$)",2015,38708.74585198025
+"General Science, Space, and Technology (CPI Real 2024$)",2016,39351.534034930584
+"General Science, Space, and Technology (CPI Real 2024$)",2017,38844.74628324472
+"General Science, Space, and Technology (CPI Real 2024$)",2018,39349.10446693381
+"General Science, Space, and Technology (CPI Real 2024$)",2019,39708.90753268027
+"General Science, Space, and Technology (CPI Real 2024$)",2020,41081.76786910276
+"General Science, Space, and Technology (CPI Real 2024$)",2021,41538.30499773035
+"General Science, Space, and Technology (CPI Real 2024$)",2022,40514.3292945187
+"General Science, Space, and Technology (CPI Real 2024$)",2023,42547.72094820909
+"General Science, Space, and Technology (CPI Real 2024$)",2024,41476.0
+Agriculture (CPI Real 2024$),1970,42011.47820356677
+Agriculture (CPI Real 2024$),1971,33308.367047342195
+Agriculture (CPI Real 2024$),1972,39278.47847869775
+Agriculture (CPI Real 2024$),1973,34507.73792687596
+Agriculture (CPI Real 2024$),1974,14262.651602920723
+Agriculture (CPI Real 2024$),1975,17661.90906382979
+Agriculture (CPI Real 2024$),1976,17232.842272457754
+Agriculture (CPI Real 2024$),1977,35172.5031736276
+Agriculture (CPI Real 2024$),1978,55144.29353125408
+Agriculture (CPI Real 2024$),1979,49431.82872959546
+Agriculture (CPI Real 2024$),1980,34175.031606250006
+Agriculture (CPI Real 2024$),1981,39408.136276954814
+Agriculture (CPI Real 2024$),1982,51772.99134130377
+Agriculture (CPI Real 2024$),1983,71936.47155714889
+Agriculture (CPI Real 2024$),1984,40817.78968167828
+Agriculture (CPI Real 2024$),1985,74273.47667447856
+Agriculture (CPI Real 2024$),1986,89266.74161673908
+Agriculture (CPI Real 2024$),1987,73370.8041058719
+Agriculture (CPI Real 2024$),1988,45497.01901452577
+Agriculture (CPI Real 2024$),1989,42457.30493268054
+Agriculture (CPI Real 2024$),1990,28178.639049993526
+Agriculture (CPI Real 2024$),1991,34314.91427039024
+Agriculture (CPI Real 2024$),1992,33395.280599712714
+Agriculture (CPI Real 2024$),1993,43607.37433823102
+Agriculture (CPI Real 2024$),1994,31303.090723136993
+Agriculture (CPI Real 2024$),1995,19904.294552509906
+Agriculture (CPI Real 2024$),1996,18091.448085573527
+Agriculture (CPI Real 2024$),1997,17335.858831168833
+Agriculture (CPI Real 2024$),1998,23173.765557038027
+Agriculture (CPI Real 2024$),1999,43074.322444489204
+Agriculture (CPI Real 2024$),2000,66535.680957587
+Agriculture (CPI Real 2024$),2001,46419.040391544906
+Agriculture (CPI Real 2024$),2002,38265.11966315691
+Agriculture (CPI Real 2024$),2003,38285.82475444905
+Agriculture (CPI Real 2024$),2004,25679.470791779724
+Agriculture (CPI Real 2024$),2005,42777.10892941734
+Agriculture (CPI Real 2024$),2006,40342.39375862069
+Agriculture (CPI Real 2024$),2007,26806.583067232063
+Agriculture (CPI Real 2024$),2008,26721.326049544223
+Agriculture (CPI Real 2024$),2009,32413.95874564172
+Agriculture (CPI Real 2024$),2010,30608.62650450936
+Agriculture (CPI Real 2024$),2011,28860.342762560464
+Agriculture (CPI Real 2024$),2012,24260.78367268196
+Agriculture (CPI Real 2024$),2013,39817.48276182517
+Agriculture (CPI Real 2024$),2014,32193.48939328196
+Agriculture (CPI Real 2024$),2015,24347.6063600447
+Agriculture (CPI Real 2024$),2016,23923.395649790105
+Agriculture (CPI Real 2024$),2017,24115.99617926819
+Agriculture (CPI Real 2024$),2018,27187.266528095533
+Agriculture (CPI Real 2024$),2019,46866.899348360246
+Agriculture (CPI Real 2024$),2020,57112.617032297414
+Agriculture (CPI Real 2024$),2021,55407.006818326765
+Agriculture (CPI Real 2024$),2022,35814.51978727571
+Agriculture (CPI Real 2024$),2023,34687.7933333701
+Agriculture (CPI Real 2024$),2024,32841.0
+Administration of Justice (CPI Real 2024$),1970,7798.878745106568
+Administration of Justice (CPI Real 2024$),1971,10147.79387666113
+Administration of Justice (CPI Real 2024$),1972,12654.478239549839
+Administration of Justice (CPI Real 2024$),1973,15561.050042113324
+Administration of Justice (CPI Real 2024$),1974,16284.385718011126
+Administration of Justice (CPI Real 2024$),1975,17844.598146572105
+Administration of Justice (CPI Real 2024$),1976,19012.10967981026
+Administration of Justice (CPI Real 2024$),1977,19330.774316245286
+Administration of Justice (CPI Real 2024$),1978,19142.6478650659
+Administration of Justice (CPI Real 2024$),1979,18957.124009936124
+Administration of Justice (CPI Real 2024$),1980,18314.45163125
+Administration of Justice (CPI Real 2024$),1981,17206.22123007688
+Administration of Justice (CPI Real 2024$),1982,15800.127573086655
+Administration of Justice (CPI Real 2024$),1983,16546.618572754112
+Administration of Justice (CPI Real 2024$),1984,17599.77560586425
+Administration of Justice (CPI Real 2024$),1985,18770.65171314741
+Administration of Justice (CPI Real 2024$),1986,19196.382540589984
+Administration of Justice (CPI Real 2024$),1987,21388.035731761567
+Administration of Justice (CPI Real 2024$),1988,25019.63294004557
+Administration of Justice (CPI Real 2024$),1989,24521.394704202365
+Administration of Justice (CPI Real 2024$),1990,24662.665525838624
+Administration of Justice (CPI Real 2024$),1991,28782.481498058078
+Administration of Justice (CPI Real 2024$),1992,32786.547432367726
+Administration of Justice (CPI Real 2024$),1993,32992.72139438992
+Administration of Justice (CPI Real 2024$),1994,32828.57422508912
+Administration of Justice (CPI Real 2024$),1995,33975.81371862616
+Administration of Justice (CPI Real 2024$),1996,35838.4878622684
+Administration of Justice (CPI Real 2024$),1997,40208.50506493507
+Administration of Justice (CPI Real 2024$),1998,44822.05760096475
+Administration of Justice (CPI Real 2024$),1999,49959.36100297065
+Administration of Justice (CPI Real 2024$),2000,52010.54286055932
+Administration of Justice (CPI Real 2024$),2001,53401.70039863811
+Administration of Justice (CPI Real 2024$),2002,61079.5975647596
+Administration of Justice (CPI Real 2024$),2003,60144.96118519868
+Administration of Justice (CPI Real 2024$),2004,75805.91753391753
+Administration of Justice (CPI Real 2024$),2005,64441.82654795229
+Administration of Justice (CPI Real 2024$),2006,63717.64882758621
+Administration of Justice (CPI Real 2024$),2007,64295.12353607092
+Administration of Justice (CPI Real 2024$),2008,69898.05944444056
+Administration of Justice (CPI Real 2024$),2009,76645.15738654438
+Administration of Justice (CPI Real 2024$),2010,77944.78999788035
+Administration of Justice (CPI Real 2024$),2011,78298.10153412493
+Administration of Justice (CPI Real 2024$),2012,76742.40474102201
+Administration of Justice (CPI Real 2024$),2013,70572.1211252364
+Administration of Justice (CPI Real 2024$),2014,66611.45305982235
+Administration of Justice (CPI Real 2024$),2015,68312.80301213407
+Administration of Justice (CPI Real 2024$),2016,72730.04407967154
+Administration of Justice (CPI Real 2024$),2017,74045.00225792264
+Administration of Justice (CPI Real 2024$),2018,75386.67534510422
+Administration of Justice (CPI Real 2024$),2019,80647.76950365298
+Administration of Justice (CPI Real 2024$),2020,86936.8068094701
+Administration of Justice (CPI Real 2024$),2021,83499.7784090696
+Administration of Justice (CPI Real 2024$),2022,77253.8634443631
+Administration of Justice (CPI Real 2024$),2023,82910.12431694819
+Administration of Justice (CPI Real 2024$),2024,83793.0
+General Government (CPI Real 2024$),1970,18866.943366681164
+General Government (CPI Real 2024$),1971,18960.147396179404
+General Government (CPI Real 2024$),1972,22243.025884244373
+General Government (CPI Real 2024$),1973,69960.30501914243
+General Government (CPI Real 2024$),1974,65215.551905424196
+General Government (CPI Real 2024$),1975,61136.01756028369
+General Government (CPI Real 2024$),1976,53799.2817936555
+General Government (CPI Real 2024$),1977,66808.95279089258
+General Government (CPI Real 2024$),1978,58364.82567271304
+General Government (CPI Real 2024$),1979,54142.36001064585
+General Government (CPI Real 2024$),1980,50538.071015625006
+General Government (CPI Real 2024$),1981,39870.8952831427
+General Government (CPI Real 2024$),1982,35440.97182389388
+General Government (CPI Real 2024$),1983,35266.43962294391
+General Government (CPI Real 2024$),1984,35575.11000971975
+General Government (CPI Real 2024$),1985,33635.86281931099
+General Government (CPI Real 2024$),1986,35602.37777498285
+General Government (CPI Real 2024$),1987,20755.95897909253
+General Government (CPI Real 2024$),1988,25024.957965679292
+General Government (CPI Real 2024$),1989,23689.94550591595
+General Government (CPI Real 2024$),1990,25333.41254112162
+General Government (CPI Real 2024$),1991,26666.325962641025
+General Government (CPI Real 2024$),1992,28832.019834211158
+General Government (CPI Real 2024$),1993,28108.851821824726
+General Government (CPI Real 2024$),1994,23610.08377015787
+General Government (CPI Real 2024$),1995,28400.306124504623
+General Government (CPI Real 2024$),1996,23537.905063189464
+General Government (CPI Real 2024$),1997,24469.908961038964
+General Government (CPI Real 2024$),1998,29826.365141889466
+General Government (CPI Real 2024$),1999,28923.939670207947
+General Government (CPI Real 2024$),2000,23748.66466347796
+General Government (CPI Real 2024$),2001,25387.95451553412
+General Government (CPI Real 2024$),2002,29530.254651043608
+General Government (CPI Real 2024$),2003,39422.69046106231
+General Government (CPI Real 2024$),2004,37154.480118322135
+General Government (CPI Real 2024$),2005,27369.94242323759
+General Government (CPI Real 2024$),2006,28237.656103448277
+General Government (CPI Real 2024$),2007,26446.87520929219
+General Government (CPI Real 2024$),2008,29534.862093048745
+General Government (CPI Real 2024$),2009,32093.273809542374
+General Government (CPI Real 2024$),2010,32984.965835117924
+General Government (CPI Real 2024$),2011,38378.026219345236
+General Government (CPI Real 2024$),2012,38230.064092161134
+General Government (CPI Real 2024$),2013,37213.340500193575
+General Government (CPI Real 2024$),2014,35529.54072178288
+General Government (CPI Real 2024$),2015,27579.91561519442
+General Government (CPI Real 2024$),2016,30185.941763521685
+General Government (CPI Real 2024$),2017,30440.18360461782
+General Government (CPI Real 2024$),2018,29802.55454695313
+General Government (CPI Real 2024$),2019,28774.073552403104
+General Government (CPI Real 2024$),2020,217482.69146835076
+General Government (CPI Real 2024$),2021,320229.7745647338
+General Government (CPI Real 2024$),2022,144293.57532078394
+General Government (CPI Real 2024$),2023,39375.918027440624
+General Government (CPI Real 2024$),2024,35316.0

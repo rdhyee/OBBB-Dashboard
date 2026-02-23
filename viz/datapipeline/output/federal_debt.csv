@@ -1,0 +1,551 @@
+year,category,amount
+1970,Gross Federal Debt,380921.0
+1971,Gross Federal Debt,408176.0
+1972,Gross Federal Debt,435936.0
+1973,Gross Federal Debt,466291.0
+1974,Gross Federal Debt,483893.0
+1975,Gross Federal Debt,541925.0
+1976,Gross Federal Debt,628970.0
+1977,Gross Federal Debt,706398.0
+1978,Gross Federal Debt,776602.0
+1979,Gross Federal Debt,829467.0
+1980,Gross Federal Debt,909041.0
+1981,Gross Federal Debt,994828.0
+1982,Gross Federal Debt,1137315.0
+1983,Gross Federal Debt,1371660.0
+1984,Gross Federal Debt,1564586.0
+1985,Gross Federal Debt,1817423.0
+1986,Gross Federal Debt,2120501.0
+1987,Gross Federal Debt,2345956.0
+1988,Gross Federal Debt,2601104.0
+1989,Gross Federal Debt,2867800.0
+1990,Gross Federal Debt,3206290.0
+1991,Gross Federal Debt,3598178.0
+1992,Gross Federal Debt,4001787.0
+1993,Gross Federal Debt,4351044.0
+1994,Gross Federal Debt,4643307.0
+1995,Gross Federal Debt,4920586.0
+1996,Gross Federal Debt,5181465.0
+1997,Gross Federal Debt,5369206.0
+1998,Gross Federal Debt,5478189.0
+1999,Gross Federal Debt,5605523.0
+2000,Gross Federal Debt,5628700.0
+2001,Gross Federal Debt,5769881.0
+2002,Gross Federal Debt,6198401.0
+2003,Gross Federal Debt,6760014.0
+2004,Gross Federal Debt,7354657.0
+2005,Gross Federal Debt,7905300.0
+2006,Gross Federal Debt,8451350.0
+2007,Gross Federal Debt,8950744.0
+2008,Gross Federal Debt,9986082.0
+2009,Gross Federal Debt,11875851.0
+2010,Gross Federal Debt,13528807.0
+2011,Gross Federal Debt,14764222.0
+2012,Gross Federal Debt,16050921.0
+2013,Gross Federal Debt,16719434.0
+2014,Gross Federal Debt,17794483.0
+2015,Gross Federal Debt,18120106.0
+2016,Gross Federal Debt,19539450.0
+2017,Gross Federal Debt,20205704.0
+2018,Gross Federal Debt,21462277.0
+2019,Gross Federal Debt,22669466.0
+2020,Gross Federal Debt,26902455.0
+2021,Gross Federal Debt,28385562.0
+2022,Gross Federal Debt,30838586.0
+2023,Gross Federal Debt,32988990.0
+2024,Gross Federal Debt,35231312.0
+1970,Held by Federal Government Accounts,97723.0
+1971,Held by Federal Government Accounts,105140.0
+1972,Held by Federal Government Accounts,113559.0
+1973,Held by Federal Government Accounts,125381.0
+1974,Held by Federal Government Accounts,140194.0
+1975,Held by Federal Government Accounts,147225.0
+1976,Held by Federal Government Accounts,151566.0
+1977,Held by Federal Government Accounts,157294.0
+1978,Held by Federal Government Accounts,169476.0
+1979,Held by Federal Government Accounts,189161.0
+1980,Held by Federal Government Accounts,197118.0
+1981,Held by Federal Government Accounts,205418.0
+1982,Held by Federal Government Accounts,212740.0
+1983,Held by Federal Government Accounts,234392.0
+1984,Held by Federal Government Accounts,257611.0
+1985,Held by Federal Government Accounts,310163.0
+1986,Held by Federal Government Accounts,379878.0
+1987,Held by Federal Government Accounts,456203.0
+1988,Held by Federal Government Accounts,549487.0
+1989,Held by Federal Government Accounts,677084.0
+1990,Held by Federal Government Accounts,794733.0
+1991,Held by Federal Government Accounts,909179.0
+1992,Held by Federal Government Accounts,1002050.0
+1993,Held by Federal Government Accounts,1102647.0
+1994,Held by Federal Government Accounts,1210242.0
+1995,Held by Federal Government Accounts,1316208.0
+1996,Held by Federal Government Accounts,1447392.0
+1997,Held by Federal Government Accounts,1596862.0
+1998,Held by Federal Government Accounts,1757090.0
+1999,Held by Federal Government Accounts,1973160.0
+2000,Held by Federal Government Accounts,2218896.0
+2001,Held by Federal Government Accounts,2450266.0
+2002,Held by Federal Government Accounts,2657974.0
+2003,Held by Federal Government Accounts,2846570.0
+2004,Held by Federal Government Accounts,3059113.0
+2005,Held by Federal Government Accounts,3313088.0
+2006,Held by Federal Government Accounts,3622378.0
+2007,Held by Federal Government Accounts,3915615.0
+2008,Held by Federal Government Accounts,4183032.0
+2009,Held by Federal Government Accounts,4331144.0
+2010,Held by Federal Government Accounts,4509926.0
+2011,Held by Federal Government Accounts,4636035.0
+2012,Held by Federal Government Accounts,4769790.0
+2013,Held by Federal Government Accounts,4736721.0
+2014,Held by Federal Government Accounts,5014584.0
+2015,Held by Federal Government Accounts,5003414.0
+2016,Held by Federal Government Accounts,5371826.0
+2017,Held by Federal Government Accounts,5540265.0
+2018,Held by Federal Government Accounts,5712710.0
+2019,Held by Federal Government Accounts,5868766.0
+2020,Held by Federal Government Accounts,5885786.0
+2021,Held by Federal Government Accounts,6101522.0
+2022,Held by Federal Government Accounts,6585141.0
+2023,Held by Federal Government Accounts,6753398.0
+2024,Held by Federal Government Accounts,7035737.0
+1970,Held by the Public - Total,283198.0
+1971,Held by the Public - Total,303037.0
+1972,Held by the Public - Total,322377.0
+1973,Held by the Public - Total,340910.0
+1974,Held by the Public - Total,343699.0
+1975,Held by the Public - Total,394700.0
+1976,Held by the Public - Total,477404.0
+1977,Held by the Public - Total,549104.0
+1978,Held by the Public - Total,607126.0
+1979,Held by the Public - Total,640306.0
+1980,Held by the Public - Total,711923.0
+1981,Held by the Public - Total,789410.0
+1982,Held by the Public - Total,924575.0
+1983,Held by the Public - Total,1137268.0
+1984,Held by the Public - Total,1306975.0
+1985,Held by the Public - Total,1507260.0
+1986,Held by the Public - Total,1740623.0
+1987,Held by the Public - Total,1889753.0
+1988,Held by the Public - Total,2051616.0
+1989,Held by the Public - Total,2190716.0
+1990,Held by the Public - Total,2411558.0
+1991,Held by the Public - Total,2688999.0
+1992,Held by the Public - Total,2999737.0
+1993,Held by the Public - Total,3248396.0
+1994,Held by the Public - Total,3433065.0
+1995,Held by the Public - Total,3604378.0
+1996,Held by the Public - Total,3734073.0
+1997,Held by the Public - Total,3772344.0
+1998,Held by the Public - Total,3721099.0
+1999,Held by the Public - Total,3632363.0
+2000,Held by the Public - Total,3409804.0
+2001,Held by the Public - Total,3319615.0
+2002,Held by the Public - Total,3540427.0
+2003,Held by the Public - Total,3913443.0
+2004,Held by the Public - Total,4295544.0
+2005,Held by the Public - Total,4592212.0
+2006,Held by the Public - Total,4828972.0
+2007,Held by the Public - Total,5035129.0
+2008,Held by the Public - Total,5803050.0
+2009,Held by the Public - Total,7544707.0
+2010,Held by the Public - Total,9018882.0
+2011,Held by the Public - Total,10128187.0
+2012,Held by the Public - Total,11281131.0
+2013,Held by the Public - Total,11982713.0
+2014,Held by the Public - Total,12779899.0
+2015,Held by the Public - Total,13116692.0
+2016,Held by the Public - Total,14167624.0
+2017,Held by the Public - Total,14665439.0
+2018,Held by the Public - Total,15749567.0
+2019,Held by the Public - Total,16800700.0
+2020,Held by the Public - Total,21016669.0
+2021,Held by the Public - Total,22284040.0
+2022,Held by the Public - Total,24253445.0
+2023,Held by the Public - Total,26235592.0
+2024,Held by the Public - Total,28195575.0
+1970,Held by the Public - Federal Reserve,57714.0
+1971,Held by the Public - Federal Reserve,65518.0
+1972,Held by the Public - Federal Reserve,71426.0
+1973,Held by the Public - Federal Reserve,75181.0
+1974,Held by the Public - Federal Reserve,80648.0
+1975,Held by the Public - Federal Reserve,84993.0
+1976,Held by the Public - Federal Reserve,94714.0
+1977,Held by the Public - Federal Reserve,105004.0
+1978,Held by the Public - Federal Reserve,115480.0
+1979,Held by the Public - Federal Reserve,115594.0
+1980,Held by the Public - Federal Reserve,120846.0
+1981,Held by the Public - Federal Reserve,124466.0
+1982,Held by the Public - Federal Reserve,134497.0
+1983,Held by the Public - Federal Reserve,155527.0
+1984,Held by the Public - Federal Reserve,155122.0
+1985,Held by the Public - Federal Reserve,169806.0
+1986,Held by the Public - Federal Reserve,190855.0
+1987,Held by the Public - Federal Reserve,212040.0
+1988,Held by the Public - Federal Reserve,229218.0
+1989,Held by the Public - Federal Reserve,220088.0
+1990,Held by the Public - Federal Reserve,234410.0
+1991,Held by the Public - Federal Reserve,258591.0
+1992,Held by the Public - Federal Reserve,296397.0
+1993,Held by the Public - Federal Reserve,325653.0
+1994,Held by the Public - Federal Reserve,355150.0
+1995,Held by the Public - Federal Reserve,374114.0
+1996,Held by the Public - Federal Reserve,390924.0
+1997,Held by the Public - Federal Reserve,424518.0
+1998,Held by the Public - Federal Reserve,458182.0
+1999,Held by the Public - Federal Reserve,496644.0
+2000,Held by the Public - Federal Reserve,511413.0
+2001,Held by the Public - Federal Reserve,534135.0
+2002,Held by the Public - Federal Reserve,604191.0
+2003,Held by the Public - Federal Reserve,656116.0
+2004,Held by the Public - Federal Reserve,700341.0
+2005,Held by the Public - Federal Reserve,736360.0
+2006,Held by the Public - Federal Reserve,768924.0
+2007,Held by the Public - Federal Reserve,779632.0
+2008,Held by the Public - Federal Reserve,491127.0
+2009,Held by the Public - Federal Reserve,769160.0
+2010,Held by the Public - Federal Reserve,811669.0
+2011,Held by the Public - Federal Reserve,1664660.0
+2012,Held by the Public - Federal Reserve,1645285.0
+2013,Held by the Public - Federal Reserve,2072283.0
+2014,Held by the Public - Federal Reserve,2451743.0
+2015,Held by the Public - Federal Reserve,2461947.0
+2016,Held by the Public - Federal Reserve,2463456.0
+2017,Held by the Public - Federal Reserve,2465418.0
+2018,Held by the Public - Federal Reserve,2313209.0
+2019,Held by the Public - Federal Reserve,2113329.0
+2020,Held by the Public - Federal Reserve,4445477.0
+2021,Held by the Public - Federal Reserve,5433156.0
+2022,Held by the Public - Federal Reserve,5634940.0
+2023,Held by the Public - Federal Reserve,4952914.0
+2024,Held by the Public - Federal Reserve,4364357.0
+1970,Held by the Public - Other,225484.0
+1971,Held by the Public - Other,237519.0
+1972,Held by the Public - Other,250951.0
+1973,Held by the Public - Other,265729.0
+1974,Held by the Public - Other,263051.0
+1975,Held by the Public - Other,309707.0
+1976,Held by the Public - Other,382690.0
+1977,Held by the Public - Other,444100.0
+1978,Held by the Public - Other,491646.0
+1979,Held by the Public - Other,524712.0
+1980,Held by the Public - Other,591077.0
+1981,Held by the Public - Other,664944.0
+1982,Held by the Public - Other,790078.0
+1983,Held by the Public - Other,981741.0
+1984,Held by the Public - Other,1151853.0
+1985,Held by the Public - Other,1337454.0
+1986,Held by the Public - Other,1549767.0
+1987,Held by the Public - Other,1677713.0
+1988,Held by the Public - Other,1822398.0
+1989,Held by the Public - Other,1970628.0
+1990,Held by the Public - Other,2177147.0
+1991,Held by the Public - Other,2430408.0
+1992,Held by the Public - Other,2703341.0
+1993,Held by the Public - Other,2922744.0
+1994,Held by the Public - Other,3077915.0
+1995,Held by the Public - Other,3230264.0
+1996,Held by the Public - Other,3343149.0
+1997,Held by the Public - Other,3347826.0
+1998,Held by the Public - Other,3262917.0
+1999,Held by the Public - Other,3135719.0
+2000,Held by the Public - Other,2898391.0
+2001,Held by the Public - Other,2785480.0
+2002,Held by the Public - Other,2936235.0
+2003,Held by the Public - Other,3257327.0
+2004,Held by the Public - Other,3595203.0
+2005,Held by the Public - Other,3855852.0
+2006,Held by the Public - Other,4060048.0
+2007,Held by the Public - Other,4255497.0
+2008,Held by the Public - Other,5311923.0
+2009,Held by the Public - Other,6775547.0
+2010,Held by the Public - Other,8207213.0
+2011,Held by the Public - Other,8463527.0
+2012,Held by the Public - Other,9635846.0
+2013,Held by the Public - Other,9910430.0
+2014,Held by the Public - Other,10328156.0
+2015,Held by the Public - Other,10654745.0
+2016,Held by the Public - Other,11704168.0
+2017,Held by the Public - Other,12200021.0
+2018,Held by the Public - Other,13436358.0
+2019,Held by the Public - Other,14687371.0
+2020,Held by the Public - Other,16571192.0
+2021,Held by the Public - Other,16850884.0
+2022,Held by the Public - Other,18618505.0
+2023,Held by the Public - Other,21282678.0
+2024,Held by the Public - Other,23831218.0
+1970,Gross Federal Debt (% GDP),36.4
+1971,Gross Federal Debt (% GDP),36.6
+1972,Gross Federal Debt (% GDP),35.8
+1973,Gross Federal Debt (% GDP),34.5
+1974,Gross Federal Debt (% GDP),32.6
+1975,Gross Federal Debt (% GDP),33.7
+1976,Gross Federal Debt (% GDP),35.2
+1977,Gross Federal Debt (% GDP),34.9
+1978,Gross Federal Debt (% GDP),34.2
+1979,Gross Federal Debt (% GDP),32.3
+1980,Gross Federal Debt (% GDP),32.6
+1981,Gross Federal Debt (% GDP),31.8
+1982,Gross Federal Debt (% GDP),34.3
+1983,Gross Federal Debt (% GDP),38.8
+1984,Gross Federal Debt (% GDP),39.6
+1985,Gross Federal Debt (% GDP),42.6
+1986,Gross Federal Debt (% GDP),46.8
+1987,Gross Federal Debt (% GDP),49.2
+1988,Gross Federal Debt (% GDP),50.6
+1989,Gross Federal Debt (% GDP),51.6
+1990,Gross Federal Debt (% GDP),54.4
+1991,Gross Federal Debt (% GDP),59.1
+1992,Gross Federal Debt (% GDP),62.4
+1993,Gross Federal Debt (% GDP),64.2
+1994,Gross Federal Debt (% GDP),64.7
+1995,Gross Federal Debt (% GDP),65.1
+1996,Gross Federal Debt (% GDP),65.2
+1997,Gross Federal Debt (% GDP),63.5
+1998,Gross Federal Debt (% GDP),61.3
+1999,Gross Federal Debt (% GDP),59.1
+2000,Gross Federal Debt (% GDP),55.6
+2001,Gross Federal Debt (% GDP),54.8
+2002,Gross Federal Debt (% GDP),57.2
+2003,Gross Federal Debt (% GDP),59.9
+2004,Gross Federal Debt (% GDP),61.1
+2005,Gross Federal Debt (% GDP),61.6
+2006,Gross Federal Debt (% GDP),62.0
+2007,Gross Federal Debt (% GDP),62.6
+2008,Gross Federal Debt (% GDP),67.5
+2009,Gross Federal Debt (% GDP),82.1
+2010,Gross Federal Debt (% GDP),90.9
+2011,Gross Federal Debt (% GDP),95.5
+2012,Gross Federal Debt (% GDP),99.6
+2013,Gross Federal Debt (% GDP),100.2
+2014,Gross Federal Debt (% GDP),102.1
+2015,Gross Federal Debt (% GDP),99.8
+2016,Gross Federal Debt (% GDP),104.8
+2017,Gross Federal Debt (% GDP),104.3
+2018,Gross Federal Debt (% GDP),105.0
+2019,Gross Federal Debt (% GDP),106.5
+2020,Gross Federal Debt (% GDP),126.2
+2021,Gross Federal Debt (% GDP),123.4
+2022,Gross Federal Debt (% GDP),120.9
+2023,Gross Federal Debt (% GDP),120.7
+2024,Gross Federal Debt (% GDP),122.2
+1970,Held by Federal Government Accounts (% GDP),9.3
+1971,Held by Federal Government Accounts (% GDP),9.4
+1972,Held by Federal Government Accounts (% GDP),9.3
+1973,Held by Federal Government Accounts (% GDP),9.3
+1974,Held by Federal Government Accounts (% GDP),9.5
+1975,Held by Federal Government Accounts (% GDP),9.2
+1976,Held by Federal Government Accounts (% GDP),8.5
+1977,Held by Federal Government Accounts (% GDP),7.8
+1978,Held by Federal Government Accounts (% GDP),7.5
+1979,Held by Federal Government Accounts (% GDP),7.4
+1980,Held by Federal Government Accounts (% GDP),7.1
+1981,Held by Federal Government Accounts (% GDP),6.6
+1982,Held by Federal Government Accounts (% GDP),6.4
+1983,Held by Federal Government Accounts (% GDP),6.6
+1984,Held by Federal Government Accounts (% GDP),6.5
+1985,Held by Federal Government Accounts (% GDP),7.3
+1986,Held by Federal Government Accounts (% GDP),8.4
+1987,Held by Federal Government Accounts (% GDP),9.6
+1988,Held by Federal Government Accounts (% GDP),10.7
+1989,Held by Federal Government Accounts (% GDP),12.2
+1990,Held by Federal Government Accounts (% GDP),13.5
+1991,Held by Federal Government Accounts (% GDP),14.9
+1992,Held by Federal Government Accounts (% GDP),15.6
+1993,Held by Federal Government Accounts (% GDP),16.3
+1994,Held by Federal Government Accounts (% GDP),16.9
+1995,Held by Federal Government Accounts (% GDP),17.4
+1996,Held by Federal Government Accounts (% GDP),18.2
+1997,Held by Federal Government Accounts (% GDP),18.9
+1998,Held by Federal Government Accounts (% GDP),19.7
+1999,Held by Federal Government Accounts (% GDP),20.8
+2000,Held by Federal Government Accounts (% GDP),21.9
+2001,Held by Federal Government Accounts (% GDP),23.3
+2002,Held by Federal Government Accounts (% GDP),24.5
+2003,Held by Federal Government Accounts (% GDP),25.2
+2004,Held by Federal Government Accounts (% GDP),25.4
+2005,Held by Federal Government Accounts (% GDP),25.8
+2006,Held by Federal Government Accounts (% GDP),26.6
+2007,Held by Federal Government Accounts (% GDP),27.4
+2008,Held by Federal Government Accounts (% GDP),28.3
+2009,Held by Federal Government Accounts (% GDP),29.9
+2010,Held by Federal Government Accounts (% GDP),30.3
+2011,Held by Federal Government Accounts (% GDP),30.0
+2012,Held by Federal Government Accounts (% GDP),29.6
+2013,Held by Federal Government Accounts (% GDP),28.4
+2014,Held by Federal Government Accounts (% GDP),28.8
+2015,Held by Federal Government Accounts (% GDP),27.5
+2016,Held by Federal Government Accounts (% GDP),28.8
+2017,Held by Federal Government Accounts (% GDP),28.6
+2018,Held by Federal Government Accounts (% GDP),28.0
+2019,Held by Federal Government Accounts (% GDP),27.6
+2020,Held by Federal Government Accounts (% GDP),27.6
+2021,Held by Federal Government Accounts (% GDP),26.5
+2022,Held by Federal Government Accounts (% GDP),25.8
+2023,Held by Federal Government Accounts (% GDP),24.7
+2024,Held by Federal Government Accounts (% GDP),24.4
+1970,Held by the Public - Total (% GDP),27.1
+1971,Held by the Public - Total (% GDP),27.1
+1972,Held by the Public - Total (% GDP),26.5
+1973,Held by the Public - Total (% GDP),25.2
+1974,Held by the Public - Total (% GDP),23.2
+1975,Held by the Public - Total (% GDP),24.6
+1976,Held by the Public - Total (% GDP),26.7
+1977,Held by the Public - Total (% GDP),27.1
+1978,Held by the Public - Total (% GDP),26.7
+1979,Held by the Public - Total (% GDP),25.0
+1980,Held by the Public - Total (% GDP),25.5
+1981,Held by the Public - Total (% GDP),25.2
+1982,Held by the Public - Total (% GDP),27.9
+1983,Held by the Public - Total (% GDP),32.2
+1984,Held by the Public - Total (% GDP),33.1
+1985,Held by the Public - Total (% GDP),35.3
+1986,Held by the Public - Total (% GDP),38.5
+1987,Held by the Public - Total (% GDP),39.6
+1988,Held by the Public - Total (% GDP),39.9
+1989,Held by the Public - Total (% GDP),39.4
+1990,Held by the Public - Total (% GDP),40.9
+1991,Held by the Public - Total (% GDP),44.1
+1992,Held by the Public - Total (% GDP),46.8
+1993,Held by the Public - Total (% GDP),47.9
+1994,Held by the Public - Total (% GDP),47.8
+1995,Held by the Public - Total (% GDP),47.7
+1996,Held by the Public - Total (% GDP),47.0
+1997,Held by the Public - Total (% GDP),44.6
+1998,Held by the Public - Total (% GDP),41.7
+1999,Held by the Public - Total (% GDP),38.3
+2000,Held by the Public - Total (% GDP),33.7
+2001,Held by the Public - Total (% GDP),31.5
+2002,Held by the Public - Total (% GDP),32.7
+2003,Held by the Public - Total (% GDP),34.7
+2004,Held by the Public - Total (% GDP),35.7
+2005,Held by the Public - Total (% GDP),35.8
+2006,Held by the Public - Total (% GDP),35.4
+2007,Held by the Public - Total (% GDP),35.2
+2008,Held by the Public - Total (% GDP),39.2
+2009,Held by the Public - Total (% GDP),52.2
+2010,Held by the Public - Total (% GDP),60.6
+2011,Held by the Public - Total (% GDP),65.5
+2012,Held by the Public - Total (% GDP),70.0
+2013,Held by the Public - Total (% GDP),71.8
+2014,Held by the Public - Total (% GDP),73.3
+2015,Held by the Public - Total (% GDP),72.2
+2016,Held by the Public - Total (% GDP),76.0
+2017,Held by the Public - Total (% GDP),75.7
+2018,Held by the Public - Total (% GDP),77.1
+2019,Held by the Public - Total (% GDP),78.9
+2020,Held by the Public - Total (% GDP),98.6
+2021,Held by the Public - Total (% GDP),96.9
+2022,Held by the Public - Total (% GDP),95.0
+2023,Held by the Public - Total (% GDP),96.0
+2024,Held by the Public - Total (% GDP),97.8
+1970,Held by the Public - Federal Reserve (% GDP),5.5
+1971,Held by the Public - Federal Reserve (% GDP),5.9
+1972,Held by the Public - Federal Reserve (% GDP),5.9
+1973,Held by the Public - Federal Reserve (% GDP),5.6
+1974,Held by the Public - Federal Reserve (% GDP),5.4
+1975,Held by the Public - Federal Reserve (% GDP),5.3
+1976,Held by the Public - Federal Reserve (% GDP),5.3
+1977,Held by the Public - Federal Reserve (% GDP),5.2
+1978,Held by the Public - Federal Reserve (% GDP),5.1
+1979,Held by the Public - Federal Reserve (% GDP),4.5
+1980,Held by the Public - Federal Reserve (% GDP),4.3
+1981,Held by the Public - Federal Reserve (% GDP),4.0
+1982,Held by the Public - Federal Reserve (% GDP),4.1
+1983,Held by the Public - Federal Reserve (% GDP),4.4
+1984,Held by the Public - Federal Reserve (% GDP),3.9
+1985,Held by the Public - Federal Reserve (% GDP),4.0
+1986,Held by the Public - Federal Reserve (% GDP),4.2
+1987,Held by the Public - Federal Reserve (% GDP),4.4
+1988,Held by the Public - Federal Reserve (% GDP),4.5
+1989,Held by the Public - Federal Reserve (% GDP),4.0
+1990,Held by the Public - Federal Reserve (% GDP),4.0
+1991,Held by the Public - Federal Reserve (% GDP),4.2
+1992,Held by the Public - Federal Reserve (% GDP),4.6
+1993,Held by the Public - Federal Reserve (% GDP),4.8
+1994,Held by the Public - Federal Reserve (% GDP),4.9
+1995,Held by the Public - Federal Reserve (% GDP),4.9
+1996,Held by the Public - Federal Reserve (% GDP),4.9
+1997,Held by the Public - Federal Reserve (% GDP),5.0
+1998,Held by the Public - Federal Reserve (% GDP),5.1
+1999,Held by the Public - Federal Reserve (% GDP),5.2
+2000,Held by the Public - Federal Reserve (% GDP),5.1
+2001,Held by the Public - Federal Reserve (% GDP),5.1
+2002,Held by the Public - Federal Reserve (% GDP),5.6
+2003,Held by the Public - Federal Reserve (% GDP),5.8
+2004,Held by the Public - Federal Reserve (% GDP),5.8
+2005,Held by the Public - Federal Reserve (% GDP),5.7
+2006,Held by the Public - Federal Reserve (% GDP),5.6
+2007,Held by the Public - Federal Reserve (% GDP),5.4
+2008,Held by the Public - Federal Reserve (% GDP),3.3
+2009,Held by the Public - Federal Reserve (% GDP),5.3
+2010,Held by the Public - Federal Reserve (% GDP),5.5
+2011,Held by the Public - Federal Reserve (% GDP),10.8
+2012,Held by the Public - Federal Reserve (% GDP),10.2
+2013,Held by the Public - Federal Reserve (% GDP),12.4
+2014,Held by the Public - Federal Reserve (% GDP),14.1
+2015,Held by the Public - Federal Reserve (% GDP),13.6
+2016,Held by the Public - Federal Reserve (% GDP),13.2
+2017,Held by the Public - Federal Reserve (% GDP),12.7
+2018,Held by the Public - Federal Reserve (% GDP),11.3
+2019,Held by the Public - Federal Reserve (% GDP),9.9
+2020,Held by the Public - Federal Reserve (% GDP),20.9
+2021,Held by the Public - Federal Reserve (% GDP),23.6
+2022,Held by the Public - Federal Reserve (% GDP),22.1
+2023,Held by the Public - Federal Reserve (% GDP),18.1
+2024,Held by the Public - Federal Reserve (% GDP),15.1
+1970,Held by the Public - Other (% GDP),21.5
+1971,Held by the Public - Other (% GDP),21.3
+1972,Held by the Public - Other (% GDP),20.6
+1973,Held by the Public - Other (% GDP),19.6
+1974,Held by the Public - Other (% GDP),17.7
+1975,Held by the Public - Other (% GDP),19.3
+1976,Held by the Public - Other (% GDP),21.4
+1977,Held by the Public - Other (% GDP),21.9
+1978,Held by the Public - Other (% GDP),21.6
+1979,Held by the Public - Other (% GDP),20.5
+1980,Held by the Public - Other (% GDP),21.2
+1981,Held by the Public - Other (% GDP),21.2
+1982,Held by the Public - Other (% GDP),23.8
+1983,Held by the Public - Other (% GDP),27.8
+1984,Held by the Public - Other (% GDP),29.2
+1985,Held by the Public - Other (% GDP),31.4
+1986,Held by the Public - Other (% GDP),34.2
+1987,Held by the Public - Other (% GDP),35.2
+1988,Held by the Public - Other (% GDP),35.5
+1989,Held by the Public - Other (% GDP),35.5
+1990,Held by the Public - Other (% GDP),36.9
+1991,Held by the Public - Other (% GDP),39.9
+1992,Held by the Public - Other (% GDP),42.1
+1993,Held by the Public - Other (% GDP),43.1
+1994,Held by the Public - Other (% GDP),42.9
+1995,Held by the Public - Other (% GDP),42.7
+1996,Held by the Public - Other (% GDP),42.0
+1997,Held by the Public - Other (% GDP),39.6
+1998,Held by the Public - Other (% GDP),36.5
+1999,Held by the Public - Other (% GDP),33.1
+2000,Held by the Public - Other (% GDP),28.6
+2001,Held by the Public - Other (% GDP),26.5
+2002,Held by the Public - Other (% GDP),27.1
+2003,Held by the Public - Other (% GDP),28.9
+2004,Held by the Public - Other (% GDP),29.9
+2005,Held by the Public - Other (% GDP),30.0
+2006,Held by the Public - Other (% GDP),29.8
+2007,Held by the Public - Other (% GDP),29.7
+2008,Held by the Public - Other (% GDP),35.9
+2009,Held by the Public - Other (% GDP),46.8
+2010,Held by the Public - Other (% GDP),55.1
+2011,Held by the Public - Other (% GDP),54.7
+2012,Held by the Public - Other (% GDP),59.8
+2013,Held by the Public - Other (% GDP),59.4
+2014,Held by the Public - Other (% GDP),59.3
+2015,Held by the Public - Other (% GDP),58.7
+2016,Held by the Public - Other (% GDP),62.8
+2017,Held by the Public - Other (% GDP),63.0
+2018,Held by the Public - Other (% GDP),65.7
+2019,Held by the Public - Other (% GDP),69.0
+2020,Held by the Public - Other (% GDP),77.7
+2021,Held by the Public - Other (% GDP),73.3
+2022,Held by the Public - Other (% GDP),73.0
+2023,Held by the Public - Other (% GDP),77.9
+2024,Held by the Public - Other (% GDP),82.7

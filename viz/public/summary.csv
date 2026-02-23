@@ -1,0 +1,496 @@
+year,category,amount
+1970,Total Receipts,192807.0
+1971,Total Receipts,187139.0
+1972,Total Receipts,207309.0
+1973,Total Receipts,230799.0
+1974,Total Receipts,263224.0
+1975,Total Receipts,279090.0
+1976,Total Receipts,298060.0
+1977,Total Receipts,355559.0
+1978,Total Receipts,399561.0
+1979,Total Receipts,463302.0
+1980,Total Receipts,517112.0
+1981,Total Receipts,599272.0
+1982,Total Receipts,617766.0
+1983,Total Receipts,600562.0
+1984,Total Receipts,666438.0
+1985,Total Receipts,734037.0
+1986,Total Receipts,769155.0
+1987,Total Receipts,854287.0
+1988,Total Receipts,909238.0
+1989,Total Receipts,991104.0
+1990,Total Receipts,1031958.0
+1991,Total Receipts,1054988.0
+1992,Total Receipts,1091208.0
+1993,Total Receipts,1154334.0
+1994,Total Receipts,1258566.0
+1995,Total Receipts,1351790.0
+1996,Total Receipts,1453053.0
+1997,Total Receipts,1579232.0
+1998,Total Receipts,1721728.0
+1999,Total Receipts,1827452.0
+2000,Total Receipts,2025191.0
+2001,Total Receipts,1991082.0
+2002,Total Receipts,1853136.0
+2003,Total Receipts,1782314.0
+2004,Total Receipts,1880114.0
+2005,Total Receipts,2153611.0
+2006,Total Receipts,2406869.0
+2007,Total Receipts,2567985.0
+2008,Total Receipts,2523991.0
+2009,Total Receipts,2104989.0
+2010,Total Receipts,2162706.0
+2011,Total Receipts,2303466.0
+2012,Total Receipts,2449990.0
+2013,Total Receipts,2775106.0
+2014,Total Receipts,3021491.0
+2015,Total Receipts,3249890.0
+2016,Total Receipts,3267965.0
+2017,Total Receipts,3316184.0
+2018,Total Receipts,3329907.0
+2019,Total Receipts,3463364.0
+2020,Total Receipts,3421164.0
+2021,Total Receipts,4047111.0
+2022,Total Receipts,4897339.0
+2023,Total Receipts,4440948.0
+2024,Total Receipts,4919883.0
+1970,Total Outlays,195649.0
+1971,Total Outlays,210172.0
+1972,Total Outlays,230681.0
+1973,Total Outlays,245707.0
+1974,Total Outlays,269359.0
+1975,Total Outlays,332332.0
+1976,Total Outlays,371792.0
+1977,Total Outlays,409218.0
+1978,Total Outlays,458746.0
+1979,Total Outlays,504028.0
+1980,Total Outlays,590941.0
+1981,Total Outlays,678241.0
+1982,Total Outlays,745743.0
+1983,Total Outlays,808364.0
+1984,Total Outlays,851805.0
+1985,Total Outlays,946344.0
+1986,Total Outlays,990382.0
+1987,Total Outlays,1004017.0
+1988,Total Outlays,1064416.0
+1989,Total Outlays,1143743.0
+1990,Total Outlays,1252993.0
+1991,Total Outlays,1324226.0
+1992,Total Outlays,1381529.0
+1993,Total Outlays,1409386.0
+1994,Total Outlays,1461752.0
+1995,Total Outlays,1515742.0
+1996,Total Outlays,1560484.0
+1997,Total Outlays,1601116.0
+1998,Total Outlays,1652458.0
+1999,Total Outlays,1701842.0
+2000,Total Outlays,1788950.0
+2001,Total Outlays,1862846.0
+2002,Total Outlays,2010894.0
+2003,Total Outlays,2159899.0
+2004,Total Outlays,2292841.0
+2005,Total Outlays,2471957.0
+2006,Total Outlays,2655050.0
+2007,Total Outlays,2728686.0
+2008,Total Outlays,2982544.0
+2009,Total Outlays,3517677.0
+2010,Total Outlays,3457079.0
+2011,Total Outlays,3603065.0
+2012,Total Outlays,3526563.0
+2013,Total Outlays,3454881.0
+2014,Total Outlays,3506284.0
+2015,Total Outlays,3691850.0
+2016,Total Outlays,3852615.0
+2017,Total Outlays,3981634.0
+2018,Total Outlays,4108981.0
+2019,Total Outlays,4446952.0
+2020,Total Outlays,6553620.0
+2021,Total Outlays,6822461.0
+2022,Total Outlays,6273261.0
+2023,Total Outlays,6134673.0
+2024,Total Outlays,6750856.0
+1970,Surplus or Deficit,-2842.0
+1971,Surplus or Deficit,-23033.0
+1972,Surplus or Deficit,-23373.0
+1973,Surplus or Deficit,-14908.0
+1974,Surplus or Deficit,-6135.0
+1975,Surplus or Deficit,-53242.0
+1976,Surplus or Deficit,-73732.0
+1977,Surplus or Deficit,-53659.0
+1978,Surplus or Deficit,-59185.0
+1979,Surplus or Deficit,-40726.0
+1980,Surplus or Deficit,-73830.0
+1981,Surplus or Deficit,-78968.0
+1982,Surplus or Deficit,-127977.0
+1983,Surplus or Deficit,-207802.0
+1984,Surplus or Deficit,-185367.0
+1985,Surplus or Deficit,-212308.0
+1986,Surplus or Deficit,-221227.0
+1987,Surplus or Deficit,-149730.0
+1988,Surplus or Deficit,-155178.0
+1989,Surplus or Deficit,-152639.0
+1990,Surplus or Deficit,-221036.0
+1991,Surplus or Deficit,-269238.0
+1992,Surplus or Deficit,-290321.0
+1993,Surplus or Deficit,-255051.0
+1994,Surplus or Deficit,-203186.0
+1995,Surplus or Deficit,-163952.0
+1996,Surplus or Deficit,-107431.0
+1997,Surplus or Deficit,-21884.0
+1998,Surplus or Deficit,69270.0
+1999,Surplus or Deficit,125610.0
+2000,Surplus or Deficit,236241.0
+2001,Surplus or Deficit,128236.0
+2002,Surplus or Deficit,-157758.0
+2003,Surplus or Deficit,-377585.0
+2004,Surplus or Deficit,-412727.0
+2005,Surplus or Deficit,-318346.0
+2006,Surplus or Deficit,-248181.0
+2007,Surplus or Deficit,-160701.0
+2008,Surplus or Deficit,-458553.0
+2009,Surplus or Deficit,-1412688.0
+2010,Surplus or Deficit,-1294373.0
+2011,Surplus or Deficit,-1299599.0
+2012,Surplus or Deficit,-1076573.0
+2013,Surplus or Deficit,-679775.0
+2014,Surplus or Deficit,-484793.0
+2015,Surplus or Deficit,-441960.0
+2016,Surplus or Deficit,-584650.0
+2017,Surplus or Deficit,-665450.0
+2018,Surplus or Deficit,-779074.0
+2019,Surplus or Deficit,-983588.0
+2020,Surplus or Deficit,-3132456.0
+2021,Surplus or Deficit,-2775350.0
+2022,Surplus or Deficit,-1375922.0
+2023,Surplus or Deficit,-1693725.0
+2024,Surplus or Deficit,-1830973.0
+1970,Total Receipts (Real 2024$),1218512.9605861546
+1971,Total Receipts (Real 2024$),1125263.208173077
+1972,Total Receipts (Real 2024$),1189909.8958237723
+1973,Total Receipts (Real 2024$),1269952.9665640122
+1974,Total Receipts (Real 2024$),1352009.2681724844
+1975,Total Receipts (Real 2024$),1299061.6412355786
+1976,Total Receipts (Real 2024$),1297089.9164926931
+1977,Total Receipts (Real 2024$),1442886.5713822194
+1978,Total Receipts (Real 2024$),1519400.8595317723
+1979,Total Receipts (Real 2024$),1629962.9012658226
+1980,Total Receipts (Real 2024$),1673355.7009055626
+1981,Total Receipts (Real 2024$),1766044.9820923656
+1982,Total Receipts (Real 2024$),1702225.0191672172
+1983,Total Receipts (Real 2024$),1585651.0310322987
+1984,Total Receipts (Real 2024$),1698622.3896474424
+1985,Total Receipts (Real 2024$),1810412.297180043
+1986,Total Receipts (Real 2024$),1855317.567020251
+1987,Total Receipts (Real 2024$),2015575.8364459535
+1988,Total Receipts (Real 2024$),2077807.3572081125
+1989,Total Receipts (Real 2024$),2176982.389884088
+1990,Total Receipts (Real 2024$),2186834.751948492
+1991,Total Receipts (Real 2024$),2158471.2769507607
+1992,Total Receipts (Real 2024$),2178062.3134375997
+1993,Total Receipts (Real 2024$),2251248.2984562605
+1994,Total Receipts (Real 2024$),2402088.350679078
+1995,Total Receipts (Real 2024$),2526425.213687985
+1996,Total Receipts (Real 2024$),2665493.380903491
+1997,Total Receipts (Real 2024$),2846441.075659317
+1998,Total Receipts (Real 2024$),3064852.2766865925
+1999,Total Receipts (Real 2024$),3213263.3437368195
+2000,Total Receipts (Real 2024$),3488371.276270486
+2001,Total Receipts (Real 2024$),3348455.3682936667
+2002,Total Receipts (Real 2024$),3068198.5639396347
+2003,Total Receipts (Real 2024$),2895363.1897649043
+2004,Total Receipts (Real 2024$),2981436.0083682006
+2005,Total Receipts (Real 2024$),3314287.286452566
+2006,Total Receipts (Real 2024$),3587499.7715409365
+2007,Total Receipts (Real 2024$),3725097.239039666
+2008,Total Receipts (Real 2024$),3586814.616179979
+2009,Total Receipts (Real 2024$),2961095.199977505
+2010,Total Receipts (Real 2024$),3016164.578724353
+2011,Total Receipts (Real 2024$),3149262.0531263663
+2012,Total Receipts (Real 2024$),3289888.869443848
+2013,Total Receipts (Real 2024$),3660049.6406200565
+2014,Total Receipts (Real 2024$),3913606.8700289973
+2015,Total Receipts (Real 2024$),4166295.0215252144
+2016,Total Receipts (Real 2024$),4156237.365771812
+2017,Total Receipts (Real 2024$),4147551.3288
+2018,Total Receipts (Real 2024$),4074265.9801408723
+2019,Total Receipts (Real 2024$),4161426.9908732823
+2020,Total Receipts (Real 2024$),4058089.7333080424
+2021,Total Receipts (Real 2024$),4641652.203301238
+2022,Total Receipts (Real 2024$),5245890.619475848
+2023,Total Receipts (Real 2024$),4549716.303735254
+2024,Total Receipts (Real 2024$),4919883.0
+1970,Total Outlays (Real 2024$),1236473.9984840828
+1971,Total Outlays (Real 2024$),1263760.1942307693
+1972,Total Outlays (Real 2024$),1324060.2418540614
+1973,Total Outlays (Real 2024$),1351983.0395952484
+1974,Total Outlays (Real 2024$),1383520.7445585213
+1975,Total Outlays (Real 2024$),1546883.6337923333
+1976,Total Outlays (Real 2024$),1617954.956158664
+1977,Total Outlays (Real 2024$),1660639.0415314734
+1978,Total Outlays (Real 2024$),1744462.2140468224
+1979,Total Outlays (Real 2024$),1773242.811814346
+1980,Total Outlays (Real 2024$),1912263.670633894
+1981,Total Outlays (Real 2024$),1998765.3598020736
+1982,Total Outlays (Real 2024$),2054859.5948446793
+1983,Total Outlays (Real 2024$),2134306.21659278
+1984,Total Outlays (Real 2024$),2171087.249847157
+1985,Total Outlays (Real 2024$),2334041.492407809
+1986,Total Outlays (Real 2024$),2388950.3710703957
+1987,Total Outlays (Real 2024$),2368843.7311827955
+1988,Total Outlays (Real 2024$),2432422.9694865705
+1989,Total Outlays (Real 2024$),2512257.411485774
+1990,Total Outlays (Real 2024$),2655232.7094205352
+1991,Total Outlays (Real 2024$),2709323.504335024
+1992,Total Outlays (Real 2024$),2757545.994733482
+1993,Total Outlays (Real 2024$),2748665.3207547166
+1994,Total Outlays (Real 2024$),2789887.420112925
+1995,Total Outlays (Real 2024$),2832842.9757919903
+1996,Total Outlays (Real 2024$),2862565.765327075
+1997,Total Outlays (Real 2024$),2885885.258971033
+1998,Total Outlays (Real 2024$),2941544.578138343
+1999,Total Outlays (Real 2024$),2992399.5352172074
+2000,Total Outlays (Real 2024$),3081448.51260157
+2001,Total Outlays (Real 2024$),3132797.4885034286
+2002,Total Outlays (Real 2024$),3329395.1890389198
+2003,Total Outlays (Real 2024$),3508748.7716586567
+2004,Total Outlays (Real 2024$),3635927.778242678
+2005,Total Outlays (Real 2024$),3804204.0358065707
+2006,Total Outlays (Real 2024$),3957419.896317483
+2007,Total Outlays (Real 2024$),3958208.745302714
+2008,Total Outlays (Real 2024$),4238459.016929894
+2009,Total Outlays (Real 2024$),4948328.223934315
+2010,Total Outlays (Real 2024$),4821329.956846565
+2011,Total Outlays (Real 2024$),4926053.121447311
+2012,Total Outlays (Real 2024$),4735529.6801589
+2013,Total Outlays (Real 2024$),4556595.662448592
+2014,Total Outlays (Real 2024$),4541538.316901408
+2015,Total Outlays (Real 2024$),4732879.043665436
+2016,Total Outlays (Real 2024$),4899802.298657718
+2017,Total Outlays (Real 2024$),4979829.6438
+2018,Total Outlays (Real 2024$),5027492.209645862
+2019,Total Outlays (Real 2024$),5343263.39360169
+2020,Total Outlays (Real 2024$),7773722.054248862
+2021,Total Outlays (Real 2024$),7824715.243191197
+2022,Total Outlays (Real 2024$),6719739.23663926
+2023,Total Outlays (Real 2024$),6284924.247296853
+2024,Total Outlays (Real 2024$),6750856.0
+1970,Surplus or Deficit (Real 2024$),-17961.037897928247
+1971,Surplus or Deficit (Real 2024$),-138496.98605769232
+1972,Surplus or Deficit (Real 2024$),-134156.0858191831
+1973,Surplus or Deficit (Real 2024$),-82030.07303123624
+1974,Surplus or Deficit (Real 2024$),-31511.476386036957
+1975,Surplus or Deficit (Real 2024$),-247821.99255675473
+1976,Surplus or Deficit (Real 2024$),-320865.0396659708
+1977,Surplus or Deficit (Real 2024$),-217752.47014925376
+1978,Surplus or Deficit (Real 2024$),-225061.35451505013
+1979,Surplus or Deficit (Real 2024$),-143279.91054852318
+1980,Surplus or Deficit (Real 2024$),-238911.20569210866
+1981,Surplus or Deficit (Real 2024$),-232717.43072573043
+1982,Surplus or Deficit (Real 2024$),-352634.575677462
+1983,Surplus or Deficit (Real 2024$),-548655.1855604813
+1984,Surplus or Deficit (Real 2024$),-472464.86019971466
+1985,Surplus or Deficit (Real 2024$),-523631.661605206
+1986,Surplus or Deficit (Real 2024$),-533632.8040501447
+1987,Surplus or Deficit (Real 2024$),-353267.8947368421
+1988,Surplus or Deficit (Real 2024$),-354615.6122784579
+1989,Surplus or Deficit (Real 2024$),-335275.02160168596
+1990,Surplus or Deficit (Real 2024$),-468400.0765842087
+1991,Surplus or Deficit (Real 2024$),-550852.2273842631
+1992,Surplus or Deficit (Real 2024$),-579483.6812958824
+1993,Surplus or Deficit (Real 2024$),-497415.07204116636
+1994,Surplus or Deficit (Real 2024$),-387799.0694338471
+1995,Surplus or Deficit (Real 2024$),-306417.76210400474
+1996,Surplus or Deficit (Real 2024$),-197072.38442358462
+1997,Surplus or Deficit (Real 2024$),-39444.183311716384
+1998,Surplus or Deficit (Real 2024$),123307.69854824936
+1999,Surplus or Deficit (Real 2024$),220863.80851961195
+2000,Surplus or Deficit (Real 2024$),406922.76366891613
+2001,Surplus or Deficit (Real 2024$),215657.879790238
+2002,Surplus or Deficit (Real 2024$),-261196.62509928516
+2003,Surplus or Deficit (Real 2024$),-613385.5818937524
+2004,Surplus or Deficit (Real 2024$),-654491.769874477
+2005,Surplus or Deficit (Real 2024$),-489916.74935400515
+2006,Surplus or Deficit (Real 2024$),-369920.1247765463
+2007,Surplus or Deficit (Real 2024$),-233111.506263048
+2008,Surplus or Deficit (Real 2024$),-651644.4007499147
+2009,Surplus or Deficit (Real 2024$),-1987233.0239568101
+2010,Surplus or Deficit (Real 2024$),-1805165.3781222124
+2011,Surplus or Deficit (Real 2024$),-1776791.0683209444
+2012,Surplus or Deficit (Real 2024$),-1445640.8107150525
+2013,Surplus or Deficit (Real 2024$),-896546.0218285352
+2014,Surplus or Deficit (Real 2024$),-627931.446872411
+2015,Surplus or Deficit (Real 2024$),-566584.0221402213
+2016,Surplus or Deficit (Real 2024$),-743564.932885906
+2017,Surplus or Deficit (Real 2024$),-832278.315
+2018,Surplus or Deficit (Real 2024$),-953226.2295049891
+2019,Surplus or Deficit (Real 2024$),-1181836.402728408
+2020,Surplus or Deficit (Real 2024$),-3715632.3209408196
+2021,Surplus or Deficit (Real 2024$),-3183063.0398899587
+2022,Surplus or Deficit (Real 2024$),-1473848.6171634123
+2023,Surplus or Deficit (Real 2024$),-1735207.9435615984
+2024,Surplus or Deficit (Real 2024$),-1830973.0
+1970,Total Receipts (CPI Real 2024$),1567964.9783188342
+1971,Total Receipts (CPI Real 2024$),1452982.4011357974
+1972,Total Receipts (CPI Real 2024$),1557830.8962962218
+1973,Total Receipts (CPI Real 2024$),1652012.3222951763
+1974,Total Receipts (CPI Real 2024$),1711154.1501947148
+1975,Total Receipts (CPI Real 2024$),1644732.1323404256
+1976,Total Receipts (CPI Real 2024$),1652113.530951675
+1977,Total Receipts (CPI Real 2024$),1857128.015430926
+1978,Total Receipts (CPI Real 2024$),1949695.5196567925
+1979,Total Receipts (CPI Real 2024$),2049200.529176721
+1980,Total Receipts (CPI Real 2024$),2014169.015725
+1981,Total Receipts (CPI Real 2024$),2100897.842092631
+1982,Total Receipts (CPI Real 2024$),2015857.4164220262
+1983,Total Receipts (CPI Real 2024$),1894256.641877689
+1984,Total Receipts (CPI Real 2024$),2018440.7598039855
+1985,Total Receipts (CPI Real 2024$),2144156.9983759085
+1986,Total Receipts (CPI Real 2024$),2192278.1904985136
+1987,Total Receipts (CPI Real 2024$),2368311.196523577
+1988,Total Receipts (CPI Real 2024$),2420857.828577328
+1989,Total Receipts (CPI Real 2024$),2520038.6122888615
+1990,Total Receipts (CPI Real 2024$),2498854.687355265
+1991,Total Receipts (CPI Real 2024$),2431937.577340485
+1992,Total Receipts (CPI Real 2024$),2442112.139971271
+1993,Total Receipts (CPI Real 2024$),2506721.5203101225
+1994,Total Receipts (CPI Real 2024$),2662859.4578611446
+1995,Total Receipts (CPI Real 2024$),2782176.2313243067
+1996,Total Receipts (CPI Real 2024$),2909555.3862852096
+1997,Total Receipts (CPI Real 2024$),3079912.5901298705
+1998,Total Receipts (CPI Real 2024$),3303711.271424026
+1999,Total Receipts (CPI Real 2024$),3440546.208305725
+2000,Total Receipts (CPI Real 2024$),3695964.1849299623
+2001,Total Receipts (CPI Real 2024$),3520650.4563796287
+2002,Total Receipts (CPI Real 2024$),3228339.212023854
+2003,Total Receipts (CPI Real 2024$),3033310.8757735197
+2004,Total Receipts (CPI Real 2024$),3127167.0800062274
+2005,Total Receipts (CPI Real 2024$),3467918.4016032903
+2006,Total Receipts (CPI Real 2024$),3739029.4937586207
+2007,Total Receipts (CPI Real 2024$),3897571.238699237
+2008,Total Receipts (CPI Real 2024$),3668047.3408992863
+2009,Total Receipts (CPI Real 2024$),3068355.740703765
+2010,Total Receipts (CPI Real 2024$),3099712.502016362
+2011,Total Receipts (CPI Real 2024$),3217443.534115967
+2012,Total Receipts (CPI Real 2024$),3340940.7784966594
+2013,Total Receipts (CPI Real 2024$),3723220.4096380356
+2014,Total Receipts (CPI Real 2024$),3988859.938505573
+2015,Total Receipts (CPI Real 2024$),4277137.428834901
+2016,Total Receipts (CPI Real 2024$),4261928.677751108
+2017,Total Receipts (CPI Real 2024$),4237657.941593382
+2018,Total Receipts (CPI Real 2024$),4154897.8439933457
+2019,Total Receipts (CPI Real 2024$),4242808.688468368
+2020,Total Receipts (CPI Real 2024$),4131075.929990332
+2021,Total Receipts (CPI Real 2024$),4730965.584445024
+2022,Total Receipts (CPI Real 2024$),5304577.181929444
+2023,Total Receipts (CPI Real 2024$),4577774.402788722
+2024,Total Receipts (CPI Real 2024$),4919883.0
+1970,Total Outlays (CPI Real 2024$),1591076.9839430186
+1971,Total Outlays (CPI Real 2024$),1631814.9461710965
+1972,Total Outlays (CPI Real 2024$),1733460.626352492
+1973,Total Outlays (CPI Real 2024$),1758720.7556106434
+1974,Total Outlays (CPI Real 2024$),1751036.2685100834
+1975,Total Outlays (CPI Real 2024$),1958497.6853522458
+1976,Total Outlays (CPI Real 2024$),2060801.8315090423
+1977,Total Outlays (CPI Real 2024$),2137395.5158457886
+1978,Total Outlays (CPI Real 2024$),2238494.2996450476
+1979,Total Outlays (CPI Real 2024$),2229333.0145777147
+1980,Total Outlays (CPI Real 2024$),2301735.5085968752
+1981,Total Outlays (CPI Real 2024$),2377743.4175445344
+1982,Total Outlays (CPI Real 2024$),2433464.3818125487
+1983,Total Outlays (CPI Real 2024$),2549693.24741628
+1984,Total Outlays (CPI Real 2024$),2579861.789701118
+1985,Total Outlays (CPI Real 2024$),2764315.8457558006
+1986,Total Outlays (CPI Real 2024$),2822828.765154356
+1987,Total Outlays (CPI Real 2024$),2783402.653440837
+1988,Total Outlays (CPI Real 2024$),2834021.24247223
+1989,Total Outlays (CPI Real 2024$),2908147.4018217055
+1990,Total Outlays (CPI Real 2024$),3034084.169388033
+1991,Total Outlays (CPI Real 2024$),3052579.7168226377
+1992,Total Outlays (CPI Real 2024$),3091847.514518195
+1993,Total Outlays (CPI Real 2024$),3060585.7720761946
+1994,Total Outlays (CPI Real 2024$),3092758.0581768802
+1995,Total Outlays (CPI Real 2024$),3119612.783953104
+1996,Total Outlays (CPI Real 2024$),3124672.41553604
+1997,Total Outlays (CPI Real 2024$),3122592.0742857144
+1998,Total Outlays (CPI Real 2024$),3170793.5981495357
+1999,Total Outlays (CPI Real 2024$),3204060.1012970144
+2000,Total Outlays (CPI Real 2024$),3264825.455293084
+2001,Total Outlays (CPI Real 2024$),3293902.320479501
+2002,Total Outlays (CPI Real 2024$),3503168.6564955274
+2003,Total Outlays (CPI Real 2024$),3675920.812647126
+2004,Total Outlays (CPI Real 2024$),3813650.073819225
+2005,Total Outlays (CPI Real 2024$),3980544.846897636
+2006,Total Outlays (CPI Real 2024$),4124574.398275862
+2007,Total Outlays (CPI Real 2024$),4141475.932702592
+2008,Total Outlays (CPI Real 2024$),4334449.920112679
+2009,Total Outlays (CPI Real 2024$),5127572.836196102
+2010,Total Outlays (CPI Real 2024$),4954881.059542176
+2011,Total Outlays (CPI Real 2024$),5032702.105110101
+2012,Total Outlays (CPI Real 2024$),4809014.785626682
+2013,Total Outlays (CPI Real 2024$),4635240.402374059
+2014,Total Outlays (CPI Real 2024$),4628865.609933333
+2015,Total Outlays (CPI Real 2024$),4858795.164342217
+2016,Total Outlays (CPI Real 2024$),5024402.14409704
+2017,Total Outlays (CPI Real 2024$),5088017.715729351
+2018,Total Outlays (CPI Real 2024$),5126988.921285075
+2019,Total Outlays (CPI Real 2024$),5447757.319993447
+2020,Total Outlays (CPI Real 2024$),7913535.22844951
+2021,Total Outlays (CPI Real 2024$),7975276.238338504
+2022,Total Outlays (CPI Real 2024$),6794913.963866476
+2023,Total Outlays (CPI Real 2024$),6323683.373207498
+2024,Total Outlays (CPI Real 2024$),6750856.0
+1970,Surplus or Deficit (CPI Real 2024$),-23112.00562418443
+1971,Surplus or Deficit (CPI Real 2024$),-178832.545035299
+1972,Surplus or Deficit (CPI Real 2024$),-175637.2445920418
+1973,Surplus or Deficit (CPI Real 2024$),-106708.43331546709
+1974,Surplus or Deficit (CPI Real 2024$),-39882.11831536856
+1975,Surplus or Deficit (CPI Real 2024$),-313765.55301182036
+1976,Surplus or Deficit (CPI Real 2024$),-408688.3005573673
+1977,Surplus or Deficit (CPI Real 2024$),-280267.5004148624
+1978,Surplus or Deficit (CPI Real 2024$),-288798.7799882553
+1979,Surplus or Deficit (CPI Real 2024$),-180132.4854009936
+1980,Surplus or Deficit (CPI Real 2024$),-287570.38790625
+1981,Surplus or Deficit (CPI Real 2024$),-276842.0697018564
+1982,Surplus or Deficit (CPI Real 2024$),-417606.9653905227
+1983,Surplus or Deficit (CPI Real 2024$),-655436.6055385914
+1984,Surplus or Deficit (CPI Real 2024$),-561421.0298971328
+1985,Surplus or Deficit (CPI Real 2024$),-620161.7684274666
+1986,Surplus or Deficit (CPI Real 2024$),-630550.5746558426
+1987,Surplus or Deficit (CPI Real 2024$),-415091.45691725984
+1988,Surplus or Deficit (CPI Real 2024$),-413163.4138949017
+1989,Surplus or Deficit (CPI Real 2024$),-388108.78953284374
+1990,Surplus or Deficit (CPI Real 2024$),-535231.903502137
+1991,Surplus or Deficit (CPI Real 2024$),-620642.1394821529
+1992,Surplus or Deficit (CPI Real 2024$),-649735.3745469237
+1993,Surplus or Deficit (CPI Real 2024$),-553862.0801922295
+1994,Surplus or Deficit (CPI Real 2024$),-429898.6003157359
+1995,Surplus or Deficit (CPI Real 2024$),-337436.5526287979
+1996,Surplus or Deficit (CPI Real 2024$),-215117.02925083006
+1997,Surplus or Deficit (CPI Real 2024$),-42679.484155844155
+1998,Surplus or Deficit (CPI Real 2024$),132917.6732744907
+1999,Surplus or Deficit (CPI Real 2024$),236486.10700871056
+2000,Surplus or Deficit (CPI Real 2024$),431138.7296368783
+2001,Surplus or Deficit (CPI Real 2024$),226748.1359001277
+2002,Surplus or Deficit (CPI Real 2024$),-274829.4444716735
+2003,Surplus or Deficit (CPI Real 2024$),-642609.9368736062
+2004,Surplus or Deficit (CPI Real 2024$),-686482.9938129976
+2005,Surplus or Deficit (CPI Real 2024$),-512626.44529434567
+2006,Surplus or Deficit (CPI Real 2024$),-385544.90451724135
+2007,Surplus or Deficit (CPI Real 2024$),-243904.6940033552
+2008,Surplus or Deficit (CPI Real 2024$),-666402.5792133928
+2009,Surplus or Deficit (CPI Real 2024$),-2059217.0954923376
+2010,Surplus or Deficit (CPI Real 2024$),-1855168.5575258145
+2011,Surplus or Deficit (CPI Real 2024$),-1815258.570994135
+2012,Surplus or Deficit (CPI Real 2024$),-1468074.0071300226
+2013,Surplus or Deficit (CPI Real 2024$),-912019.9927360236
+2014,Surplus or Deficit (CPI Real 2024$),-640005.6714277595
+2015,Surplus or Deficit (CPI Real 2024$),-581657.7355073165
+2016,Surplus or Deficit (CPI Real 2024$),-762473.4663459325
+2017,Surplus or Deficit (CPI Real 2024$),-850359.7741359695
+2018,Surplus or Deficit (CPI Real 2024$),-972091.0772917297
+2019,Surplus or Deficit (CPI Real 2024$),-1204948.6315250793
+2020,Surplus or Deficit (CPI Real 2024$),-3782459.2984591783
+2021,Surplus or Deficit (CPI Real 2024$),-3244310.6538934805
+2022,Surplus or Deficit (CPI Real 2024$),-1490336.7819370325
+2023,Surplus or Deficit (CPI Real 2024$),-1745908.970418777
+2024,Surplus or Deficit (CPI Real 2024$),-1830973.0

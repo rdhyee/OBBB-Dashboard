@@ -1,0 +1,991 @@
+category,year,amount
+National Defense,1970,81692.0
+National Defense,1971,78872.0
+National Defense,1972,79174.0
+National Defense,1973,76681.0
+National Defense,1974,79347.0
+National Defense,1975,86509.0
+National Defense,1976,89619.0
+National Defense,1977,97241.0
+National Defense,1978,104495.0
+National Defense,1979,116342.0
+National Defense,1980,133995.0
+National Defense,1981,157513.0
+National Defense,1982,185309.0
+National Defense,1983,209903.0
+National Defense,1984,227411.0
+National Defense,1985,252743.0
+National Defense,1986,273373.0
+National Defense,1987,281996.0
+National Defense,1988,290360.0
+National Defense,1989,303555.0
+National Defense,1990,299321.0
+National Defense,1991,273285.0
+National Defense,1992,298346.0
+National Defense,1993,291084.0
+National Defense,1994,281640.0
+National Defense,1995,272063.0
+National Defense,1996,265748.0
+National Defense,1997,270502.0
+National Defense,1998,268194.0
+National Defense,1999,274769.0
+National Defense,2000,294363.0
+National Defense,2001,304732.0
+National Defense,2002,348456.0
+National Defense,2003,404733.0
+National Defense,2004,455813.0
+National Defense,2005,495294.0
+National Defense,2006,521820.0
+National Defense,2007,551258.0
+National Defense,2008,616066.0
+National Defense,2009,661012.0
+National Defense,2010,693485.0
+National Defense,2011,705554.0
+National Defense,2012,677852.0
+National Defense,2013,633446.0
+National Defense,2014,603457.0
+National Defense,2015,589659.0
+National Defense,2016,593372.0
+National Defense,2017,598723.0
+National Defense,2018,631251.0
+National Defense,2019,685707.0
+National Defense,2020,724588.0
+National Defense,2021,753897.0
+National Defense,2022,765649.0
+National Defense,2023,820263.0
+National Defense,2024,873523.0
+"Education, Training, Employment, and Social Services",1970,8634.0
+"Education, Training, Employment, and Social Services",1971,9849.0
+"Education, Training, Employment, and Social Services",1972,12529.0
+"Education, Training, Employment, and Social Services",1973,12744.0
+"Education, Training, Employment, and Social Services",1974,12455.0
+"Education, Training, Employment, and Social Services",1975,16022.0
+"Education, Training, Employment, and Social Services",1976,18910.0
+"Education, Training, Employment, and Social Services",1977,21104.0
+"Education, Training, Employment, and Social Services",1978,26706.0
+"Education, Training, Employment, and Social Services",1979,30218.0
+"Education, Training, Employment, and Social Services",1980,31835.0
+"Education, Training, Employment, and Social Services",1981,33146.0
+"Education, Training, Employment, and Social Services",1982,26609.0
+"Education, Training, Employment, and Social Services",1983,26192.0
+"Education, Training, Employment, and Social Services",1984,26913.0
+"Education, Training, Employment, and Social Services",1985,28584.0
+"Education, Training, Employment, and Social Services",1986,29771.0
+"Education, Training, Employment, and Social Services",1987,28915.0
+"Education, Training, Employment, and Social Services",1988,30939.0
+"Education, Training, Employment, and Social Services",1989,35314.0
+"Education, Training, Employment, and Social Services",1990,37167.0
+"Education, Training, Employment, and Social Services",1991,41260.0
+"Education, Training, Employment, and Social Services",1992,42807.0
+"Education, Training, Employment, and Social Services",1993,47455.0
+"Education, Training, Employment, and Social Services",1994,43337.0
+"Education, Training, Employment, and Social Services",1995,51067.0
+"Education, Training, Employment, and Social Services",1996,48334.0
+"Education, Training, Employment, and Social Services",1997,49014.0
+"Education, Training, Employment, and Social Services",1998,50534.0
+"Education, Training, Employment, and Social Services",1999,50608.0
+"Education, Training, Employment, and Social Services",2000,53766.0
+"Education, Training, Employment, and Social Services",2001,57089.0
+"Education, Training, Employment, and Social Services",2002,70592.0
+"Education, Training, Employment, and Social Services",2003,82733.0
+"Education, Training, Employment, and Social Services",2004,87997.0
+"Education, Training, Employment, and Social Services",2005,97553.0
+"Education, Training, Employment, and Social Services",2006,118473.0
+"Education, Training, Employment, and Social Services",2007,91647.0
+"Education, Training, Employment, and Social Services",2008,91304.0
+"Education, Training, Employment, and Social Services",2009,79744.0
+"Education, Training, Employment, and Social Services",2010,128595.0
+"Education, Training, Employment, and Social Services",2011,101256.0
+"Education, Training, Employment, and Social Services",2012,90822.0
+"Education, Training, Employment, and Social Services",2013,72860.0
+"Education, Training, Employment, and Social Services",2014,90610.0
+"Education, Training, Employment, and Social Services",2015,122035.0
+"Education, Training, Employment, and Social Services",2016,109709.0
+"Education, Training, Employment, and Social Services",2017,143953.0
+"Education, Training, Employment, and Social Services",2018,95503.0
+"Education, Training, Employment, and Social Services",2019,136700.0
+"Education, Training, Employment, and Social Services",2020,237754.0
+"Education, Training, Employment, and Social Services",2021,298406.0
+"Education, Training, Employment, and Social Services",2022,677305.0
+"Education, Training, Employment, and Social Services",2023,-2189.0
+"Education, Training, Employment, and Social Services",2024,306370.0
+Health,1970,5907.0
+Health,1971,6843.0
+Health,1972,8674.0
+Health,1973,9356.0
+Health,1974,10733.0
+Health,1975,12930.0
+Health,1976,15734.0
+Health,1977,17302.0
+Health,1978,18524.0
+Health,1979,20494.0
+Health,1980,23169.0
+Health,1981,26866.0
+Health,1982,27445.0
+Health,1983,28643.0
+Health,1984,30420.0
+Health,1985,33546.0
+Health,1986,35935.0
+Health,1987,39967.0
+Health,1988,44471.0
+Health,1989,48390.0
+Health,1990,57700.0
+Health,1991,71139.0
+Health,1992,89415.0
+Health,1993,99321.0
+Health,1994,107051.0
+Health,1995,115352.0
+Health,1996,119342.0
+Health,1997,123790.0
+Health,1998,131403.0
+Health,1999,141045.0
+Health,2000,154502.0
+Health,2001,172238.0
+Health,2002,196471.0
+Health,2003,219605.0
+Health,2004,240148.0
+Health,2005,250605.0
+Health,2006,252779.0
+Health,2007,266425.0
+Health,2008,280626.0
+Health,2009,334368.0
+Health,2010,369081.0
+Health,2011,372481.0
+Health,2012,346755.0
+Health,2013,358264.0
+Health,2014,409497.0
+Health,2015,482257.0
+Health,2016,511325.0
+Health,2017,533152.0
+Health,2018,551219.0
+Health,2019,584816.0
+Health,2020,747582.0
+Health,2021,796450.0
+Health,2022,914081.0
+Health,2023,888555.0
+Health,2024,911289.0
+Medicare,1970,6213.0
+Medicare,1971,6622.0
+Medicare,1972,7479.0
+Medicare,1973,8052.0
+Medicare,1974,9639.0
+Medicare,1975,12875.0
+Medicare,1976,15834.0
+Medicare,1977,19345.0
+Medicare,1978,22768.0
+Medicare,1979,26495.0
+Medicare,1980,32090.0
+Medicare,1981,39149.0
+Medicare,1982,46567.0
+Medicare,1983,52588.0
+Medicare,1984,57540.0
+Medicare,1985,65822.0
+Medicare,1986,70164.0
+Medicare,1987,75120.0
+Medicare,1988,78878.0
+Medicare,1989,84964.0
+Medicare,1990,98102.0
+Medicare,1991,104489.0
+Medicare,1992,119024.0
+Medicare,1993,130552.0
+Medicare,1994,144747.0
+Medicare,1995,159855.0
+Medicare,1996,174225.0
+Medicare,1997,190016.0
+Medicare,1998,192822.0
+Medicare,1999,190447.0
+Medicare,2000,197113.0
+Medicare,2001,217384.0
+Medicare,2002,230855.0
+Medicare,2003,249433.0
+Medicare,2004,269360.0
+Medicare,2005,298638.0
+Medicare,2006,329868.0
+Medicare,2007,375407.0
+Medicare,2008,390758.0
+Medicare,2009,430093.0
+Medicare,2010,451636.0
+Medicare,2011,485653.0
+Medicare,2012,471793.0
+Medicare,2013,497826.0
+Medicare,2014,511688.0
+Medicare,2015,546202.0
+Medicare,2016,594536.0
+Medicare,2017,597307.0
+Medicare,2018,588706.0
+Medicare,2019,650996.0
+Medicare,2020,776225.0
+Medicare,2021,696458.0
+Medicare,2022,755094.0
+Medicare,2023,847544.0
+Medicare,2024,874133.0
+Income Security,1970,15645.0
+Income Security,1971,22936.0
+Income Security,1972,27638.0
+Income Security,1973,28265.0
+Income Security,1974,33700.0
+Income Security,1975,50161.0
+Income Security,1976,60784.0
+Income Security,1977,61045.0
+Income Security,1978,61492.0
+Income Security,1979,66364.0
+Income Security,1980,86548.0
+Income Security,1981,100286.0
+Income Security,1982,108138.0
+Income Security,1983,123018.0
+Income Security,1984,113378.0
+Income Security,1985,129002.0
+Income Security,1986,120656.0
+Income Security,1987,124105.0
+Income Security,1988,130387.0
+Income Security,1989,137554.0
+Income Security,1990,148783.0
+Income Security,1991,172589.0
+Income Security,1992,199657.0
+Income Security,1993,210088.0
+Income Security,1994,217233.0
+Income Security,1995,223758.0
+Income Security,1996,229699.0
+Income Security,1997,234986.0
+Income Security,1998,237698.0
+Income Security,1999,242417.0
+Income Security,2000,253673.0
+Income Security,2001,269724.0
+Income Security,2002,312670.0
+Income Security,2003,334574.0
+Income Security,2004,333027.0
+Income Security,2005,345800.0
+Income Security,2006,352425.0
+Income Security,2007,365931.0
+Income Security,2008,431211.0
+Income Security,2009,533080.0
+Income Security,2010,622106.0
+Income Security,2011,597269.0
+Income Security,2012,541248.0
+Income Security,2013,536411.0
+Income Security,2014,513596.0
+Income Security,2015,508800.0
+Income Security,2016,514098.0
+Income Security,2017,503443.0
+Income Security,2018,495289.0
+Income Security,2019,514787.0
+Income Security,2020,1263639.0
+Income Security,2021,1647729.0
+Income Security,2022,866097.0
+Income Security,2023,774656.0
+Income Security,2024,670548.0
+Social Security,1970,30270.0
+Social Security,1971,35872.0
+Social Security,1972,40157.0
+Social Security,1973,49090.0
+Social Security,1974,55867.0
+Social Security,1975,64658.0
+Social Security,1976,73899.0
+Social Security,1977,85061.0
+Social Security,1978,93861.0
+Social Security,1979,104073.0
+Social Security,1980,118547.0
+Social Security,1981,139584.0
+Social Security,1982,155964.0
+Social Security,1983,170724.0
+Social Security,1984,178223.0
+Social Security,1985,188623.0
+Social Security,1986,198756.0
+Social Security,1987,207352.0
+Social Security,1988,219341.0
+Social Security,1989,232542.0
+Social Security,1990,248623.0
+Social Security,1991,269014.0
+Social Security,1992,287584.0
+Social Security,1993,304585.0
+Social Security,1994,319565.0
+Social Security,1995,335846.0
+Social Security,1996,349671.0
+Social Security,1997,365251.0
+Social Security,1998,379215.0
+Social Security,1999,390037.0
+Social Security,2000,409423.0
+Social Security,2001,432958.0
+Social Security,2002,455980.0
+Social Security,2003,474680.0
+Social Security,2004,495548.0
+Social Security,2005,523305.0
+Social Security,2006,548549.0
+Social Security,2007,586153.0
+Social Security,2008,617027.0
+Social Security,2009,682963.0
+Social Security,2010,706737.0
+Social Security,2011,730811.0
+Social Security,2012,773290.0
+Social Security,2013,813551.0
+Social Security,2014,850533.0
+Social Security,2015,887753.0
+Social Security,2016,916067.0
+Social Security,2017,944878.0
+Social Security,2018,987791.0
+Social Security,2019,1044409.0
+Social Security,2020,1095816.0
+Social Security,2021,1134586.0
+Social Security,2022,1218663.0
+Social Security,2023,1354317.0
+Social Security,2024,1460918.0
+Veterans Benefits and Services,1970,8679.0
+Veterans Benefits and Services,1971,9778.0
+Veterans Benefits and Services,1972,10732.0
+Veterans Benefits and Services,1973,12015.0
+Veterans Benefits and Services,1974,13388.0
+Veterans Benefits and Services,1975,16599.0
+Veterans Benefits and Services,1976,18433.0
+Veterans Benefits and Services,1977,18038.0
+Veterans Benefits and Services,1978,18978.0
+Veterans Benefits and Services,1979,19931.0
+Veterans Benefits and Services,1980,21185.0
+Veterans Benefits and Services,1981,22991.0
+Veterans Benefits and Services,1982,23958.0
+Veterans Benefits and Services,1983,24846.0
+Veterans Benefits and Services,1984,25601.0
+Veterans Benefits and Services,1985,26281.0
+Veterans Benefits and Services,1986,26343.0
+Veterans Benefits and Services,1987,26761.0
+Veterans Benefits and Services,1988,29409.0
+Veterans Benefits and Services,1989,30038.0
+Veterans Benefits and Services,1990,29088.0
+Veterans Benefits and Services,1991,31319.0
+Veterans Benefits and Services,1992,34112.0
+Veterans Benefits and Services,1993,35690.0
+Veterans Benefits and Services,1994,37617.0
+Veterans Benefits and Services,1995,37910.0
+Veterans Benefits and Services,1996,37003.0
+Veterans Benefits and Services,1997,39332.0
+Veterans Benefits and Services,1998,41793.0
+Veterans Benefits and Services,1999,43216.0
+Veterans Benefits and Services,2000,47040.0
+Veterans Benefits and Services,2001,45024.0
+Veterans Benefits and Services,2002,50979.0
+Veterans Benefits and Services,2003,56832.0
+Veterans Benefits and Services,2004,59729.0
+Veterans Benefits and Services,2005,70112.0
+Veterans Benefits and Services,2006,69832.0
+Veterans Benefits and Services,2007,72828.0
+Veterans Benefits and Services,2008,84711.0
+Veterans Benefits and Services,2009,95545.0
+Veterans Benefits and Services,2010,108478.0
+Veterans Benefits and Services,2011,127269.0
+Veterans Benefits and Services,2012,124679.0
+Veterans Benefits and Services,2013,139038.0
+Veterans Benefits and Services,2014,149621.0
+Veterans Benefits and Services,2015,159781.0
+Veterans Benefits and Services,2016,174557.0
+Veterans Benefits and Services,2017,176584.0
+Veterans Benefits and Services,2018,178895.0
+Veterans Benefits and Services,2019,199843.0
+Veterans Benefits and Services,2020,218655.0
+Veterans Benefits and Services,2021,234282.0
+Veterans Benefits and Services,2022,274404.0
+Veterans Benefits and Services,2023,301600.0
+Veterans Benefits and Services,2024,325637.0
+Energy,1970,997.0
+Energy,1971,1035.0
+Energy,1972,1296.0
+Energy,1973,1237.0
+Energy,1974,1303.0
+Energy,1975,2916.0
+Energy,1976,4204.0
+Energy,1977,5770.0
+Energy,1978,7991.0
+Energy,1979,9179.0
+Energy,1980,10156.0
+Energy,1981,15166.0
+Energy,1982,13527.0
+Energy,1983,9353.0
+Energy,1984,7073.0
+Energy,1985,5608.0
+Energy,1986,4690.0
+Energy,1987,4072.0
+Energy,1988,2296.0
+Energy,1989,2705.0
+Energy,1990,3341.0
+Energy,1991,2436.0
+Energy,1992,4499.0
+Energy,1993,4319.0
+Energy,1994,5218.0
+Energy,1995,4936.0
+Energy,1996,2839.0
+Energy,1997,1475.0
+Energy,1998,1270.0
+Energy,1999,911.0
+Energy,2000,-761.0
+Energy,2001,9.0
+Energy,2002,475.0
+Energy,2003,-725.0
+Energy,2004,-147.0
+Energy,2005,440.0
+Energy,2006,785.0
+Energy,2007,-852.0
+Energy,2008,631.0
+Energy,2009,4755.0
+Energy,2010,11618.0
+Energy,2011,12174.0
+Energy,2012,14858.0
+Energy,2013,11042.0
+Energy,2014,5270.0
+Energy,2015,6841.0
+Energy,2016,3721.0
+Energy,2017,3856.0
+Energy,2018,2169.0
+Energy,2019,5041.0
+Energy,2020,7083.0
+Energy,2021,5977.0
+Energy,2022,-9132.0
+Energy,2023,-406.0
+Energy,2024,13571.0
+Natural Resources and Environment,1970,3065.0
+Natural Resources and Environment,1971,3915.0
+Natural Resources and Environment,1972,4241.0
+Natural Resources and Environment,1973,4775.0
+Natural Resources and Environment,1974,5697.0
+Natural Resources and Environment,1975,7346.0
+Natural Resources and Environment,1976,8184.0
+Natural Resources and Environment,1977,10032.0
+Natural Resources and Environment,1978,10983.0
+Natural Resources and Environment,1979,12135.0
+Natural Resources and Environment,1980,13858.0
+Natural Resources and Environment,1981,13568.0
+Natural Resources and Environment,1982,12998.0
+Natural Resources and Environment,1983,12672.0
+Natural Resources and Environment,1984,12586.0
+Natural Resources and Environment,1985,13345.0
+Natural Resources and Environment,1986,13628.0
+Natural Resources and Environment,1987,13355.0
+Natural Resources and Environment,1988,14601.0
+Natural Resources and Environment,1989,16169.0
+Natural Resources and Environment,1990,17055.0
+Natural Resources and Environment,1991,18544.0
+Natural Resources and Environment,1992,20001.0
+Natural Resources and Environment,1993,20224.0
+Natural Resources and Environment,1994,21000.0
+Natural Resources and Environment,1995,21889.0
+Natural Resources and Environment,1996,21503.0
+Natural Resources and Environment,1997,21201.0
+Natural Resources and Environment,1998,22278.0
+Natural Resources and Environment,1999,23943.0
+Natural Resources and Environment,2000,25003.0
+Natural Resources and Environment,2001,25532.0
+Natural Resources and Environment,2002,29426.0
+Natural Resources and Environment,2003,29667.0
+Natural Resources and Environment,2004,30694.0
+Natural Resources and Environment,2005,27983.0
+Natural Resources and Environment,2006,33025.0
+Natural Resources and Environment,2007,31721.0
+Natural Resources and Environment,2008,31820.0
+Natural Resources and Environment,2009,35573.0
+Natural Resources and Environment,2010,43667.0
+Natural Resources and Environment,2011,45473.0
+Natural Resources and Environment,2012,41631.0
+Natural Resources and Environment,2013,38145.0
+Natural Resources and Environment,2014,36171.0
+Natural Resources and Environment,2015,36033.0
+Natural Resources and Environment,2016,39081.0
+Natural Resources and Environment,2017,37896.0
+Natural Resources and Environment,2018,39075.0
+Natural Resources and Environment,2019,37836.0
+Natural Resources and Environment,2020,42450.0
+Natural Resources and Environment,2021,44151.0
+Natural Resources and Environment,2022,41384.0
+Natural Resources and Environment,2023,47387.0
+Natural Resources and Environment,2024,58469.0
+Commerce and Housing Credit,1970,2112.0
+Commerce and Housing Credit,1971,2366.0
+Commerce and Housing Credit,1972,2222.0
+Commerce and Housing Credit,1973,931.0
+Commerce and Housing Credit,1974,4705.0
+Commerce and Housing Credit,1975,9947.0
+Commerce and Housing Credit,1976,7619.0
+Commerce and Housing Credit,1977,3093.0
+Commerce and Housing Credit,1978,6254.0
+Commerce and Housing Credit,1979,4686.0
+Commerce and Housing Credit,1980,9390.0
+Commerce and Housing Credit,1981,8206.0
+Commerce and Housing Credit,1982,6256.0
+Commerce and Housing Credit,1983,6681.0
+Commerce and Housing Credit,1984,6959.0
+Commerce and Housing Credit,1985,4337.0
+Commerce and Housing Credit,1986,5058.0
+Commerce and Housing Credit,1987,6434.0
+Commerce and Housing Credit,1988,19163.0
+Commerce and Housing Credit,1989,29709.0
+Commerce and Housing Credit,1990,67599.0
+Commerce and Housing Credit,1991,76270.0
+Commerce and Housing Credit,1992,10918.0
+Commerce and Housing Credit,1993,-21853.0
+Commerce and Housing Credit,1994,-4228.0
+Commerce and Housing Credit,1995,-17808.0
+Commerce and Housing Credit,1996,-10478.0
+Commerce and Housing Credit,1997,-14640.0
+Commerce and Housing Credit,1998,1007.0
+Commerce and Housing Credit,1999,2641.0
+Commerce and Housing Credit,2000,3207.0
+Commerce and Housing Credit,2001,5731.0
+Commerce and Housing Credit,2002,-407.0
+Commerce and Housing Credit,2003,727.0
+Commerce and Housing Credit,2004,5265.0
+Commerce and Housing Credit,2005,7566.0
+Commerce and Housing Credit,2006,6187.0
+Commerce and Housing Credit,2007,487.0
+Commerce and Housing Credit,2008,27870.0
+Commerce and Housing Credit,2009,291535.0
+Commerce and Housing Credit,2010,-82316.0
+Commerce and Housing Credit,2011,-12564.0
+Commerce and Housing Credit,2012,40647.0
+Commerce and Housing Credit,2013,-83198.0
+Commerce and Housing Credit,2014,-94861.0
+Commerce and Housing Credit,2015,-37905.0
+Commerce and Housing Credit,2016,-34077.0
+Commerce and Housing Credit,2017,-26685.0
+Commerce and Housing Credit,2018,-9470.0
+Commerce and Housing Credit,2019,-25715.0
+Commerce and Housing Credit,2020,572071.0
+Commerce and Housing Credit,2021,307847.0
+Commerce and Housing Credit,2022,-19075.0
+Commerce and Housing Credit,2023,100765.0
+Commerce and Housing Credit,2024,36032.0
+Transportation,1970,7008.0
+Transportation,1971,8052.0
+Transportation,1972,8392.0
+Transportation,1973,9066.0
+Transportation,1974,9172.0
+Transportation,1975,10918.0
+Transportation,1976,13739.0
+Transportation,1977,14829.0
+Transportation,1978,15521.0
+Transportation,1979,18079.0
+Transportation,1980,21329.0
+Transportation,1981,23379.0
+Transportation,1982,20625.0
+Transportation,1983,21334.0
+Transportation,1984,23669.0
+Transportation,1985,25838.0
+Transportation,1986,28113.0
+Transportation,1987,26222.0
+Transportation,1988,27272.0
+Transportation,1989,27608.0
+Transportation,1990,29485.0
+Transportation,1991,31099.0
+Transportation,1992,33332.0
+Transportation,1993,35004.0
+Transportation,1994,38066.0
+Transportation,1995,39350.0
+Transportation,1996,39565.0
+Transportation,1997,40767.0
+Transportation,1998,40343.0
+Transportation,1999,42532.0
+Transportation,2000,46853.0
+Transportation,2001,54447.0
+Transportation,2002,61833.0
+Transportation,2003,67069.0
+Transportation,2004,64627.0
+Transportation,2005,67894.0
+Transportation,2006,70244.0
+Transportation,2007,72905.0
+Transportation,2008,77616.0
+Transportation,2009,84289.0
+Transportation,2010,91972.0
+Transportation,2011,92966.0
+Transportation,2012,93019.0
+Transportation,2013,91673.0
+Transportation,2014,91915.0
+Transportation,2015,89533.0
+Transportation,2016,92566.0
+Transportation,2017,93552.0
+Transportation,2018,92785.0
+Transportation,2019,95756.0
+Transportation,2020,145623.0
+Transportation,2021,154291.0
+Transportation,2022,131024.0
+Transportation,2023,126417.0
+Transportation,2024,136582.0
+Community and Regional Development,1970,2392.0
+Community and Regional Development,1971,2917.0
+Community and Regional Development,1972,3423.0
+Community and Regional Development,1973,4605.0
+Community and Regional Development,1974,4229.0
+Community and Regional Development,1975,4322.0
+Community and Regional Development,1976,5442.0
+Community and Regional Development,1977,7021.0
+Community and Regional Development,1978,11841.0
+Community and Regional Development,1979,10480.0
+Community and Regional Development,1980,11252.0
+Community and Regional Development,1981,10568.0
+Community and Regional Development,1982,8347.0
+Community and Regional Development,1983,7564.0
+Community and Regional Development,1984,7673.0
+Community and Regional Development,1985,7676.0
+Community and Regional Development,1986,7233.0
+Community and Regional Development,1987,5049.0
+Community and Regional Development,1988,5293.0
+Community and Regional Development,1989,5362.0
+Community and Regional Development,1990,8531.0
+Community and Regional Development,1991,6810.0
+Community and Regional Development,1992,6836.0
+Community and Regional Development,1993,9146.0
+Community and Regional Development,1994,10620.0
+Community and Regional Development,1995,10746.0
+Community and Regional Development,1996,10741.0
+Community and Regional Development,1997,11049.0
+Community and Regional Development,1998,9771.0
+Community and Regional Development,1999,11865.0
+Community and Regional Development,2000,10623.0
+Community and Regional Development,2001,11773.0
+Community and Regional Development,2002,12981.0
+Community and Regional Development,2003,18850.0
+Community and Regional Development,2004,15820.0
+Community and Regional Development,2005,26262.0
+Community and Regional Development,2006,54465.0
+Community and Regional Development,2007,29567.0
+Community and Regional Development,2008,23952.0
+Community and Regional Development,2009,27676.0
+Community and Regional Development,2010,23894.0
+Community and Regional Development,2011,23883.0
+Community and Regional Development,2012,25132.0
+Community and Regional Development,2013,32335.0
+Community and Regional Development,2014,20670.0
+Community and Regional Development,2015,20669.0
+Community and Regional Development,2016,20140.0
+Community and Regional Development,2017,24907.0
+Community and Regional Development,2018,42159.0
+Community and Regional Development,2019,26784.0
+Community and Regional Development,2020,81878.0
+Community and Regional Development,2021,44655.0
+Community and Regional Development,2022,69963.0
+Community and Regional Development,2023,86553.0
+Community and Regional Development,2024,85215.0
+Net interest,1970,14380.0
+Net interest,1971,14841.0
+Net interest,1972,15478.0
+Net interest,1973,17349.0
+Net interest,1974,21449.0
+Net interest,1975,23244.0
+Net interest,1976,26727.0
+Net interest,1977,29901.0
+Net interest,1978,35458.0
+Net interest,1979,42633.0
+Net interest,1980,52533.0
+Net interest,1981,68766.0
+Net interest,1982,85032.0
+Net interest,1983,89808.0
+Net interest,1984,111102.0
+Net interest,1985,129478.0
+Net interest,1986,136017.0
+Net interest,1987,138611.0
+Net interest,1988,151803.0
+Net interest,1989,168981.0
+Net interest,1990,184347.0
+Net interest,1991,194448.0
+Net interest,1992,199344.0
+Net interest,1993,198713.0
+Net interest,1994,202932.0
+Net interest,1995,232134.0
+Net interest,1996,241053.0
+Net interest,1997,243984.0
+Net interest,1998,241118.0
+Net interest,1999,229755.0
+Net interest,2000,222949.0
+Net interest,2001,206167.0
+Net interest,2002,170949.0
+Net interest,2003,153073.0
+Net interest,2004,160245.0
+Net interest,2005,183986.0
+Net interest,2006,226603.0
+Net interest,2007,237109.0
+Net interest,2008,252757.0
+Net interest,2009,186902.0
+Net interest,2010,196194.0
+Net interest,2011,229962.0
+Net interest,2012,220408.0
+Net interest,2013,220885.0
+Net interest,2014,228956.0
+Net interest,2015,223181.0
+Net interest,2016,240033.0
+Net interest,2017,262551.0
+Net interest,2018,324975.0
+Net interest,2019,375158.0
+Net interest,2020,345470.0
+Net interest,2021,352338.0
+Net interest,2022,475887.0
+Net interest,2023,658267.0
+Net interest,2024,879879.0
+International Affairs,1970,4330.0
+International Affairs,1971,4159.0
+International Affairs,1972,4781.0
+International Affairs,1973,4149.0
+International Affairs,1974,5710.0
+International Affairs,1975,7097.0
+International Affairs,1976,6433.0
+International Affairs,1977,6353.0
+International Affairs,1978,7482.0
+International Affairs,1979,7459.0
+International Affairs,1980,12714.0
+International Affairs,1981,13104.0
+International Affairs,1982,12300.0
+International Affairs,1983,11848.0
+International Affairs,1984,15869.0
+International Affairs,1985,16169.0
+International Affairs,1986,14146.0
+International Affairs,1987,11645.0
+International Affairs,1988,10466.0
+International Affairs,1989,9583.0
+International Affairs,1990,13758.0
+International Affairs,1991,15846.0
+International Affairs,1992,16090.0
+International Affairs,1993,17218.0
+International Affairs,1994,17067.0
+International Affairs,1995,16429.0
+International Affairs,1996,13487.0
+International Affairs,1997,15173.0
+International Affairs,1998,13054.0
+International Affairs,1999,15239.0
+International Affairs,2000,17213.0
+International Affairs,2001,16485.0
+International Affairs,2002,22315.0
+International Affairs,2003,21199.0
+International Affairs,2004,26870.0
+International Affairs,2005,34565.0
+International Affairs,2006,29499.0
+International Affairs,2007,28482.0
+International Affairs,2008,28857.0
+International Affairs,2009,37529.0
+International Affairs,2010,45195.0
+International Affairs,2011,45685.0
+International Affairs,2012,36802.0
+International Affairs,2013,46464.0
+International Affairs,2014,46879.0
+International Affairs,2015,52040.0
+International Affairs,2016,45306.0
+International Affairs,2017,46308.0
+International Affairs,2018,48875.0
+International Affairs,2019,53035.0
+International Affairs,2020,67722.0
+International Affairs,2021,46951.0
+International Affairs,2022,71873.0
+International Affairs,2023,69313.0
+International Affairs,2024,72000.0
+"General Science, Space, and Technology",1970,4511.0
+"General Science, Space, and Technology",1971,4182.0
+"General Science, Space, and Technology",1972,4175.0
+"General Science, Space, and Technology",1973,4032.0
+"General Science, Space, and Technology",1974,3980.0
+"General Science, Space, and Technology",1975,3991.0
+"General Science, Space, and Technology",1976,4373.0
+"General Science, Space, and Technology",1977,4736.0
+"General Science, Space, and Technology",1978,4926.0
+"General Science, Space, and Technology",1979,5234.0
+"General Science, Space, and Technology",1980,5831.0
+"General Science, Space, and Technology",1981,6468.0
+"General Science, Space, and Technology",1982,7199.0
+"General Science, Space, and Technology",1983,7934.0
+"General Science, Space, and Technology",1984,8311.0
+"General Science, Space, and Technology",1985,8622.0
+"General Science, Space, and Technology",1986,8962.0
+"General Science, Space, and Technology",1987,9200.0
+"General Science, Space, and Technology",1988,10820.0
+"General Science, Space, and Technology",1989,12821.0
+"General Science, Space, and Technology",1990,14426.0
+"General Science, Space, and Technology",1991,16092.0
+"General Science, Space, and Technology",1992,16389.0
+"General Science, Space, and Technology",1993,17006.0
+"General Science, Space, and Technology",1994,16189.0
+"General Science, Space, and Technology",1995,16692.0
+"General Science, Space, and Technology",1996,16684.0
+"General Science, Space, and Technology",1997,17136.0
+"General Science, Space, and Technology",1998,18172.0
+"General Science, Space, and Technology",1999,18084.0
+"General Science, Space, and Technology",2000,18594.0
+"General Science, Space, and Technology",2001,19753.0
+"General Science, Space, and Technology",2002,20734.0
+"General Science, Space, and Technology",2003,20831.0
+"General Science, Space, and Technology",2004,23029.0
+"General Science, Space, and Technology",2005,23597.0
+"General Science, Space, and Technology",2006,23584.0
+"General Science, Space, and Technology",2007,24407.0
+"General Science, Space, and Technology",2008,26773.0
+"General Science, Space, and Technology",2009,28417.0
+"General Science, Space, and Technology",2010,30100.0
+"General Science, Space, and Technology",2011,29466.0
+"General Science, Space, and Technology",2012,29060.0
+"General Science, Space, and Technology",2013,28908.0
+"General Science, Space, and Technology",2014,28570.0
+"General Science, Space, and Technology",2015,29412.0
+"General Science, Space, and Technology",2016,30174.0
+"General Science, Space, and Technology",2017,30398.0
+"General Science, Space, and Technology",2018,31536.0
+"General Science, Space, and Technology",2019,32414.0
+"General Science, Space, and Technology",2020,34022.0
+"General Science, Space, and Technology",2021,35534.0
+"General Science, Space, and Technology",2022,37404.0
+"General Science, Space, and Technology",2023,41276.0
+"General Science, Space, and Technology",2024,41476.0
+Agriculture,1970,5166.0
+Agriculture,1971,4290.0
+Agriculture,1972,5227.0
+Agriculture,1973,4821.0
+Agriculture,1974,2194.0
+Agriculture,1975,2997.0
+Agriculture,1976,3109.0
+Agriculture,1977,6734.0
+Agriculture,1978,11301.0
+Agriculture,1979,11176.0
+Agriculture,1980,8774.0
+Agriculture,1981,11241.0
+Agriculture,1982,15866.0
+Agriculture,1983,22807.0
+Agriculture,1984,13477.0
+Agriculture,1985,25427.0
+Agriculture,1986,31319.0
+Agriculture,1987,26466.0
+Agriculture,1988,17088.0
+Agriculture,1989,16698.0
+Agriculture,1990,11637.0
+Agriculture,1991,14886.0
+Agriculture,1992,14922.0
+Agriculture,1993,20081.0
+Agriculture,1994,14795.0
+Agriculture,1995,9671.0
+Agriculture,1996,9035.0
+Agriculture,1997,8889.0
+Agriculture,1998,12077.0
+Agriculture,1999,22879.0
+Agriculture,2000,36458.0
+Agriculture,2001,26252.0
+Agriculture,2002,21965.0
+Agriculture,2003,22496.0
+Agriculture,2004,15439.0
+Agriculture,2005,26565.0
+Agriculture,2006,25969.0
+Agriculture,2007,17662.0
+Agriculture,2008,18387.0
+Agriculture,2009,22237.0
+Agriculture,2010,21356.0
+Agriculture,2011,20662.0
+Agriculture,2012,17791.0
+Agriculture,2013,29678.0
+Agriculture,2014,24386.0
+Agriculture,2015,18500.0
+Agriculture,2016,18344.0
+Agriculture,2017,18872.0
+Agriculture,2018,21789.0
+Agriculture,2019,38257.0
+Agriculture,2020,47298.0
+Agriculture,2021,47398.0
+Agriculture,2022,33065.0
+Agriculture,2023,33651.0
+Agriculture,2024,32841.0
+Administration of Justice,1970,959.0
+Administration of Justice,1971,1307.0
+Administration of Justice,1972,1684.0
+Administration of Justice,1973,2174.0
+Administration of Justice,1974,2505.0
+Administration of Justice,1975,3028.0
+Administration of Justice,1976,3430.0
+Administration of Justice,1977,3701.0
+Administration of Justice,1978,3923.0
+Administration of Justice,1979,4286.0
+Administration of Justice,1980,4702.0
+Administration of Justice,1981,4908.0
+Administration of Justice,1982,4842.0
+Administration of Justice,1983,5246.0
+Administration of Justice,1984,5811.0
+Administration of Justice,1985,6426.0
+Administration of Justice,1986,6735.0
+Administration of Justice,1987,7715.0
+Administration of Justice,1988,9397.0
+Administration of Justice,1989,9644.0
+Administration of Justice,1990,10185.0
+Administration of Justice,1991,12486.0
+Administration of Justice,1992,14650.0
+Administration of Justice,1993,15193.0
+Administration of Justice,1994,15516.0
+Administration of Justice,1995,16508.0
+Administration of Justice,1996,17898.0
+Administration of Justice,1997,20617.0
+Administration of Justice,1998,23359.0
+Administration of Justice,1999,26536.0
+Administration of Justice,2000,28499.0
+Administration of Justice,2001,30201.0
+Administration of Justice,2002,35061.0
+Administration of Justice,2003,35340.0
+Administration of Justice,2004,45576.0
+Administration of Justice,2005,40019.0
+Administration of Justice,2006,41016.0
+Administration of Justice,2007,42362.0
+Administration of Justice,2008,48097.0
+Administration of Justice,2009,52581.0
+Administration of Justice,2010,54383.0
+Administration of Justice,2011,56056.0
+Administration of Justice,2012,56277.0
+Administration of Justice,2013,52601.0
+Administration of Justice,2014,50457.0
+Administration of Justice,2015,51906.0
+Administration of Justice,2016,55768.0
+Administration of Justice,2017,57944.0
+Administration of Justice,2018,60418.0
+Administration of Justice,2019,65832.0
+Administration of Justice,2020,71997.0
+Administration of Justice,2021,71430.0
+Administration of Justice,2022,71323.0
+Administration of Justice,2023,80432.0
+Administration of Justice,2024,83793.0
+General Government,1970,2320.0
+General Government,1971,2442.0
+General Government,1972,2960.0
+General Government,1973,9774.0
+General Government,1974,10032.0
+General Government,1975,10374.0
+General Government,1976,9706.0
+General Government,1977,12791.0
+General Government,1978,11961.0
+General Government,1979,12241.0
+General Government,1980,12975.0
+General Government,1981,11373.0
+General Government,1982,10861.0
+General Government,1983,11181.0
+General Government,1984,11746.0
+General Government,1985,11515.0
+General Government,1986,12491.0
+General Government,1987,7487.0
+General Government,1988,9399.0
+General Government,1989,9317.0
+General Government,1990,10462.0
+General Government,1991,11568.0
+General Government,1992,12883.0
+General Government,1993,12944.0
+General Government,1994,11159.0
+General Government,1995,13799.0
+General Government,1996,11755.0
+General Government,1997,12547.0
+General Government,1998,15544.0
+General Government,1999,15363.0
+General Government,2000,13013.0
+General Government,2001,14358.0
+General Government,2002,16951.0
+General Government,2003,23164.0
+General Government,2004,22338.0
+General Government,2005,16997.0
+General Government,2006,18177.0
+General Government,2007,17425.0
+General Government,2008,20323.0
+General Government,2009,22017.0
+General Government,2010,23014.0
+General Government,2011,27476.0
+General Government,2012,28035.0
+General Government,2013,27737.0
+General Government,2014,26913.0
+General Government,2015,20956.0
+General Government,2016,23146.0
+General Government,2017,23821.0
+General Government,2018,23885.0
+General Government,2019,23488.0
+General Government,2020,180109.0
+General Government,2021,273941.0
+General Government,2022,133216.0
+General Government,2023,38199.0
+General Government,2024,35316.0

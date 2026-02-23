@@ -1,0 +1,166 @@
+year,category,amount
+1970,Total Receipts,192807
+1971,Total Receipts,187139
+1972,Total Receipts,207309
+1973,Total Receipts,230799
+1974,Total Receipts,263224
+1975,Total Receipts,279090
+1976,Total Receipts,298060
+1977,Total Receipts,355559
+1978,Total Receipts,399561
+1979,Total Receipts,463302
+1980,Total Receipts,517112
+1981,Total Receipts,599272
+1982,Total Receipts,617766
+1983,Total Receipts,600562
+1984,Total Receipts,666438
+1985,Total Receipts,734037
+1986,Total Receipts,769155
+1987,Total Receipts,854287
+1988,Total Receipts,909238
+1989,Total Receipts,991104
+1990,Total Receipts,1031958
+1991,Total Receipts,1054988
+1992,Total Receipts,1091208
+1993,Total Receipts,1154334
+1994,Total Receipts,1258566
+1995,Total Receipts,1351790
+1996,Total Receipts,1453053
+1997,Total Receipts,1579232
+1998,Total Receipts,1721728
+1999,Total Receipts,1827452
+2000,Total Receipts,2025191
+2001,Total Receipts,1991082
+2002,Total Receipts,1853136
+2003,Total Receipts,1782314
+2004,Total Receipts,1880114
+2005,Total Receipts,2153611
+2006,Total Receipts,2406869
+2007,Total Receipts,2567985
+2008,Total Receipts,2523991
+2009,Total Receipts,2104989
+2010,Total Receipts,2162706
+2011,Total Receipts,2303466
+2012,Total Receipts,2449990
+2013,Total Receipts,2775106
+2014,Total Receipts,3021491
+2015,Total Receipts,3249890
+2016,Total Receipts,3267965
+2017,Total Receipts,3316184
+2018,Total Receipts,3329907
+2019,Total Receipts,3463364
+2020,Total Receipts,3421164
+2021,Total Receipts,4047111
+2022,Total Receipts,4897339
+2023,Total Receipts,4440948
+2024,Total Receipts,4919883
+1970,Total Outlays,195649
+1971,Total Outlays,210172
+1972,Total Outlays,230681
+1973,Total Outlays,245707
+1974,Total Outlays,269359
+1975,Total Outlays,332332
+1976,Total Outlays,371792
+1977,Total Outlays,409218
+1978,Total Outlays,458746
+1979,Total Outlays,504028
+1980,Total Outlays,590941
+1981,Total Outlays,678241
+1982,Total Outlays,745743
+1983,Total Outlays,808364
+1984,Total Outlays,851805
+1985,Total Outlays,946344
+1986,Total Outlays,990382
+1987,Total Outlays,1004017
+1988,Total Outlays,1064416
+1989,Total Outlays,1143743
+1990,Total Outlays,1252993
+1991,Total Outlays,1324226
+1992,Total Outlays,1381529
+1993,Total Outlays,1409386
+1994,Total Outlays,1461752
+1995,Total Outlays,1515742
+1996,Total Outlays,1560484
+1997,Total Outlays,1601116
+1998,Total Outlays,1652458
+1999,Total Outlays,1701842
+2000,Total Outlays,1788950
+2001,Total Outlays,1862846
+2002,Total Outlays,2010894
+2003,Total Outlays,2159899
+2004,Total Outlays,2292841
+2005,Total Outlays,2471957
+2006,Total Outlays,2655050
+2007,Total Outlays,2728686
+2008,Total Outlays,2982544
+2009,Total Outlays,3517677
+2010,Total Outlays,3457079
+2011,Total Outlays,3603065
+2012,Total Outlays,3526563
+2013,Total Outlays,3454881
+2014,Total Outlays,3506284
+2015,Total Outlays,3691850
+2016,Total Outlays,3852615
+2017,Total Outlays,3981634
+2018,Total Outlays,4108981
+2019,Total Outlays,4446952
+2020,Total Outlays,6553620
+2021,Total Outlays,6822461
+2022,Total Outlays,6273261
+2023,Total Outlays,6134673
+2024,Total Outlays,6750856
+1970,Surplus or Deficit,-2842
+1971,Surplus or Deficit,-23033
+1972,Surplus or Deficit,-23373
+1973,Surplus or Deficit,-14908
+1974,Surplus or Deficit,-6135
+1975,Surplus or Deficit,-53242
+1976,Surplus or Deficit,-73732
+1977,Surplus or Deficit,-53659
+1978,Surplus or Deficit,-59185
+1979,Surplus or Deficit,-40726
+1980,Surplus or Deficit,-73830
+1981,Surplus or Deficit,-78968
+1982,Surplus or Deficit,-127977
+1983,Surplus or Deficit,-207802
+1984,Surplus or Deficit,-185367
+1985,Surplus or Deficit,-212308
+1986,Surplus or Deficit,-221227
+1987,Surplus or Deficit,-149730
+1988,Surplus or Deficit,-155178
+1989,Surplus or Deficit,-152639
+1990,Surplus or Deficit,-221036
+1991,Surplus or Deficit,-269238
+1992,Surplus or Deficit,-290321
+1993,Surplus or Deficit,-255051
+1994,Surplus or Deficit,-203186
+1995,Surplus or Deficit,-163952
+1996,Surplus or Deficit,-107431
+1997,Surplus or Deficit,-21884
+1998,Surplus or Deficit,69270
+1999,Surplus or Deficit,125610
+2000,Surplus or Deficit,236241
+2001,Surplus or Deficit,128236
+2002,Surplus or Deficit,-157758
+2003,Surplus or Deficit,-377585
+2004,Surplus or Deficit,-412727
+2005,Surplus or Deficit,-318346
+2006,Surplus or Deficit,-248181
+2007,Surplus or Deficit,-160701
+2008,Surplus or Deficit,-458553
+2009,Surplus or Deficit,-1412688
+2010,Surplus or Deficit,-1294373
+2011,Surplus or Deficit,-1299599
+2012,Surplus or Deficit,-1076573
+2013,Surplus or Deficit,-679775
+2014,Surplus or Deficit,-484793
+2015,Surplus or Deficit,-441960
+2016,Surplus or Deficit,-584650
+2017,Surplus or Deficit,-665450
+2018,Surplus or Deficit,-779074
+2019,Surplus or Deficit,-983588
+2020,Surplus or Deficit,-3132456
+2021,Surplus or Deficit,-2775350
+2022,Surplus or Deficit,-1375922
+2023,Surplus or Deficit,-1693725
+2024,Surplus or Deficit,-1830973
