@@ -7,12 +7,14 @@ var COLS = 22;
 var SZ = 12;
 var GAP = 2;
 
+
+
 var PROJ_BLOCK_B = 10;
 var PROJ_SZ      = 7;
 var PROJ_GAP     = 1;
 var PROJ_COL_W   = 10;
 
-var C_JAN      = "#6baed6";
+var C_JAN      = "#6baed7";
 var C_OBBBA    = "#f0b429";
 var C_NOTARIFF = "#d94801";
 
@@ -765,6 +767,7 @@ export default function App() {
     <NetInterestPage spendingData={spendingData} />,
     <OBBBAPage deficitProj={deficitProj} niProj={niProj} />,
   ];
+
 
   return (
     <PageShell page={page} setPage={setPage} total={pages.length} prompt={PAGES[page].prompt}>
