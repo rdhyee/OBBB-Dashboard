@@ -12,40 +12,29 @@ var PROJ_SZ      = 7;
 var PROJ_GAP     = 1;
 var PROJ_COL_W   = 10;
 
-// ── Editorial palette ──
-var BG        = "#f5f0e8";   // cream background
-var SURFACE   = "#faf7f2";   // card background
-var BORDER    = "#ddd5c0";   // card borders
-var TEXT      = "#1a1208";   // near-black ink
-var MUTED     = "#7a6e5a";   // muted text
-var GOLD      = "#8b6914";   // dark gold accent
-var AMBER     = "#b84c1a";   // orange-red accent
-var RED       = "#8b1a1a";   // deficit/debt red
-var BLUE      = "#1a3a5c";   // deep navy blue
-
-var C_JAN      = "#1a3a5c";
-var C_OBBBA    = "#8b6914";
-var C_NOTARIFF = "#b84c1a";
+var C_JAN      = "#6baed6";
+var C_OBBBA    = "#f0b429";
+var C_NOTARIFF = "#d94801";
 
 var REV_COLORS = {
-  "Individual Income Tax": "#1a3a5c",
-  "Payroll Taxes (FICA)":  "#2a5a8c",
-  "Corporate Income Tax":  "#3a7ab0",
-  Other:                   "#6aa0c8",
-  "Excise Taxes":          "#9abcd8",
+  "Individual Income Tax": "#08519c",
+  "Payroll Taxes (FICA)": "#3182bd",
+  "Corporate Income Tax": "#6baed6",
+  Other: "#9ecae1",
+  "Excise Taxes": "#c6dbef",
 };
 
 var SPEND_COLORS = {
-  "Social Security":   "#5c1a1a",
-  Health:              "#7a2020",
-  "Net interest":      "#b84c1a",
-  Medicare:            "#8b3a14",
-  "National Defense":  "#3a2800",
-  "Income Security":   "#6b4a10",
-  "Veterans Benefits and Services": "#8b6914",
-  "Education, Training, Employment, and Social Services": "#a08030",
+  "Social Security": "#7f2704",
+  Health: "#a63603",
+  "Net interest": "#d94801",
+  Medicare: "#e6550d",
+  "National Defense": "#f16913",
+  "Income Security": "#fd8d3c",
+  "Veterans Benefits and Services": "#fdae6b",
+  "Education, Training, Employment, and Social Services": "#fdd0a2",
 };
-var SPEND_OTHER_COLOR = "#d4c8a0";
+var SPEND_OTHER_COLOR = "#fee6ce";
 
 var SPEND_SHORT = {
   "Social Security": "Social Security",
@@ -109,7 +98,7 @@ function BlockGrid(props) {
           <div key={i}
             onMouseEnter={function () { props.setHoveredCat(b.name); }}
             onMouseLeave={function () { props.setHoveredCat(null); }}
-            style={{ width: SZ, height: SZ, borderRadius: 1, backgroundColor: b.color, opacity: hl ? 1 : 0.1, transition: "opacity 0.2s", cursor: "pointer" }}
+            style={{ width: SZ, height: SZ, borderRadius: 2, backgroundColor: b.color, opacity: hl ? 1 : 0.12, transition: "opacity 0.2s", cursor: "pointer" }}
           />
         );
       })}
@@ -128,9 +117,9 @@ function Legend(props) {
             onMouseEnter={function () { props.setHoveredCat(s.label); }}
             onMouseLeave={function () { props.setHoveredCat(null); }}
             style={{ display: "flex", alignItems: "center", gap: 8, opacity: isActive ? 1 : 0.2, transition: "opacity 0.2s", cursor: "pointer", fontSize: 13 }}>
-            <div style={{ width: 10, height: 10, borderRadius: 1, backgroundColor: s.color, flexShrink: 0 }} />
-            <span style={{ color: TEXT, fontFamily: "Georgia, serif" }}>{s.label}</span>
-            <span style={{ color: MUTED, marginLeft: "auto", fontVariantNumeric: "tabular-nums", fontSize: 12 }}>{amt}</span>
+            <div style={{ width: 10, height: 10, borderRadius: 2, backgroundColor: s.color, flexShrink: 0 }} />
+            <span style={{ color: "#374151" }}>{s.label}</span>
+            <span style={{ color: "#9ca3af", marginLeft: "auto", fontVariantNumeric: "tabular-nums", fontSize: 12 }}>{amt}</span>
           </div>
         );
       })}
@@ -140,7 +129,7 @@ function Legend(props) {
 
 function Card(props) {
   return (
-    <div style={{ background: SURFACE, borderRadius: 4, border: "1px solid " + BORDER, boxShadow: "0 1px 4px rgba(0,0,0,0.08)", padding: "24px 28px", ...(props.style || {}) }}>
+    <div style={{ background: "#fff", borderRadius: 10, border: "1px solid #e5e7eb", boxShadow: "0 1px 3px rgba(0,0,0,0.06)", padding: "24px 28px", ...(props.style || {}) }}>
       {props.children}
     </div>
   );
@@ -149,13 +138,12 @@ function Card(props) {
 /* ─── Page 0: Intro ─── */
 function IntroPage() {
   return (
-    <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", height: "100%", maxWidth: 600 }}>
-      <div style={{ fontSize: 11, fontWeight: 400, color: MUTED, letterSpacing: 3, textTransform: "uppercase", marginBottom: 24, fontFamily: "Georgia, serif" }}>Visualize Policy</div>
-      <h1 style={{ fontSize: 48, fontWeight: 700, color: TEXT, lineHeight: 1.1, margin: "0 0 28px", fontFamily: "Georgia, 'Times New Roman', serif" }}>
+    <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", height: "100%", maxWidth: 640 }}>
+      <div style={{ fontSize: 13, fontWeight: 600, color: "#6b7280", letterSpacing: 1, textTransform: "uppercase", marginBottom: 16 }}>Visualize Policy</div>
+      <h1 style={{ fontSize: 36, fontWeight: 800, color: "#111827", lineHeight: 1.2, margin: "0 0 20px" }}>
         The Federal Budget
       </h1>
-      <div style={{ width: 40, height: 2, background: RED, marginBottom: 28 }} />
-      <p style={{ fontSize: 18, color: MUTED, lineHeight: 1.8, margin: 0, fontFamily: "Georgia, serif" }}>
+      <p style={{ fontSize: 17, color: "#374151", lineHeight: 1.7, margin: 0 }}>
         Where does the government's money come from? Where does it go? And what happens when it spends more than it takes in?
       </p>
     </div>
@@ -191,27 +179,27 @@ function RevSpendPage({ spendingData, receiptsData, summaryData }) {
 
   return (
     <div>
-      <h2 style={{ fontSize: 22, fontWeight: 700, color: TEXT, fontFamily: "Georgia, serif", margin: "0 0 6px" }}>Revenue vs. Spending — FY{YEAR}</h2>
-      <p style={{ fontSize: 14, color: MUTED, margin: "0 0 20px" }}>Each block = $10B. Hover to highlight a category.</p>
+      <h2 style={{ fontSize: 22, fontWeight: 700, margin: "0 0 6px" }}>Revenue vs. Spending — FY{YEAR}</h2>
+      <p style={{ fontSize: 14, color: "#6b7280", margin: "0 0 20px" }}>Each block = $10B. Hover to highlight a category.</p>
       <div style={{ display: "flex", gap: 24, flexWrap: "wrap", alignItems: "flex-start" }}>
         <Card style={{ flex: "1 1 400px", minWidth: 340 }}>
           <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", marginBottom: 12 }}>
-            <h3 style={{ fontSize: 17, fontWeight: 700, color: BLUE, margin: 0, fontFamily: "Georgia, serif" }}>Revenue</h3>
-            <span style={{ fontSize: 22, fontWeight: 800, color: BLUE }}>${(computed.totalRev / 1e6).toFixed(2)}T</span>
+            <h3 style={{ fontSize: 17, fontWeight: 700, color: "#08519c", margin: 0 }}>Revenue</h3>
+            <span style={{ fontSize: 22, fontWeight: 800, color: "#08519c" }}>${(computed.totalRev / 1e6).toFixed(2)}T</span>
           </div>
           <BlockGrid blocks={revBlocks} hoveredCat={hoveredCat} setHoveredCat={setHoveredCat} />
           <Legend sources={computed.revSources} hoveredCat={hoveredCat} setHoveredCat={setHoveredCat} />
         </Card>
         <Card style={{ flex: "1 1 400px", minWidth: 340 }}>
           <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", marginBottom: 12 }}>
-            <h3 style={{ fontSize: 17, fontWeight: 700, color: GOLD, margin: 0, fontFamily: "Georgia, serif" }}>Spending</h3>
-            <span style={{ fontSize: 22, fontWeight: 800, color: GOLD }}>${(computed.totalSpend / 1e6).toFixed(2)}T</span>
+            <h3 style={{ fontSize: 17, fontWeight: 700, color: "#d94801", margin: 0 }}>Spending</h3>
+            <span style={{ fontSize: 22, fontWeight: 800, color: "#d94801" }}>${(computed.totalSpend / 1e6).toFixed(2)}T</span>
           </div>
           <BlockGrid blocks={spendBlocks} hoveredCat={hoveredCat} setHoveredCat={setHoveredCat} />
           <Legend sources={computed.spendSources} hoveredCat={hoveredCat} setHoveredCat={setHoveredCat} />
         </Card>
       </div>
-      <p style={{ fontSize: 12, color: MUTED, marginTop: 16 }}>Source: OMB Historical Tables, FY2026 Budget.</p>
+      <p style={{ fontSize: 12, color: "#9ca3af", marginTop: 16 }}>Source: OMB Historical Tables, FY2026 Budget.</p>
     </div>
   );
 }
@@ -228,22 +216,22 @@ function DeficitPage({ summaryData }) {
 
   return (
     <div>
-      <h2 style={{ fontSize: 22, fontWeight: 700, color: TEXT, fontFamily: "Georgia, serif", margin: "0 0 6px" }}>The Deficit — FY{YEAR}</h2>
-      <p style={{ fontSize: 14, color: MUTED, margin: "0 0 20px" }}>Each block = $10B of borrowed money.</p>
-      <Card style={{ borderLeft: "4px solid " + RED }}>
+      <h2 style={{ fontSize: 22, fontWeight: 700, margin: "0 0 6px" }}>The Deficit — FY{YEAR}</h2>
+      <p style={{ fontSize: 14, color: "#6b7280", margin: "0 0 20px" }}>Each block = $10B of borrowed money.</p>
+      <Card style={{ borderLeft: "4px solid #8b0000" }}>
         <div style={{ display: "flex", alignItems: "baseline", gap: 12, marginBottom: 10 }}>
-          <h3 style={{ fontSize: 17, fontWeight: 700, color: RED, margin: 0, fontFamily: "Georgia, serif" }}>The Deficit</h3>
-          <span style={{ fontSize: 26, fontWeight: 800, color: RED }}>−${(Math.abs(deficit) / 1e6).toFixed(2)}T</span>
+          <h3 style={{ fontSize: 17, fontWeight: 700, color: "#8b0000", margin: 0 }}>The Deficit</h3>
+          <span style={{ fontSize: 26, fontWeight: 800, color: "#8b0000" }}>−${(Math.abs(deficit) / 1e6).toFixed(2)}T</span>
         </div>
-        <p style={{ fontSize: 14, color: TEXT, lineHeight: 1.6, margin: "0 0 16px" }}>
-          <strong style={{ color: RED }}>{deficitBlockCount} blocks</strong> of spending had no corresponding revenue — that's <strong style={{ color: RED }}>${((deficitBlockCount * BLOCK_SIZE) / 1e3 / 365).toFixed(1)}B per day</strong> added to the national debt.
+        <p style={{ fontSize: 14, color: "#374151", lineHeight: 1.6, margin: "0 0 16px" }}>
+          <strong style={{ color: "#8b0000" }}>{deficitBlockCount} blocks</strong> of spending had no corresponding revenue — that's <strong style={{ color: "#8b0000" }}>${((deficitBlockCount * BLOCK_SIZE) / 1e3 / 365).toFixed(1)}B per day</strong> added to the national debt.
         </p>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(" + COLS + ", " + SZ + "px)", gap: GAP + "px" }}>
           {Array.from({ length: deficitBlockCount }).map(function (_, i) {
-            return <div key={i} style={{ width: SZ, height: SZ, borderRadius: 2, backgroundColor: RED, opacity: 0.85 }} />;
+            return <div key={i} style={{ width: SZ, height: SZ, borderRadius: 2, backgroundColor: "#8b0000", opacity: 0.8 }} />;
           })}
         </div>
-        <div style={{ fontSize: 11, color: MUTED, marginTop: 8 }}>Each block = $10B of borrowed money</div>
+        <div style={{ fontSize: 11, color: "#9ca3af", marginTop: 8 }}>Each block = $10B of borrowed money</div>
       </Card>
     </div>
   );
@@ -338,91 +326,91 @@ function DebtAccumulation({ summaryData, debtData }) {
 
   return (
     <div>
-      <h2 style={{ fontSize: 22, fontWeight: 700, color: TEXT, fontFamily: "Georgia, serif", margin: "0 0 6px" }}>How Deficits Become Debt</h2>
-      <p style={{ fontSize: 14, color: MUTED, margin: "0 0 20px" }}>Drag the slider to scrub through time. Each block = $10B.</p>
-      <Card style={{ borderLeft: "4px solid " + RED }}>
+      <h2 style={{ fontSize: 22, fontWeight: 700, margin: "0 0 6px" }}>How Deficits Become Debt</h2>
+      <p style={{ fontSize: 14, color: "#6b7280", margin: "0 0 20px" }}>Drag the slider to scrub through time. Each block = $10B.</p>
+      <Card style={{ borderLeft: "4px solid #8b0000" }}>
         <div style={{ marginBottom: 20 }}>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 6 }}>
-            <span style={{ fontSize: 13, color: MUTED }}>1970</span>
-            <span style={{ fontSize: 28, fontWeight: 800, color: TEXT, fontFamily: "Georgia, serif" }}>FY {cur.year}</span>
-            <span style={{ fontSize: 13, color: MUTED }}>2024</span>
+            <span style={{ fontSize: 13, color: "#6b7280" }}>1970</span>
+            <span style={{ fontSize: 28, fontWeight: 800, color: "#111827" }}>FY {cur.year}</span>
+            <span style={{ fontSize: 13, color: "#6b7280" }}>2024</span>
           </div>
           <input type="range" min={0} max={yearData.length - 1} value={yearIdx}
             onChange={function (e) { setYearIdx(Number(e.target.value)); }}
-            style={{ width: "100%", accentColor: GOLD, cursor: "grab" }} />
+            style={{ width: "100%", accentColor: "#8b0000", cursor: "grab" }} />
         </div>
         <div style={{ display: "flex", gap: 16, flexWrap: "wrap", marginBottom: 20 }}>
           {[
-            { label: "Revenue", val: cur.receipts, bg: "#e8f0f8", color: BLUE },
-            { label: "Spending", val: cur.outlays, bg: "#f8f0e8", color: AMBER },
-            { label: cur.deficit >= 0 ? "Surplus" : "Deficit", val: cur.deficit, bg: "#f8e8e8", color: RED, prefix: cur.deficit >= 0 ? "+" : "−" },
-            { label: "Gross Federal Debt", val: actualDebtThisYear, bg: "#f0e8e8", color: "#6b1a1a" },
+            { label: "Revenue", val: cur.receipts, bg: "#f0f9ff", color: "#08519c" },
+            { label: "Spending", val: cur.outlays, bg: "#fff7ed", color: "#d94801" },
+            { label: cur.deficit >= 0 ? "Surplus" : "Deficit", val: cur.deficit, bg: "#fef2f2", color: cur.deficit >= 0 ? "#16a34a" : "#8b0000", prefix: cur.deficit >= 0 ? "+" : "−" },
+            { label: "Gross Federal Debt", val: actualDebtThisYear, bg: "#fce4ec", color: "#4a0000" },
           ].map(function (s) {
             return (
-              <div key={s.label} style={{ background: s.bg, borderRadius: 4, padding: "10px 16px", flex: "1 1 120px", border: "1px solid " + BORDER }}>
-                <div style={{ fontSize: 10, color: MUTED, textTransform: "uppercase", letterSpacing: 0.8, fontFamily: "system-ui, sans-serif" }}>{s.label}</div>
-                <div style={{ fontSize: 18, fontWeight: 700, color: s.color, fontFamily: "Georgia, serif" }}>{s.prefix || ""}{fmtAmt(s.val)}</div>
+              <div key={s.label} style={{ background: s.bg, borderRadius: 8, padding: "10px 16px", flex: "1 1 120px" }}>
+                <div style={{ fontSize: 11, color: "#6b7280", textTransform: "uppercase", letterSpacing: 0.5 }}>{s.label}</div>
+                <div style={{ fontSize: 18, fontWeight: 700, color: s.color }}>{s.prefix || ""}{fmtAmt(s.val)}</div>
               </div>
             );
           })}
         </div>
         {deficitBlocks > 0 && (
           <div style={{ marginBottom: 16 }}>
-            <div style={{ fontSize: 12, color: MUTED, marginBottom: 4 }}>FY{cur.year} deficit: {deficitBlocks} blocks × $10B</div>
+            <div style={{ fontSize: 12, color: "#6b7280", marginBottom: 4 }}>FY{cur.year} deficit: {deficitBlocks} blocks × $10B</div>
             <div style={{ display: "flex", gap: GAP, flexWrap: "wrap" }}>
               {Array.from({ length: deficitBlocks }).map(function (_, i) {
-                return <div key={i} style={{ width: SZ, height: SZ, borderRadius: 2, backgroundColor: AMBER, opacity: 0.9 }} />;
+                return <div key={i} style={{ width: SZ, height: SZ, borderRadius: 2, backgroundColor: "#d94801", opacity: 0.9 }} />;
               })}
             </div>
-            <div style={{ fontSize: 11, color: MUTED, marginTop: 4 }}>▼ Added to the debt pile below</div>
+            <div style={{ fontSize: 11, color: "#9ca3af", marginTop: 4 }}>▼ Added to the debt pile below</div>
           </div>
         )}
         {cur.deficit >= 0 && (
-          <div style={{ marginBottom: 16, padding: "8px 12px", background: "#e8f4ec", borderRadius: 4, fontSize: 13, color: "#2a6a3a", border: "1px solid #b8d8c0", fontFamily: "Georgia, serif" }}>
+          <div style={{ marginBottom: 16, padding: "8px 12px", background: "#f0fdf4", borderRadius: 6, fontSize: 13, color: "#16a34a" }}>
             ✓ Surplus in FY{cur.year} — no new borrowing.
           </div>
         )}
         <div>
-          <div style={{ fontSize: 12, color: MUTED, marginBottom: 4 }}>
+          <div style={{ fontSize: 12, color: "#6b7280", marginBottom: 4 }}>
             Debt pile: {pre1970Blocks + debtPileBlocks.length} blocks × $10B = {fmtAmt(pre1970Debt + cur.cumDebt)}
-            {hoveredYear !== null && hoveredYear !== -1 && <span style={{ marginLeft: 12, color: GOLD, fontWeight: 600 }}>FY{hoveredYear}</span>}
-            {hoveredYear === -1 && <span style={{ marginLeft: 12, color: MUTED, fontWeight: 600 }}>Pre-1970</span>}
+            {hoveredYear !== null && hoveredYear !== -1 && <span style={{ marginLeft: 12, color: "#8b0000", fontWeight: 600 }}>FY{hoveredYear}</span>}
+            {hoveredYear === -1 && <span style={{ marginLeft: 12, color: "#6b7280", fontWeight: 600 }}>Pre-1970</span>}
           </div>
           <div style={{ display: "flex", flexWrap: "wrap", gap: GAP + "px" }}>
             {Array.from({ length: pre1970Blocks }).map(function (_, i) {
               var isHl = hoveredYear === null || hoveredYear === -1;
               return <div key={"pre" + i} onMouseEnter={function () { setHoveredYear(-1); }} onMouseLeave={function () { setHoveredYear(null); }}
-                style={{ width: SZ, height: SZ, borderRadius: 2, backgroundColor: "#555", opacity: isHl ? 0.7 : 0.08, transition: "opacity 0.2s", cursor: "pointer" }} />;
+                style={{ width: SZ, height: SZ, borderRadius: 2, backgroundColor: "#9ca3af", opacity: isHl ? 0.7 : 0.1, transition: "opacity 0.2s", cursor: "pointer" }} />;
             })}
             {debtPileBlocks.map(function (b, i) {
               var isHl = hoveredYear === null || hoveredYear === b.year;
               return <div key={i} onMouseEnter={function () { setHoveredYear(b.year); }} onMouseLeave={function () { setHoveredYear(null); }}
-                style={{ width: SZ, height: SZ, borderRadius: 2, backgroundColor: yearColor(b.year), opacity: isHl ? 0.95 : 0.1, transition: "opacity 0.2s", cursor: "pointer" }} />;
+                style={{ width: SZ, height: SZ, borderRadius: 2, backgroundColor: yearColor(b.year), opacity: isHl ? 0.95 : 0.15, transition: "opacity 0.2s", cursor: "pointer" }} />;
             })}
           </div>
-          <div style={{ fontSize: 11, color: MUTED, marginTop: 6 }}>Gray = pre-1970 debt. Colored = deficit-driven since 1970. Hover to see year.</div>
+          <div style={{ fontSize: 11, color: "#9ca3af", marginTop: 6 }}>Gray = pre-1970 debt. Colored = deficit-driven since 1970. Hover to see year.</div>
         </div>
-        <div style={{ marginTop: 20, padding: "16px 20px", background: BG, borderRadius: 4, border: "1px solid " + BORDER }}>
-          <div style={{ fontSize: 13, fontWeight: 700, color: TEXT, marginBottom: 8, fontFamily: "Georgia, serif" }}>Debt Reconciliation — FY{cur.year}</div>
-          <div style={{ fontSize: 12, color: MUTED, lineHeight: 2, fontFamily: "system-ui, sans-serif" }}>
+        <div style={{ marginTop: 20, padding: "12px 16px", background: "#f9fafb", borderRadius: 8, border: "1px solid #e5e7eb" }}>
+          <div style={{ fontSize: 13, fontWeight: 600, color: "#374151", marginBottom: 6 }}>Debt Reconciliation — FY{cur.year}</div>
+          <div style={{ fontSize: 12, color: "#6b7280", lineHeight: 1.8 }}>
             {[
-              { label: "Pre-1970 inherited debt", val: fmtAmt(pre1970Debt), color: MUTED },
-              { label: "+ Cumulative deficits (1970–" + cur.year + ")", val: fmtAmt(cur.cumDebt), color: RED },
-              { label: "+ Trust fund borrowing", val: fmtAmt(debtBreakdown.heldByGovt), color: MUTED },
+              { label: "Pre-1970 inherited debt", val: fmtAmt(pre1970Debt), color: "#9ca3af" },
+              { label: "+ Cumulative deficits (1970–" + cur.year + ")", val: fmtAmt(cur.cumDebt), color: "#8b0000" },
+              { label: "+ Trust fund borrowing", val: fmtAmt(debtBreakdown.heldByGovt), color: "#6b7280" },
             ].map(function (row) {
               return (
-                <div key={row.label} style={{ display: "flex", justifyContent: "space-between", borderBottom: "1px dotted " + BORDER, paddingBottom: 2 }}>
-                  <span style={{ color: row.color }}>{row.label}</span><span style={{ color: TEXT }}>{row.val}</span>
+                <div key={row.label} style={{ display: "flex", justifyContent: "space-between" }}>
+                  <span style={{ color: row.color }}>{row.label}</span><span>{row.val}</span>
                 </div>
               );
             })}
             {Math.abs(otherAdjustments) > 1000 && (
-              <div style={{ display: "flex", justifyContent: "space-between", borderBottom: "1px dotted " + BORDER, paddingBottom: 2 }}>
-                <span>+ Other adjustments</span>
-                <span style={{ color: TEXT }}>{otherAdjustments >= 0 ? "+" : "−"}{fmtAmt(otherAdjustments)}</span>
+              <div style={{ display: "flex", justifyContent: "space-between" }}>
+                <span style={{ color: "#6b7280" }}>+ Other adjustments</span>
+                <span>{otherAdjustments >= 0 ? "+" : "−"}{fmtAmt(otherAdjustments)}</span>
               </div>
             )}
-            <div style={{ display: "flex", justifyContent: "space-between", paddingTop: 6, marginTop: 2, fontWeight: 700, color: TEXT, fontFamily: "Georgia, serif", fontSize: 13 }}>
+            <div style={{ display: "flex", justifyContent: "space-between", borderTop: "1px solid #d1d5db", paddingTop: 4, marginTop: 4, fontWeight: 700, color: "#4a0000" }}>
               <span>= Gross Federal Debt</span><span>{fmtAmt(actualDebtThisYear)}</span>
             </div>
           </div>
@@ -470,37 +458,37 @@ function NetInterestPage({ spendingData }) {
 
   return (
     <div>
-      <h2 style={{ fontSize: 22, fontWeight: 700, color: TEXT, fontFamily: "Georgia, serif", margin: "0 0 6px" }}>The Rising Cost of Debt Service</h2>
-      <p style={{ fontSize: 14, color: MUTED, margin: "0 0 20px" }}>Net interest is now one of the largest line items in the federal budget.</p>
-      <Card style={{ borderLeft: "4px solid " + AMBER }}>
+      <h2 style={{ fontSize: 22, fontWeight: 700, margin: "0 0 6px" }}>The Rising Cost of Debt Service</h2>
+      <p style={{ fontSize: 14, color: "#6b7280", margin: "0 0 20px" }}>Net interest is now one of the largest line items in the federal budget.</p>
+      <Card style={{ borderLeft: "4px solid #d94801" }}>
         <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 16, flexWrap: "wrap" }}>
-          <label style={{ fontSize: 13, color: MUTED }}>Compare with:</label>
+          <label style={{ fontSize: 13, color: "#6b7280" }}>Compare with:</label>
           <select value={compareCat} onChange={function (e) { setCompareCat(e.target.value); }}
-            style={{ padding: "6px 12px", borderRadius: 6, border: "1px solid " + BORDER, fontSize: 13, background: SURFACE, color: TEXT, cursor: "pointer" }}>
+            style={{ padding: "6px 12px", borderRadius: 6, border: "1px solid #d1d5db", fontSize: 13, background: "#fff", cursor: "pointer" }}>
             {categories.map(function (c) { return <option key={c} value={c}>{SPEND_SHORT[c] || c}</option>; })}
           </select>
         </div>
         <div style={{ marginBottom: 16 }}>
           <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 6 }}>
-            <span style={{ fontSize: 13, color: MUTED }}>1970</span>
-            <span style={{ fontSize: 28, fontWeight: 800, color: TEXT, fontFamily: "Georgia, serif" }}>FY {cur.year}</span>
-            <span style={{ fontSize: 13, color: MUTED }}>2024</span>
+            <span style={{ fontSize: 13, color: "#6b7280" }}>1970</span>
+            <span style={{ fontSize: 28, fontWeight: 800 }}>FY {cur.year}</span>
+            <span style={{ fontSize: 13, color: "#6b7280" }}>2024</span>
           </div>
           <input type="range" min={0} max={timeData.length - 1} value={yearIdx}
             onChange={function (e) { setYearIdx(Number(e.target.value)); }}
-            style={{ width: "100%", accentColor: AMBER, cursor: "grab" }} />
+            style={{ width: "100%", accentColor: "#d94801", cursor: "grab" }} />
         </div>
         <div style={{ display: "flex", gap: 24, flexWrap: "wrap", alignItems: "flex-start" }}>
           {[
-            { label: "Net Interest", amt: interestAmt, blocks: interestBlocks, color: AMBER },
-            { label: shortName, amt: compareAmt, blocks: compareBlocks, color: BLUE },
+            { label: "Net Interest", amt: interestAmt, blocks: interestBlocks, color: "#d94801" },
+            { label: shortName, amt: compareAmt, blocks: compareBlocks, color: "#08519c" },
           ].map(function (s) {
             return (
               <div key={s.label} style={{ flex: "1 1 280px", minWidth: 260 }}>
                 <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", marginBottom: 8 }}>
                   <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
                     <div style={{ width: 12, height: 12, borderRadius: 2, backgroundColor: s.color }} />
-                    <span style={{ fontSize: 15, fontWeight: 700, color: s.color, fontFamily: "Georgia, serif" }}>{s.label}</span>
+                    <span style={{ fontSize: 15, fontWeight: 700, color: s.color }}>{s.label}</span>
                   </div>
                   <span style={{ fontSize: 20, fontWeight: 800, color: s.color }}>{fmtAmt(s.amt)}</span>
                 </div>
@@ -514,12 +502,12 @@ function NetInterestPage({ spendingData }) {
           })}
         </div>
         {interestAmt > compareAmt && (
-          <div style={{ marginTop: 16, padding: "10px 14px", background: "#f8e8e0", borderRadius: 4, fontSize: 13, color: AMBER, border: "1px solid #d4b8a0", fontFamily: "Georgia, serif", fontStyle: "italic" }}>
+          <div style={{ marginTop: 16, padding: "10px 14px", background: "#fef2f2", borderRadius: 6, fontSize: 13, color: "#8b0000" }}>
             <strong>Net interest exceeds {shortName}</strong> by {fmtAmt(interestAmt - compareAmt)} in FY{cur.year}.
           </div>
         )}
         {interestAmt <= compareAmt && compareAmt > 0 && (
-          <div style={{ marginTop: 16, padding: "10px 14px", background: "#e8eef8", borderRadius: 4, fontSize: 13, color: BLUE, border: "1px solid #b0c0d8", fontFamily: "Georgia, serif", fontStyle: "italic" }}>
+          <div style={{ marginTop: 16, padding: "10px 14px", background: "#f0f9ff", borderRadius: 6, fontSize: 13, color: "#08519c" }}>
             In FY{cur.year}, {shortName} still exceeds net interest by {fmtAmt(compareAmt - interestAmt)}.
           </div>
         )}
@@ -601,13 +589,13 @@ function ProjectionPanel({ years, baselineSeries, obbbaWithTariffSeries, obbbaNo
         })}
       </div>
       <div style={{ marginTop: 20, display: "flex", gap: 10 }}>
-        {[{ label: "Pre-OBBBA 10yr", val: tenYr(base), bg: "#e8eef8", color: C_JAN },
-          { label: "With tariffs 10yr", val: tenYr(withTar), bg: "#f8f2e0", color: C_OBBBA },
-          { label: "No tariffs 10yr", val: tenYr(noTar), bg: "#f8ece8", color: C_NOTARIFF }].map(function (s) {
+        {[{ label: "Pre-OBBBA 10yr", val: tenYr(base), bg: "#f0f9ff", color: C_JAN },
+          { label: "With tariffs 10yr", val: tenYr(withTar), bg: "#fffbeb", color: C_OBBBA },
+          { label: "No tariffs 10yr", val: tenYr(noTar), bg: "#fef2f2", color: C_NOTARIFF }].map(function (s) {
           return (
-            <div key={s.label} style={{ flex: 1, background: s.bg, borderRadius: 4, padding: "8px 12px", border: "1px solid " + BORDER }}>
-              <div style={{ fontSize: 10, color: MUTED, textTransform: "uppercase", letterSpacing: 0.6, marginBottom: 2, fontFamily: "system-ui, sans-serif" }}>{s.label}</div>
-              <div style={{ fontSize: 15, fontWeight: 700, color: s.color, fontFamily: "Georgia, serif" }}>{fmt(s.val)}</div>
+            <div key={s.label} style={{ flex: 1, background: s.bg, borderRadius: 6, padding: "8px 12px" }}>
+              <div style={{ fontSize: 10, color: "#6b7280", textTransform: "uppercase", letterSpacing: 0.4, marginBottom: 2 }}>{s.label}</div>
+              <div style={{ fontSize: 15, fontWeight: 700, color: s.color }}>{fmt(s.val)}</div>
             </div>
           );
         })}
@@ -644,19 +632,19 @@ function OBBBAPage({ deficitProj, niProj }) {
 
   return (
     <div>
-      <h2 style={{ fontSize: 22, fontWeight: 700, color: TEXT, fontFamily: "Georgia, serif", margin: "0 0 6px" }}>The One Big Beautiful Bill Act</h2>
-      <p style={{ fontSize: 14, color: MUTED, margin: "0 0 24px" }}>
+      <h2 style={{ fontSize: 22, fontWeight: 700, margin: "0 0 6px" }}>The One Big Beautiful Bill Act</h2>
+      <p style={{ fontSize: 14, color: "#6b7280", margin: "0 0 24px" }}>
         CBO's current law baseline includes ~$3.45T in new tariff revenue offsetting OBBBA's gross $4.7T cost. Each block = $10B. Hover a column for detail.
       </p>
-      <Card style={{ borderLeft: "4px solid " + AMBER, marginBottom: 24 }}>
-        <h3 style={{ fontSize: 16, fontWeight: 700, color: TEXT, fontFamily: "Georgia, serif", margin: "0 0 16px" }}>Annual Deficits</h3>
+      <Card style={{ borderLeft: "4px solid #d94801", marginBottom: 24 }}>
+        <h3 style={{ fontSize: 16, fontWeight: 700, margin: "0 0 16px" }}>Annual Deficits</h3>
         <ProjectionPanel years={years} baselineSeries={janDef} obbbaWithTariffSeries={febDef} obbbaNoTariffSeries={noTarDef} />
       </Card>
-      <Card style={{ borderLeft: "4px solid " + RED }}>
-        <h3 style={{ fontSize: 16, fontWeight: 700, color: TEXT, fontFamily: "Georgia, serif", margin: "0 0 16px" }}>Net Interest Payments</h3>
+      <Card style={{ borderLeft: "4px solid #8b0000" }}>
+        <h3 style={{ fontSize: 16, fontWeight: 700, margin: "0 0 16px" }}>Net Interest Payments</h3>
         <ProjectionPanel years={years} baselineSeries={janNI} obbbaWithTariffSeries={febNI} obbbaNoTariffSeries={noTarNI} />
       </Card>
-      <p style={{ fontSize: 12, color: MUTED, marginTop: 16 }}>Source: CBO February 2026 Budget Projections.</p>
+      <p style={{ fontSize: 12, color: "#9ca3af", marginTop: 16 }}>Source: CBO February 2026 Budget Projections.</p>
     </div>
   );
 }
@@ -701,16 +689,16 @@ function PageShell({ page, setPage, total, children, prompt }) {
   var translateIn  = visible ? "translateY(0)" : (dir > 0 ? "translateY(40px)"  : "translateY(-40px)");
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", minHeight: "100vh", background: BG, fontFamily: "Georgia, 'Times New Roman', serif", color: TEXT }}>
+    <div style={{ display: "flex", flexDirection: "column", minHeight: "100vh", background: "#f8fafc", fontFamily: "'Segoe UI', system-ui, sans-serif" }}>
 
       {/* Nav bar */}
-      <div style={{ background: TEXT, padding: "12px 28px", display: "flex", alignItems: "center", gap: 16, flexShrink: 0 }}>
+      <div style={{ background: "#1e3a5f", padding: "12px 28px", color: "#fff", display: "flex", alignItems: "center", gap: 16, flexShrink: 0 }}>
         {page > 0 && (
           <button onClick={function () { navigate(page - 1); }}
-            style={{ background: "none", border: "none", color: BG, fontSize: 18, cursor: "pointer", padding: "0 4px", lineHeight: 1, opacity: 0.6 }}>←</button>
+            style={{ background: "none", border: "none", color: "#94a3b8", fontSize: 18, cursor: "pointer", padding: "0 4px", lineHeight: 1 }}>←</button>
         )}
-        <span style={{ fontSize: 13, fontWeight: 400, letterSpacing: 2, color: BG, flex: 1, textTransform: "uppercase" }}>Visualize Policy</span>
-        <span style={{ fontSize: 11, color: MUTED, fontFamily: "system-ui, sans-serif", letterSpacing: 0.5, opacity: 0.7 }}>Federal Budget Explorer</span>
+        <span style={{ fontSize: 15, fontWeight: 600, letterSpacing: 0.3, flex: 1 }}>Visualize Policy</span>
+        <span style={{ fontSize: 12, color: "#64748b" }}>Federal Budget Explorer</span>
       </div>
 
       {/* Content — animated */}
@@ -733,14 +721,14 @@ function PageShell({ page, setPage, total, children, prompt }) {
       }}>
         {prompt && page < total - 1 && (
           <button onClick={function () { navigate(page + 1); }}
-            style={{ width: "100%", background: SURFACE, color: TEXT, border: "1px solid " + BORDER, borderRadius: 4, padding: "16px 24px", fontSize: 15, fontWeight: 400, cursor: "pointer", textAlign: "left", display: "flex", alignItems: "center", justifyContent: "space-between", gap: 12, fontFamily: "Georgia, serif" }}>
-            <span style={{ color: MUTED, fontStyle: "italic" }}>{prompt}</span>
-            <span style={{ fontSize: 18, color: RED, opacity: 0.9 }}>↓</span>
+            style={{ width: "100%", background: "#1e3a5f", color: "#fff", border: "none", borderRadius: 10, padding: "16px 24px", fontSize: 15, fontWeight: 500, cursor: "pointer", textAlign: "left", display: "flex", alignItems: "center", justifyContent: "space-between", gap: 12 }}>
+            <span>{prompt}</span>
+            <span style={{ fontSize: 20, opacity: 0.7 }}>↓</span>
           </button>
         )}
         {page === total - 1 && (
-          <div style={{ textAlign: "center", fontSize: 12, color: MUTED, paddingBottom: 12, fontFamily: "system-ui, sans-serif", letterSpacing: 0.5 }}>
-            End of tour · <a href="https://visualizepolicy.org" style={{ color: TEXT }}>Visualize Policy</a>
+          <div style={{ textAlign: "center", fontSize: 13, color: "#9ca3af", paddingBottom: 12 }}>
+            End of tour · <a href="https://visualizepolicy.org" style={{ color: "#6b7280" }}>Visualize Policy</a>
           </div>
         )}
       </div>
@@ -763,8 +751,8 @@ export default function App() {
 
   if (loading) {
     return (
-      <div style={{ background: BG, minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "Georgia, serif", fontSize: 16, color: MUTED }}>
-        Loading…
+      <div style={{ background: "#f8fafc", minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "system-ui", fontSize: 16, color: "#6b7280" }}>
+        Loading data…
       </div>
     );
   }
