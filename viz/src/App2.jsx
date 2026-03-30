@@ -151,26 +151,33 @@ var PAGES = [
     section: 2,
     component: "CrowdingOutPage",      // III.a — are we stealing from our children?
     title: "Are We Stealing from Our Children?",
+    prompt: "Does this play out in the real world?",
+  },
+  {
+    section: 2,
+    component: "JapanPage",            // III.a.ii — Japan as case study
+    title: "A Case Study: Japan",
     prompt: "One direct consequence is the rising cost of interest.",
   },
   {
     section: 2,
-    component: "NetInterestPage",      // III.b.i — repurposed from App.jsx page 4
+    component: "NetInterestPage",      // III.b — repurposed from App.jsx page 4
     title: "The Rising Cost of Debt Service",
     prompt: "What choices does that leave for the budget?",
   },
   {
     section: 2,
-    component: "BudgetDilemmaPage",    // III.b.ii — spending vs. taxes dilemma
+    component: "BudgetDilemmaPage",
     title: "The Budget Dilemma",
-    prompt: "Deficits also shape our trade relationships.",
+    prompt: "So what would it actually take to raise enough in taxes?",
   },
   {
     section: 2,
-    component: "TradeDeficitPage",     // III.b.iii — current account deficit time series
-    title: "The Trade Deficit Connection",
+    component: "TaxPage",
+    title: "Raising Taxes",
     prompt: null,  // last page
   },
+
 ];
 
 // ─────────────────────────────────────────────
@@ -308,9 +315,30 @@ var TOUR_CONFIGS = {
     { title: "Three scenarios, three colors", body: "Each bar shows three possible futures. Blue is CBO's projections of the next ten years before the bill passed. Yellow is the current CBO baseline with OBBBA enacted, which assumes ~$3.45T in tariff income offset much of the costs. Orange shows the picture if those tariffs are struck down or reversed." },
     { title: "Hover a year to dig in", body: "Mouse over any year column to see the exact deficit or interest figures for all three scenarios in that year." },
   ],
-  // Page 9 — Crowding Out (III.a) — placeholder
+  // Page 9 — Paying for the Past
   9: [
-    { title: "The crowding-out mechanism", body: "When the government borrows heavily it competes with private borrowers for available savings, tending to push interest rates higher." },
+    { title: "Cents of every tax dollar", body: "The big number at the top shows how many cents of each tax dollar go straight to interest payments — money that can't be spent on anything else. In 1970 it was around 7 cents. Today it's over 16." },
+    { title: "The chart tells the story", body: "Hover any year to see the exact share. Notice how it rose sharply in the 1980s as Reagan-era deficits compounded, fell during the Clinton surplus years, then began climbing again after 2008." },
+  ],
+  // Page 10 — Japan
+  10: [
+    { title: "Two chapters", body: "Japan's story has two phases: three decades of massive deficits with rates held near zero by the central bank — and what happened when that suppression ended in 2024." },
+    { title: "Hover for detail", body: "Mouse over any year to see Japan's debt level, bond yield, and GDP growth for that year." },
+  ],
+  // Page 11 — Net Interest
+  11: [
+    { title: "Compare any program", body: "Use the dropdown to select any government program. The block grids below will update to show net interest payments alongside your chosen program for that year." },
+    { title: "Scrub through time", body: "Use the slider to move from 1970 to 2024 and see how both figures have changed over time. Compare how fast spending on interest has grown versus other categories." },
+  ],
+  // Page 12 — Budget Dilemma
+  12: [
+    { title: "Hover a slice", body: "Click any slice of the donut to see what that category costs, why it's hard to cut, and polling data on public support. Red slices are mandatory spending — legally required by statute. Blue slices are discretionary." },
+    { title: "The math is brutal", body: "Even eliminating every blue slice entirely: all of defense, education, veterans, foreign aid. It barely covers the deficit. Any plan to balance the budget requires some combination of cuts to mandatory programs, discretionary programs, and tax increases." },
+  ],
+  // Page 13 — Tax increases
+  13: [
+    { title: "Drag the sliders", body: "Each slider raises the effective tax rate on that income group by up to 20 percentage points. The block bar at the top fills in blue as you close more of the deficit." },
+    { title: "The static vs. real gap", body: "These numbers assume people keep earning and reporting the same income. In reality, higher rates lead to more deductions, income shifting, and deferral. The true revenue gain is real but smaller than what you see here." },
   ],
 };
 
@@ -663,7 +691,7 @@ function DeficitHistoryPage({ deficitData }) {
           : <div style={{ color: MUTED, fontSize: 14, padding: "40px 0", textAlign: "center" }}>Loading…</div>
         }
       </Card>
-      <p style={{ fontSize: 12, color: MUTED, marginTop: 12 }}>Source: FRED series FYFSGDA188S.</p>
+      <p style={{ fontSize: 12, color: MUTED, marginTop: 12 }}>Source: <a href="https://fred.stlouisfed.org/series/FYFSGDA188S" target="_blank" rel="noreferrer" style={{ color: BLUE }}>FRED FYFSGDA188S</a> — Federal Surplus or Deficit as % of GDP, Office of Management and Budget.</p>
     </div>
   );
 }
@@ -689,7 +717,10 @@ function DebtAccumulation({ summaryData, debtData }) {
     for (var y = 1970; y <= 2024; y++) {
       var d = byYear[y] || {};
       var def = d.deficit || 0;
-      if (def < 0) cumDebt += Math.abs(def);
+      // Surplus or Deficit: negative = deficit, positive = surplus
+      // Add deficits, subtract surpluses from cumulative debt
+      cumDebt += -def;
+      if (cumDebt < 0) cumDebt = 0; // floor at zero
       result.push({ year: y, receipts: d.receipts || 0, outlays: d.outlays || 0, deficit: def, cumDebt: cumDebt });
     }
     return result;
@@ -859,6 +890,7 @@ function DebtAccumulation({ summaryData, debtData }) {
           </div>
         </div>
       </Card>
+      <p style={{ fontSize: 12, color: MUTED, marginTop: 12 }}>Sources: <a href="https://www.whitehouse.gov/omb/information-resources/budget/historical-tables/" target="_blank" rel="noreferrer" style={{ color: BLUE }}>OMB Historical Tables, FY2026 Budget</a> (Table 1.1 — surplus/deficit; Table 7.1 — gross federal debt).</p>
     </div>
   );
 }
@@ -1045,7 +1077,7 @@ function DebtToGDPPage({ debtPctData }) {
           : <div style={{ color: MUTED, fontSize: 14, padding: "40px 0", textAlign: "center" }}>Loading…</div>
         }
       </Card>
-      <p style={{ fontSize: 12, color: MUTED, marginTop: 12 }}>Source: FRED FYPUGDA188S — Gross Federal Debt Held by the Public as % of GDP.</p>
+      <p style={{ fontSize: 12, color: MUTED, marginTop: 12 }}>Source: <a href="https://fred.stlouisfed.org/series/FYPUGDA188S" target="_blank" rel="noreferrer" style={{ color: BLUE }}>FRED FYPUGDA188S</a> — Gross Federal Debt Held by the Public as % of GDP.</p>
     </div>
   );
 }
@@ -1233,7 +1265,7 @@ function ObamaEraPage({ stabilizersData }) {
         }
       </Card>
       <p style={{ fontSize: 12, color: MUTED, marginTop: 12 }}>
-        Source: CBO, Effects of Automatic Stabilizers on the Federal Budget: 2024 to 2034 (pub. 60662).
+        Source: <a href="https://www.cbo.gov/publication/60662" target="_blank" rel="noreferrer" style={{ color: BLUE }}>CBO, Effects of Automatic Stabilizers on the Federal Budget: 2024 to 2034 (pub. 60662)</a>.
       </p>
     </div>
   );
@@ -1314,7 +1346,7 @@ function RevSpendPage({ spendingData, receiptsData, summaryData }) {
           <Legend sources={computed.spendSources} hoveredCat={hoveredCat} setHoveredCat={setHoveredCat} />
         </Card>
       </div>
-      <p style={{ fontSize: 12, color: MUTED, marginTop: 16 }}>Source: OMB Historical Tables, FY2026 Budget.</p>
+      <p style={{ fontSize: 12, color: MUTED, marginTop: 16 }}>Source: <a href="https://www.whitehouse.gov/omb/information-resources/budget/historical-tables/" target="_blank" rel="noreferrer" style={{ color: BLUE }}>OMB Historical Tables, FY2026 Budget</a>.</p>
     </div>
   );
 }
@@ -1352,6 +1384,7 @@ function DeficitPage({ summaryData }) {
         </div>
         <div style={{ fontSize: 11, color: MUTED, marginTop: 8 }}>Each block = $10B of borrowed money</div>
       </Card>
+      <p style={{ fontSize: 12, color: MUTED, marginTop: 12 }}>Source: <a href="https://www.whitehouse.gov/omb/information-resources/budget/historical-tables/" target="_blank" rel="noreferrer" style={{ color: BLUE }}>OMB Historical Tables, FY2026 Budget</a> (Table 1.1 — summary of receipts, outlays, and surpluses or deficits).</p>
     </div>
   );
 }
@@ -1586,7 +1619,7 @@ function ProjectedDebtPage({ deficitProj }) {
         </div>
       </Card>
 
-      <p style={{ fontSize: 12, color: MUTED, marginTop: 12 }}>Source: CBO February 2026 Budget Projections.</p>
+      <p style={{ fontSize: 12, color: MUTED, marginTop: 12 }}>Source: <a href="https://www.cbo.gov/publication/62105" target="_blank" rel="noreferrer" style={{ color: BLUE }}>CBO February 2026 Budget Projections (pub. 62105)</a>.</p>
     </div>
   );
 }
@@ -1727,13 +1760,22 @@ function OBBBAPage({ deficitProj, niProj }) {
   var janNI  = niSeries["jan_2025_baseline"]     || {};
   var febNI  = niSeries["feb_2026_current_law"]  || {};
 
-  // no-tariff NI back-calculated proportionally (same approach as App.jsx)
+  // Derive no-tariff net interest using Approach A from the pipeline:
+  // scale janNI proportionally by how much the no-tariff deficit exceeds
+  // the jan baseline, using the feb-vs-jan NI/deficit ratio as the slope.
   var noTarNI = {};
   years.forEach(function (yr) {
-    var defGap    = (febDef[yr] || 0) - (janDef[yr] || 0);
-    var niGap     = (febNI[yr]  || 0) - (janNI[yr]  || 0);
-    var noTarGap  = (noTarDef[yr] || 0) - (janDef[yr] || 0);
-    noTarNI[yr]   = (janNI[yr] || 0) + niGap * (defGap > 0 ? noTarGap / defGap : 1);
+    var jan      = janDef[yr]  || 0;
+    var feb      = febDef[yr]  || 0;
+    var noTar    = noTarDef[yr] || 0;
+    var janNIval = janNI[yr]   || 0;
+    var febNIval = febNI[yr]   || 0;
+    var defGap   = feb - jan;
+    var niGap    = febNIval - janNIval;
+    // NI per extra dollar of deficit (from jan→feb comparison)
+    var slope    = defGap > 0 ? niGap / defGap : 0;
+    // no-tariff deficit is higher than feb — add proportional NI on top of janNI
+    noTarNI[yr]  = janNIval + Math.max(0, noTar - jan) * slope;
   });
 
   return (
@@ -1757,33 +1799,369 @@ function OBBBAPage({ deficitProj, niProj }) {
         <h3 style={{ fontSize: 16, fontWeight: 700, color: TEXT, margin: "0 0 16px" }}>Net Interest Payments</h3>
         <ProjectionPanel years={years} baselineSeries={janNI} obbbaWithTariffSeries={febNI} obbbaNoTariffSeries={noTarNI} />
       </Card>
-      <p style={{ fontSize: 12, color: MUTED, marginTop: 16 }}>Source: CBO February 2026 Budget Projections; CBO pub. 61570 (OBBBA cost estimate).</p>
+      <p style={{ fontSize: 12, color: MUTED, marginTop: 16 }}>Sources: <a href="https://www.cbo.gov/publication/62105" target="_blank" rel="noreferrer" style={{ color: BLUE }}>CBO February 2026 Budget Projections (pub. 62105)</a>; <a href="https://www.cbo.gov/publication/61570" target="_blank" rel="noreferrer" style={{ color: BLUE }}>CBO OBBBA cost estimate (pub. 61570)</a>.</p>
     </div>
   );
 }
 
 /* ── III.a  Crowding Out ─────────────────── */
-// TODO: explainer on the crowding-out mechanism:
-//   - Government borrowing competes with private borrowers for savings
-//   - Higher interest rates → reduced private investment
-//   - Effects on productive capital, housing (mortgages), trade deficit
-//   - Cushioned by foreign capital inflows, but that creates external debt
-// Design: narrative text + simple illustrative diagram or annotated chart.
-function CrowdingOutPage() {
+function CrowdingOutPage({ spendingData, summaryData }) {
   var tour = useTour(9);
+  var _hov = useState(null); var hovYear = _hov[0]; var setHovYear = _hov[1];
+
+  var series = useMemo(function () {
+    if (!spendingData || !summaryData) return [];
+    var receipts = {};
+    summaryData.filter(function (r) {
+      return r.category === "Total Receipts" && !String(r.category).includes("Real");
+    }).forEach(function (r) { receipts[r.year] = r.amount; });
+
+    var interest = {};
+    spendingData.filter(function (r) {
+      return r.category === "Net interest" && r.year >= 1970 && r.year <= 2024;
+    }).forEach(function (r) { interest[r.year] = r.amount; });
+
+    var result = [];
+    for (var y = 1970; y <= 2024; y++) {
+      var ni = interest[y]; var rec = receipts[y];
+      if (ni != null && rec != null && rec > 0) {
+        result.push({ year: y, pct: (ni / rec) * 100, ni: ni, receipts: rec });
+      }
+    }
+    return result;
+  }, [spendingData, summaryData]);
+
+  var latest  = series.length ? series[series.length - 1] : null;
+  var hovRow  = hovYear != null ? series.find(function (r) { return r.year === hovYear; }) : null;
+  var display = hovRow || latest;
+
+  // 55 years, target ~900px wide → col = 900/55 ≈ 16px, gap 2px
+  var BLK_SZ   = 14;
+  var BLK_GAP  = 2;
+  var BLK_CELL = BLK_SZ + BLK_GAP;
+  var COL_GAP  = 2;
+  var XAXIS_H  = 20;
+  var MAX_CENTS = 22;
+
   return (
     <div>
       {tour.show && <Tour pageIndex={9} onDone={tour.done} />}
       <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", marginBottom: 6 }}>
-        <h2 style={{ fontSize: 22, fontWeight: 700, color: TEXT, margin: 0 }}>Are We Stealing from Our Children?</h2>
+        <h2 style={{ fontSize: 22, fontWeight: 700, color: TEXT, margin: 0 }}>Paying for the Past</h2>
         <TourBtn onOpen={tour.reopen} />
       </div>
-      <p style={{ fontSize: 15, color: TEXT, lineHeight: 1.75, margin: "0 0 20px" }}>
-        {/* TODO: intro copy — "yes and no" framing */}
+
+      <p style={{ fontSize: 15, color: TEXT, lineHeight: 1.75, margin: "0 0 6px" }}>
+        Of every dollar the federal government collects in taxes, <strong style={{ color: RED }}>{display ? display.pct.toFixed(1) : "—"}¢</strong> goes
+        straight to interest payments on our debt. Instead of spending for Americans in the present day on defense, housing, food, or education, we are spending almost 1/5 of our taxes on debt interest.
       </p>
-      <Card style={{ borderLeft: "4px solid " + S3_COLOR }}>
-        <div style={{ color: MUTED, fontSize: 14, padding: "40px 0", textAlign: "center" }}>[ Crowding-out mechanism explainer — coming soon ]</div>
+      <p style={{ fontSize: 13, color: MUTED, margin: "0 0 16px" }}>
+        {hovRow ? hovRow.year + " — " + hovRow.pct.toFixed(1) + "¢ per tax dollar" : "That's up from 7.5¢ in 1970. Hover any column to see that year."}
+      </p>
+
+      {/* Stat callout */}
+      {display && (
+        <div style={{ display: "flex", gap: 16, margin: "0 0 20px", flexWrap: "wrap" }}>
+          <div style={{ background: "#fef2f2", borderRadius: 8, padding: "14px 20px", flexShrink: 0 }}>
+            <div style={{ fontSize: 11, color: MUTED, textTransform: "uppercase", letterSpacing: 0.5, marginBottom: 4 }}>
+              {hovRow ? hovRow.year : "FY" + latest.year} — per tax dollar
+            </div>
+            <div style={{ fontSize: 48, fontWeight: 800, color: RED, lineHeight: 1 }}>
+              {display.pct.toFixed(1)}¢
+            </div>
+            <div style={{ fontSize: 12, color: MUTED, marginTop: 4 }}>goes to interest</div>
+          </div>
+          <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "center", gap: 8, minWidth: 180 }}>
+            <div style={{ background: "#f9fafb", borderRadius: 8, padding: "10px 14px" }}>
+              <div style={{ fontSize: 11, color: MUTED, textTransform: "uppercase", letterSpacing: 0.5 }}>Net interest paid</div>
+              <div style={{ fontSize: 20, fontWeight: 700, color: TEXT }}>${Math.round(display.ni / 1000)}B</div>
+            </div>
+            <div style={{ background: "#f9fafb", borderRadius: 8, padding: "10px 14px" }}>
+              <div style={{ fontSize: 11, color: MUTED, textTransform: "uppercase", letterSpacing: 0.5 }}>Total revenue</div>
+              <div style={{ fontSize: 20, fontWeight: 700, color: TEXT }}>${Math.round(display.receipts / 1000)}B</div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Block bar chart */}
+      <Card style={{ borderLeft: "4px solid " + RED, marginBottom: 20 }}>
+        <p style={{ fontSize: 12, color: MUTED, margin: "0 0 12px" }}>Each block = 1¢ of every tax dollar going to interest. Hover a column for detail.</p>
+        <div style={{ overflowX: "auto" }}>
+          <div style={{ display: "flex", alignItems: "flex-end", gap: COL_GAP + "px", paddingBottom: XAXIS_H + "px", position: "relative" }}>
+            {series.map(function (r) {
+              var blocks   = Math.round(r.pct);
+              var isHov    = hovYear === r.year;
+              var showLabel = r.year % 5 === 0;
+              return (
+                <div key={r.year}
+                  onMouseEnter={function () { setHovYear(r.year); }}
+                  onMouseLeave={function () { setHovYear(null); }}
+                  style={{ display: "flex", flexDirection: "column", alignItems: "center", cursor: "default", position: "relative", flexShrink: 0 }}>
+                  <div style={{ display: "flex", flexDirection: "column", gap: BLK_GAP + "px" }}>
+                    {Array.from({ length: blocks }).map(function (_, b) {
+                      return (
+                        <div key={b} style={{
+                          width: BLK_SZ, height: BLK_SZ, borderRadius: 2,
+                          backgroundColor: RED,
+                          opacity: isHov ? 1 : 0.75,
+                          transition: "opacity 0.1s",
+                        }} />
+                      );
+                    })}
+                  </div>
+                  <div style={{
+                    position: "absolute", bottom: -XAXIS_H,
+                    fontSize: 9, color: isHov ? TEXT : MUTED,
+                    fontWeight: isHov ? 700 : 400,
+                    whiteSpace: "nowrap",
+                    visibility: showLabel || isHov ? "visible" : "hidden",
+                  }}>
+                    {r.year}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
       </Card>
+
+      <p style={{ fontSize: 15, color: TEXT, lineHeight: 1.75, margin: "0 0 16px" }}>
+        When the government borrows, it also competes with every other borrower in the economy, which pushes up interest rates. Higher rates mean more expensive mortgages, costlier business loans, and less private investment. The CBO estimates that for every dollar of deficit spending, private investment falls by about 33 cents. The next page shows what this looks like in practice.
+      </p>
+
+      <p style={{ fontSize: 12, color: MUTED }}>Sources: <a href="https://www.whitehouse.gov/omb/information-resources/budget/historical-tables/" target="_blank" rel="noreferrer" style={{ color: BLUE }}>OMB Historical Tables</a> (net interest, total receipts). CBO crowding-out estimate via <a href="https://www.pgpf.org/article/the-national-debt-can-crowd-out-investments-in-the-economy-heres-how/" target="_blank" rel="noreferrer" style={{ color: BLUE }}>Peter G. Peterson Foundation</a>.</p>
+    </div>
+  );
+}
+
+/* ── III.a.ii  Japan Case Study ──────────── */
+function JapanPage({ japanData }) {
+  var _hov     = useState(null); var hovYear  = _hov[0];  var setHovYear  = _hov[1];
+  var _eraStep = useState(0);    var eraStep  = _eraStep[0]; var setEraStep = _eraStep[1];
+  var _tourOn  = useState(function () { return !sessionStorage.getItem("tour2_10"); });
+  var tourOn   = _tourOn[0]; var setTourOn = _tourOn[1];
+
+  function doneTour() { sessionStorage.setItem("tour2_10", "1"); setTourOn(false); setEraStep(-1); }
+  function reopenTour() { setTourOn(true); setEraStep(0); }
+
+  // Era definitions
+  var ERAS = [
+    { id: "lost",    label: "Lost Decade",  years: [1991, 2002], color: "#fee2e2", border: "#ef4444",
+      title: "The Lost Decade (1991–2002)",
+      body: "After Japan's asset bubble burst in 1991, GDP growth collapsed and stayed near zero for over a decade. Debt began climbing rapidly as the government ran deficits in an effort to stimulate the economy. Despite the crisis, bond yields stayed relatively high." },
+    { id: "zirp",    label: "ZIRP",         years: [2000, 2013], color: "#dbeafe", border: "#3b82f6",
+      title: "Zero Interest Rate Policy (2000–2013)",
+      body: "The Bank of Japan pioneered zero interest rate policy (ZIRP) to make borrowing easier, driving yields near zero. Debt continued rising through the 2008 financial crisis and the 2011 Tōhoku earthquake in efforts to stimulate the economy. The combination of near-zero rates and growing debt created the illusion of sustainability." },
+    { id: "ycc",     label: "YCC",          years: [2013, 2024], color: "#fef3c7", border: "#f59e0b",
+      title: "Yield Curve Control / Abenomics (2013–2024)",
+      body: "Under Prime Minister Abe, the Bank of Japan dramatically expanded bond purchases and eventually introduced Yield Curve Control, a policy capping 10-year yields at 0%. The government could borrow money for free, but only because the Bank of Japan purchased any outstanding debt. By 2023 the BoJ owned nearly half of all outstanding government bonds. Debt stabilized near 240% of GDP, but only because the central bank was absorbing all the supply." },
+    { id: "now",     label: "Now",          years: [2024, 2025], color: "#ffedd5", border: "#f97316",
+      title: "The Reckoning (2024–present)",
+      body: "After COVID, Japan experienced inflation for the first time in decades and the BoJ ended YCC in March 2024. Interest rates surged to their highest levels since 1999. Japan's massive debt now carries a rising interest bill projected to double by 2030, crowding out healthcare, education, and defense spending. The consequences of decades of spending were deferred until now. The Japanese government must figure out how to foot the bill, and maintain programs for their aging population." },
+  ];
+
+  var activeEra = tourOn && eraStep >= 0 && eraStep < ERAS.length ? ERAS[eraStep] : null;
+
+  var data = useMemo(function () {
+    if (!japanData) return [];
+    return japanData.filter(function (r) { return r.year >= 1990 && r.year <= 2025; });
+  }, [japanData]);
+
+  var hovRow = hovYear != null ? data.find(function (r) { return r.year === hovYear; }) : null;
+
+  var CHART_W = 560;
+  var CHART_H = 160;
+  var PAD     = { top: 12, right: 20, bottom: 24, left: 44 };
+  var plotW   = CHART_W - PAD.left - PAD.right;
+  var plotH   = CHART_H - PAD.top  - PAD.bottom;
+
+  function scaleX(year) {
+    return PAD.left + ((year - 1990) / (2025 - 1990)) * plotW;
+  }
+  function scaleY(val, lo, hi) {
+    return PAD.top + plotH - ((val - lo) / (hi - lo)) * plotH;
+  }
+
+  function LineChart({ series, color, yMin, yMax, yTicks, yLabel }) {
+    var pts = series.filter(function (r) { return r.val != null && !isNaN(r.val); });
+    var pathD = pts.map(function (r, i) {
+      return (i === 0 ? "M" : "L") + scaleX(r.year).toFixed(1) + "," + scaleY(r.val, yMin, yMax).toFixed(1);
+    }).join(" ");
+
+    // Determine dim region: years outside active era
+    var eraX1 = activeEra ? scaleX(activeEra.years[0]) : null;
+    var eraX2 = activeEra ? scaleX(activeEra.years[1]) : null;
+
+    return (
+      <svg width="100%" viewBox={"0 0 " + CHART_W + " " + CHART_H} style={{ display: "block" }}>
+        {/* Y gridlines */}
+        {yTicks.map(function (t) {
+          var y = scaleY(t, yMin, yMax);
+          return (
+            <React.Fragment key={t}>
+              <line x1={PAD.left} y1={y} x2={PAD.left + plotW} y2={y} stroke={BORDER} strokeWidth="1" />
+              <text x={PAD.left - 4} y={y + 4} textAnchor="end" fontSize="10" fill={MUTED}>{t}%</text>
+            </React.Fragment>
+          );
+        })}
+        {/* Zero line */}
+        {yMin < 0 && yMax > 0 && (
+          <line x1={PAD.left} y1={scaleY(0, yMin, yMax)} x2={PAD.left + plotW} y2={scaleY(0, yMin, yMax)}
+            stroke="#9ca3af" strokeWidth="1.5" strokeDasharray="4 2" />
+        )}
+        {/* X axis labels */}
+        {[1990, 2000, 2010, 2020].map(function (yr) {
+          return <text key={yr} x={scaleX(yr)} y={CHART_H - 4} textAnchor="middle" fontSize="10" fill={MUTED}>{yr}</text>;
+        })}
+        {/* Era highlight band */}
+        {activeEra && (
+          <rect x={eraX1} y={PAD.top} width={eraX2 - eraX1} height={plotH}
+            fill={activeEra.color} opacity="0.7" />
+        )}
+        {/* Dim overlay outside era */}
+        {activeEra && (
+          <React.Fragment>
+            <rect x={PAD.left} y={PAD.top} width={Math.max(0, eraX1 - PAD.left)} height={plotH}
+              fill="white" opacity="0.55" />
+            <rect x={eraX2} y={PAD.top} width={Math.max(0, PAD.left + plotW - eraX2)} height={plotH}
+              fill="white" opacity="0.55" />
+          </React.Fragment>
+        )}
+        {/* Data line */}
+        <path d={pathD} fill="none" stroke={color} strokeWidth="2" strokeLinejoin="round" />
+        {/* Era border lines */}
+        {activeEra && (
+          <React.Fragment>
+            <line x1={eraX1} y1={PAD.top} x2={eraX1} y2={PAD.top + plotH}
+              stroke={activeEra.border} strokeWidth="1.5" strokeDasharray="4 2" />
+            <line x1={eraX2} y1={PAD.top} x2={eraX2} y2={PAD.top + plotH}
+              stroke={activeEra.border} strokeWidth="1.5" strokeDasharray="4 2" />
+          </React.Fragment>
+        )}
+        {/* Hover dot */}
+        {hovRow && !activeEra && (function () {
+          var pt = pts.find(function (r) { return r.year === hovRow.year; });
+          if (!pt) return null;
+          return <circle cx={scaleX(pt.year)} cy={scaleY(pt.val, yMin, yMax)} r={5} fill={color} stroke="#fff" strokeWidth="1.5" />;
+        })()}
+        {/* Invisible hover targets (only when tour not active) */}
+        {!activeEra && pts.map(function (r) {
+          return (
+            <rect key={r.year} x={scaleX(r.year) - 5} y={PAD.top} width="10" height={plotH}
+              fill="transparent"
+              onMouseEnter={function () { setHovYear(r.year); }}
+              onMouseLeave={function () { setHovYear(null); }} />
+          );
+        })}
+        <text x={8} y={PAD.top + plotH / 2} textAnchor="middle" fontSize="10" fill={MUTED}
+          transform={"rotate(-90," + 8 + "," + (PAD.top + plotH / 2) + ")"}>{yLabel}</text>
+      </svg>
+    );
+  }
+
+  var debtSeries  = data.map(function (r) { return { year: r.year, val: r.japan_debt_pct_gdp }; });
+  var yieldSeries = data.map(function (r) { return { year: r.year, val: r.japan_10y_yield }; });
+  var gdpSeries   = data.map(function (r) { return { year: r.year, val: r.japan_real_gdp_growth }; });
+
+  return (
+    <div>
+      <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", marginBottom: 6 }}>
+        <h2 style={{ fontSize: 22, fontWeight: 700, color: TEXT, margin: 0 }}>A Case Study: Japan</h2>
+        <button onClick={reopenTour} style={{ background: "none", border: "1px solid " + BORDER, borderRadius: "50%", width: 26, height: 26, fontSize: 13, color: MUTED, cursor: "pointer", flexShrink: 0 }}>?</button>
+      </div>
+      <p style={{ fontSize: 15, color: TEXT, lineHeight: 1.75, margin: "0 0 16px" }}>
+        Japan is often cited as proof that deficits don't cause high interest rates — its debt reached 260% of GDP while bond yields stayed near zero for three decades. But that stability had a hidden engine: the Bank of Japan bought nearly half of all outstanding government bonds, directly suppressing yields. When that ended in 2024, the bill came due.
+      </p>
+
+      {/* Era nav pills */}
+      <div style={{ display: "flex", gap: 6, flexWrap: "wrap", marginBottom: 12 }}>
+        {ERAS.map(function (era, i) {
+          var active = tourOn && eraStep === i;
+          return (
+            <button key={era.id} onClick={function () { setTourOn(true); setEraStep(i); }} style={{
+              padding: "4px 12px", fontSize: 12, borderRadius: 20, cursor: "pointer",
+              border: "1.5px solid " + (active ? era.border : BORDER),
+              background: active ? era.color : SURFACE,
+              color: active ? "#111" : MUTED,
+              fontWeight: active ? 600 : 400,
+              transition: "all 0.15s",
+            }}>{era.label}</button>
+          );
+        })}
+        {tourOn && (
+          <button onClick={doneTour} style={{
+            padding: "4px 12px", fontSize: 12, borderRadius: 20, cursor: "pointer",
+            border: "1px solid " + BORDER, background: SURFACE, color: MUTED,
+          }}>Clear</button>
+        )}
+      </div>
+
+      {/* Era annotation card */}
+      {activeEra && (
+        <div style={{
+          background: activeEra.color, border: "1.5px solid " + activeEra.border,
+          borderRadius: 8, padding: "12px 16px", marginBottom: 14,
+          display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: 16,
+        }}>
+          <div style={{ flex: 1 }}>
+            <div style={{ fontSize: 13, fontWeight: 700, color: TEXT, marginBottom: 4 }}>{activeEra.title}</div>
+            <p style={{ fontSize: 13, color: "#374151", lineHeight: 1.65, margin: 0 }}>{activeEra.body}</p>
+          </div>
+          <div style={{ display: "flex", gap: 8, flexShrink: 0 }}>
+            {eraStep > 0 && (
+              <button onClick={function () { setEraStep(eraStep - 1); }} style={{
+                padding: "4px 12px", fontSize: 12, borderRadius: 6, cursor: "pointer",
+                border: "1px solid " + BORDER, background: SURFACE, color: TEXT,
+              }}>← Back</button>
+            )}
+            {eraStep < ERAS.length - 1 && (
+              <button onClick={function () { setEraStep(eraStep + 1); }} style={{
+                padding: "4px 12px", fontSize: 12, borderRadius: 6, cursor: "pointer",
+                border: "none", background: "#1e3a5f", color: "#fff", fontWeight: 600,
+              }}>Next →</button>
+            )}
+            {eraStep === ERAS.length - 1 && (
+              <button onClick={doneTour} style={{
+                padding: "4px 12px", fontSize: 12, borderRadius: 6, cursor: "pointer",
+                border: "none", background: "#1e3a5f", color: "#fff", fontWeight: 600,
+              }}>Done</button>
+            )}
+          </div>
+        </div>
+      )}
+
+      {/* Hover callout (only when tour not active) */}
+      {!activeEra && (
+        <div style={{ minHeight: 28, marginBottom: 10 }}>
+          {hovRow ? (
+            <div style={{ display: "flex", gap: 20, flexWrap: "wrap", alignItems: "baseline" }}>
+              <span style={{ fontSize: 16, fontWeight: 700, color: TEXT }}>{hovRow.year}</span>
+              {hovRow.japan_debt_pct_gdp != null && <span style={{ fontSize: 13, color: "#4a0000" }}>Debt: {hovRow.japan_debt_pct_gdp.toFixed(0)}% of GDP</span>}
+              {hovRow.japan_10y_yield != null && <span style={{ fontSize: 13, color: BLUE }}>10yr yield: {hovRow.japan_10y_yield.toFixed(2)}%</span>}
+              {hovRow.japan_real_gdp_growth != null && <span style={{ fontSize: 13, color: "#059669" }}>GDP growth: {hovRow.japan_real_gdp_growth.toFixed(1)}%</span>}
+            </div>
+          ) : (
+            <span style={{ fontSize: 13, color: MUTED }}>Hover any chart to see values for that year</span>
+          )}
+        </div>
+      )}
+
+      <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+        <Card style={{ borderLeft: "4px solid #4a0000", padding: "16px 20px" }}>
+          <div style={{ fontSize: 13, fontWeight: 600, color: "#4a0000", marginBottom: 6 }}>Government Debt (% of GDP)</div>
+          <LineChart series={debtSeries} color="#4a0000" yMin={50} yMax={280} yTicks={[100,150,200,250]} yLabel="% GDP" />
+        </Card>
+        <Card style={{ borderLeft: "4px solid " + BLUE, padding: "16px 20px" }}>
+          <div style={{ fontSize: 13, fontWeight: 600, color: BLUE, marginBottom: 6 }}>10-Year Government Bond Yield</div>
+          <LineChart series={yieldSeries} color={BLUE} yMin={-0.5} yMax={4} yTicks={[0,1,2,3]} yLabel="%" />
+        </Card>
+        <Card style={{ borderLeft: "4px solid #059669", padding: "16px 20px" }}>
+          <div style={{ fontSize: 13, fontWeight: 600, color: "#059669", marginBottom: 6 }}>Real GDP Growth</div>
+          <LineChart series={gdpSeries} color="#059669" yMin={-8} yMax={8} yTicks={[-4,0,4]} yLabel="%" />
+        </Card>
+      </div>
+      <p style={{ fontSize: 12, color: MUTED, marginTop: 12 }}>Sources: <a href="https://fred.stlouisfed.org/series/GGGDTAJPA188N" target="_blank" rel="noreferrer" style={{ color: BLUE }}>FRED GGGDTAJPA188N</a> / <a href="https://fred.stlouisfed.org/series/GGGDTPJPA188N" target="_blank" rel="noreferrer" style={{ color: BLUE }}>GGGDTPJPA188N</a> (IMF); <a href="https://fred.stlouisfed.org/series/IRLTLT01JPM156N" target="_blank" rel="noreferrer" style={{ color: BLUE }}>IRLTLT01JPM156N</a> (OECD); <a href="https://fred.stlouisfed.org/series/JPNRGDPEXP" target="_blank" rel="noreferrer" style={{ color: BLUE }}>JPNRGDPEXP</a> (Cabinet Office Japan). Debt 2024+ are IMF projections.</p>
     </div>
   );
 }
@@ -1791,7 +2169,7 @@ function CrowdingOutPage() {
 /* ── III.b.i  Net Interest ───────────────── */
 // Ported from App.jsx NetInterestPage, unchanged.
 function NetInterestPage({ spendingData }) {
-  var tour = useTour(10);
+  var tour = useTour(11);
 
   var categories = useMemo(function () {
     if (!spendingData) return [];
@@ -1830,13 +2208,13 @@ function NetInterestPage({ spendingData }) {
 
   return (
     <div>
-      {tour.show && <Tour pageIndex={10} onDone={tour.done} />}
+      {tour.show && <Tour pageIndex={11} onDone={tour.done} />}
       <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", marginBottom: 6 }}>
         <h2 style={{ fontSize: 22, fontWeight: 700, color: TEXT, margin: 0 }}>The Rising Cost of Debt Service</h2>
         <TourBtn onOpen={tour.reopen} />
       </div>
       <p style={{ fontSize: 15, color: TEXT, lineHeight: 1.75, margin: "0 0 6px" }}>
-        As of FY{YEAR}, net interest payments have reached $880 billion — more than Medicare, national defense, or any other individual program except Social Security.
+        Just like Japan, we need to figure out what will have to be cut so we can pay the interest on our debt. As of FY{YEAR}, net interest payments have reached $880 billion on their own. This means interest payments alone are more costly than almost every major government program, including Medicare, national defense and education.
       </p>
       <p style={{ fontSize: 13, color: MUTED, margin: "0 0 20px" }}>Select a program below to compare.</p>
       <Card style={{ borderLeft: "4px solid " + AMBER }}>
@@ -1891,6 +2269,7 @@ function NetInterestPage({ spendingData }) {
           </div>
         )}
       </Card>
+      <p style={{ fontSize: 12, color: MUTED, marginTop: 12 }}>Source: <a href="https://www.whitehouse.gov/omb/information-resources/budget/historical-tables/" target="_blank" rel="noreferrer" style={{ color: BLUE }}>OMB Historical Tables, FY2026 Budget</a> (Table 3.2 — outlays by function and subfunction, 1962–2030).</p>
     </div>
   );
 }
@@ -1903,42 +2282,458 @@ function NetInterestPage({ spendingData }) {
 //   - Tax side: link to external tax calculator (TPC, CRFB) or simple illustrative widget
 //     showing how much revenue different bracket changes would raise
 // Design: TBD — likely a split card showing "cut side" vs "tax side".
-function BudgetDilemmaPage({ spendingData }) {
+function BudgetDilemmaPage({ spendingData, summaryData }) {
+  var tour = useTour(12);
+  var _hov = useState(null); var hovSlice = _hov[0]; var setHovSlice = _hov[1];
+
+  var computed = useMemo(function () {
+    if (!spendingData || !summaryData) return null;
+
+    var spendRows = spendingData.filter(function (r) {
+      return r.year === YEAR && !String(r.category).includes("Real");
+    });
+
+    var sumRow = summaryData.find(function (r) { return r.year === YEAR && r.category === "Total Outlays"; });
+    var totalOutlays = sumRow ? sumRow.amount : 0;
+    var defRow = summaryData.find(function (r) { return r.year === YEAR && r.category === "Surplus or Deficit"; });
+    var deficit = defRow ? Math.abs(defRow.amount) : 0;
+    var recRow = summaryData.find(function (r) { return r.year === YEAR && r.category === "Total Receipts"; });
+    var totalReceipts = recRow ? recRow.amount : 0;
+
+    // Build slices
+    var SLICES = [
+      { key: "Social Security", label: "Social Security", type: "mandatory",
+        poll: "85% of Americans oppose cuts", pollSrc: "Navigator Research, 2025", pollUrl: "https://navigatorresearch.org/a-majority-of-americans-oppose-cuts-to-social-security-and-medicare/" },
+      { key: "Medicare", label: "Medicare", type: "mandatory",
+        poll: "79% of Americans oppose cuts", pollSrc: "KFF, April 2025", pollUrl: "https://www.kff.org/medicaid/poll-finding/kff-health-tracking-poll-april-2025-publics-view-on-major-cuts-to-federal-health-agencies/" },
+      { key: "Health", label: "Medicaid & Health", type: "mandatory",
+        poll: "75% of Americans oppose cuts", pollSrc: "KFF, April 2025", pollUrl: "https://www.kff.org/medicaid/poll-finding/kff-health-tracking-poll-april-2025-publics-view-on-major-cuts-to-federal-health-agencies/" },
+      { key: "Income Security", label: "Income Security", type: "mandatory",
+        poll: "Includes SNAP, housing assistance, unemployment", pollSrc: null, pollUrl: null },
+      { key: "National Defense", label: "National Defense", type: "discretionary",
+        poll: null, pollSrc: null, pollUrl: null },
+      { key: "Veterans Benefits and Services", label: "Veterans", type: "discretionary",
+        poll: "84% of Americans oppose cuts to veterans healthcare", pollSrc: "Navigator Research, 2025", pollUrl: "https://navigatorresearch.org/a-majority-of-americans-oppose-cuts-to-social-security-and-medicare/" },
+      { key: "Education, Training, Employment, and Social Services", label: "Education & Training", type: "discretionary",
+        poll: null, pollSrc: null, pollUrl: null },
+      { key: "Net interest", label: "Net Interest (Debt Service)", type: "interest",
+        poll: "Cannot be cut — legal obligation to bondholders", pollSrc: null, pollUrl: null },
+    ];
+
+    var sliceData = [];
+    var accounted = 0;
+    SLICES.forEach(function (s) {
+      var row = spendRows.find(function (r) { return r.category === s.key; });
+      if (row) {
+        sliceData.push(Object.assign({}, s, { amount: row.amount }));
+        if (s.key !== "Net interest") accounted += row.amount;  // exclude interest from accounted so All Other is correct
+      }
+    });
+    // Pull Net Interest out, insert All Other before it, then put it back at the end
+    var niIdx = sliceData.findIndex(function (s) { return s.key === "Net interest"; });
+    var niSlice = niIdx >= 0 ? sliceData.splice(niIdx, 1)[0] : null;
+    var other = totalOutlays - accounted - (niSlice ? niSlice.amount : 0);
+    if (other > 0) sliceData.push({ key: "other", label: "All Other Discretionary", type: "discretionary", amount: other, poll: null, pollSrc: null, pollUrl: null });
+    if (niSlice) sliceData.push(niSlice);
+
+    return { slices: sliceData, totalOutlays: totalOutlays, deficit: deficit, totalReceipts: totalReceipts };
+  }, [spendingData, summaryData]);
+
+  if (!computed) return null;
+
+  var TYPE_COLORS = {
+    interest:      "#1a1a2e",  // near-black — distinct from red mandatory
+    mandatory:     "#c0392b",
+    discretionary: "#2c5282",
+  };
+  var TYPE_LABELS = {
+    interest:      "Debt Interest — legal obligation, cannot be cut",
+    mandatory:     "Mandatory spending — entitlement by law, politically untouchable",
+    discretionary: "Discretionary — theoretically cuttable",
+  };
+
+  // SVG donut chart
+  var CX = 180; var CY = 180; var R_OUT = 155; var R_IN = 85;
+  var total = computed.slices.reduce(function (s, c) { return s + c.amount; }, 0);
+  var segments = [];
+  var angle = -Math.PI / 2; // start at top
+  computed.slices.forEach(function (slice) {
+    var sweep = (slice.amount / total) * 2 * Math.PI;
+    segments.push({ slice: slice, startAngle: angle, endAngle: angle + sweep });
+    angle += sweep;
+  });
+
+  function polarToXY(cx, cy, r, a) {
+    return { x: cx + r * Math.cos(a), y: cy + r * Math.sin(a) };
+  }
+
+  function arcPath(seg, inflate) {
+    var r = inflate ? R_OUT + 6 : R_OUT;
+    var ri = inflate ? R_IN - 6 : R_IN;
+    var midA = (seg.startAngle + seg.endAngle) / 2;
+    var ox = inflate ? Math.cos(midA) * 6 : 0;
+    var oy = inflate ? Math.sin(midA) * 6 : 0;
+    var p1 = polarToXY(CX + ox, CY + oy, r,  seg.startAngle);
+    var p2 = polarToXY(CX + ox, CY + oy, r,  seg.endAngle);
+    var p3 = polarToXY(CX + ox, CY + oy, ri, seg.endAngle);
+    var p4 = polarToXY(CX + ox, CY + oy, ri, seg.startAngle);
+    var large = (seg.endAngle - seg.startAngle) > Math.PI ? 1 : 0;
+    return [
+      "M", p1.x.toFixed(2), p1.y.toFixed(2),
+      "A", r, r, 0, large, 1, p2.x.toFixed(2), p2.y.toFixed(2),
+      "L", p3.x.toFixed(2), p3.y.toFixed(2),
+      "A", ri, ri, 0, large, 0, p4.x.toFixed(2), p4.y.toFixed(2),
+      "Z"
+    ].join(" ");
+  }
+
+  var hovSeg = hovSlice ? segments.find(function (s) { return s.slice.key === hovSlice; }) : null;
+  var hovData = hovSeg ? hovSeg.slice : null;
+
+  // Discretionary total
+  var discretionary = computed.slices.filter(function (s) { return s.type === "discretionary"; })
+    .reduce(function (a, s) { return a + s.amount; }, 0);
+
   return (
     <div>
-      <h2 style={{ fontSize: 22, fontWeight: 700, color: TEXT, margin: "0 0 6px" }}>The Budget Dilemma</h2>
-      <p style={{ fontSize: 15, color: TEXT, lineHeight: 1.75, margin: "0 0 20px" }}>
-        {/* TODO: intro copy */}
+      {tour.show && <Tour pageIndex={12} onDone={tour.done} />}
+      <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", marginBottom: 6 }}>
+        <h2 style={{ fontSize: 22, fontWeight: 700, color: TEXT, margin: 0 }}>The Budget Dilemma</h2>
+        <TourBtn onOpen={tour.reopen} />
+      </div>
+
+      <p style={{ fontSize: 15, color: TEXT, lineHeight: 1.75, margin: "0 0 10px" }}>
+        To close the deficit, the government must cut spending or raise taxes. But most of the budget is untouchable: either a legal obligation that cannot be broken, or a program so popular that cutting it is political suicide.
       </p>
-      <Card style={{ borderLeft: "4px solid " + S3_COLOR }}>
-        <div style={{ color: MUTED, fontSize: 14, padding: "40px 0", textAlign: "center" }}>[ Budget dilemma — spending cuts vs. tax increases — coming soon ]</div>
-      </Card>
-      <p style={{ fontSize: 12, color: MUTED, marginTop: 12 }}>Source: OMB Historical Tables.</p>
+
+      <div style={{ display: "flex", gap: 24, flexWrap: "wrap", alignItems: "flex-start", marginBottom: 20 }}>
+        {/* Donut chart */}
+        <div style={{ flexShrink: 0 }}>
+          <svg width="360" height="360" style={{ display: "block" }}>
+            {segments.map(function (seg) {
+              var isHov = hovSlice === seg.slice.key;
+              var color = TYPE_COLORS[seg.slice.type];
+              // Shade variants by slice within type
+              return (
+                <path key={seg.slice.key}
+                  d={arcPath(seg, isHov)}
+                  fill={color}
+                  opacity={hovSlice ? (isHov ? 1 : 0.35) : 0.82}
+                  stroke="#fff" strokeWidth="2"
+                  style={{ cursor: "pointer", transition: "opacity 0.15s" }}
+                  onMouseEnter={function () { setHovSlice(seg.slice.key); }}
+                  onMouseLeave={function () { setHovSlice(null); }}
+                />
+              );
+            })}
+            {/* Center label */}
+            <text x={CX} y={CY - 14} textAnchor="middle" fontSize="13" fill={MUTED}>FY{YEAR} spending</text>
+            <text x={CX} y={CY + 10} textAnchor="middle" fontSize="22" fontWeight="800" fill={TEXT}>
+              ${(computed.totalOutlays / 1e6).toFixed(1)}T
+            </text>
+            <text x={CX} y={CY + 30} textAnchor="middle" fontSize="12" fill={RED}>
+              −{fmtAmt(computed.deficit)} deficit
+            </text>
+          </svg>
+        </div>
+
+        {/* Right panel — hover detail or legend */}
+        <div style={{ flex: 1, minWidth: 220 }}>
+          {hovData ? (
+            <div style={{ background: "#f9fafb", borderRadius: 10, padding: "18px 20px", borderLeft: "4px solid " + TYPE_COLORS[hovData.type] }}>
+              <div style={{ fontSize: 16, fontWeight: 700, color: TYPE_COLORS[hovData.type], marginBottom: 4 }}>{hovData.label}</div>
+              <div style={{ fontSize: 24, fontWeight: 800, color: TEXT, marginBottom: 8 }}>{fmtAmt(hovData.amount)}</div>
+              <div style={{ fontSize: 12, color: MUTED, marginBottom: 10 }}>{((hovData.amount / computed.totalOutlays) * 100).toFixed(1)}% of total spending</div>
+              {hovData.type === "interest" && (
+                <p style={{ fontSize: 13, color: TEXT, lineHeight: 1.6, margin: 0 }}>
+                  Interest payments are a legal obligation — missing them would constitute a sovereign default, destroying the US credit rating and triggering a global financial crisis.
+                </p>
+              )}
+              {hovData.type === "mandatory" && (
+                <p style={{ fontSize: 13, color: TEXT, lineHeight: 1.6, margin: 0 }}>
+                  "Mandatory" means spending is set by statute — anyone who meets eligibility criteria is entitled to benefits by law. Congress would have to pass new legislation to cut it.
+                  {hovData.poll && hovData.pollSrc && (
+                    <span style={{ display: "block", marginTop: 8, color: RED, fontWeight: 600 }}>
+                      {hovData.poll} —{" "}
+                      {hovData.pollUrl
+                        ? <a href={hovData.pollUrl} target="_blank" rel="noreferrer" style={{ color: RED }}>{hovData.pollSrc}</a>
+                        : hovData.pollSrc}
+                    </span>
+                  )}
+                </p>
+              )}
+              {hovData.type === "discretionary" && (
+                <p style={{ fontSize: 13, color: TEXT, lineHeight: 1.6, margin: 0 }}>
+                  Discretionary spending is set annually by Congress and is theoretically cuttable. But eliminating all of it — defense, education, infrastructure, foreign aid — would still leave a large deficit.
+                  {hovData.poll && hovData.pollSrc && (
+                    <span style={{ display: "block", marginTop: 8, color: RED, fontWeight: 600 }}>
+                      {hovData.poll} —{" "}
+                      {hovData.pollUrl
+                        ? <a href={hovData.pollUrl} target="_blank" rel="noreferrer" style={{ color: RED }}>{hovData.pollSrc}</a>
+                        : hovData.pollSrc}
+                    </span>
+                  )}
+                </p>
+              )}
+            </div>
+          ) : (
+            <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+              {Object.entries(TYPE_LABELS).map(function (e) {
+                return (
+                  <div key={e[0]} style={{ display: "flex", alignItems: "flex-start", gap: 10 }}>
+                    <div style={{ width: 12, height: 12, borderRadius: 2, backgroundColor: TYPE_COLORS[e[0]], flexShrink: 0, marginTop: 2 }} />
+                    <span style={{ fontSize: 13, color: TEXT, lineHeight: 1.5 }}>{e[1]}</span>
+                  </div>
+                );
+              })}
+              <div style={{ marginTop: 8, padding: "12px 14px", background: "#fef2f2", borderRadius: 8, borderLeft: "3px solid " + RED }}>
+                <div style={{ fontSize: 13, color: TEXT, lineHeight: 1.6 }}>
+                  To close the {fmtAmt(computed.deficit)} deficit through spending cuts alone,
+                  you would need to eliminate every discretionary program entirely: all of defense, veterans benefits, education, housing, and foreign aid. That totals {fmtAmt(discretionary)}.
+                </div>
+                <div style={{ marginTop: 10, display: "flex", gap: 10 }}>
+                  <div style={{ flex: 1, background: "#fff", borderRadius: 6, padding: "8px 12px", textAlign: "center" }}>
+                    <div style={{ fontSize: 11, color: MUTED, marginBottom: 2 }}>Deficit</div>
+                    <div style={{ fontSize: 16, fontWeight: 700, color: RED }}>−{fmtAmt(computed.deficit)}</div>
+                  </div>
+                  <div style={{ display: "flex", alignItems: "center", fontSize: 16, color: MUTED }}>vs.</div>
+                  <div style={{ flex: 1, background: "#fff", borderRadius: 6, padding: "8px 12px", textAlign: "center" }}>
+                    <div style={{ fontSize: 11, color: MUTED, marginBottom: 2 }}>All discretionary</div>
+                    <div style={{ fontSize: 16, fontWeight: 700, color: "#2c5282" }}>{fmtAmt(discretionary)}</div>
+                  </div>
+                </div>
+
+              </div>
+              <p style={{ fontSize: 12, color: MUTED, margin: 0 }}>Hover a slice for details and polling data.</p>
+            </div>
+          )}
+        </div>
+      </div>
+
+      <p style={{ fontSize: 15, color: TEXT, lineHeight: 1.75, margin: "0 0 16px" }}>
+        Why is "mandatory" spending actually mandatory? Programs like Social Security, Medicare, and Medicaid are set up so that anyone who meets the eligibility criteria is legally entitled to benefits. To protect the public, the government cannot simply decide to pay less one year. Cutting them requires passing new laws, which is politically nearly impossible: 85% of Americans oppose cuts to Social Security and 75% oppose cuts to Medicaid.
+      </p>
+      <p style={{ fontSize: 15, color: TEXT, lineHeight: 1.75, margin: "0 0 6px" }}>
+        That leaves the tax side of the ledger to make up the difference.
+      </p>
+
+      <p style={{ fontSize: 12, color: MUTED }}>
+        Sources: <a href="https://www.whitehouse.gov/omb/information-resources/budget/historical-tables/" target="_blank" rel="noreferrer" style={{ color: BLUE }}>OMB Historical Tables FY{YEAR}</a>.
+        {" "}Polling: <a href="https://navigatorresearch.org/a-majority-of-americans-oppose-cuts-to-social-security-and-medicare/" target="_blank" rel="noreferrer" style={{ color: BLUE }}>Navigator Research (Jan 2026)</a>;{" "}
+        <a href="https://www.kff.org/medicaid/poll-finding/kff-health-tracking-poll-april-2025-publics-view-on-major-cuts-to-federal-health-agencies/" target="_blank" rel="noreferrer" style={{ color: BLUE }}>KFF Health Tracking Poll (April 2025)</a>.
+      </p>
     </div>
   );
 }
 
-/* ── III.b.iii  Trade Deficit ────────────── */
-// TODO: current account deficit time series as % of GDP.
-// Data source: BEA / FRED NETFI (net international investment position) or BOP current account.
-// Target: back to 1960 or as far as available.
-// Design: line chart or block-based annual bars, same color language.
-// Note: close connection to crowding-out narrative — when domestic savings gap is filled by
-// foreign capital, it shows up as a current account deficit.
-function TradeDeficitPage() {
+/* ── III.d  Tax Page ─────────────────────── */
+function TaxPage({ taxData }) {
+  var tour = useTour(13);
+
+  // Parse CSV into lookup
+  var brackets = useMemo(function () {
+    if (!taxData) return [];
+    return taxData;
+  }, [taxData]);
+
+  // Slider state: rate increase in pp per bucket (0-20)
+  // State tracks absolute effective rate per bucket, initialized at current rate
+  var _rates = useState(null);
+  var ratesRaw = _rates[0]; var setRates = _rates[1];
+
+  // Initialize from data once loaded
+  var rates = useMemo(function () {
+    if (ratesRaw) return ratesRaw;
+    var init = {};
+    brackets.forEach(function (b) { init[b.bucket] = b.effective_rate_pct; });
+    return init;
+  }, [ratesRaw, brackets]);
+
+  function setRate(bucket, val) {
+    setRates(function (prev) {
+      var base = prev || {};
+      if (!prev) { brackets.forEach(function (b) { base[b.bucket] = b.effective_rate_pct; }); }
+      return Object.assign({}, base, { [bucket]: val });
+    });
+  }
+
+  function resetRates() {
+    setRates(null);
+  }
+
+  var isDirty = brackets.some(function (b) {
+    return rates[b.bucket] !== undefined && rates[b.bucket] !== b.effective_rate_pct;
+  });
+
+  var DEFICIT_B = 1695; // FY2023 deficit in billions — matches IRS Tax Year 2023 data
+
+  // Additional revenue = delta from current rate * revenue_per_1pp
+  var additionalRevenue = useMemo(function () {
+    return brackets.reduce(function (sum, b) {
+      var currentRate = rates[b.bucket] !== undefined ? rates[b.bucket] : b.effective_rate_pct;
+      var delta = currentRate - b.effective_rate_pct;
+      return sum + (b.revenue_per_1pp_b * delta);
+    }, 0);
+  }, [brackets, rates]);
+
+  var pctOfDeficit = Math.min(100, (additionalRevenue / DEFICIT_B) * 100);
+
+  var BUCKET_COLORS = {
+    "Under $25K":   "#3b82f6",
+    "$25K to $75K": "#6366f1",
+    "$75K to $200K":"#8b5cf6",
+    "$200K to $1M": "#a855f7",
+    "Over $1M":     "#c026d3",
+  };
+
+  function setIncrease(bucket, val) {
+    setIncreases(function (prev) {
+      return Object.assign({}, prev, { [bucket]: val });
+    });
+  }
+
+  var ORDER = ["Under $25K", "$25K to $75K", "$75K to $200K", "$200K to $1M", "Over $1M"];
+
   return (
     <div>
-      <h2 style={{ fontSize: 22, fontWeight: 700, color: TEXT, margin: "0 0 6px" }}>The Trade Deficit Connection</h2>
-      <p style={{ fontSize: 15, color: TEXT, lineHeight: 1.75, margin: "0 0 20px" }}>
-        {/* TODO: intro copy */}
+      {tour.show && <Tour pageIndex={13} onDone={tour.done} />}
+      <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", marginBottom: 6 }}>
+        <h2 style={{ fontSize: 22, fontWeight: 700, color: TEXT, margin: 0 }}>Raising Taxes</h2>
+        <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
+          {isDirty && (
+            <button onClick={resetRates} style={{
+              fontSize: 12, padding: "3px 12px", borderRadius: 6, cursor: "pointer",
+              border: "1px solid " + BORDER, background: SURFACE, color: MUTED,
+            }}>Reset</button>
+          )}
+          <TourBtn onOpen={tour.reopen} />
+        </div>
+      </div>
+
+      <p style={{ fontSize: 15, color: TEXT, lineHeight: 1.75, margin: "0 0 10px" }}>
+        The other lever is raising taxes. Use the sliders below to increase effective tax rates on each income group and see how much additional revenue it would generate against the FY2023 {fmtAmt(DEFICIT_B * 1000)} deficit.
       </p>
-      <Card style={{ borderLeft: "4px solid " + S3_COLOR }}>
-        <div style={{ color: MUTED, fontSize: 14, padding: "40px 0", textAlign: "center" }}>[ Current account deficit time series — coming soon ]</div>
-      </Card>
-      <p style={{ fontSize: 12, color: MUTED, marginTop: 12 }}>Source: BEA / FRED.</p>
+      <p style={{ fontSize: 13, color: MUTED, margin: "0 0 20px" }}>
+        Note: these are static scores based on IRS Tax Year 2023 data, matched to the FY2023 deficit of $1.7T. Real revenue would be somewhat lower due to behavioral responses like tax avoidance, reduced hours, and income shifting.
+      </p>
+
+      {/* Progress bar */}
+      <div style={{ marginBottom: 24 }}>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 6 }}>
+          <span style={{ fontSize: 13, color: MUTED }}>Deficit closed</span>
+          <span style={{ fontSize: 20, fontWeight: 700, color: additionalRevenue >= DEFICIT_B ? "#16a34a" : RED }}>
+            {additionalRevenue >= DEFICIT_B ? "Surplus +" + fmtAmt((additionalRevenue - DEFICIT_B) * 1000) : fmtAmt(additionalRevenue * 1000) + " of " + fmtAmt(DEFICIT_B * 1000)}
+          </span>
+        </div>
+        <div style={{ height: 14, background: "#f3f4f6", borderRadius: 7, overflow: "hidden" }}>
+          <div style={{
+            height: "100%",
+            width: pctOfDeficit + "%",
+            background: additionalRevenue >= DEFICIT_B ? "#16a34a" : RED,
+            borderRadius: 7,
+            transition: "width 0.2s ease",
+          }} />
+        </div>
+        <div style={{ display: "flex", justifyContent: "space-between", marginTop: 4 }}>
+          <span style={{ fontSize: 11, color: MUTED }}>$0</span>
+          <span style={{ fontSize: 11, color: MUTED }}>{fmtAmt(DEFICIT_B * 1000)} deficit</span>
+        </div>
+      </div>
+
+      {/* Bracket sliders */}
+      <div style={{ display: "flex", flexDirection: "column", gap: 16, marginBottom: 24 }}>
+        {ORDER.map(function (bucketName) {
+          var b = brackets.find(function (x) { return x.bucket === bucketName; });
+          if (!b) return null;
+          var currentRate = rates[bucketName] !== undefined ? rates[bucketName] : b.effective_rate_pct;
+          var delta  = currentRate - b.effective_rate_pct;
+          var added  = b.revenue_per_1pp_b * delta;
+          var color  = BUCKET_COLORS[bucketName];
+          return (
+            <Card key={bucketName} style={{ borderLeft: "4px solid " + color, padding: "16px 20px" }}>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 10, flexWrap: "wrap", gap: 8 }}>
+                <div>
+                  <div style={{ fontSize: 15, fontWeight: 700, color: color }}>{bucketName}</div>
+                  <div style={{ fontSize: 12, color: MUTED, marginTop: 2 }}>
+                    {b.num_returns_millions.toFixed(1)}M returns · ${(b.taxable_income_b / 1000).toFixed(2)}T taxable income · current effective rate {b.effective_rate_pct}%
+                  </div>
+                </div>
+                <div style={{ textAlign: "right" }}>
+                  <div style={{ fontSize: 11, color: MUTED }}>Additional revenue</div>
+                  <div style={{ fontSize: 18, fontWeight: 700, color: added > 0 ? color : added < 0 ? RED : MUTED }}>
+                    {added > 0 ? "+" + fmtAmt(added * 1000) : added < 0 ? "-" + fmtAmt(Math.abs(added) * 1000) : "—"}
+                  </div>
+                </div>
+              </div>
+
+              <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+                <span style={{ fontSize: 12, color: MUTED, whiteSpace: "nowrap" }}>0%</span>
+                <input type="range" min={0} max={100} step={0.5} value={currentRate}
+                  onChange={function (e) { setRate(bucketName, Number(e.target.value)); }}
+                  style={{ flex: 1, accentColor: delta === 0 ? MUTED : delta > 0 ? color : RED, cursor: "grab" }} />
+                <span style={{ fontSize: 12, color: MUTED, whiteSpace: "nowrap" }}>100%</span>
+                <div style={{ minWidth: 110, textAlign: "right" }}>
+                  {delta !== 0 ? (
+                    <span style={{ fontSize: 13, fontWeight: 600, color: delta > 0 ? color : RED }}>
+                      {b.effective_rate_pct}% → {currentRate.toFixed(1)}%
+                    </span>
+                  ) : (
+                    <span style={{ fontSize: 13, color: MUTED }}>{b.effective_rate_pct}% (current)</span>
+                  )}
+                </div>
+              </div>
+
+              {/* Revenue per pp callout */}
+              <div style={{ fontSize: 11, color: MUTED, marginTop: 6 }}>
+                Each percentage point raises ~${b.revenue_per_1pp_b.toFixed(1)}B/year
+              </div>
+            </Card>
+          );
+        })}
+      </div>
+
+      {/* Summary if anything selected */}
+      {additionalRevenue !== 0 && (
+        <div style={{ background: additionalRevenue >= DEFICIT_B ? "#f0fdf4" : "#fef2f2", borderRadius: 10, padding: "16px 20px", marginBottom: 20, borderLeft: "4px solid " + (additionalRevenue >= DEFICIT_B ? "#16a34a" : RED) }}>
+          <div style={{ fontSize: 14, fontWeight: 600, color: TEXT, marginBottom: 8 }}>Summary</div>
+          <div style={{ display: "flex", flexDirection: "column", gap: 4, fontSize: 13, color: TEXT }}>
+            {ORDER.map(function (bucketName) {
+              var b   = brackets.find(function (x) { return x.bucket === bucketName; });
+              var cr = rates[bucketName] !== undefined ? rates[bucketName] : b.effective_rate_pct;
+              var d  = cr - b.effective_rate_pct;
+              if (d === 0 || !b) return null;
+              var rev = b.revenue_per_1pp_b * d;
+              return (
+                <div key={bucketName} style={{ display: "flex", justifyContent: "space-between" }}>
+                  <span style={{ color: BUCKET_COLORS[bucketName] }}>{bucketName}: {b.effective_rate_pct}% → {cr.toFixed(1)}%</span>
+                  <span style={{ color: d > 0 ? BUCKET_COLORS[bucketName] : RED }}>{d > 0 ? "+" : ""}{fmtAmt(rev * 1000)}/yr</span>
+                </div>
+              );
+            })}
+            <div style={{ display: "flex", justifyContent: "space-between", borderTop: "1px solid " + BORDER, paddingTop: 6, marginTop: 4, fontWeight: 700 }}>
+              <span>Total additional revenue</span>
+              <span style={{ color: additionalRevenue >= DEFICIT_B ? "#16a34a" : RED }}>+{fmtAmt(additionalRevenue * 1000)}/yr</span>
+            </div>
+            <div style={{ display: "flex", justifyContent: "space-between", fontWeight: 700 }}>
+              <span>Remaining deficit</span>
+              <span style={{ color: additionalRevenue >= DEFICIT_B ? "#16a34a" : RED }}>
+                {additionalRevenue >= DEFICIT_B
+                  ? "Surplus +" + fmtAmt((additionalRevenue - DEFICIT_B) * 1000)
+                  : fmtAmt((DEFICIT_B - additionalRevenue) * 1000) + " remaining"}
+              </span>
+            </div>
+          </div>
+        </div>
+      )}
+
+      <p style={{ fontSize: 12, color: MUTED }}>
+        Source: <a href="https://www.irs.gov/statistics/soi-tax-stats-individual-income-tax-returns-complete-report-publication-1304" target="_blank" rel="noreferrer" style={{ color: BLUE }}>IRS Statistics of Income, Publication 1304, Table 1.4, Tax Year 2023</a>.
+        Static scoring only — does not account for behavioral responses or supply-side effects.
+      </p>
     </div>
   );
 }
+
 
 // ─────────────────────────────────────────────
 // NAVIGATION SHELL
@@ -2000,30 +2795,69 @@ function PageShell({ page, setPage, children, prompt }) {
           <button onClick={function () { navigate(page - 1); }}
             style={{ background: "none", border: "none", color: "#94a3b8", fontSize: 18, cursor: "pointer", padding: "0 4px", lineHeight: 1 }}>←</button>
         )}
-        <span style={{ fontSize: 15, fontWeight: 600, letterSpacing: 0.3, color: "#fff", flex: 1 }}>Visualize Policy</span>
+        <span style={{ fontSize: 15, fontWeight: 600, letterSpacing: 0.3, color: "#fff", flexShrink: 0 }}>Visualize Policy</span>
 
-        {/* Section progress pills */}
-        <div style={{ display: "flex", gap: 6, alignItems: "center" }}>
-          {sectionProgress().map(function (sp) {
+        {/* Progress bar — sections with per-page bubbles */}
+        <div style={{ flex: 1, display: "flex", alignItems: "center", gap: 0, marginLeft: 12, minWidth: 0 }}>
+          {/* Intro dot */}
+          <button onClick={function () { navigate(0); }} title="Introduction" style={{
+            width: 8, height: 8, borderRadius: "50%", border: "none", cursor: "pointer", padding: 0, flexShrink: 0,
+            background: page === 0 ? "#fff" : page > 0 ? "#4a7bb5" : "#2d5080",
+            transition: "background 0.2s, transform 0.15s",
+          }} />
+
+          {SECTIONS.map(function (s, si) {
+            var sectionPages = PAGES.map(function (p, i) { return { p: p, i: i }; }).filter(function (x) { return x.p.section === s.id; });
+            var firstIdx     = sectionPages[0] ? sectionPages[0].i : 0;
+            var lastIdx      = sectionPages[sectionPages.length - 1] ? sectionPages[sectionPages.length - 1].i : 0;
+            var inSection    = page >= firstIdx && page <= lastIdx;
+            var pastSection  = page > lastIdx;
+
             return (
-              <div key={sp.s.id} style={{
-                width: 8, height: 8, borderRadius: "50%",
-                background: sp.active ? "#fff" : sp.done ? "#4a7bb5" : "#2d5080",
-                transition: "background 0.3s",
-              }} />
+              <React.Fragment key={s.id}>
+                {/* Connector line */}
+                <div style={{
+                  height: 2, flex: 1, minWidth: 4,
+                  background: pastSection ? "#4a7bb5" : inSection ? "rgba(255,255,255,0.3)" : "#2d5080",
+                  transition: "background 0.3s",
+                }} />
+
+                {/* Section group */}
+                <div style={{ display: "flex", alignItems: "center", gap: 3, flexShrink: 0 }}>
+                  {sectionPages.map(function (x) {
+                    var isActive = page === x.i;
+                    var isDone   = page > x.i;
+                    var tip      = x.p.title || ("Page " + (x.i + 1));
+                    return (
+                      <button key={x.i} onClick={function () { navigate(x.i); }} title={tip} style={{
+                        width: isActive ? 10 : 7,
+                        height: isActive ? 10 : 7,
+                        borderRadius: "50%",
+                        border: isActive ? "2px solid #fff" : "none",
+                        cursor: "pointer",
+                        padding: 0,
+                        flexShrink: 0,
+                        background: isActive ? s.color : isDone ? "#4a7bb5" : "#2d5080",
+                        transition: "all 0.2s",
+                        outline: "none",
+                      }} />
+                    );
+                  })}
+                </div>
+              </React.Fragment>
             );
           })}
         </div>
 
-        {/* Current section label */}
-        {section && (
-          <span style={{ fontSize: 11, color: "#94a3b8", letterSpacing: 0.5, whiteSpace: "nowrap" }}>
-            {section.label}
+        {/* Current page title */}
+        {pageMeta && pageMeta.title && (
+          <span style={{ fontSize: 11, color: "#94a3b8", letterSpacing: 0.3, whiteSpace: "nowrap", maxWidth: 200, overflow: "hidden", textOverflow: "ellipsis" }}>
+            {pageMeta.title}
           </span>
         )}
       </div>
 
-      {/* Section entry banner — shows when moving into a new section */}
+      {/* Section entry banner */}
       {section && pageMeta.title && (
         <div style={{ background: section.color, padding: "6px 28px", display: "flex", alignItems: "center", gap: 12 }}>
           <span style={{ fontSize: 11, color: "rgba(255,255,255,0.65)", textTransform: "uppercase", letterSpacing: 1.5 }}>{section.label}</span>
@@ -2078,10 +2912,13 @@ export default function App() {
   var deficitData     = useCSV("deficit_pct_gdp.csv");
   var debtPctData     = useCSV("debt_pct_gdp.csv");
   var stabilizersData = useCSV("automatic_stabilizers.csv");
+  var crowdingData    = useCSV("crowding_out.csv");
+  var japanData       = useCSV("japan_case_study.csv");
+  var taxData         = useCSV("tax_brackets.csv");
 
   var _p = useState(0); var page = _p[0]; var setPage = _p[1];
 
-  var loading = !spendingData || !receiptsData || !summaryData || !debtData || !deficitProj || !niProj || !deficitData || !debtPctData || !stabilizersData;
+  var loading = !spendingData || !receiptsData || !summaryData || !debtData || !deficitProj || !niProj || !deficitData || !debtPctData || !stabilizersData || !crowdingData || !japanData || !taxData;
 
   if (loading) {
     return (
@@ -2102,10 +2939,11 @@ export default function App() {
     /* 6  */ <DeficitPage        summaryData={summaryData} />,
     /* 7  */ <ProjectedDebtPage  deficitProj={deficitProj} />,
     /* 8  */ <OBBBAPage          deficitProj={deficitProj} niProj={niProj} />,
-    /* 9  */ <CrowdingOutPage />,
-    /* 10 */ <NetInterestPage    spendingData={spendingData} />,
-    /* 11 */ <BudgetDilemmaPage  spendingData={spendingData} />,
-    /* 12 */ <TradeDeficitPage />,
+    /* 9  */ <CrowdingOutPage    spendingData={spendingData} summaryData={summaryData} />,
+    /* 10 */ <JapanPage          japanData={japanData} />,
+    /* 11 */ <NetInterestPage    spendingData={spendingData} />,
+    /* 12 */ <BudgetDilemmaPage  spendingData={spendingData} summaryData={summaryData} />,
+    /* 13 */ <TaxPage taxData={taxData} deficitProj={deficitProj} />,
   ];
 
   return (
