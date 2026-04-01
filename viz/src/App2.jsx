@@ -23,44 +23,48 @@ var SURFACE = "#ffffff";
 var BORDER  = "#e5e7eb";
 var TEXT    = "#111827";
 var MUTED   = "#6b7280";
-var GOLD    = "#d97706";
-var AMBER   = "#d94801";
-var RED     = "#8b0000";
-var BLUE    = "#08519c";
+var GOLD    = "#5b21b6";
+var AMBER   = "#7c3aed";
+var RED     = "#6b21a8";
+var BLUE    = "#2d6a4f";
+
+// Block colors — distinct from RED/BLUE to avoid partisan reads
+var BLOCK_POS = "#2d6a4f";   // surplus / revenue — forest green
+var BLOCK_NEG = "#6b21a8";   // deficit / spending — purple
 
 // Projection scenario colors
-var C_JAN      = "#6baed6";   // Scenario 1 — Jan 2025 baseline (TCJA expiring)
+var C_JAN      = "#4a8b6f";   // Scenario 1 — Jan 2025 baseline
 var C_TCJA     = "#2ca02c";   // Scenario 2 — TCJA extended, no other OBBBA
-var C_OBBBA    = "#f0b429";   // Scenario 3 — OBBBA w/ tariffs
-var C_NOTARIFF = "#d94801";   // Scenario 4 — OBBBA, tariffs struck down
+var C_OBBBA    = "#c8860a";   // Scenario 3 — OBBBA w/ tariffs
+var C_NOTARIFF = "#6b21a8";   // Scenario 4 — OBBBA, tariffs struck down
 
 // Section accent colors
 var S1_COLOR = "#1e3a5f";   // Section I  — How Did We Get Here
-var S2_COLOR = "#7f2704";   // Section II — Where Are We Going
+var S2_COLOR = "#5b21b6";   // Section II — Where Are We Going
 var S3_COLOR = "#374151";   // Section III — What Are the Consequences
 
 // ─────────────────────────────────────────────
 // REVENUE / SPENDING COLOR MAPS  (from App.jsx)
 // ─────────────────────────────────────────────
 var REV_COLORS = {
-  "Individual Income Tax": "#08519c",
-  "Payroll Taxes (FICA)":  "#3182bd",
-  "Corporate Income Tax":  "#6baed6",
-  Other:                   "#9ecae1",
-  "Excise Taxes":          "#c6dbef",
+  "Individual Income Tax": "#134e2a",
+  "Payroll Taxes (FICA)":  "#1e7a45",
+  "Corporate Income Tax":  "#2da05c",
+  Other:                   "#5cb87a",
+  "Excise Taxes":          "#a8d5b5",
 };
 
 var SPEND_COLORS = {
-  "Social Security":   "#7f2704",
-  Health:              "#a63603",
-  "Net interest":      "#d94801",
-  Medicare:            "#e6550d",
-  "National Defense":  "#f16913",
-  "Income Security":   "#fd8d3c",
-  "Veterans Benefits and Services":                            "#fdae6b",
-  "Education, Training, Employment, and Social Services":      "#fdd0a2",
+  "Social Security":   "#4c1d6e",
+  Health:              "#5b21b6",
+  "Net interest":      "#6b21a8",
+  Medicare:            "#7c3aed",
+  "National Defense":  "#8b5cf6",
+  "Income Security":   "#9d7af6",
+  "Veterans Benefits and Services":                            "#b09af8",
+  "Education, Training, Employment, and Social Services":      "#c4b5fd",
 };
-var SPEND_OTHER_COLOR = "#fee6ce";
+var SPEND_OTHER_COLOR = "#ddd6fe";
 
 var SPEND_SHORT = {
   "Social Security":      "Social Security",
@@ -91,7 +95,7 @@ var PAGES = [
   {
     section: null,
     component: "IntroPage",
-    prompt: "Let's start with history — how did we get here?",
+    prompt: "Let's start with history. How did we get here?",
   },
 
   // ── Section I: How Did We Get Here? ────────────────────────────
@@ -282,8 +286,9 @@ function Legend({ sources, hoveredCat, setHoveredCat }) {
 var TOUR_CONFIGS = {
   // Page 1 — Deficit History
   1: [
-    { title: "Each block = 0.5% of GDP", body: "Every square represents 0.5% of gross domestic product. Blue blocks are surpluses, red blocks are deficits." },
-    { title: "Height shows severity", body: "Taller columns mean larger deficits or surpluses relative to the economy. WWII and COVID-era columns are deliberately capped to keep the chart readable." },
+    { title: "Each block = 0.5% of GDP", body: "Every square represents 0.5% of gross domestic product. Green blocks are surpluses, purple blocks are deficits." },
+    { title: "Height shows severity", body: "Bigger columns mean larger deficits or surpluses as a percentage of national income." },
+    { title: "During crises, borrowing spikes", body: "During crises, like the COVID pandemic, the government has borrowed a larger share of the national income to cover emergency spending." },
     { title: "Hover any column", body: "Mouse over a year to see the exact surplus or deficit figure and the era label." },
   ],
   // Page 3 — Debt to GDP
@@ -300,7 +305,7 @@ var TOUR_CONFIGS = {
   ],
   // Page 5 — Revenue vs Spending (II.a)
   5: [
-    { title: "Each block = $10 billion", body: "Every square represents $10 billion of government money. Blue blocks are revenue, orange blocks are spending." },
+    { title: "Each block = $10 billion", body: "Every square represents $10 billion of government money. Green blocks are revenue. Spending blocks run from deep purple (largest programs) to warm amber (smaller categories)." },
     { title: "Hover to highlight", body: "Move your mouse over any block to highlight that category across the grid and legend." },
     { title: "Read the legend", body: "The legend below each grid lists every category with its total. Categories are sorted largest to smallest." },
   ],
@@ -312,7 +317,7 @@ var TOUR_CONFIGS = {
   ],
   // Page 8 — OBBBA
   8: [
-    { title: "Three scenarios, three colors", body: "Each bar shows three possible futures. Blue is CBO's projections of the next ten years before the bill passed. Yellow is the current CBO baseline with OBBBA enacted, which assumes ~$3.45T in tariff income offset much of the costs. Orange shows the picture if those tariffs are struck down or reversed." },
+    { title: "Three scenarios, three colors", body: "Each bar shows three possible futures. Forest green is CBO's projections of the next ten years before the bill passed. Amber is the current CBO baseline with OBBBA enacted, which assumes ~$3.45T in tariff income offset much of the costs. Purple shows the picture if those tariffs are struck down or reversed." },
     { title: "Hover a year to dig in", body: "Mouse over any year column to see the exact deficit or interest figures for all three scenarios in that year." },
   ],
   // Page 9 — Paying for the Past
@@ -332,12 +337,12 @@ var TOUR_CONFIGS = {
   ],
   // Page 12 — Budget Dilemma
   12: [
-    { title: "Hover a slice", body: "Click any slice of the donut to see what that category costs, why it's hard to cut, and polling data on public support. Red slices are mandatory spending — legally required by statute. Blue slices are discretionary." },
-    { title: "The math is brutal", body: "Even eliminating every blue slice entirely: all of defense, education, veterans, foreign aid. It barely covers the deficit. Any plan to balance the budget requires some combination of cuts to mandatory programs, discretionary programs, and tax increases." },
+    { title: "Hover a slice", body: "Click any slice of the donut to see what that category costs, why it's hard to cut, and polling data on public support. Purple slices are mandatory spending — legally required by statute. Forest green slices are discretionary." },
+    { title: "The math is brutal", body: "Even eliminating every forest green slice entirely: all of defense, education, veterans, foreign aid. It barely covers the deficit. Any plan to balance the budget requires some combination of cuts to mandatory programs, discretionary programs, and tax increases." },
   ],
   // Page 13 — Tax increases
   13: [
-    { title: "Drag the sliders", body: "Each slider raises the effective tax rate on that income group by up to 20 percentage points. The block bar at the top fills in blue as you close more of the deficit." },
+    { title: "Drag the sliders", body: "Each slider raises the effective tax rate on that income group by up to 20 percentage points. The bar at the top fills in green as you close more of the deficit." },
     { title: "The static vs. real gap", body: "These numbers assume people keep earning and reporting the same income. In reality, higher rates lead to more deductions, income shifting, and deferral. The true revenue gain is real but smaller than what you see here." },
   ],
 };
@@ -413,27 +418,76 @@ function TourBtn({ onOpen }) {
 // ─────────────────────────────────────────────
 
 /* ── Landing ──────────────────────────────── */
-function IntroPage() {
+function IntroPage({ onNavigate }) {
+  var _hov = useState(null); var hovSection = _hov[0]; var setHovSection = _hov[1];
+
+  var sectionPages = SECTIONS.map(function (s) {
+    var items = PAGES.map(function (p, i) { return { p: p, i: i }; }).filter(function (x) { return x.p.section === s.id && x.p.title; });
+    return { s: s, items: items, firstIdx: items[0] ? items[0].i : 1 };
+  });
+
   return (
-    <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", height: "100%", maxWidth: 600 }}>
-      <div style={{ fontSize: 11, fontWeight: 400, color: MUTED, letterSpacing: 3, textTransform: "uppercase", marginBottom: 24, fontFamily: "Georgia, serif" }}>Visualize Policy</div>
-      <h1 style={{ fontSize: 48, fontWeight: 700, color: TEXT, lineHeight: 1.1, margin: "0 0 28px", fontFamily: "Georgia, 'Times New Roman', serif" }}>
-        The Federal Budget
+    <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", height: "100%", maxWidth: 600, paddingBottom: 24 }}>
+
+      {/* Eyebrow */}
+      <div style={{ fontSize: 10, fontWeight: 700, color: "#9ca3af", letterSpacing: 4, textTransform: "uppercase", marginBottom: 28 }}>
+        Visualize Policy
+      </div>
+
+      {/* Title */}
+      <h1 style={{ fontSize: 52, fontWeight: 800, color: TEXT, lineHeight: 1.0, margin: "0 0 24px", letterSpacing: "-1.5px" }}>
+        The Federal<br />Budget
       </h1>
-      <div style={{ width: 40, height: 2, background: RED, marginBottom: 28 }} />
-      <p style={{ fontSize: 18, color: MUTED, lineHeight: 1.8, margin: "0 0 32px", fontFamily: "Georgia, serif" }}>
-        Where does the government's money come from? Where does it go? And what happens when it consistently spends more than it takes in?
+
+      {/* Lede */}
+      <p style={{ fontSize: 16, color: "#6b7280", lineHeight: 1.8, margin: "0 0 36px", maxWidth: 480 }}>
+        Where does the government's money come from? Where does it go?
+        And what happens when it spends more than it takes in?
       </p>
-      <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-        {SECTIONS.map(function (s) {
+
+      {/* Clickable section rows */}
+      <div style={{ display: "flex", flexDirection: "column", marginBottom: 24 }}>
+        {sectionPages.map(function (sp, i) {
+          var isHov = hovSection === sp.s.id;
           return (
-            <div key={s.id} style={{ display: "flex", alignItems: "center", gap: 10, fontSize: 14, color: MUTED }}>
-              <div style={{ width: 8, height: 8, borderRadius: "50%", background: s.color, flexShrink: 0 }} />
-              <span>{s.label}</span>
-            </div>
+            <button key={sp.s.id}
+              onClick={function () { onNavigate(sp.firstIdx); }}
+              onMouseEnter={function () { setHovSection(sp.s.id); }}
+              onMouseLeave={function () { setHovSection(null); }}
+              style={{
+                borderTop: "1px solid " + (i === 0 ? "#d1d5db" : BORDER),
+                borderBottom: i === sectionPages.length - 1 ? "1px solid " + BORDER : "none",
+                borderLeft: "none", borderRight: "none",
+                padding: "14px 12px 14px 0",
+                display: "flex", alignItems: "center", gap: 20,
+                background: isHov ? "#f9fafb" : "transparent",
+                cursor: "pointer",
+                transition: "background 0.15s",
+                textAlign: "left", width: "100%",
+              }}>
+              <div style={{ fontSize: 11, fontWeight: 700, color: sp.s.color, letterSpacing: 2, textTransform: "uppercase", minWidth: 24, flexShrink: 0 }}>
+                {["I", "II", "III"][i]}
+              </div>
+              <div style={{ flex: 1, minWidth: 0 }}>
+                <div style={{ fontSize: 14, fontWeight: 600, color: isHov ? sp.s.color : TEXT, marginBottom: 3, transition: "color 0.15s" }}>
+                  {sp.s.label.replace(/^[IV]+\.\s*/, "")}
+                </div>
+                <div style={{ fontSize: 12, color: "#9ca3af", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
+                  {sp.items.map(function (x) { return x.p.title; }).join("  ·  ")}
+                </div>
+              </div>
+              <div style={{ fontSize: 15, color: sp.s.color, flexShrink: 0, opacity: isHov ? 1 : 0, transform: isHov ? "translateX(0px)" : "translateX(-8px)", transition: "opacity 0.15s, transform 0.15s" }}>→</div>
+            </button>
           );
         })}
       </div>
+
+      {/* Forward prompt — same style as PageShell's button */}
+      <button onClick={function () { onNavigate(1); }}
+        style={{ width: "100%", background: "#1e3a5f", color: "#fff", border: "none", borderRadius: 10, padding: "16px 24px", fontSize: 15, fontWeight: 500, cursor: "pointer", textAlign: "left", display: "flex", alignItems: "center", justifyContent: "space-between", gap: 12 }}>
+        <span>Let's start with history. How did we get here?</span>
+        <span style={{ fontSize: 20, opacity: 0.7 }}>↓</span>
+      </button>
     </div>
   );
 }
@@ -466,10 +520,7 @@ var ERAS = [
 ];
 
 function deficitBarColor(val) {
-  if (val >= 0) return BLUE;
-  var abs = Math.abs(val);
-  if (abs >= 3) return RED;
-  return "#c0392b";
+  return val >= 0 ? BLOCK_POS : BLOCK_NEG;
 }
 
 // Column width breakpoints — fewer years = wider columns
@@ -655,9 +706,9 @@ function DeficitHistoryViz({ data }) {
       {/* Color legend */}
       <div style={{ display: "flex", gap: 16, marginTop: 14, flexWrap: "wrap", alignItems: "center" }}>
         {[
-          { color: BLUE,      label: "Surplus" },
-          { color: "#c0392b", label: "Deficit < 3% GDP" },
-          { color: RED,       label: "Deficit ≥ 3% GDP" },
+          { color: BLOCK_POS, label: "Surplus" },
+          
+          { color: BLOCK_NEG, label: "Deficit" },
         ].map(function (l) {
           return (
             <div key={l.label} style={{ display: "flex", alignItems: "center", gap: 5, fontSize: 11, color: MUTED }}>
@@ -684,7 +735,7 @@ function DeficitHistoryPage({ deficitData }) {
       <p style={{ fontSize: 15, color: TEXT, lineHeight: 1.75, margin: "0 0 6px" }}>
         The United States has run a deficit in most years of its history — but the size of those deficits relative to the economy has varied enormously. Wars, recessions, and policy choices have all left their mark on the fiscal record.
       </p>
-      <p style={{ fontSize: 13, color: MUTED, margin: "0 0 16px" }}>Each block = 0.5% of GDP. Blue columns rise above the line for surplus years; red columns fall below for deficits.</p>
+      <p style={{ fontSize: 13, color: MUTED, margin: "0 0 16px" }}>Each block = 0.5% of GDP. Green columns rise above the line for surplus years; rust columns fall below for deficits.</p>
       <Card style={{ borderLeft: "4px solid " + RED, overflowX: "auto" }}>
         {deficitData
           ? <DeficitHistoryViz data={deficitData} />
@@ -788,7 +839,11 @@ function DebtAccumulation({ summaryData, debtData }) {
   function yearColor(blockYear) {
     var range = Math.max(maxPileYear - minPileYear, 1);
     var t     = (blockYear - minPileYear) / range;
-    return "rgb(" + Math.round(220 - t * 90) + "," + Math.round(100 - t * 70) + "," + Math.round(100 - t * 70) + ")";
+    // purple gradient: older = light violet, newer = deep purple
+    var r = Math.round(180 - t * 80);
+    var g = Math.round(160 - t * 130);
+    var b = Math.round(220 - t * 30);
+    return "rgb(" + r + "," + g + "," + b + ")";
   }
 
   return (
@@ -815,10 +870,10 @@ function DebtAccumulation({ summaryData, debtData }) {
         </div>
         <div style={{ display: "flex", gap: 16, flexWrap: "wrap", marginBottom: 20 }}>
           {[
-            { label: "Revenue",            val: cur.receipts,         bg: "#f0f9ff", color: BLUE },
-            { label: "Spending",           val: cur.outlays,          bg: "#fff7ed", color: AMBER },
-            { label: cur.deficit >= 0 ? "Surplus" : "Deficit", val: cur.deficit, bg: "#fef2f2", color: cur.deficit >= 0 ? "#16a34a" : RED, prefix: cur.deficit >= 0 ? "+" : "−" },
-            { label: "Gross Federal Debt", val: actualDebtThisYear,   bg: "#fce4ec", color: "#4a0000" },
+            { label: "Revenue",            val: cur.receipts,         bg: "#eef6f0", color: BLUE },
+            { label: "Spending",           val: cur.outlays,          bg: "#faf5ff", color: AMBER },
+            { label: cur.deficit >= 0 ? "Surplus" : "Deficit", val: cur.deficit, bg: "#f5f3ff", color: cur.deficit >= 0 ? BLUE : RED, prefix: cur.deficit >= 0 ? "+" : "−" },
+            { label: "Gross Federal Debt", val: actualDebtThisYear,   bg: "#f5f3ff", color: "#4c1d6e" },
           ].map(function (s) {
             return (
               <div key={s.label} style={{ background: s.bg, borderRadius: 8, padding: "10px 16px", flex: "1 1 120px" }}>
@@ -833,14 +888,14 @@ function DebtAccumulation({ summaryData, debtData }) {
             <div style={{ fontSize: 12, color: MUTED, marginBottom: 4 }}>FY{cur.year} deficit: {deficitBlocks} blocks × $10B</div>
             <div style={{ display: "flex", gap: GAP, flexWrap: "wrap" }}>
               {Array.from({ length: deficitBlocks }).map(function (_, i) {
-                return <div key={i} style={{ width: SZ, height: SZ, borderRadius: 2, backgroundColor: AMBER, opacity: 0.9 }} />;
+                return <div key={i} style={{ width: SZ, height: SZ, borderRadius: 2, backgroundColor: BLOCK_NEG, opacity: 0.9 }} />;
               })}
             </div>
             <div style={{ fontSize: 11, color: MUTED, marginTop: 4 }}>▼ Added to the debt pile below</div>
           </div>
         )}
         {cur.deficit >= 0 && (
-          <div style={{ marginBottom: 16, padding: "8px 12px", background: "#f0fdf4", borderRadius: 6, fontSize: 13, color: "#16a34a" }}>
+          <div style={{ marginBottom: 16, padding: "8px 12px", background: "#eef6f0", borderRadius: 6, fontSize: 13, color: BLUE }}>
             ✓ Surplus in FY{cur.year} — no new borrowing.
           </div>
         )}
@@ -884,7 +939,7 @@ function DebtAccumulation({ summaryData, debtData }) {
                 <span style={{ color: TEXT }}>{otherAdjustments >= 0 ? "+" : "−"}{fmtAmt(otherAdjustments)}</span>
               </div>
             )}
-            <div style={{ display: "flex", justifyContent: "space-between", borderTop: "1px solid " + BORDER, paddingTop: 4, marginTop: 4, fontWeight: 700, color: "#4a0000" }}>
+            <div style={{ display: "flex", justifyContent: "space-between", borderTop: "1px solid " + BORDER, paddingTop: 4, marginTop: 4, fontWeight: 700, color: "#4c1d6e" }}>
               <span>= Gross Federal Debt</span><span>{fmtAmt(actualDebtThisYear)}</span>
             </div>
           </div>
@@ -1027,10 +1082,10 @@ function DebtToGDPViz({ data }) {
                   var col     = b % DEBT_YR_WIDE;
                   var row     = Math.floor(b / DEBT_YR_WIDE);
                   var pct     = row / Math.max(maxRows - 1, 1);
-                  var r       = Math.round(120 + pct * 19);
-                  var g       = Math.round(20  - pct * 20);
-                  var bl      = Math.round(20  - pct * 20);
-                  var color   = "rgb(" + r + "," + Math.max(0,g) + "," + Math.max(0,bl) + ")";
+                  var r       = Math.round(107 - pct * 50);
+                  var g       = Math.round(33  - pct * 10);
+                  var bl      = Math.round(168 + pct * 40);
+                  var color   = "rgb(" + r + "," + Math.max(0,g) + "," + Math.min(255,bl) + ")";
                   return (
                     <div key={b} style={{
                       position: "absolute",
@@ -1094,8 +1149,8 @@ var STAB_COL_W      = STAB_COLS_WIDE * STAB_CELL - STAB_BLK_GAP;  // total colum
 var STAB_COL_GAP    = 16;    // px gap between year columns
 
 // Colors
-var C_STRUCTURAL   = RED;          // structural deficit (policy + demographics)
-var C_STABILIZER   = "#f0b429";    // automatic stabilizer component (amber)
+var C_STRUCTURAL   = "#6b21a8";    // structural deficit
+var C_STABILIZER   = "#c8860a";    // automatic stabilizer component
 
 function AutoStabViz({ data }) {
   var _hov = useState(null); var hovYear = _hov[0]; var setHovYear = _hov[1];
@@ -1379,7 +1434,7 @@ function DeficitPage({ summaryData }) {
         </p>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(" + COLS + ", " + SZ + "px)", gap: GAP + "px" }}>
           {Array.from({ length: deficitBlockCount }).map(function (_, i) {
-            return <div key={i} style={{ width: SZ, height: SZ, borderRadius: 2, backgroundColor: RED, opacity: 0.8 }} />;
+            return <div key={i} style={{ width: SZ, height: SZ, borderRadius: 2, backgroundColor: BLOCK_NEG, opacity: 0.9 }} />;
           })}
         </div>
         <div style={{ fontSize: 11, color: MUTED, marginTop: 8 }}>Each block = $10B of borrowed money</div>
@@ -1462,8 +1517,8 @@ function ProjectedDebtPage({ deficitProj }) {
   var PILE_CELL    = PILE_SZ + PILE_GAP;
 
   // Year colors for pile
-  var YEAR_COLORS = ["#c6dbef","#9ecae1","#6baed6","#4292c6","#2171b5","#084594",
-                     "#99000d","#cb181d","#ef3b2c","#fb6a4a","#fc9272"];
+  var YEAR_COLORS = ["#c4b5fd","#a78bfa","#8b5cf6","#7c3aed","#6b21a8","#4c1d6e",
+                     "#9d7af6","#b09af8","#c4b5fd","#ddd6fe","#ede9fe"];
 
   return (
     <div>
@@ -1568,13 +1623,13 @@ function ProjectedDebtPage({ deficitProj }) {
         <span style={{ fontSize: 13, fontWeight: 600, color: TEXT, minWidth: 36 }}>{scrubYear}</span>
       </div>
       <div style={{ display: "flex", gap: 24, marginBottom: 16, flexWrap: "wrap" }}>
-        <div style={{ background: "#fef2f2", borderRadius: 8, padding: "10px 16px", flex: "1 1 140px" }}>
+        <div style={{ background: "#faf5ff", borderRadius: 8, padding: "10px 16px", flex: "1 1 140px" }}>
           <div style={{ fontSize: 11, color: MUTED, textTransform: "uppercase", letterSpacing: 0.5 }}>Annual deficit</div>
           <div style={{ fontSize: 20, fontWeight: 700, color: RED }}>${((activeSeries[scrubYear] || 0) / 1000).toFixed(2)}T</div>
         </div>
-        <div style={{ background: "#fce4ec", borderRadius: 8, padding: "10px 16px", flex: "1 1 140px" }}>
+        <div style={{ background: "#f5f3ff", borderRadius: 8, padding: "10px 16px", flex: "1 1 140px" }}>
           <div style={{ fontSize: 11, color: MUTED, textTransform: "uppercase", letterSpacing: 0.5 }}>Cumulative debt</div>
-          <div style={{ fontSize: 20, fontWeight: 700, color: "#4a0000" }}>${(cumulativeByYear[scrubYear] / 1000).toFixed(1)}T</div>
+          <div style={{ fontSize: 20, fontWeight: 700, color: "#4c1d6e" }}>${(cumulativeByYear[scrubYear] / 1000).toFixed(1)}T</div>
         </div>
         <div style={{ background: "#f9fafb", borderRadius: 8, padding: "10px 16px", flex: "1 1 140px" }}>
           <div style={{ fontSize: 11, color: MUTED, textTransform: "uppercase", letterSpacing: 0.5 }}>Added since 2024</div>
@@ -1615,7 +1670,7 @@ function ProjectedDebtPage({ deficitProj }) {
           })()}
         </div>
         <div style={{ marginTop: 12, fontSize: 13, color: MUTED }}>
-          Total projected debt by 2035: <strong style={{ color: "#4a0000" }}>${(cumulativeByYear[2035] / 1000).toFixed(1)}T</strong>
+          Total projected debt by 2035: <strong style={{ color: "#4c1d6e" }}>${(cumulativeByYear[2035] / 1000).toFixed(1)}T</strong>
         </div>
       </Card>
 
@@ -1677,9 +1732,9 @@ function ProjectionPanel({ years, baselineSeries, obbbaWithTariffSeries, obbbaNo
   ];
 
   var summaryItems = [
-    { color: C_JAN,      label: "Pre-OBBBA 10yr",   val: tenYr(base),    bg: "#f0f9ff" },
-    { color: C_OBBBA,    label: "With tariffs 10yr", val: tenYr(withTar), bg: "#fffbeb" },
-    { color: C_NOTARIFF, label: "No tariffs 10yr",   val: tenYr(noTar),   bg: "#fef2f2" },
+    { color: C_JAN,      label: "Pre-OBBBA 10yr",   val: tenYr(base),    bg: "#eef6f0" },
+    { color: C_OBBBA,    label: "With tariffs 10yr", val: tenYr(withTar), bg: "#fdf6e3" },
+    { color: C_NOTARIFF, label: "No tariffs 10yr",   val: tenYr(noTar),   bg: "#faf5ff" },
   ];
 
   return (
@@ -1862,7 +1917,7 @@ function CrowdingOutPage({ spendingData, summaryData }) {
       {/* Stat callout */}
       {display && (
         <div style={{ display: "flex", gap: 16, margin: "0 0 20px", flexWrap: "wrap" }}>
-          <div style={{ background: "#fef2f2", borderRadius: 8, padding: "14px 20px", flexShrink: 0 }}>
+          <div style={{ background: "#faf5ff", borderRadius: 8, padding: "14px 20px", flexShrink: 0 }}>
             <div style={{ fontSize: 11, color: MUTED, textTransform: "uppercase", letterSpacing: 0.5, marginBottom: 4 }}>
               {hovRow ? hovRow.year : "FY" + latest.year} — per tax dollar
             </div>
@@ -1947,16 +2002,16 @@ function JapanPage({ japanData }) {
 
   // Era definitions
   var ERAS = [
-    { id: "lost",    label: "Lost Decade",  years: [1991, 2002], color: "#fee2e2", border: "#ef4444",
+    { id: "lost",    label: "Lost Decade",  years: [1991, 2002], color: "#f5f3ff", border: "#6b21a8",
       title: "The Lost Decade (1991–2002)",
       body: "After Japan's asset bubble burst in 1991, GDP growth collapsed and stayed near zero for over a decade. Debt began climbing rapidly as the government ran deficits in an effort to stimulate the economy. Despite the crisis, bond yields stayed relatively high." },
-    { id: "zirp",    label: "ZIRP",         years: [2000, 2013], color: "#dbeafe", border: "#3b82f6",
+    { id: "zirp",    label: "ZIRP",         years: [2000, 2013], color: "#f0fdf4", border: "#2d6a4f",
       title: "Zero Interest Rate Policy (2000–2013)",
       body: "The Bank of Japan pioneered zero interest rate policy (ZIRP) to make borrowing easier, driving yields near zero. Debt continued rising through the 2008 financial crisis and the 2011 Tōhoku earthquake in efforts to stimulate the economy. The combination of near-zero rates and growing debt created the illusion of sustainability." },
-    { id: "ycc",     label: "YCC",          years: [2013, 2024], color: "#fef3c7", border: "#f59e0b",
+    { id: "ycc",     label: "YCC",          years: [2013, 2024], color: "#ede9fe", border: "#7c3aed",
       title: "Yield Curve Control / Abenomics (2013–2024)",
       body: "Under Prime Minister Abe, the Bank of Japan dramatically expanded bond purchases and eventually introduced Yield Curve Control, a policy capping 10-year yields at 0%. The government could borrow money for free, but only because the Bank of Japan purchased any outstanding debt. By 2023 the BoJ owned nearly half of all outstanding government bonds. Debt stabilized near 240% of GDP, but only because the central bank was absorbing all the supply." },
-    { id: "now",     label: "Now",          years: [2024, 2025], color: "#ffedd5", border: "#f97316",
+    { id: "now",     label: "Now",          years: [2024, 2025], color: "#e0f2fe", border: "#0369a1",
       title: "The Reckoning (2024–present)",
       body: "After COVID, Japan experienced inflation for the first time in decades and the BoJ ended YCC in March 2024. Interest rates surged to their highest levels since 1999. Japan's massive debt now carries a rising interest bill projected to double by 2030, crowding out healthcare, education, and defense spending. The consequences of decades of spending were deferred until now. The Japanese government must figure out how to foot the bill, and maintain programs for their aging population." },
   ];
@@ -2137,9 +2192,9 @@ function JapanPage({ japanData }) {
           {hovRow ? (
             <div style={{ display: "flex", gap: 20, flexWrap: "wrap", alignItems: "baseline" }}>
               <span style={{ fontSize: 16, fontWeight: 700, color: TEXT }}>{hovRow.year}</span>
-              {hovRow.japan_debt_pct_gdp != null && <span style={{ fontSize: 13, color: "#4a0000" }}>Debt: {hovRow.japan_debt_pct_gdp.toFixed(0)}% of GDP</span>}
-              {hovRow.japan_10y_yield != null && <span style={{ fontSize: 13, color: BLUE }}>10yr yield: {hovRow.japan_10y_yield.toFixed(2)}%</span>}
-              {hovRow.japan_real_gdp_growth != null && <span style={{ fontSize: 13, color: "#059669" }}>GDP growth: {hovRow.japan_real_gdp_growth.toFixed(1)}%</span>}
+              {hovRow.japan_debt_pct_gdp != null && <span style={{ fontSize: 13, color: "#4c1d6e" }}>Debt: {hovRow.japan_debt_pct_gdp.toFixed(0)}% of GDP</span>}
+              {hovRow.japan_10y_yield != null && <span style={{ fontSize: 13, color: "#2d6a4f" }}>10yr yield: {hovRow.japan_10y_yield.toFixed(2)}%</span>}
+              {hovRow.japan_real_gdp_growth != null && <span style={{ fontSize: 13, color: "#4a8b6f" }}>GDP growth: {hovRow.japan_real_gdp_growth.toFixed(1)}%</span>}
             </div>
           ) : (
             <span style={{ fontSize: 13, color: MUTED }}>Hover any chart to see values for that year</span>
@@ -2149,16 +2204,16 @@ function JapanPage({ japanData }) {
 
       <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
         <Card style={{ borderLeft: "4px solid #4a0000", padding: "16px 20px" }}>
-          <div style={{ fontSize: 13, fontWeight: 600, color: "#4a0000", marginBottom: 6 }}>Government Debt (% of GDP)</div>
+          <div style={{ fontSize: 13, fontWeight: 600, color: "#4c1d6e", marginBottom: 6 }}>Government Debt (% of GDP)</div>
           <LineChart series={debtSeries} color="#4a0000" yMin={50} yMax={280} yTicks={[100,150,200,250]} yLabel="% GDP" />
         </Card>
         <Card style={{ borderLeft: "4px solid " + BLUE, padding: "16px 20px" }}>
           <div style={{ fontSize: 13, fontWeight: 600, color: BLUE, marginBottom: 6 }}>10-Year Government Bond Yield</div>
-          <LineChart series={yieldSeries} color={BLUE} yMin={-0.5} yMax={4} yTicks={[0,1,2,3]} yLabel="%" />
+          <LineChart series={yieldSeries} color={"#2d6a4f"} yMin={-0.5} yMax={4} yTicks={[0,1,2,3]} yLabel="%" />
         </Card>
-        <Card style={{ borderLeft: "4px solid #059669", padding: "16px 20px" }}>
-          <div style={{ fontSize: 13, fontWeight: 600, color: "#059669", marginBottom: 6 }}>Real GDP Growth</div>
-          <LineChart series={gdpSeries} color="#059669" yMin={-8} yMax={8} yTicks={[-4,0,4]} yLabel="%" />
+        <Card style={{ borderLeft: "4px solid #4a8b6f", padding: "16px 20px" }}>
+          <div style={{ fontSize: 13, fontWeight: 600, color: "#4a8b6f", marginBottom: 6 }}>Real GDP Growth</div>
+          <LineChart series={gdpSeries} color="#4a8b6f" yMin={-8} yMax={8} yTicks={[-4,0,4]} yLabel="%" />
         </Card>
       </div>
       <p style={{ fontSize: 12, color: MUTED, marginTop: 12 }}>Sources: <a href="https://fred.stlouisfed.org/series/GGGDTAJPA188N" target="_blank" rel="noreferrer" style={{ color: BLUE }}>FRED GGGDTAJPA188N</a> / <a href="https://fred.stlouisfed.org/series/GGGDTPJPA188N" target="_blank" rel="noreferrer" style={{ color: BLUE }}>GGGDTPJPA188N</a> (IMF); <a href="https://fred.stlouisfed.org/series/IRLTLT01JPM156N" target="_blank" rel="noreferrer" style={{ color: BLUE }}>IRLTLT01JPM156N</a> (OECD); <a href="https://fred.stlouisfed.org/series/JPNRGDPEXP" target="_blank" rel="noreferrer" style={{ color: BLUE }}>JPNRGDPEXP</a> (Cabinet Office Japan). Debt 2024+ are IMF projections.</p>
@@ -2259,12 +2314,12 @@ function NetInterestPage({ spendingData }) {
           })}
         </div>
         {interestAmt > compareAmt && (
-          <div style={{ marginTop: 16, padding: "10px 14px", background: "#fef2f2", borderRadius: 6, fontSize: 13, color: RED }}>
+          <div style={{ marginTop: 16, padding: "10px 14px", background: "#faf5ff", borderRadius: 6, fontSize: 13, color: RED }}>
             <strong>Net interest exceeds {shortName}</strong> by {fmtAmt(interestAmt - compareAmt)} in FY{cur.year}.
           </div>
         )}
         {interestAmt <= compareAmt && compareAmt > 0 && (
-          <div style={{ marginTop: 16, padding: "10px 14px", background: "#f0f9ff", borderRadius: 6, fontSize: 13, color: BLUE }}>
+          <div style={{ marginTop: 16, padding: "10px 14px", background: "#f0fdf4", borderRadius: 6, fontSize: 13, color: BLUE }}>
             In FY{cur.year}, {shortName} still exceeds net interest by {fmtAmt(compareAmt - interestAmt)}.
           </div>
         )}
@@ -2343,8 +2398,8 @@ function BudgetDilemmaPage({ spendingData, summaryData }) {
 
   var TYPE_COLORS = {
     interest:      "#1a1a2e",  // near-black — distinct from red mandatory
-    mandatory:     "#c0392b",
-    discretionary: "#2c5282",
+    mandatory:     "#6b21a8",
+    discretionary: "#2d6a4f",
   };
   var TYPE_LABELS = {
     interest:      "Debt Interest — legal obligation, cannot be cut",
@@ -2486,7 +2541,7 @@ function BudgetDilemmaPage({ spendingData, summaryData }) {
                   </div>
                 );
               })}
-              <div style={{ marginTop: 8, padding: "12px 14px", background: "#fef2f2", borderRadius: 8, borderLeft: "3px solid " + RED }}>
+              <div style={{ marginTop: 8, padding: "12px 14px", background: "#faf5ff", borderRadius: 8, borderLeft: "3px solid " + RED }}>
                 <div style={{ fontSize: 13, color: TEXT, lineHeight: 1.6 }}>
                   To close the {fmtAmt(computed.deficit)} deficit through spending cuts alone,
                   you would need to eliminate every discretionary program entirely: all of defense, veterans benefits, education, housing, and foreign aid. That totals {fmtAmt(discretionary)}.
@@ -2499,7 +2554,7 @@ function BudgetDilemmaPage({ spendingData, summaryData }) {
                   <div style={{ display: "flex", alignItems: "center", fontSize: 16, color: MUTED }}>vs.</div>
                   <div style={{ flex: 1, background: "#fff", borderRadius: 6, padding: "8px 12px", textAlign: "center" }}>
                     <div style={{ fontSize: 11, color: MUTED, marginBottom: 2 }}>All discretionary</div>
-                    <div style={{ fontSize: 16, fontWeight: 700, color: "#2c5282" }}>{fmtAmt(discretionary)}</div>
+                    <div style={{ fontSize: 16, fontWeight: 700, color: "#2d6a4f" }}>{fmtAmt(discretionary)}</div>
                   </div>
                 </div>
 
@@ -2579,11 +2634,11 @@ function TaxPage({ taxData }) {
   var pctOfDeficit = Math.min(100, (additionalRevenue / DEFICIT_B) * 100);
 
   var BUCKET_COLORS = {
-    "Under $25K":   "#3b82f6",
-    "$25K to $75K": "#6366f1",
-    "$75K to $200K":"#8b5cf6",
-    "$200K to $1M": "#a855f7",
-    "Over $1M":     "#c026d3",
+    "Under $25K":   "#4a8b6f",
+    "$25K to $75K": "#3d7d60",
+    "$75K to $200K":"#6b7a00",
+    "$200K to $1M": "#7c3aed",
+    "Over $1M":     "#4c1d6e",
   };
 
   function setIncrease(bucket, val) {
@@ -2621,7 +2676,7 @@ function TaxPage({ taxData }) {
       <div style={{ marginBottom: 24 }}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 6 }}>
           <span style={{ fontSize: 13, color: MUTED }}>Deficit closed</span>
-          <span style={{ fontSize: 20, fontWeight: 700, color: additionalRevenue >= DEFICIT_B ? "#16a34a" : RED }}>
+          <span style={{ fontSize: 20, fontWeight: 700, color: additionalRevenue >= DEFICIT_B ? BLOCK_POS : BLOCK_NEG }}>
             {additionalRevenue >= DEFICIT_B ? "Surplus +" + fmtAmt((additionalRevenue - DEFICIT_B) * 1000) : fmtAmt(additionalRevenue * 1000) + " of " + fmtAmt(DEFICIT_B * 1000)}
           </span>
         </div>
@@ -2629,7 +2684,7 @@ function TaxPage({ taxData }) {
           <div style={{
             height: "100%",
             width: pctOfDeficit + "%",
-            background: additionalRevenue >= DEFICIT_B ? "#16a34a" : RED,
+            background: additionalRevenue >= DEFICIT_B ? BLOCK_POS : BLOCK_NEG,
             borderRadius: 7,
             transition: "width 0.2s ease",
           }} />
@@ -2694,7 +2749,7 @@ function TaxPage({ taxData }) {
 
       {/* Summary if anything selected */}
       {additionalRevenue !== 0 && (
-        <div style={{ background: additionalRevenue >= DEFICIT_B ? "#f0fdf4" : "#fef2f2", borderRadius: 10, padding: "16px 20px", marginBottom: 20, borderLeft: "4px solid " + (additionalRevenue >= DEFICIT_B ? "#16a34a" : RED) }}>
+        <div style={{ background: additionalRevenue >= DEFICIT_B ? "#f0fdf4" : "#faf5ff", borderRadius: 10, padding: "16px 20px", marginBottom: 20, borderLeft: "4px solid " + (additionalRevenue >= DEFICIT_B ? BLOCK_POS : BLOCK_NEG) }}>
           <div style={{ fontSize: 14, fontWeight: 600, color: TEXT, marginBottom: 8 }}>Summary</div>
           <div style={{ display: "flex", flexDirection: "column", gap: 4, fontSize: 13, color: TEXT }}>
             {ORDER.map(function (bucketName) {
@@ -2712,11 +2767,11 @@ function TaxPage({ taxData }) {
             })}
             <div style={{ display: "flex", justifyContent: "space-between", borderTop: "1px solid " + BORDER, paddingTop: 6, marginTop: 4, fontWeight: 700 }}>
               <span>Total additional revenue</span>
-              <span style={{ color: additionalRevenue >= DEFICIT_B ? "#16a34a" : RED }}>+{fmtAmt(additionalRevenue * 1000)}/yr</span>
+              <span style={{ color: additionalRevenue >= DEFICIT_B ? BLOCK_POS : BLOCK_NEG }}>+{fmtAmt(additionalRevenue * 1000)}/yr</span>
             </div>
             <div style={{ display: "flex", justifyContent: "space-between", fontWeight: 700 }}>
               <span>Remaining deficit</span>
-              <span style={{ color: additionalRevenue >= DEFICIT_B ? "#16a34a" : RED }}>
+              <span style={{ color: additionalRevenue >= DEFICIT_B ? BLOCK_POS : BLOCK_NEG }}>
                 {additionalRevenue >= DEFICIT_B
                   ? "Surplus +" + fmtAmt((additionalRevenue - DEFICIT_B) * 1000)
                   : fmtAmt((DEFICIT_B - additionalRevenue) * 1000) + " remaining"}
@@ -2802,7 +2857,7 @@ function PageShell({ page, setPage, children, prompt }) {
           {/* Intro dot */}
           <button onClick={function () { navigate(0); }} title="Introduction" style={{
             width: 8, height: 8, borderRadius: "50%", border: "none", cursor: "pointer", padding: 0, flexShrink: 0,
-            background: page === 0 ? "#fff" : page > 0 ? "#4a7bb5" : "#2d5080",
+            background: page === 0 ? "#fff" : page > 0 ? "#5a9a7a" : "#2d5080",
             transition: "background 0.2s, transform 0.15s",
           }} />
 
@@ -2818,7 +2873,7 @@ function PageShell({ page, setPage, children, prompt }) {
                 {/* Connector line */}
                 <div style={{
                   height: 2, flex: 1, minWidth: 4,
-                  background: pastSection ? "#4a7bb5" : inSection ? "rgba(255,255,255,0.3)" : "#2d5080",
+                  background: pastSection ? "#5a9a7a" : inSection ? "rgba(255,255,255,0.3)" : "#2d5080",
                   transition: "background 0.3s",
                 }} />
 
@@ -2837,7 +2892,7 @@ function PageShell({ page, setPage, children, prompt }) {
                         cursor: "pointer",
                         padding: 0,
                         flexShrink: 0,
-                        background: isActive ? s.color : isDone ? "#4a7bb5" : "#2d5080",
+                        background: isActive ? s.color : isDone ? "#5a9a7a" : "#2d5080",
                         transition: "all 0.2s",
                         outline: "none",
                       }} />
@@ -2882,7 +2937,7 @@ function PageShell({ page, setPage, children, prompt }) {
         transform: ty, opacity: visible ? 1 : 0,
         transition: "transform " + SLIDE_MS + "ms cubic-bezier(0.4,0,0.2,1), opacity " + SLIDE_MS + "ms ease",
       }}>
-        {prompt && page < total - 1 && (
+        {prompt && page > 0 && page < total - 1 && (
           <button onClick={function () { navigate(page + 1); }}
             style={{ width: "100%", background: "#1e3a5f", color: "#fff", border: "none", borderRadius: 10, padding: "16px 24px", fontSize: 15, fontWeight: 500, cursor: "pointer", textAlign: "left", display: "flex", alignItems: "center", justifyContent: "space-between", gap: 12 }}>
             <span>{prompt}</span>
@@ -2930,7 +2985,7 @@ export default function App() {
 
   // Page components indexed to match PAGES manifest
   var pages = [
-    /* 0  */ <IntroPage />,
+    /* 0  */ <IntroPage onNavigate={setPage} />,
     /* 1  */ <DeficitHistoryPage deficitData={deficitData} />,
     /* 2  */ <DebtAccumulation   summaryData={summaryData} debtData={debtData} />,
     /* 3  */ <DebtToGDPPage      debtPctData={debtPctData} />,
