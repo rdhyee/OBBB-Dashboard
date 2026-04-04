@@ -72,7 +72,7 @@ var SPEND_SHORT = {
   "Net interest":         "Net Interest",
   Medicare:               "Medicare",
   "National Defense":     "National Defense",
-  "Income Security":      "Income Security",
+  "Income Security":      "Income Security (unemployment insurance, food stamps, etc.)",
   "Veterans Benefits and Services":                            "Veterans",
   "Education, Training, Employment, and Social Services":      "Education & Training",
 };
@@ -255,21 +255,50 @@ function BlockGrid({ blocks, hoveredCat, setHoveredCat }) {
 }
 
 function Legend({ sources, hoveredCat, setHoveredCat }) {
+  // Group sources if any have a `group` field, otherwise render flat
+  var useGroups = sources.some(function (s) { return s.group; });
+  var groups = [];
+  if (useGroups) {
+    var seen = {};
+    sources.forEach(function (s) {
+      var g = s.group || "Other";
+      if (!seen[g]) { seen[g] = true; groups.push(g); }
+    });
+  }
+
+  function renderItem(s) {
+    var isActive = hoveredCat === null || hoveredCat === s.label;
+    var amt = s.amount >= 1e6
+      ? "$" + (s.amount / 1e6).toFixed(2) + "T"
+      : "$" + Math.round(s.amount / 1e3) + "B";
+    return (
+      <div key={s.label}
+        onMouseEnter={function () { setHoveredCat(s.label); }}
+        onMouseLeave={function () { setHoveredCat(null); }}
+        style={{ display: "flex", alignItems: "center", gap: 8, opacity: isActive ? 1 : 0.2, transition: "opacity 0.2s", cursor: "pointer", fontSize: 13 }}>
+        <div style={{ width: 10, height: 10, borderRadius: 2, backgroundColor: s.color, flexShrink: 0 }} />
+        <span style={{ color: TEXT }}>{s.label}</span>
+        <span style={{ color: MUTED, marginLeft: "auto", fontVariantNumeric: "tabular-nums", fontSize: 12 }}>{amt}</span>
+      </div>
+    );
+  }
+
+  if (!useGroups) {
+    return (
+      <div style={{ display: "flex", flexDirection: "column", gap: 4, marginTop: 14 }}>
+        {sources.map(renderItem)}
+      </div>
+    );
+  }
+
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 4, marginTop: 14 }}>
-      {sources.map(function (s) {
-        var isActive = hoveredCat === null || hoveredCat === s.label;
-        var amt = s.amount >= 1e6
-          ? "$" + (s.amount / 1e6).toFixed(2) + "T"
-          : "$" + Math.round(s.amount / 1e3) + "B";
+      {groups.map(function (g) {
+        var items = sources.filter(function (s) { return (s.group || "Other") === g; });
         return (
-          <div key={s.label}
-            onMouseEnter={function () { setHoveredCat(s.label); }}
-            onMouseLeave={function () { setHoveredCat(null); }}
-            style={{ display: "flex", alignItems: "center", gap: 8, opacity: isActive ? 1 : 0.2, transition: "opacity 0.2s", cursor: "pointer", fontSize: 13 }}>
-            <div style={{ width: 10, height: 10, borderRadius: 2, backgroundColor: s.color, flexShrink: 0 }} />
-            <span style={{ color: TEXT }}>{s.label}</span>
-            <span style={{ color: MUTED, marginLeft: "auto", fontVariantNumeric: "tabular-nums", fontSize: 12 }}>{amt}</span>
+          <div key={g}>
+            <div style={{ fontSize: 10, fontWeight: 700, color: MUTED, textTransform: "uppercase", letterSpacing: 1.2, marginTop: 8, marginBottom: 4 }}>{g}</div>
+            {items.map(renderItem)}
           </div>
         );
       })}
@@ -293,7 +322,7 @@ var TOUR_CONFIGS = {
   // Page 1 — Deficit History
   1: [
     { title: "Each block = 0.5% of GDP", body: "Every square represents 0.5% of gross domestic product. Green blocks are surpluses, red blocks are deficits." },
-    { title: "Height shows severity", body: "Bigger columns mean larger deficits or surpluses as a percentage of national income." },
+    { title: "Height shows magnitude", body: "Bigger columns mean larger deficits or surpluses as a percentage of national income." },
     { title: "During crises, borrowing spikes", body: "During crises, like the COVID pandemic, the government has borrowed a larger share of the national income to cover emergency spending." },
     { title: "Hover any column", body: "Hover any year to see the exact surplus or deficit figure and the era label." },
   ],
@@ -1493,17 +1522,38 @@ function RevSpendPage({ spendingData, receiptsData, summaryData }) {
 
     var spendRows = spendingData.filter(function (r) { return r.year === YEAR && !String(r.category).includes("Real"); });
     var named = []; var otherTotal = 0;
+
+    var MANDATORY_CATS = ["Social Security", "Medicare", "Health", "Income Security", "Net interest"];
+    var DISCRETIONARY_CATS = ["National Defense", "Veterans Benefits and Services", "Education, Training, Employment, and Social Services"];
+
     spendRows.sort(function (a, b) { return b.amount - a.amount; }).forEach(function (r) {
-      if (SPEND_COLORS[r.category]) named.push({ label: SPEND_SHORT[r.category] || r.category, amount: r.amount, color: SPEND_COLORS[r.category] });
-      else otherTotal += r.amount;
+      if (!SPEND_COLORS[r.category]) { otherTotal += r.amount; return; }
+      var group = MANDATORY_CATS.includes(r.category) ? "Mandatory"
+                : DISCRETIONARY_CATS.includes(r.category) ? "Discretionary"
+                : "Discretionary";
+      named.push({ label: SPEND_SHORT[r.category] || r.category, amount: r.amount, color: SPEND_COLORS[r.category], group: group });
     });
-    named.push({ label: "All Other", amount: otherTotal, color: SPEND_OTHER_COLOR });
+    named.push({ label: "All Other", amount: otherTotal, color: SPEND_OTHER_COLOR, group: "Discretionary" });
+
+    // Sort: Mandatory first then Discretionary, descending by amount within each group
+    // Pin Social Security → Medicare at top of Mandatory regardless of amount
+    var MAND_PIN = ["Social Security", "Medicare"];
+    named.sort(function (a, b) {
+      if (a.group !== b.group) return a.group === "Mandatory" ? -1 : 1;
+      if (a.group === "Mandatory") {
+        var ai = MAND_PIN.indexOf(a.label), bi = MAND_PIN.indexOf(b.label);
+        if (ai !== -1 && bi !== -1) return ai - bi;
+        if (ai !== -1) return -1;
+        if (bi !== -1) return 1;
+      }
+      return b.amount - a.amount;
+    });
 
     var sumRow = summaryData.filter(function (r) { return r.year === YEAR && !String(r.category).includes("Real"); });
     var find   = function (cat) { var f = sumRow.find(function (r) { return r.category === cat; }); return f ? f.amount : 0; };
     return {
-      revSources:  revSrc,
-      spendSources: named.sort(function (a, b) { return b.amount - a.amount; }),
+      revSources:   revSrc,
+      spendSources: named,
       totalRev:    find("Total Receipts"),
       totalSpend:  find("Total Outlays"),
     };
@@ -2223,32 +2273,44 @@ function CrowdingOutTextPage() {
     {
       num: 1,
       heading: "Deficits and interest rates",
-      body: "It is widely believed among economists that large deficits lead to higher interest rates.",
+      body: "It is widely believed among economists that large deficits lead to higher interest rates. CBO estimates that each 1 percentage point increase in the debt-to-GDP ratio raises long-run interest rates by about 2 basis points (0.02%). With debt now at 100% of GDP and projected to hit 156% by 2055, that adds up.",
+      source: "CBO, Effects of Federal Borrowing on Interest Rates and Treasury Markets (March 2025)",
+      sourceUrl: "https://www.cbo.gov/system/files/2025-03/61230-Federal_Borrowing.pdf",
     },
     {
       num: 2,
       heading: "The Reagan evidence — and its limits",
-      body: "Some point to the interest rate increases following Reagan's tax cuts and military spending increases as evidence of this, but many other factors were also at work, including the Federal Reserve's aggressive anti-inflation policies.",
+      body: "The federal deficit peaked at 6% of GDP in 1983 under Reagan — up from 2.5% in 1981 — and the 10-year Treasury yield topped 15% in the early 1980s. But the Federal Reserve under Paul Volcker had deliberately raised rates to crush the inflation of the 1970s. It is impossible to separate the deficit effect from the monetary policy effect.",
+      source: "Reaganomics — Econlib; AIER, The Federal Deficit and Debt: Trouble Ahead?",
+      sourceUrl: "https://www.econlib.org/library/Enc/Reaganomics.html",
     },
     {
       num: 3,
       heading: "When deficits don't raise rates",
-      body: "The relationship isn't always so straightforward, however. Interest rates actually fell during the large deficits of the 2008–09 recession and again in 2020 during the COVID pandemic, suggesting that other forces — such as economic conditions and Federal Reserve policy — can easily overwhelm any deficit-driven upward pressure on rates.",
+      body: "The deficit reached 9.8% of GDP in 2009 — the largest in 60 years — yet the 10-year Treasury yield fell from 4.6% in 2007 to 3.3% in 2009, and kept falling. In 2020, the deficit hit 15% of GDP while the 10-year yield dropped from 1.85% in January to under 1% by August. In both cases the Fed's emergency rate cuts overwhelmed any upward pressure from borrowing.",
+      source: "PGPF, How Will Interest Rate Changes Affect Federal Debt and Deficits? (2021)",
+      sourceUrl: "https://www.pgpf.org/article/how-will-interest-rate-changes-affect-federal-debt-and-deficits/",
     },
     {
       num: 4,
       heading: "The recession exception",
-      body: "Though economists largely treat recession-era deficits as a special case. The more widely held view is that deficits run when the economy is at or near full employment do put upward pressure on interest rates.",
+      body: "Economists largely treat recession-era deficits as a special case — when the economy is weak, investors flee to the safety of Treasury bonds, pushing yields down regardless of how much the government borrows. The more widely held view is that deficits run when the economy is at or near full employment do put upward pressure on interest rates.",
+      source: "Bipartisan Policy Center, The Deficit in a Downturn (2025)",
+      sourceUrl: "https://bipartisanpolicy.org/article/the-deficit-in-a-downturn-how-have-recessions-impacted-the-federal-budget/",
     },
     {
       num: 5,
       heading: "Crowding out investment",
-      body: "If deficits do in fact raise interest rates, the consequence would be a crowding out of private investment in the U.S.",
+      body: "CBO estimates that for every dollar the federal deficit increases, private investment falls by 33 cents — with a range of 15 to 50 cents depending on how much private saving and foreign capital offset the borrowing. Over 30 years, rising debt under current law could reduce average income growth by 16% relative to a debt-stable scenario.",
+      source: "CBO, The Long-Run Effects of Federal Budget Deficits on National Saving and Private Domestic Investment, Working Paper 2014-02",
+      sourceUrl: "https://www.cbo.gov/sites/default/files/cbofiles/attachments/45140-NSPDI_workingPaper.pdf",
     },
     {
       num: 6,
       heading: "Housing costs",
-      body: "Higher interest rates also have an outsized impact on housing construction, contributing to higher home prices.",
+      body: "Higher interest rates have an outsized impact on housing construction. A 1 percentage point rise in mortgage rates reduces housing starts significantly, contributing directly to higher home prices. With the 30-year mortgage rate reaching 7–8% in 2023–24, housing starts fell sharply and home affordability hit historic lows.",
+      source: "AAF, Examining the Consequences of a High and Rising National Debt (2025)",
+      sourceUrl: "https://www.americanactionforum.org/insight/examining-the-consequences-of-a-high-and-rising-national-debt/",
     },
   ];
 
@@ -2291,7 +2353,16 @@ function CrowdingOutTextPage() {
           Point {cur.num}
         </div>
         <h3 style={{ fontSize: 17, fontWeight: 700, color: TEXT, margin: "0 0 10px" }}>{cur.heading}</h3>
-        <p style={{ fontSize: 15, color: TEXT, lineHeight: 1.75, margin: 0 }}>{cur.body}</p>
+        <p style={{ fontSize: 15, color: TEXT, lineHeight: 1.75, margin: "0 0 12px" }}>{cur.body}</p>
+        {cur.source && (
+          <div style={{ fontSize: 11, color: MUTED, borderTop: "1px solid " + BORDER, paddingTop: 8 }}>
+            Source:{" "}
+            <a href={cur.sourceUrl} target="_blank" rel="noopener noreferrer"
+               style={{ color: MUTED, textDecoration: "underline" }}>
+              {cur.source}
+            </a>
+          </div>
+        )}
       </Card>
 
       <div style={{ display: "flex", gap: 10 }}>
@@ -2683,9 +2754,9 @@ function BudgetDilemmaPage({ spendingData, summaryData }) {
       { key: "Health", label: "Medicaid & Health", type: "mandatory",
         poll: "75% of Americans oppose cuts", pollSrc: "KFF, April 2025", pollUrl: "https://www.kff.org/medicaid/poll-finding/kff-health-tracking-poll-april-2025-publics-view-on-major-cuts-to-federal-health-agencies/" },
       { key: "Income Security", label: "Income Security", type: "mandatory",
-        poll: "Includes SNAP, housing assistance, unemployment", pollSrc: null, pollUrl: null },
+        poll: "SNAP and unemployment insurance — the two largest components — are broadly popular. 80% of Americans support SNAP; 68% support unemployment insurance.", pollSrc: "Pew Research, 2019", pollUrl: "https://www.pewresearch.org/politics/2019/04/11/little-public-support-for-reductions-in-federal-spending/" },
       { key: "National Defense", label: "National Defense", type: "discretionary",
-        poll: null, pollSrc: null, pollUrl: null },
+        poll: "67% of Americans want to keep defense spending the same or increase it.", pollSrc: "Chicago Council on Global Affairs, 2024", pollUrl: "https://globalaffairs.org/research/public-opinion-survey/americans-prioritize-domestic-spending-over-foreign-aid" },
       { key: "Veterans Benefits and Services", label: "Veterans", type: "discretionary",
         poll: "84% of Americans oppose cuts to veterans healthcare", pollSrc: "Navigator Research, 2025", pollUrl: "https://navigatorresearch.org/a-majority-of-americans-oppose-cuts-to-social-security-and-medicare/" },
       { key: "Education, Training, Employment, and Social Services", label: "Education & Training", type: "discretionary",
@@ -2894,7 +2965,9 @@ function BudgetDilemmaPage({ spendingData, summaryData }) {
       <p style={{ fontSize: 12, color: MUTED }}>
         Sources: <a href="https://www.whitehouse.gov/omb/information-resources/budget/historical-tables/" target="_blank" rel="noreferrer" style={{ color: BLUE }}>OMB Historical Tables FY{YEAR}</a>.
         {" "}Polling: <a href="https://navigatorresearch.org/a-majority-of-americans-oppose-cuts-to-social-security-and-medicare/" target="_blank" rel="noreferrer" style={{ color: BLUE }}>Navigator Research (Jan 2026)</a>;{" "}
-        <a href="https://www.kff.org/medicaid/poll-finding/kff-health-tracking-poll-april-2025-publics-view-on-major-cuts-to-federal-health-agencies/" target="_blank" rel="noreferrer" style={{ color: BLUE }}>KFF Health Tracking Poll (April 2025)</a>.
+        <a href="https://www.kff.org/medicaid/poll-finding/kff-health-tracking-poll-april-2025-publics-view-on-major-cuts-to-federal-health-agencies/" target="_blank" rel="noreferrer" style={{ color: BLUE }}>KFF Health Tracking Poll (April 2025)</a>;{" "}
+        <a href="https://globalaffairs.org/research/public-opinion-survey/americans-prioritize-domestic-spending-over-foreign-aid" target="_blank" rel="noreferrer" style={{ color: BLUE }}>Chicago Council on Global Affairs (2024)</a>;{" "}
+        <a href="https://www.pewresearch.org/politics/2019/04/11/little-public-support-for-reductions-in-federal-spending/" target="_blank" rel="noreferrer" style={{ color: BLUE }}>Pew Research (2019)</a>.
       </p>
     </div>
   );
