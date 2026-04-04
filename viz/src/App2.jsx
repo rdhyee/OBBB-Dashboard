@@ -154,13 +154,13 @@ var PAGES = [
   {
     section: 2,
     component: "CrowdingOutPage",      // III.a — are we stealing from our children?
-    title: "Are We Stealing from Our Children?",
+    title: "Paying for the Past",
     prompt: "Does this play out in the real world?",
   },
   {
     section: 2,
     component: "CrowdingOutTextPage",  // III.a.ii — Crowding out text explainer
-    title: "Crowding Out",
+    title: "Our Children",
     prompt: "One direct consequence is the rising cost of interest.",
   },
   {
@@ -295,30 +295,30 @@ var TOUR_CONFIGS = {
     { title: "Each block = 0.5% of GDP", body: "Every square represents 0.5% of gross domestic product. Green blocks are surpluses, red blocks are deficits." },
     { title: "Height shows severity", body: "Bigger columns mean larger deficits or surpluses as a percentage of national income." },
     { title: "During crises, borrowing spikes", body: "During crises, like the COVID pandemic, the government has borrowed a larger share of the national income to cover emergency spending." },
-    { title: "Hover any column", body: "Mouse over a year to see the exact surplus or deficit figure and the era label." },
+    { title: "Hover any column", body: "Hover any year to see the exact surplus or deficit figure and the era label." },
   ],
   // Page 2 — Debt Accumulation
   2: [
     { title: "Drag the slider", body: "Scrub the slider left and right to move through time and watch the national debt pile grow. Each year's deficit gets added as new blocks at the end of the pile." },
-    { title: "Hover the debt pile", body: "Mouse over any block in the pile to see which fiscal year it came from. Gray blocks represent debt inherited from before 1970." },
+    { title: "Hover the debt pile", body: "Hover any block in the pile to see which fiscal year it came from. Gray blocks represent debt inherited from before 1970." },
     { title: "Debt reconciliation", body: "The box at the bottom breaks down how the total gross federal debt is composed — pre-1970 inherited debt, cumulative deficits since 1970, and trust fund borrowing." },
   ],
   // Page 3 — Debt to GDP
   3: [
     { title: "Scroll left and right", body: "The chart spans 85 years — scroll horizontally to move through time from 1939 to the present." },
     { title: "Each block = 0.5% of national income", body: "Deeper columns mean more debt relative to the size of the economy. National income (GDP) measures the total value a country produces each year." },
-    { title: "Hover any column", body: "Mouse over a year to see the exact debt level and which president was in office." },
+    { title: "Hover any column", body: "Hover any year to see the exact debt level and which president was in office." },
   ],
   // Page 4 — Crisis Deficit Decomposition
   4: [
     { title: "Two crises, same pattern", body: "The left panel shows the 2008 financial crisis and Obama years. The right shows the COVID pandemic under Trump and Biden. Both follow the same playbook: automatic stabilizers kick in on top of deliberate stimulus legislation." },
     { title: "Two layers", body: "Grey is the structural deficit — driven by policy choices and existing law, including stimulus bills like ARRA and the CARES Act. Amber is automatic stabilizers — programs that expand automatically without new legislation." },
-    { title: "Hover for detail", body: "Mouse over any year to see the exact structural deficit and automatic stabilizer contribution for that year." },
+    { title: "Hover for detail", body: "Hover any year to see the exact structural deficit and automatic stabilizer contribution for that year." },
   ],
   // Page 6 — Revenue vs Spending
   6: [
     { title: "Each block = $10 billion", body: "Every square represents $10 billion of government money. Green blocks are revenue, red blocks are spending." },
-    { title: "Hover to highlight", body: "Move your mouse over any block to highlight that category across the grid and legend." },
+    { title: "Hover to highlight", body: "Hover any block to highlight that category across the grid and legend." },
     { title: "Read the legend", body: "The legend below each grid lists every category with its total. Categories are sorted largest to smallest." },
   ],
   // Page 8 — Projected Deficits & Debt
@@ -353,6 +353,8 @@ var TOUR_CONFIGS = {
   13: [
     { title: "Drag the sliders", body: "Each slider raises the effective tax rate on that income group by up to 20 percentage points. The bar at the top fills in green as you close more of the deficit." },
     { title: "The static vs. real gap", body: "These numbers assume people keep earning and reporting the same income. In reality, higher rates lead to more deductions, income shifting, and deferral. The true revenue gain is real but smaller than what you see here." },
+    { title: "Cutting spending", body: "You can also adjust spending instead of revenue. The spending slider lets you cut a portion of the budget's discretionary spending across the board. This is called budget sequestration, and happened in 2012 to offset the additional spending from the 2008 Financial Crisis." },
+    { title: "In the real world", body: "In reality, some of these effects work against you. Cutting government spending reduces growth and new investments, but increasing taxes does the same. Economists disagree on how much each factor matters." },
   ],
 };
 
@@ -404,9 +406,11 @@ function Tour({ steps, onDone }) {
           overflowY: "auto",
           maxHeight: "100%",
         }}>
-          <button onClick={onDone} style={{ position: "absolute", top: 8, right: 10, background: "none", border: "none", fontSize: 16, color: "#9ca3af", cursor: "pointer", lineHeight: 1, padding: 0 }}>×</button>
-          <div style={{ fontSize: 9, color: "#9ca3af", textTransform: "uppercase", letterSpacing: 1, marginBottom: 6, fontWeight: 600, paddingRight: 16 }}>
-            Step {step + 1} of {steps.length}
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 6 }}>
+            <div style={{ fontSize: 9, color: "#9ca3af", textTransform: "uppercase", letterSpacing: 1, fontWeight: 600 }}>
+              Step {step + 1} of {steps.length}
+            </div>
+            <button onClick={onDone} style={{ background: "none", border: "none", fontSize: 16, color: "#9ca3af", cursor: "pointer", lineHeight: 1, padding: 0, flexShrink: 0 }}>×</button>
           </div>
           <div style={{ display: "flex", gap: 4, marginBottom: 10 }}>
             {steps.map(function (_, i) {
@@ -955,7 +959,7 @@ function DebtAccumulation({ summaryData, debtData }) {
         <TourBtn onOpen={tour.reopen} />
       </div>
       <p style={{ fontSize: 15, color: TEXT, lineHeight: 1.75, margin: "0 0 6px" }}>
-        Our national debt has grown to over $39 trillion as of 2026, up from $35.23 trillion as of FY{YEAR}. Like regular loans, as the government runs a deficit for a longer period of time, interest payments increase as well, creating a compounding effect.
+        Our national debt has grown to over $39 trillion as of 2026, up from $35.23 trillion as of Fiscal Year (FY) 2024. Like regular loans, as the government runs a deficit for a longer period of time, interest payments increase as well, creating a compounding effect.
       </p>
       <p style={{ fontSize: 13, color: MUTED, margin: "0 0 20px" }}>Drag the slider to scrub through time. Each block = $10B.</p>
       <Card style={{ borderLeft: "4px solid " + RED }}>
@@ -1523,7 +1527,7 @@ function RevSpendPage({ spendingData, receiptsData, summaryData }) {
         <TourBtn onOpen={tour.reopen} />
       </div>
       <p style={{ fontSize: 15, color: TEXT, lineHeight: 1.75, margin: "0 0 6px" }}>
-        In Fiscal Year {YEAR}, the federal government spent more than it collected in revenue — a gap of over $1.8 trillion.
+        In Fiscal Year 2024, the federal government spent more than it collected in revenue — a gap of over $1.8 trillion.
         That's more than <strong style={{ color: RED }}>${gapPerCapita.toLocaleString()}</strong> for every man, woman, and child in the United States.
       </p>
       <p style={{ fontSize: 13, color: MUTED, margin: "0 0 20px" }}>Each block = $10B. Hover to highlight a category.</p>
@@ -1565,7 +1569,7 @@ function DeficitPage({ summaryData }) {
     <div>
       <h2 style={{ fontSize: 22, fontWeight: 700, color: TEXT, margin: "0 0 6px" }}>The Deficit — FY{YEAR}</h2>
       <p style={{ fontSize: 15, color: TEXT, lineHeight: 1.75, margin: "0 0 6px" }}>
-        In FY{YEAR}, the U.S. government ran a budget deficit of $1.83 trillion. Each year that the government runs a deficit, it adds to our national debt.
+        In FY2024, the U.S. government ran a budget deficit of $1.83 trillion (that's roughly $5B a day!). Each year that the government runs on a deficit, it adds to our national debt.
       </p>
       <p style={{ fontSize: 13, color: MUTED, margin: "0 0 20px" }}>Each block = $10B of borrowed money.</p>
       <Card style={{ borderLeft: "4px solid " + RED }}>
@@ -1684,7 +1688,7 @@ function ProjectedDebtPage({ deficitProj, projSummary }) {
         <TourBtn onOpen={tour.reopen} />
       </div>
       <p style={{ fontSize: 15, color: TEXT, lineHeight: 1.75, margin: "0 0 6px" }}>
-        CBO projects the federal government will run deficits totaling over $20 trillion through 2035, pushing debt held by the public past $48 trillion. The scenario shown depends on whether current tariff revenues are maintained.
+        The Congressional Budget Office projects the federal government will run deficits totaling over $20 trillion through 2035, pushing debt held by the public past $56 trillion. These added deficits will increase the debt to 118% of GDP in 2035. The scenario shown depends on whether current tariff revenues are maintained, but this depends on change due to recent Supreme Court ruling on tariff policy. We believe that the revenue from tariffs from now until 2034 will fall somewhere between completely zeroed tariff revenues and the CBO's projections (assuming the July 1st tariffs remain in place).
       </p>
 
       {/* Scenario toggle */}
@@ -2129,8 +2133,7 @@ function CrowdingOutPage({ spendingData, summaryData }) {
       </div>
 
       <p style={{ fontSize: 15, color: TEXT, lineHeight: 1.75, margin: "0 0 6px" }}>
-        Of every dollar the federal government collects in taxes, <strong style={{ color: RED }}>{display ? display.pct.toFixed(1) : "—"}¢</strong> goes
-        straight to interest payments on our debt. Instead of spending for Americans in the present day on defense, housing, food, or education, we are spending almost 1/5 of our taxes on debt interest.
+        Of every dollar the federal government collects in taxes, <strong style={{ color: RED }}>{display ? display.pct.toFixed(1) : "—"}¢</strong> goes straight to interest payments on our debt. Instead of spending for Americans in the present day on defense, housing, food, or education, we are spending almost 1/5 of our taxes on debt interest. You may notice that there was a large increase in the 1980s. This is partly due to Reagan administration policies that increased defense spending and decreased revenue (through tax cuts), and partly to very high interest rates set by the Federal Reserve to fight the inflation of the 1970s, making borrowing more expensive.
       </p>
       <p style={{ fontSize: 13, color: MUTED, margin: "0 0 16px" }}>
         {hovRow ? hovRow.year + " — " + hovRow.pct.toFixed(1) + "¢ per tax dollar" : "That's up from 7.5¢ in 1970. Hover any column to see that year."}
@@ -2204,7 +2207,7 @@ function CrowdingOutPage({ spendingData, summaryData }) {
       </Card>
 
       <p style={{ fontSize: 15, color: TEXT, lineHeight: 1.75, margin: "0 0 16px" }}>
-        When the government borrows, it also competes with every other borrower in the economy, which pushes up interest rates. Higher rates mean more expensive mortgages, costlier business loans, and less private investment. The CBO estimates that for every dollar of deficit spending, private investment falls by about 33 cents. The next page shows what this looks like in practice.
+        When the government borrows, it also competes with every other borrower in the economy, which pushes up interest rates. Higher rates mean more expensive mortgages, costlier business loans, and less private investment. The CBO estimates that for every dollar of deficit spending, private investment falls by about 33 cents.
       </p>
 
       <p style={{ fontSize: 12, color: MUTED }}>Sources: <a href="https://www.whitehouse.gov/omb/information-resources/budget/historical-tables/" target="_blank" rel="noreferrer" style={{ color: BLUE }}>OMB Historical Tables</a> (net interest, total receipts). CBO crowding-out estimate via <a href="https://www.pgpf.org/article/the-national-debt-can-crowd-out-investments-in-the-economy-heres-how/" target="_blank" rel="noreferrer" style={{ color: BLUE }}>Peter G. Peterson Foundation</a>.</p>
@@ -2220,37 +2223,32 @@ function CrowdingOutTextPage() {
     {
       num: 1,
       heading: "Deficits and interest rates",
-      body: "[STUB — Point 1: Most economists believe, and most economics textbooks teach, that large deficits lead to higher interest rates.]",
+      body: "It is widely believed among economists that large deficits lead to higher interest rates.",
     },
     {
       num: 2,
       heading: "The Reagan evidence — and its limits",
-      body: "[STUB — Point 2: Some point to the interest rate increases after the Reagan tax cuts and increases in military spending as evidence, but many other factors were at work including the Federal Reserve's very aggressive anti-inflation policies.]",
+      body: "Some point to the interest rate increases following Reagan's tax cuts and military spending increases as evidence of this, but many other factors were also at work, including the Federal Reserve's aggressive anti-inflation policies.",
     },
     {
       num: 3,
       heading: "When deficits don't raise rates",
-      body: "[STUB — Point 3: Budget deficits don't always lead to higher interest rates. When the US ran a large deficit during the early Obama administration and again during COVID in 2020, interest rates fell.]",
+      body: "The relationship isn't always so straightforward, however. Interest rates actually fell during the large deficits of the 2008–09 recession and again in 2020 during the COVID pandemic, suggesting that other forces — such as economic conditions and Federal Reserve policy — can easily overwhelm any deficit-driven upward pressure on rates.",
     },
     {
       num: 4,
       heading: "The recession exception",
-      body: "[STUB — Point 4: Economists mainly agree that budget deficits in recessions are a special case, and that budget deficits when the economy is at full employment do cause interest rates to be higher than they otherwise would be.]",
+      body: "Though economists largely treat recession-era deficits as a special case. The more widely held view is that deficits run when the economy is at or near full employment do put upward pressure on interest rates.",
     },
     {
       num: 5,
       heading: "Crowding out investment",
-      body: "[STUB — Point 5: If budget deficits do increase interest rates, then they crowd out investment in the US — making it more expensive for businesses and households to borrow.]",
+      body: "If deficits do in fact raise interest rates, the consequence would be a crowding out of private investment in the U.S.",
     },
     {
       num: 6,
       heading: "Housing costs",
-      body: "[STUB — Point 6: Higher interest rates have very large impacts on construction of new housing, leading to higher housing prices.]",
-    },
-    {
-      num: 7,
-      heading: "Business investment and wages",
-      body: "[STUB — Point 7: Though the effect on business investment is less apparent, it is widely believed that higher interest rates mean businesses spend less on new plant and equipment, meaning less growth of profits and wages.]",
+      body: "Higher interest rates also have an outsized impact on housing construction, contributing to higher home prices.",
     },
   ];
 
@@ -2259,13 +2257,19 @@ function CrowdingOutTextPage() {
 
   return (
     <div>
-      <h2 style={{ fontSize: 22, fontWeight: 700, color: TEXT, margin: "0 0 6px" }}>Crowding Out</h2>
+      <h2 style={{ fontSize: 22, fontWeight: 700, color: TEXT, margin: "0 0 16px" }}>Our Children</h2>
+      <p style={{ fontSize: 15, color: TEXT, lineHeight: 1.75, margin: "0 0 16px" }}>
+        Running government deficits can have mixed consequences for the economy, which is why some argue we are 'stealing from our children,' while others disagree. On one hand, persistent deficits can absorb a portion of national savings, leading to higher interest rates. As borrowing becomes more expensive, businesses may reduce investment in productive assets like factories and equipment, which can slow future economic growth, lower wages, and reduce tax revenues. Higher interest rates also directly affect households, particularly by making mortgages more costly, which can reduce housing construction and contribute to higher home prices.
+      </p>
+      <p style={{ fontSize: 15, color: TEXT, lineHeight: 1.75, margin: "0 0 16px" }}>
+        On the other hand, these effects are often softened by global capital flows: when U.S. interest rates rise, foreign investors are attracted to invest in U.S. assets. While this helps keep interest rates from rising too sharply, it contributes to a trade deficit and increases the portion of U.S. debt held by foreign investors. This means that instead of owing money primarily within the country, the U.S. owes more to external creditors.
+      </p>
       <p style={{ fontSize: 15, color: TEXT, lineHeight: 1.75, margin: "0 0 24px" }}>
-        When the government borrows heavily, does it squeeze out private investment? Economists have debated this for decades.
+        Overall, deficits can shift economic burdens into the future, but their actual impact depends on factors like economic conditions, global investment flows, and how borrowed funds are used.
       </p>
 
-      {/* Step progress dots */}
-      <div style={{ display: "flex", gap: 6, marginBottom: 24, alignItems: "center" }}>
+      {/* Crowding Out — stepped points */}
+      <div style={{ display: "flex", gap: 6, marginBottom: 20, alignItems: "center" }}>
         {POINTS.map(function (p, i) {
           return (
             <button key={i} onClick={function () { setStep(i); }} style={{
@@ -2282,34 +2286,23 @@ function CrowdingOutTextPage() {
         <span style={{ fontSize: 11, color: MUTED, marginLeft: 8 }}>{step + 1} of {POINTS.length}</span>
       </div>
 
-      {/* Current point card */}
-      <Card style={{ borderLeft: "4px solid " + RED, marginBottom: 24, minHeight: 180 }}>
-        <div style={{ fontSize: 11, fontWeight: 700, color: MUTED, textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 10 }}>
+      <Card style={{ borderLeft: "4px solid " + RED, marginBottom: 24, minHeight: 140 }}>
+        <div style={{ fontSize: 11, fontWeight: 700, color: MUTED, textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 8 }}>
           Point {cur.num}
         </div>
-        <h3 style={{ fontSize: 19, fontWeight: 700, color: TEXT, margin: "0 0 14px" }}>{cur.heading}</h3>
-        <p style={{ fontSize: 15, color: TEXT, lineHeight: 1.8, margin: 0 }}>{cur.body}</p>
+        <h3 style={{ fontSize: 17, fontWeight: 700, color: TEXT, margin: "0 0 10px" }}>{cur.heading}</h3>
+        <p style={{ fontSize: 15, color: TEXT, lineHeight: 1.75, margin: 0 }}>{cur.body}</p>
       </Card>
 
-      {/* Navigation buttons */}
       <div style={{ display: "flex", gap: 10 }}>
         {step > 0 && (
-          <button onClick={function () { setStep(step - 1); }} style={{
-            padding: "10px 20px", fontSize: 13, borderRadius: 8, cursor: "pointer",
-            border: "1px solid " + BORDER, background: SURFACE, color: TEXT,
-          }}>← Previous</button>
+          <button onClick={function () { setStep(step - 1); }} style={{ padding: "10px 20px", fontSize: 13, borderRadius: 8, cursor: "pointer", border: "1px solid " + BORDER, background: SURFACE, color: TEXT }}>← Previous</button>
         )}
         {!isLast && (
-          <button onClick={function () { setStep(step + 1); }} style={{
-            padding: "10px 20px", fontSize: 13, borderRadius: 8, cursor: "pointer",
-            border: "none", background: "#1e3a5f", color: "#fff", fontWeight: 600,
-          }}>Next →</button>
+          <button onClick={function () { setStep(step + 1); }} style={{ padding: "10px 20px", fontSize: 13, borderRadius: 8, cursor: "pointer", border: "none", background: "#1e3a5f", color: "#fff", fontWeight: 600 }}>Next →</button>
         )}
         {isLast && (
-          <button onClick={function () { setStep(0); }} style={{
-            padding: "10px 20px", fontSize: 13, borderRadius: 8, cursor: "pointer",
-            border: "1px solid " + BORDER, background: SURFACE, color: MUTED,
-          }}>↺ Start over</button>
+          <button onClick={function () { setStep(0); }} style={{ padding: "10px 20px", fontSize: 13, borderRadius: 8, cursor: "pointer", border: "1px solid " + BORDER, background: SURFACE, color: MUTED }}>↺ Start over</button>
         )}
       </div>
     </div>
@@ -2595,7 +2588,7 @@ function NetInterestPage({ spendingData }) {
         <TourBtn onOpen={tour.reopen} />
       </div>
       <p style={{ fontSize: 15, color: TEXT, lineHeight: 1.75, margin: "0 0 6px" }}>
-        Just like Japan, we need to figure out what will have to be cut so we can pay the interest on our debt. As of FY{YEAR}, net interest payments have reached $880 billion on their own. This means interest payments alone are more costly than almost every major government program, including Medicare, national defense and education.
+        As of FY2024, net interest payments have reached $880 billion on their own. This means interest payments alone are more costly than almost every major government program, including Medicare, national defense and education.
       </p>
       <p style={{ fontSize: 13, color: MUTED, margin: "0 0 20px" }}>Select a program below to compare.</p>
       <Card style={{ borderLeft: "4px solid " + AMBER }}>
@@ -2892,7 +2885,7 @@ function BudgetDilemmaPage({ spendingData, summaryData }) {
       </div>
 
       <p style={{ fontSize: 15, color: TEXT, lineHeight: 1.75, margin: "0 0 16px" }}>
-        Why is "mandatory" spending actually mandatory? Programs like Social Security, Medicare, and Medicaid are set up so that anyone who meets the eligibility criteria is legally entitled to benefits. To protect the public, the government cannot simply decide to pay less one year. Cutting them requires passing new laws, which is politically nearly impossible: 85% of Americans oppose cuts to Social Security and 75% oppose cuts to Medicaid.
+        Why is "mandatory" spending actually mandatory? Programs like Social Security, Medicare, and Medicaid are set up so that anyone who meets the eligibility criteria is legally entitled to benefits. To protect the public, the government cannot simply decide to pay less one year. Cutting them requires passing new laws, which is politically nearly impossible: 85% of Americans oppose cuts to Social Security and 75% oppose cuts to Medicaid. However, with the debt growing quickly, the problem is only getting worse.
       </p>
       <p style={{ fontSize: 15, color: TEXT, lineHeight: 1.75, margin: "0 0 6px" }}>
         That leaves the tax side of the ledger to make up the difference.
@@ -2908,7 +2901,7 @@ function BudgetDilemmaPage({ spendingData, summaryData }) {
 }
 
 /* ── III.d  Tax Page ─────────────────────── */
-function TaxPage({ taxData }) {
+function TaxPage({ taxData, spendingData, summaryData }) {
   var tour = useTour(13);
 
   // Parse CSV into lookup
@@ -2916,6 +2909,27 @@ function TaxPage({ taxData }) {
     if (!taxData) return [];
     return taxData;
   }, [taxData]);
+
+  // FY2024 discretionary — identical to BudgetDilemmaPage:
+  // totalOutlays - named mandatory categories - net interest
+  var discretionaryB = useMemo(function () {
+    if (!spendingData || !summaryData) return 1950;
+    var MANDATORY_KEYS = ["Social Security", "Medicare", "Health", "Income Security"];
+    var spendRows = spendingData.filter(function (r) { return r.year === YEAR && !String(r.category).includes("Real"); });
+    var mandatory = MANDATORY_KEYS.reduce(function (s, k) {
+      var row = spendRows.find(function (r) { return r.category === k; });
+      return s + (row ? row.amount : 0);
+    }, 0);
+    var niRow = spendRows.find(function (r) { return r.category === "Net interest"; });
+    var ni = niRow ? niRow.amount : 0;
+    var sumRow = summaryData.find(function (r) { return r.year === YEAR && r.category === "Total Outlays"; });
+    var totalOutlays = sumRow ? sumRow.amount : 0;
+    return (totalOutlays - mandatory - ni) / 1000; // millions → billions
+  }, [spendingData, summaryData]);
+
+  // Spending cut slider state — 0 to 100% cut
+  var _cutPct = useState(0); var cutPct = _cutPct[0]; var setCutPct = _cutPct[1];
+  var spendingSavings = (cutPct / 100) * discretionaryB; // billions saved
 
   // Slider state: rate increase in pp per bucket (0-20)
   // State tracks absolute effective rate per bucket, initialized at current rate
@@ -2940,9 +2954,10 @@ function TaxPage({ taxData }) {
 
   function resetRates() {
     setRates(null);
+    setCutPct(0);
   }
 
-  var isDirty = brackets.some(function (b) {
+  var isDirty = cutPct > 0 || brackets.some(function (b) {
     return rates[b.bucket] !== undefined && rates[b.bucket] !== b.effective_rate_pct;
   });
 
@@ -2957,7 +2972,8 @@ function TaxPage({ taxData }) {
     }, 0);
   }, [brackets, rates]);
 
-  var pctOfDeficit = Math.min(100, (additionalRevenue / DEFICIT_B) * 100);
+  var totalClosed = additionalRevenue + spendingSavings; // billions
+  var pctOfDeficit = Math.min(100, (totalClosed / DEFICIT_B) * 100);
 
   var BUCKET_COLORS = {
     "Under $25K":   "#4a8b6f",
@@ -2992,7 +3008,7 @@ function TaxPage({ taxData }) {
       </div>
 
       <p style={{ fontSize: 15, color: TEXT, lineHeight: 1.75, margin: "0 0 10px" }}>
-        The other lever is raising taxes. Use the sliders below to increase effective tax rates on each income group and see how much additional revenue it would generate against the FY2023 {fmtAmt(DEFICIT_B * 1000)} deficit.
+        The other lever is raising taxes. Use the sliders below to increase effective tax rates on each income group and see how much additional revenue it would generate against the FY2023 $1.70T deficit.
       </p>
       <p style={{ fontSize: 13, color: MUTED, margin: "0 0 20px" }}>
         Note: these are static scores based on IRS Tax Year 2023 data, matched to the FY2023 deficit of $1.7T. Real revenue would be somewhat lower due to behavioral responses like tax avoidance, reduced hours, and income shifting.
@@ -3002,26 +3018,73 @@ function TaxPage({ taxData }) {
       <div style={{ marginBottom: 24 }}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 6 }}>
           <span style={{ fontSize: 13, color: MUTED }}>Deficit closed</span>
-          <span style={{ fontSize: 20, fontWeight: 700, color: additionalRevenue >= DEFICIT_B ? BLOCK_POS : BLOCK_NEG }}>
-            {additionalRevenue >= DEFICIT_B ? "Surplus +" + fmtAmt((additionalRevenue - DEFICIT_B) * 1000) : fmtAmt(additionalRevenue * 1000) + " of " + fmtAmt(DEFICIT_B * 1000)}
+          <span style={{ fontSize: 20, fontWeight: 700, color: totalClosed >= DEFICIT_B ? BLOCK_POS : BLOCK_NEG }}>
+            {totalClosed >= DEFICIT_B ? "Surplus +" + fmtAmt((totalClosed - DEFICIT_B) * 1000) : fmtAmt(totalClosed * 1000) + " of " + fmtAmt(DEFICIT_B * 1000)}
           </span>
         </div>
-        <div style={{ height: 14, background: "#f3f4f6", borderRadius: 7, overflow: "hidden" }}>
-          <div style={{
-            height: "100%",
-            width: pctOfDeficit + "%",
-            background: additionalRevenue >= DEFICIT_B ? BLOCK_POS : BLOCK_NEG,
-            borderRadius: 7,
-            transition: "width 0.2s ease",
-          }} />
+        <div style={{ height: 14, background: "#f3f4f6", borderRadius: 7, overflow: "hidden", display: "flex" }}>
+          {/* Spending savings — green segment */}
+          {spendingSavings > 0 && (
+            <div style={{ height: "100%", width: Math.min(100, spendingSavings / DEFICIT_B * 100) + "%", background: BLOCK_POS, transition: "width 0.2s ease" }} />
+          )}
+          {/* Tax revenue — second segment */}
+          {additionalRevenue > 0 && (
+            <div style={{ height: "100%", width: Math.min(100 - Math.min(100, spendingSavings / DEFICIT_B * 100), additionalRevenue / DEFICIT_B * 100) + "%", background: "#166534", transition: "width 0.2s ease" }} />
+          )}
         </div>
         <div style={{ display: "flex", justifyContent: "space-between", marginTop: 4 }}>
-          <span style={{ fontSize: 11, color: MUTED }}>$0</span>
+          <div style={{ display: "flex", gap: 12 }}>
+            {spendingSavings > 0 && <span style={{ fontSize: 11, color: BLOCK_POS }}>▪ Spending cuts: {fmtAmt(spendingSavings * 1000)}</span>}
+            {additionalRevenue > 0 && <span style={{ fontSize: 11, color: "#166534" }}>▪ Tax revenue: {fmtAmt(additionalRevenue * 1000)}</span>}
+          </div>
           <span style={{ fontSize: 11, color: MUTED }}>{fmtAmt(DEFICIT_B * 1000)} deficit</span>
         </div>
       </div>
 
-      {/* Bracket sliders */}
+      {/* Section I — Spending */}
+      <div style={{ display: "flex", alignItems: "center", gap: 12, margin: "0 0 12px" }}>
+        <div style={{ fontSize: 11, fontWeight: 700, color: BLOCK_POS, textTransform: "uppercase", letterSpacing: 1.5, whiteSpace: "nowrap" }}>Spending Cuts</div>
+        <div style={{ flex: 1, height: 1, background: BLOCK_POS, opacity: 0.25 }} />
+      </div>
+
+      {/* Discretionary spending cut slider */}
+      <Card style={{ borderLeft: "4px solid " + BLOCK_POS, padding: "16px 20px", marginBottom: 24 }}>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 10, flexWrap: "wrap", gap: 8 }}>
+          <div>
+            <div style={{ fontSize: 15, fontWeight: 700, color: BLOCK_POS }}>Discretionary Spending Cut</div>
+            <div style={{ fontSize: 12, color: MUTED, marginTop: 2 }}>
+              FY{YEAR} discretionary total: {fmtAmt(discretionaryB * 1000)} · Across-the-board cut to all discretionary programs
+            </div>
+          </div>
+          <div style={{ textAlign: "right" }}>
+            <div style={{ fontSize: 11, color: MUTED }}>Savings</div>
+            <div style={{ fontSize: 18, fontWeight: 700, color: spendingSavings > 0 ? BLOCK_POS : MUTED }}>
+              {spendingSavings > 0 ? "+" + fmtAmt(spendingSavings * 1000) : "—"}
+            </div>
+          </div>
+        </div>
+        <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+          <span style={{ fontSize: 12, color: MUTED, whiteSpace: "nowrap" }}>0%</span>
+          <input type="range" min={0} max={100} step={1} value={cutPct}
+            onChange={function (e) { setCutPct(Number(e.target.value)); }}
+            style={{ flex: 1, accentColor: BLOCK_POS, cursor: "grab" }} />
+          <span style={{ fontSize: 12, color: MUTED, whiteSpace: "nowrap" }}>100%</span>
+          <div style={{ minWidth: 80, textAlign: "right" }}>
+            {cutPct > 0
+              ? <span style={{ fontSize: 13, fontWeight: 600, color: BLOCK_POS }}>{cutPct}% cut</span>
+              : <span style={{ fontSize: 13, color: MUTED }}>No cut</span>}
+          </div>
+        </div>
+        <div style={{ fontSize: 11, color: MUTED, marginTop: 6 }}>
+          Includes defense, veterans, education, transportation, foreign aid, and other annual appropriations. Does not include Social Security, Medicare, Medicaid, or net interest.
+        </div>
+      </Card>
+
+      {/* Section II — Tax Increases */}
+      <div style={{ display: "flex", alignItems: "center", gap: 12, margin: "0 0 12px" }}>
+        <div style={{ fontSize: 11, fontWeight: 700, color: RED, textTransform: "uppercase", letterSpacing: 1.5, whiteSpace: "nowrap" }}>Tax Increases</div>
+        <div style={{ flex: 1, height: 1, background: RED, opacity: 0.25 }} />
+      </div>
       <div style={{ display: "flex", flexDirection: "column", gap: 16, marginBottom: 24 }}>
         {ORDER.map(function (bucketName) {
           var b = brackets.find(function (x) { return x.bucket === bucketName; });
@@ -3074,10 +3137,16 @@ function TaxPage({ taxData }) {
       </div>
 
       {/* Summary if anything selected */}
-      {additionalRevenue !== 0 && (
-        <div style={{ background: additionalRevenue >= DEFICIT_B ? "#f0fdf4" : "#fef2f2", borderRadius: 10, padding: "16px 20px", marginBottom: 20, borderLeft: "4px solid " + (additionalRevenue >= DEFICIT_B ? BLOCK_POS : BLOCK_NEG) }}>
+      {(additionalRevenue !== 0 || spendingSavings > 0) && (
+        <div style={{ background: totalClosed >= DEFICIT_B ? "#f0fdf4" : "#fef2f2", borderRadius: 10, padding: "16px 20px", marginBottom: 20, borderLeft: "4px solid " + (totalClosed >= DEFICIT_B ? BLOCK_POS : BLOCK_NEG) }}>
           <div style={{ fontSize: 14, fontWeight: 600, color: TEXT, marginBottom: 8 }}>Summary</div>
           <div style={{ display: "flex", flexDirection: "column", gap: 4, fontSize: 13, color: TEXT }}>
+            {spendingSavings > 0 && (
+              <div style={{ display: "flex", justifyContent: "space-between" }}>
+                <span style={{ color: BLOCK_POS }}>Discretionary cuts ({cutPct}%)</span>
+                <span style={{ color: BLOCK_POS }}>+{fmtAmt(spendingSavings * 1000)}/yr</span>
+              </div>
+            )}
             {ORDER.map(function (bucketName) {
               var b   = brackets.find(function (x) { return x.bucket === bucketName; });
               var cr = rates[bucketName] !== undefined ? rates[bucketName] : b.effective_rate_pct;
@@ -3092,15 +3161,15 @@ function TaxPage({ taxData }) {
               );
             })}
             <div style={{ display: "flex", justifyContent: "space-between", borderTop: "1px solid " + BORDER, paddingTop: 6, marginTop: 4, fontWeight: 700 }}>
-              <span>Total additional revenue</span>
-              <span style={{ color: additionalRevenue >= DEFICIT_B ? BLOCK_POS : BLOCK_NEG }}>+{fmtAmt(additionalRevenue * 1000)}/yr</span>
+              <span>Total deficit reduction</span>
+              <span style={{ color: totalClosed >= DEFICIT_B ? BLOCK_POS : BLOCK_NEG }}>+{fmtAmt(totalClosed * 1000)}/yr</span>
             </div>
             <div style={{ display: "flex", justifyContent: "space-between", fontWeight: 700 }}>
               <span>Remaining deficit</span>
-              <span style={{ color: additionalRevenue >= DEFICIT_B ? BLOCK_POS : BLOCK_NEG }}>
-                {additionalRevenue >= DEFICIT_B
-                  ? "Surplus +" + fmtAmt((additionalRevenue - DEFICIT_B) * 1000)
-                  : fmtAmt((DEFICIT_B - additionalRevenue) * 1000) + " remaining"}
+              <span style={{ color: totalClosed >= DEFICIT_B ? BLOCK_POS : BLOCK_NEG }}>
+                {totalClosed >= DEFICIT_B
+                  ? "Surplus +" + fmtAmt((totalClosed - DEFICIT_B) * 1000)
+                  : fmtAmt((DEFICIT_B - totalClosed) * 1000) + " remaining"}
               </span>
             </div>
           </div>
@@ -3389,7 +3458,7 @@ export default function App() {
     /* 10 */ <CrowdingOutTextPage />,
     /* 11 */ <NetInterestPage    spendingData={spendingData} />,
     /* 12 */ <BudgetDilemmaPage  spendingData={spendingData} summaryData={summaryData} />,
-    /* 13 */ <TaxPage taxData={taxData} deficitProj={deficitProj} />,
+    /* 13 */ <TaxPage taxData={taxData} deficitProj={deficitProj} spendingData={spendingData} summaryData={summaryData} />,
   ];
 
   return (
