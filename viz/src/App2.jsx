@@ -412,19 +412,15 @@ function Tour({ steps, onDone }) {
   return (
     <div style={{ position: "fixed", inset: 0, zIndex: 1000, pointerEvents: "none" }}>
 
-      {/* Tour panel — fixed strip in the right gutter outside the 1100px content area */}
+      {/* Tour panel — centered above content, works at any viewport width */}
       <div style={{
         position: "fixed",
         top: 80,
-        bottom: 80,
-        right: 0,
-        width: "calc(50vw - 550px - 8px)",
-        minWidth: 0,
+        left: "50%",
+        transform: "translateX(-50%)",
+        width: "min(340px, calc(100vw - 32px))",
         pointerEvents: "auto",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        padding: "0 8px",
+        zIndex: 1001,
       }}>
         <div style={{
           background: "#fff",
