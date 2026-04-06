@@ -494,6 +494,33 @@ function TourBtn({ onOpen }) {
   );
 }
 
+// Inline info icon with styled hover tooltip (matches TourBtn style)
+function InfoTip({ text }) {
+  var _hov = useState(false); var hov = _hov[0]; var setHov = _hov[1];
+  return (
+    <div style={{ position: "relative", display: "inline-flex", alignItems: "center", flexShrink: 0 }}
+      onMouseEnter={function () { setHov(true); }}
+      onMouseLeave={function () { setHov(false); }}>
+      <span style={{ cursor: "help", fontSize: 14, color: BLUE, fontWeight: 400, lineHeight: 1 }}>ⓘ</span>
+      {hov && (
+        <div style={{
+          position: "absolute", bottom: "calc(100% + 8px)", left: "50%", transform: "translateX(-50%)",
+          background: "#fff", border: "1px solid #e5e7eb",
+          boxShadow: "0 4px 20px rgba(0,0,0,0.12)",
+          borderRadius: 10, padding: "14px 12px",
+          width: 300, zIndex: 300,
+          pointerEvents: "none", whiteSpace: "normal",
+        }}>
+          {text.split("\n\n").map(function (para, i) {
+            return <p key={i} style={{ fontSize: 11, color: "#374151", lineHeight: 1.55, margin: i === 0 ? 0 : "8px 0 0" }}>{para}</p>;
+          })}
+          <div style={{ position: "absolute", bottom: -5, left: "50%", transform: "translateX(-50%) rotate(45deg)", width: 10, height: 10, background: "#fff", border: "1px solid #e5e7eb", borderTop: "none", borderLeft: "none" }} />
+        </div>
+      )}
+    </div>
+  );
+}
+
 // ─────────────────────────────────────────────
 // PAGE COMPONENTS
 // ─────────────────────────────────────────────
@@ -1052,10 +1079,7 @@ function DebtAccumulation({ summaryData, debtData }) {
         <div style={{ marginTop: 20, padding: "12px 16px", background: "#f9fafb", borderRadius: 8, border: "1px solid " + BORDER }}>
           <div style={{ fontSize: 13, fontWeight: 600, color: TEXT, marginBottom: 6, position: "relative", display: "inline-flex", alignItems: "center", gap: 6 }}>
             Debt Reconciliation — FY{cur.year}
-            <span
-              title={"You may notice that the annual deficit doesn\u2019t exactly match the change in the Gross Federal Debt. That\u2019s because some government activities affect borrowing even though they don\u2019t appear in the budget.\n\nOne example is the way trust funds work. Programs like Social Security are required to hold Treasury bonds so that money will be available when future benefits exceed incoming payroll taxes. When these trust funds receive contributions, the Treasury issues bonds to them \u2014 increasing gross federal debt even though this doesn\u2019t change the deficit.\n\nAnother example involves activities that are \u2018off-budget.\u2019 A major one today is the Federal Reserve. The Fed earns interest on the assets it holds, but it also pays interest on the reserves that banks keep with it. At the moment, the Fed is paying out more in interest than it earns, which reduces the cash it normally returns to the Treasury. That shortfall increases the amount Treasury must borrow, even though it doesn\u2019t show up in the budget.\n\nThese and other cash-flow items are grouped under \u2018Other adjustments\u2019 in the table below. Together, they explain why the change in Gross Federal Debt can be larger or smaller than the deficit in any given year."}
-              style={{ cursor: "help", fontSize: 14, color: BLUE, fontWeight: 400 }}
-            >ⓘ</span>
+            <InfoTip text={"The bottom-line gross federal debt is split into debt held by the public and debt that is borrowed from the government itself. Public debt includes all of the outstanding deficits along with smaller items, like short term debt the treasury issues to cover cash needs.\n\nIntragovernmental debt is borrowed from the surplus budget of trust funds, like those that fund social security. While it still needs to be repaid, it\u2019s not directly marketable to the public and doesn\u2019t compete for investment with the private sector."} />
           </div>
           <div style={{ fontSize: 12, color: MUTED, lineHeight: 1.8 }}>
             {[
@@ -1280,6 +1304,8 @@ function DebtToGDPViz({ data }) {
       <div style={{ display: "flex", gap: 16, marginTop: 14, flexWrap: "wrap", alignItems: "center", fontSize: 11, color: MUTED }}>
         <span>Each block = 0.5% of GDP · Scroll to explore · Hover for details</span>
       </div>
+
+
     </div>
   );
 }
