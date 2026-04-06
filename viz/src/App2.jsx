@@ -1325,7 +1325,7 @@ function DebtToGDPPage({ debtPctData }) {
       <p style={{ fontSize: 13, color: MUTED, margin: "0 0 16px" }}>Each block = 0.5% of national income. Columns grow downward. Move the scroll bar to the right to explore further back in time.</p>
       <Card style={{ borderLeft: "4px solid " + RED, overflowX: "auto" }}>
         {debtPctData
-          ? <DebtToGDPViz data={debtPctData} />
+         ? <DebtToGDPViz data={debtPctData} />
           : <div style={{ color: MUTED, fontSize: 14, padding: "40px 0", textAlign: "center" }}>Loading…</div>
         }
       </Card>
@@ -2109,13 +2109,6 @@ function OBBBAPage({ deficitProj, niProj, projSummary }) {
     return out;
   }, [deficitProj]);
 
-  var niSeries = useMemo(function () {
-    if (!niProj) return {};
-    var out = {};
-    niProj.forEach(function (r) { if (!out[r.scenario]) out[r.scenario] = {}; out[r.scenario][r.year] = r.net_interest_billions; });
-    return out;
-  }, [niProj]);
-
   // GDP by year from projections_summary.csv (billions) — category "GDP", CBO Feb 2026
   var gdpByYear = useMemo(function () {
     if (!projSummary) return {};
@@ -2134,11 +2127,32 @@ function OBBBAPage({ deficitProj, niProj, projSummary }) {
   var febDef  = deficitSeries["feb_2026_current_law"]  || {};
   var noTarDef = deficitSeries["no_tariff_revenue"]    || {};
 
-  var janNI    = niSeries["jan_2025_baseline"]    || {};
-  var febNI    = niSeries["feb_2026_current_law"] || {};
-  var noTarNI  = niSeries["no_tariff_revenue"]    || {};
-
   var _mode = useState("pct"); var mode = _mode[0]; var setMode = _mode[1];
+  var _scrubYear = useState(2026); var scrubYear = _scrubYear[0]; var setScrubYear = _scrubYear[1];
+  var _pileScenario = useState("no_tariff_revenue"); var pileScenario = _pileScenario[0]; var setPileScenario = _pileScenario[1];
+
+  // Debt pile constants
+  var PILE_YEARS       = [2025,2026,2027,2028,2029,2030,2031,2032,2033,2034,2035];
+  var ANCHOR_DEBT_B    = 28200;
+  var PILE_BLOCK_B     = 10;
+  var PILE_COLS        = 120;
+  var PILE_SZ          = 5;
+  var PILE_GAP         = 1;
+  var PILE_CELL        = PILE_SZ + PILE_GAP;
+  var PILE_YEAR_COLORS = ["#fecaca","#fca5a5","#f87171","#ef4444","#dc2626","#b91c1c",
+                          "#991b1b","#7f1d1d","#ef4444","#dc2626","#b91c1c"];
+
+  var pileActiveSeries = useMemo(function () {
+    var base = deficitSeries[pileScenario] || {};
+    if (!base[2025] && febDef[2025]) return Object.assign({}, base, { 2025: febDef[2025] });
+    return base;
+  }, [deficitSeries, pileScenario]);
+
+  var cumulativeByYear = useMemo(function () {
+    var cum = ANCHOR_DEBT_B; var out = {};
+    PILE_YEARS.forEach(function (y) { cum += (pileActiveSeries[y] || 0); out[y] = cum; });
+    return out;
+  }, [pileActiveSeries]);
 
   return (
     <div>
@@ -2174,12 +2188,63 @@ function OBBBAPage({ deficitProj, niProj, projSummary }) {
         <h3 style={{ fontSize: 16, fontWeight: 700, color: TEXT, margin: "0 0 16px" }}>Annual Deficits</h3>
         <ProjectionPanel years={years} baselineSeries={janDef} obbbaWithTariffSeries={febDef} obbbaNoTariffSeries={noTarDef} gdpByYear={gdpByYear} mode={mode} />
       </Card>
-      <p style={{ fontSize: 15, color: TEXT, lineHeight: 1.75, margin: "0 0 20px" }}>
-        Because so much debt is being added every year, the government will have to pay interest on a larger pile of debt every year. By 2035, our net interest payments will go up by 50% as a share of national income.
+      <p style={{ fontSize: 15, color: TEXT, lineHeight: 1.75, margin: "0 0 16px" }}>
+        These deficits accumulate into a growing pile of public debt. Drag the slider to see how the debt grows year by year through 2035.
       </p>
-      <Card id="obbba-ni-card" style={{ borderLeft: "4px solid " + RED }}>
-        <h3 style={{ fontSize: 16, fontWeight: 700, color: TEXT, margin: "0 0 16px" }}>Net Interest Payments</h3>
-        <ProjectionPanel years={years} baselineSeries={janNI} obbbaWithTariffSeries={febNI} obbbaNoTariffSeries={noTarNI} gdpByYear={gdpByYear} mode={mode} />
+      <div style={{ display: "flex", gap: 24, marginBottom: 12, flexWrap: "wrap" }}>
+        <div style={{ background: "#fef2f2", borderRadius: 8, padding: "10px 16px", flex: "1 1 140px" }}>
+          <div style={{ fontSize: 11, color: MUTED, textTransform: "uppercase", letterSpacing: 0.5 }}>Annual deficit</div>
+          <div style={{ fontSize: 20, fontWeight: 700, color: RED }}>${((pileActiveSeries[scrubYear] || 0) / 1000).toFixed(2)}T</div>
+        </div>
+        <div style={{ background: "#fef2f2", borderRadius: 8, padding: "10px 16px", flex: "1 1 140px" }}>
+          <div style={{ fontSize: 11, color: MUTED, textTransform: "uppercase", letterSpacing: 0.5 }}>Cumulative debt</div>
+          <div style={{ fontSize: 20, fontWeight: 700, color: RED }}>${((cumulativeByYear[scrubYear] || 0) / 1000).toFixed(1)}T</div>
+        </div>
+        <div style={{ background: "#f9fafb", borderRadius: 8, padding: "10px 16px", flex: "1 1 140px" }}>
+          <div style={{ fontSize: 11, color: MUTED, textTransform: "uppercase", letterSpacing: 0.5 }}>Added since 2024</div>
+          <div style={{ fontSize: 20, fontWeight: 700, color: RED }}>${(((cumulativeByYear[scrubYear] || 0) - ANCHOR_DEBT_B) / 1000).toFixed(1)}T</div>
+        </div>
+      </div>
+      <div style={{ margin: "0 0 16px", display: "flex", alignItems: "center", gap: 12 }}>
+        <span style={{ fontSize: 12, color: MUTED, whiteSpace: "nowrap" }}>Scrub year:</span>
+        <input type="range" min={0} max={PILE_YEARS.length - 1}
+          value={PILE_YEARS.indexOf(scrubYear) === -1 ? PILE_YEARS.length - 1 : PILE_YEARS.indexOf(scrubYear)}
+          onChange={function (e) { setScrubYear(PILE_YEARS[Number(e.target.value)]); }}
+          style={{ flex: 1, accentColor: RED }} />
+        <span style={{ fontSize: 13, fontWeight: 600, color: TEXT, minWidth: 36 }}>{scrubYear}</span>
+      </div>
+      <Card style={{ borderLeft: "4px solid #4a0000" }}>
+        <h3 style={{ fontSize: 15, fontWeight: 600, color: TEXT, margin: "0 0 14px" }}>Cumulative Debt Held by Public</h3>
+        <p style={{ fontSize: 12, color: MUTED, margin: "0 0 10px" }}>Each block = $10B. Gray = existing debt (~$28.2T end of 2024). Colors match deficit years above.</p>
+        <div style={{ width: PILE_COLS * PILE_CELL }}>
+          {(function () {
+            var segments = [{ year: "anchor", count: Math.round(ANCHOR_DEBT_B / PILE_BLOCK_B), color: "#9ca3af" }];
+            PILE_YEARS.forEach(function (y, idx) {
+              if (y > scrubYear) return;
+              segments.push({ year: y, count: Math.round((pileActiveSeries[y] || 0) / PILE_BLOCK_B), color: PILE_YEAR_COLORS[idx] || RED });
+            });
+            return segments.map(function (seg) {
+              if (seg.count === 0) return null;
+              var paddedCount = Math.ceil(seg.count / PILE_COLS) * PILE_COLS;
+              var rows = paddedCount / PILE_COLS;
+              var isScrub = scrubYear === seg.year;
+              var opacity = seg.year === "anchor" ? 0.7 : isScrub ? 1 : 0.8;
+              return (
+                <div key={seg.year} style={{
+                  width: PILE_COLS * PILE_CELL,
+                  height: rows * PILE_CELL,
+                  backgroundImage: "repeating-linear-gradient(to bottom, transparent 0px, transparent " + PILE_SZ + "px, rgba(255,255,255,0.3) " + PILE_SZ + "px, rgba(255,255,255,0.3) " + PILE_CELL + "px), repeating-linear-gradient(to right, " + seg.color + " 0px, " + seg.color + " " + PILE_SZ + "px, rgba(255,255,255,0.3) " + PILE_SZ + "px, rgba(255,255,255,0.3) " + PILE_CELL + "px)",
+                  opacity: opacity,
+                  outline: isScrub && seg.year !== "anchor" ? "2px solid " + seg.color : "none",
+                  outlineOffset: -1,
+                }} />
+              );
+            });
+          })()}
+        </div>
+        <div style={{ marginTop: 12, fontSize: 13, color: MUTED }}>
+          Total projected debt by 2035: <strong style={{ color: RED }}>${((cumulativeByYear[2035] || 0) / 1000).toFixed(1)}T</strong>
+        </div>
       </Card>
       <p style={{ fontSize: 12, color: MUTED, marginTop: 16 }}>Sources: <a href="https://www.cbo.gov/publication/62105" target="_blank" rel="noreferrer" style={{ color: BLUE }}>CBO February 2026 Budget Projections (pub. 62105)</a>; <a href="https://www.cbo.gov/publication/61570" target="_blank" rel="noreferrer" style={{ color: BLUE }}>CBO OBBBA cost estimate (pub. 61570)</a>.</p>
     </div>
@@ -2188,7 +2253,7 @@ function OBBBAPage({ deficitProj, niProj, projSummary }) {
 
 /* ── III.a  Crowding Out ─────────────────── */
 function CrowdingOutPage({ spendingData, summaryData }) {
-  var tour = useTour(9);
+  var tour = useTour(8);
   var _hov = useState(null); var hovYear = _hov[0]; var setHovYear = _hov[1];
 
   var series = useMemo(function () {
