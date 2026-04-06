@@ -114,7 +114,7 @@ var PAGES = [
   {
     section: 0,
     component: "DebtToGDPPage",        // I.c  — debt-to-GDP time series
-    title: "Debt Divided by National Income (in %)",
+    title: "Debt as a Percent of National Income (Our Ability to Pay)",
     prompt: "What changed the trajectory along the way?",
   },
   {
@@ -328,7 +328,7 @@ var TOUR_CONFIGS = {
   ],
   // Page 2 — Debt Accumulation
   2: [
-    { title: "Drag the slider", body: "Drag the slider to see how the deficit and the debt have changed since 1970. Each year's deficit gets added as new blocks at the end of the pile." },
+    { title: "Drag the slider", body: "Scrub the slider left and right to move through time and watch the national debt pile grow. Each year's deficit gets added as new blocks at the end of the pile." },
     { title: "Hover the debt pile", body: "Hover any block in the pile to see which fiscal year it came from. Gray blocks represent debt inherited from before 1970." },
     { title: "Debt reconciliation", body: "The box at the bottom breaks down how the total gross federal debt is composed — pre-1970 inherited debt, cumulative deficits since 1970, and trust fund borrowing." },
   ],
@@ -867,7 +867,7 @@ function DeficitHistoryPage({ deficitData }) {
         <TourBtn onOpen={tour.reopen} />
       </div>
       <p style={{ fontSize: 15, color: TEXT, lineHeight: 1.75, margin: "0 0 6px" }}>
-        The United States has run a deficit in most years — but the size of those deficits relative to the economy has varied enormously. Wars, recessions, and policy choices have all left their mark on the fiscal record.
+        The United States has run a deficit in most years of its history — but the size of those deficits relative to the economy has varied enormously. Wars, recessions, and policy choices have all left their mark on the fiscal record.
       </p>
       <p style={{ fontSize: 13, color: MUTED, margin: "0 0 16px" }}>Each block = 0.5% of GDP. Green columns rise above the line for surplus years; red columns fall below for deficits.</p>
       <Card style={{ borderLeft: "4px solid " + RED, overflowX: "auto" }}>
@@ -990,7 +990,7 @@ function DebtAccumulation({ summaryData, debtData }) {
       <p style={{ fontSize: 15, color: TEXT, lineHeight: 1.75, margin: "0 0 6px" }}>
         Our national debt has grown to over $39 trillion as of 2026, up from $35.23 trillion as of Fiscal Year (FY) 2024. Like regular loans, as the government runs a deficit for a longer period of time, interest payments increase as well, creating a compounding effect.
       </p>
-      <p style={{ margin: "0 0 20px" }}><span style={{ fontSize: 15, color: "#c0392b", fontWeight: 700 }}>Drag the slider to see how the deficit and the debt have changed since 1970.</span>{" "}<span style={{ fontSize: 13, color: MUTED }}>Each block = $10B.</span></p>
+      <p style={{ fontSize: 13, color: MUTED, margin: "0 0 20px" }}>Drag the slider to scrub through time. Each block = $10B.</p>
       <Card style={{ borderLeft: "4px solid " + RED }}>
         <div style={{ marginBottom: 20 }}>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 6 }}>
@@ -1054,13 +1054,7 @@ function DebtAccumulation({ summaryData, debtData }) {
           <div style={{ fontSize: 11, color: MUTED, marginTop: 6 }}>Gray = pre-1970 debt. Colored = deficit-driven since 1970. Hover to see year.</div>
         </div>
         <div style={{ marginTop: 20, padding: "12px 16px", background: "#f9fafb", borderRadius: 8, border: "1px solid " + BORDER }}>
-          <div style={{ fontSize: 13, fontWeight: 600, color: TEXT, marginBottom: 6, position: "relative", display: "inline-flex", alignItems: "center", gap: 6 }}>
-            Debt Reconciliation — FY{cur.year}
-            <span
-              title={"You may notice that the annual deficit doesn\u2019t exactly match the change in the Gross Federal Debt. That\u2019s because some government activities affect borrowing even though they don\u2019t appear in the budget.\n\nOne example is the way trust funds work. Programs like Social Security are required to hold Treasury bonds so that money will be available when future benefits exceed incoming payroll taxes. When these trust funds receive contributions, the Treasury issues bonds to them \u2014 increasing gross federal debt even though this doesn\u2019t change the deficit.\n\nAnother example involves activities that are \u2018off-budget.\u2019 A major one today is the Federal Reserve. The Fed earns interest on the assets it holds, but it also pays interest on the reserves that banks keep with it. At the moment, the Fed is paying out more in interest than it earns, which reduces the cash it normally returns to the Treasury. That shortfall increases the amount Treasury must borrow, even though it doesn\u2019t show up in the budget.\n\nThese and other cash-flow items are grouped under \u2018Other adjustments\u2019 in the table below. Together, they explain why the change in Gross Federal Debt can be larger or smaller than the deficit in any given year."}
-              style={{ cursor: "help", fontSize: 14, color: BLUE, fontWeight: 400 }}
-            >ⓘ</span>
-          </div>
+          <div style={{ fontSize: 13, fontWeight: 600, color: TEXT, marginBottom: 6 }}>Debt Reconciliation — FY{cur.year}</div>
           <div style={{ fontSize: 12, color: MUTED, lineHeight: 1.8 }}>
             {[
               { label: "Pre-1970 inherited debt",                          val: fmtAmt(pre1970Debt),             color: MUTED },
@@ -1294,11 +1288,11 @@ function DebtToGDPPage({ debtPctData }) {
     <div>
       {tour.show && <Tour steps={tour.steps} onDone={tour.done} />}
       <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", marginBottom: 6 }}>
-        <h2 style={{ fontSize: 22, fontWeight: 700, color: TEXT, margin: 0 }}>Debt Divided by National Income (in %)</h2>
+        <h2 style={{ fontSize: 22, fontWeight: 700, color: TEXT, margin: 0 }}>Debt as a Percent of National Income (Our Ability to Pay)</h2>
         <TourBtn onOpen={tour.reopen} />
       </div>
       <p style={{ fontSize: 15, color: TEXT, lineHeight: 1.75, margin: "0 0 6px" }}>
-        Federal debt held by the public has swung dramatically over the past 85 years. At the end of WWII it was 106% of national income, but it declined rapidly as the economy grew in the post-war years — down to just 22% by 1974. It went back to nearly 100% following the 2008 financial crisis and COVID-19 pandemic. At the end of 2025 that number was only slightly lower than the 2020 peak.
+        Federal debt held by the public has swung dramatically over the past 85 years — from a WWII peak of 106% of national income, down to just 22% by 1974 as the post-war economy grew faster than the debt, and back up to nearly 100% following the 2008 financial crisis and COVID-19 pandemic. National income (or GDP) is a measure of how much value a country produces in a year through goods, services, and government services.
       </p>
       <p style={{ fontSize: 13, color: MUTED, margin: "0 0 16px" }}>Each block = 0.5% of national income. Columns grow downward. Move the scroll bar to the right to explore further back in time.</p>
       <Card style={{ borderLeft: "4px solid " + RED, overflowX: "auto" }}>
@@ -1511,7 +1505,7 @@ function ObamaEraPage({ stabilizersData, stimulusData }) {
         <TourBtn onOpen={tour.reopen} />
       </div>
       <p style={{ fontSize: 15, color: TEXT, lineHeight: 1.75, margin: "0 0 10px" }}>
-        When a recession hits, the federal government runs larger deficits. Some of this is through new laws, like the CARES Act during COVID or the American Recovery and Reinvestment Act (ARRA) after the 2008 Financial Crisis. These try to stimulate the economy by borrowing money and spending it in sectors affected by the recession. That is the main reason the deficit jumps at the start of these crises.
+        When a recession hits, the federal government runs larger deficits. Some of this is through new laws, like the CARES Act during COVID or the American Recovery and Reinvestment Act (ARRA) after the 2008 Financial Crisis. These try to stimulate the economy by borrowing money and spending it in sectors affected by the recession. This is shown below in blue. The rest of the structural deficit — driven by existing policy and demographics — is shown in grey.
       </p>
       <p style={{ fontSize: 15, color: TEXT, lineHeight: 1.75, margin: "0 0 16px" }}>
         The rest of the deficit comes from changes that took place through existing laws. Automatic stabilizers, shown in amber, are programs like unemployment insurance and food assistance that automatically pay out more when more people need them. As more people lost their jobs, they paid less in taxes — decreasing government revenue — and became eligible for government programs like food stamps, increasing government spending.
@@ -3282,13 +3276,6 @@ function TaxPage({ taxData, spendingData, summaryData }) {
         Source: <a href="https://www.irs.gov/statistics/soi-tax-stats-individual-income-tax-returns-complete-report-publication-1304" target="_blank" rel="noreferrer" style={{ color: BLUE }}>IRS Statistics of Income, Publication 1304, Table 1.4, Tax Year 2023</a>.
         Static scoring only — does not account for behavioral responses or supply-side effects.
       </p>
-
-      <div style={{ textAlign: "center", marginTop: 24, paddingTop: 20, borderTop: "1px solid " + BORDER }}>
-        <a href="/obbba/" style={{
-          display: "inline-block", padding: "10px 24px", background: BLUE, color: "#fff",
-          borderRadius: 8, textDecoration: "none", fontSize: 15, fontWeight: 600,
-        }}>← Back to the Impact Map</a>
-      </div>
     </div>
   );
 }
