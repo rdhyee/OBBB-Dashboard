@@ -1374,7 +1374,7 @@ function AutoStabPanel({ data, stimulusByYear, yearStart, yearEnd, maxRows, labe
             <span style={{ fontSize: 18, fontWeight: 700, color: TEXT }}>{hovRow.year}</span>
             <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
               <span style={{ fontSize: 12, color: C_STRUCTURAL }}>
-                Structural: {hovRow.deficit_pct_without_stabilizers.toFixed(1)}%
+                Structural: {Math.abs(hovRow.deficit_pct_without_stabilizers).toFixed(1)}% of GDP
               </span>
               {hovStim > 0 && (
                 <span style={{ fontSize: 12, color: C_STIMULUS }}>
@@ -1382,7 +1382,7 @@ function AutoStabPanel({ data, stimulusByYear, yearStart, yearEnd, maxRows, labe
                 </span>
               )}
               <span style={{ fontSize: 12, color: C_STABILIZER }}>
-                Auto stabilizers: {hovRow.stabilizer_effect_pct.toFixed(2)}%
+                Auto stabilizers: {Math.abs(hovRow.stabilizer_effect_pct).toFixed(1)}% of GDP
               </span>
             </div>
           </div>
