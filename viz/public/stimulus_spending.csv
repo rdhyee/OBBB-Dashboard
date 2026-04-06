@@ -1,0 +1,33 @@
+law,fiscal_year,category,amount_billions,pct_gdp
+ARRA,2009,Discretionary Outlays,34.8,0.24
+ARRA,2009,Mandatory Outlays,85.3,0.59
+ARRA,2009,Revenue Reductions,64.8,0.45
+ARRA,2009,Total Direct Cost,184.89999999999998,1.28
+ARRA,2010,Discretionary Outlays,110.7,0.74
+ARRA,2010,Mandatory Outlays,108.6,0.72
+ARRA,2010,Revenue Reductions,180.1,1.2
+ARRA,2010,Total Direct Cost,399.4,2.65
+ARRA,2011,Discretionary Outlays,76.3,0.49
+ARRA,2011,Mandatory Outlays,49.9,0.32
+ARRA,2011,Revenue Reductions,8.2,0.05
+ARRA,2011,Total Direct Cost,134.4,0.86
+ARRA,2012,Discretionary Outlays,38.1,0.23
+ARRA,2012,Mandatory Outlays,8.1,0.05
+ARRA,2012,Revenue Reductions,10.0,0.06
+ARRA,2012,Total Direct Cost,56.2,0.35
+ARRA,2013,Discretionary Outlays,22.9,0.14
+ARRA,2013,Mandatory Outlays,7.4,0.04
+ARRA,2013,Revenue Reductions,2.7,0.02
+ARRA,2013,Total Direct Cost,33.0,0.2
+CARES Act,2020,Discretionary Outlays,99.0,0.46
+CARES Act,2020,Mandatory Outlays,938.0,4.39
+CARES Act,2020,Revenue Reductions,568.0,2.66
+CARES Act,2020,Total Direct Cost,1605.0,7.51
+CARES Act,2021,Discretionary Outlays,134.0,0.56
+CARES Act,2021,Mandatory Outlays,73.0,0.31
+CARES Act,2021,Revenue Reductions,240.0,1.01
+CARES Act,2021,Total Direct Cost,447.0,1.88
+CARES Act,2022,Discretionary Outlays,58.0,0.22
+CARES Act,2022,Mandatory Outlays,3.0,0.01
+CARES Act,2022,Revenue Reductions,177.0,0.68
+CARES Act,2022,Total Direct Cost,238.0,0.91

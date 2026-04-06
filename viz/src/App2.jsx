@@ -1320,8 +1320,9 @@ var STAB_COL_GAP    = 14;    // px gap between year columns
 // Colors
 var C_STRUCTURAL   = "#374151";    // structural deficit (policy + demographics) — dark grey
 var C_STABILIZER   = "#c8860a";    // automatic stabilizer component
+var C_STIMULUS     = "#1e40af";    // discretionary stimulus (ARRA / CARES)
 
-function AutoStabPanel({ data, yearStart, yearEnd, maxRows, label }) {
+function AutoStabPanel({ data, stimulusByYear, yearStart, yearEnd, maxRows, label }) {
   var _hov = useState(null); var hovYear = _hov[0]; var setHovYear = _hov[1];
 
   var filtered = useMemo(function () {
@@ -1331,6 +1332,7 @@ function AutoStabPanel({ data, yearStart, yearEnd, maxRows, label }) {
   var chartH = maxRows * STAB_CELL;
   var totalW = filtered.length * (STAB_COL_W + STAB_COL_GAP);
   var hovRow = hovYear != null ? filtered.find(function (r) { return r.year === hovYear; }) : null;
+  var hovStim = hovYear != null ? (stimulusByYear[hovYear] || 0) : 0;
 
   return (
     <div style={{ flex: "1 1 300px", minWidth: 260 }}>
@@ -1346,10 +1348,14 @@ function AutoStabPanel({ data, yearStart, yearEnd, maxRows, label }) {
               <span style={{ fontSize: 12, color: C_STRUCTURAL }}>
                 Structural: {hovRow.deficit_pct_without_stabilizers.toFixed(1)}%
               </span>
+              {hovStim > 0 && (
+                <span style={{ fontSize: 12, color: C_STIMULUS }}>
+                  Stimulus: {hovStim.toFixed(1)}% of GDP
+                </span>
+              )}
               <span style={{ fontSize: 12, color: C_STABILIZER }}>
                 Auto stabilizers: {hovRow.stabilizer_effect_pct.toFixed(2)}%
               </span>
-
             </div>
           </div>
         ) : (
@@ -1386,9 +1392,12 @@ function AutoStabPanel({ data, yearStart, yearEnd, maxRows, label }) {
           {filtered.map(function (row, i) {
             var totalPct   = Math.abs(row.deficit_pct_with_stabilizers);
             var structPct  = Math.abs(row.deficit_pct_without_stabilizers);
+            var gdp        = row.gdp_billions || 1;
+            var stimPct    = stimulusByYear[row.year] || 0;
 
             var totalBlocks  = Math.round(totalPct  / STAB_BLOCK_PCT);
             var structBlocks = Math.round(structPct / STAB_BLOCK_PCT);
+            var stimBlocks   = Math.min(Math.round(stimPct / STAB_BLOCK_PCT), structBlocks);
 
             var paddedTotal  = Math.ceil(totalBlocks / STAB_COLS_WIDE) * STAB_COLS_WIDE;
 
@@ -1400,7 +1409,10 @@ function AutoStabPanel({ data, yearStart, yearEnd, maxRows, label }) {
               var bRow = Math.floor(b / STAB_COLS_WIDE);
               var bCol = b % STAB_COLS_WIDE;
               if (b >= totalBlocks) { blockList.push({ bRow: bRow, bCol: bCol, color: null }); continue; }
-              var color = b < structBlocks ? C_STRUCTURAL : C_STABILIZER;
+              var color;
+              if (b < (structBlocks - stimBlocks))  color = C_STRUCTURAL;
+              else if (b < structBlocks)             color = C_STIMULUS;
+              else                                   color = C_STABILIZER;
               blockList.push({ bRow: bRow, bCol: bCol, color: color });
             }
 
@@ -1424,7 +1436,6 @@ function AutoStabPanel({ data, yearStart, yearEnd, maxRows, label }) {
                     }} />
                   );
                 })}
-
               </div>
             );
           })}
@@ -1434,7 +1445,7 @@ function AutoStabPanel({ data, yearStart, yearEnd, maxRows, label }) {
   );
 }
 
-function AutoStabViz({ data }) {
+function AutoStabViz({ data, stimulusData }) {
   // Calculate shared maxRows across both panels so heights match
   var maxAbs = useMemo(function () {
     var rows = data.filter(function (r) {
@@ -1445,17 +1456,29 @@ function AutoStabViz({ data }) {
   var maxBlocks = Math.ceil(maxAbs / STAB_BLOCK_PCT);
   var maxRows   = Math.ceil(maxBlocks / STAB_COLS_WIDE);
 
+  // Build {year: pct_gdp} lookup for stimulus — sum all categories per year
+  var stimulusByYear = useMemo(function () {
+    if (!stimulusData) return {};
+    var out = {};
+    stimulusData.filter(function (r) { return r.category === 'Total Direct Cost'; })
+      .forEach(function (r) {
+        out[r.fiscal_year] = (out[r.fiscal_year] || 0) + (r.pct_gdp || 0);
+      });
+    return out;
+  }, [stimulusData]);
+
   return (
     <div>
       {/* Two panels side by side */}
       <div style={{ display: "flex", gap: 32, flexWrap: "wrap", alignItems: "flex-start" }}>
-        <AutoStabPanel data={data} yearStart={2008} yearEnd={2014} maxRows={maxRows} label="2008–2014: Financial Crisis + Obama" />
-        <AutoStabPanel data={data} yearStart={2018} yearEnd={2022} maxRows={maxRows} label="2018–2022: COVID + Trump/Biden" />
+        <AutoStabPanel data={data} stimulusByYear={stimulusByYear} yearStart={2008} yearEnd={2014} maxRows={maxRows} label="2008–2014: Financial Crisis + Obama" />
+        <AutoStabPanel data={data} stimulusByYear={stimulusByYear} yearStart={2018} yearEnd={2022} maxRows={maxRows} label="2018–2022: COVID + Trump/Biden" />
       </div>
 
       {/* Legend */}
       <div style={{ display: "flex", gap: 16, marginTop: 16, flexWrap: "wrap", alignItems: "center" }}>
         {[
+          { color: C_STIMULUS,   label: "Stimulus legislation (ARRA / CARES Act)" },
           { color: C_STRUCTURAL, label: "Structural deficit (policy + demographics)" },
           { color: C_STABILIZER, label: "Automatic stabilizers (recession-driven)" },
         ].map(function (l) {
@@ -1468,12 +1491,11 @@ function AutoStabViz({ data }) {
         })}
         <span style={{ fontSize: 11, color: MUTED }}>· Each block = 0.5% of GDP</span>
       </div>
-
     </div>
   );
 }
 
-function ObamaEraPage({ stabilizersData }) {
+function ObamaEraPage({ stabilizersData, stimulusData }) {
   var tour = useTour(4);
   return (
     <div>
@@ -1483,20 +1505,21 @@ function ObamaEraPage({ stabilizersData }) {
         <TourBtn onOpen={tour.reopen} />
       </div>
       <p style={{ fontSize: 15, color: TEXT, lineHeight: 1.75, margin: "0 0 10px" }}>
-        When a recession hits, the federal government runs larger deficits. Some of this is through new laws, like the CARES Act during COVID or the American Recovery and Reinvestment Act (ARRA) after the 2008 Financial Crisis. These try to stimulate the economy by borrowing money and spending it in sectors affected by the recession. This is shown below in grey.
+        When a recession hits, the federal government runs larger deficits. Some of this is through new laws, like the CARES Act during COVID or the American Recovery and Reinvestment Act (ARRA) after the 2008 Financial Crisis. These try to stimulate the economy by borrowing money and spending it in sectors affected by the recession. This is shown below in blue. The rest of the structural deficit — driven by existing policy and demographics — is shown in grey.
       </p>
       <p style={{ fontSize: 15, color: TEXT, lineHeight: 1.75, margin: "0 0 16px" }}>
         The rest of the deficit comes from changes that took place through existing laws. Automatic stabilizers, shown in amber, are programs like unemployment insurance and food assistance that automatically pay out more when more people need them. As more people lost their jobs, they paid less in taxes — decreasing government revenue — and became eligible for government programs like food stamps, increasing government spending.
       </p>
       <Card style={{ borderLeft: "4px solid " + RED }}>
         {stabilizersData
-          ? <AutoStabViz data={stabilizersData} />
+          ? <AutoStabViz data={stabilizersData} stimulusData={stimulusData} />
           : <div style={{ color: MUTED, fontSize: 14, padding: "40px 0", textAlign: "center" }}>Loading…</div>
         }
       </Card>
       <p style={{ fontSize: 12, color: MUTED, marginTop: 12 }}>
-        Source: <a href="https://www.cbo.gov/publication/60662" target="_blank" rel="noreferrer" style={{ color: BLUE }}>CBO, Effects of Automatic Stabilizers on the Federal Budget: 2024 to 2034 (pub. 60662)</a>.
-
+        Sources: <a href="https://www.cbo.gov/publication/60662" target="_blank" rel="noreferrer" style={{ color: BLUE }}>CBO, Effects of Automatic Stabilizers on the Federal Budget: 2024 to 2034 (pub. 60662)</a>;{" "}
+        <a href="https://www.cbo.gov/publication/41762" target="_blank" rel="noreferrer" style={{ color: BLUE }}>CBO, Estimated Impact of the American Recovery and Reinvestment Act on Employment and Economic Output (pub. 41762)</a>;{" "}
+        <a href="https://www.cbo.gov/publication/56334" target="_blank" rel="noreferrer" style={{ color: BLUE }}>CBO, Estimated Budgetary Effects of the CARES Act (pub. 56334)</a>.
       </p>
     </div>
   );
@@ -3500,13 +3523,14 @@ export default function App() {
   var deficitData     = useCSV("deficit_pct_gdp.csv");
   var debtPctData     = useCSV("debt_pct_gdp.csv");
   var stabilizersData = useCSV("automatic_stabilizers.csv");
+  var stimulusData    = useCSV("stimulus_spending.csv");
   var crowdingData    = useCSV("crowding_out.csv");
   var japanData       = useCSV("japan_case_study.csv");
   var taxData         = useCSV("tax_brackets.csv");
 
   var _p = useState(0); var page = _p[0]; var setPage = _p[1];
 
-  var loading = !spendingData || !receiptsData || !summaryData || !debtData || !deficitProj || !niProj || !deficitData || !debtPctData || !stabilizersData || !crowdingData || !taxData;
+  var loading = !spendingData || !receiptsData || !summaryData || !debtData || !deficitProj || !niProj || !deficitData || !debtPctData || !stabilizersData || !stimulusData || !crowdingData || !taxData;
 
   if (loading) {
     return (
@@ -3522,7 +3546,7 @@ export default function App() {
     /* 1  */ <DeficitHistoryPage deficitData={deficitData} />,
     /* 2  */ <DebtAccumulation   summaryData={summaryData} debtData={debtData} />,
     /* 3  */ <DebtToGDPPage      debtPctData={debtPctData} />,
-    /* 4  */ <ObamaEraPage       stabilizersData={stabilizersData} />,
+    /* 4  */ <ObamaEraPage       stabilizersData={stabilizersData} stimulusData={stimulusData} />,
     /* 5  */ <DeficitPage        summaryData={summaryData} />,
     /* 6  */ <RevSpendPage       spendingData={spendingData} receiptsData={receiptsData} summaryData={summaryData} />,
     /* 7  */ <OBBBAPage          deficitProj={deficitProj} niProj={niProj} projSummary={projSummary} />,
