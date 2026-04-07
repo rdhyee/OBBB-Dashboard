@@ -545,7 +545,7 @@ function IntroPage({ onNavigate }) {
 
       {/* Title */}
       <h1 style={{ fontSize: 52, fontWeight: 800, color: TEXT, lineHeight: 1.0, margin: "0 0 24px", letterSpacing: "-1.5px" }}>
-        The Federal<br />Budget
+        Understanding the<br />Deficit and the Debt
       </h1>
 
       {/* Lede */}
