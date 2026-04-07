@@ -3166,7 +3166,7 @@ function TaxPage({ taxData, spendingData, summaryData }) {
     <div>
       {tour.show && <Tour steps={tour.steps} onDone={tour.done} />}
       <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", marginBottom: 6 }}>
-        <h2 style={{ fontSize: 22, fontWeight: 700, color: TEXT, margin: 0 }}>Raising Taxes</h2>
+        <h2 style={{ fontSize: 22, fontWeight: 700, color: TEXT, margin: 0 }}>Balancing the Budget?</h2>
         <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
           {isDirty && (
             <button onClick={resetRates} style={{
@@ -3179,20 +3179,17 @@ function TaxPage({ taxData, spendingData, summaryData }) {
       </div>
 
       <p style={{ fontSize: 15, color: TEXT, lineHeight: 1.75, margin: "0 0 10px" }}>
-        The other lever is raising taxes. Use the sliders below to increase effective tax rates on each income group and see how much additional revenue it would generate against the FY2023 $1.70T deficit.
+        Suppose the government wanted to balance the budget. What composition of spending cuts and tax increases could do that? You can adjust the slider bars below to find out.
       </p>
-      <p style={{ fontSize: 13, color: MUTED, margin: "0 0 20px" }}>
-        Note: these are static scores based on IRS Tax Year 2023 data, matched to the FY2023 deficit of $1.7T. Real revenue would be somewhat lower due to behavioral responses like tax avoidance, reduced hours, and income shifting.
+      <p style={{ fontSize: 13, color: MUTED, lineHeight: 1.7, margin: "0 0 20px" }}>
+        Note: Changes to the sliders below don't take into account how the economy might react to changes in the deficit and taxes. Increasing taxes could lead to less of a gain in revenue if, for example, there is more tax avoidance, people work fewer hours or more income is shifted into tax shelters. On the other hand, as explained before, lowering the deficit can increase future national income. The CBO's analysis of the 2017 tax cut showed that behavioral changes would offset about{" "}
+        <a href="https://taxpolicycenter.org/briefing-book/what-are-dynamic-scoring-and-dynamic-analysis" target="_blank" rel="noreferrer" style={{ color: BLUE }}>27% of the effect of the tax cut on the deficit</a>{" "}
+        relative to the estimate that didn't take behavioral reactions into account. On the other hand, when the Tax Policy Center performed a similar exercise for the tax proposals made by President Biden in his campaign it made{" "}
+        <a href="https://taxpolicycenter.org/briefing-book/what-are-dynamic-scoring-and-dynamic-analysis" target="_blank" rel="noreferrer" style={{ color: BLUE }}>little difference</a>.
       </p>
 
       {/* Progress bar */}
       <div style={{ marginBottom: 24 }}>
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 6 }}>
-          <span style={{ fontSize: 13, color: MUTED }}>Deficit closed</span>
-          <span style={{ fontSize: 20, fontWeight: 700, color: totalClosed >= DEFICIT_B ? BLOCK_POS : BLOCK_NEG }}>
-            {totalClosed >= DEFICIT_B ? "Surplus +" + fmtAmt((totalClosed - DEFICIT_B) * 1000) : fmtAmt(totalClosed * 1000) + " of " + fmtAmt(DEFICIT_B * 1000)}
-          </span>
-        </div>
         <div style={{ height: 14, background: "#f3f4f6", borderRadius: 7, overflow: "hidden", display: "flex" }}>
           {/* Spending savings — green segment */}
           {spendingSavings > 0 && (
@@ -3204,11 +3201,19 @@ function TaxPage({ taxData, spendingData, summaryData }) {
           )}
         </div>
         <div style={{ display: "flex", justifyContent: "space-between", marginTop: 4 }}>
-          <div style={{ display: "flex", gap: 12 }}>
-            {spendingSavings > 0 && <span style={{ fontSize: 11, color: BLOCK_POS }}>▪ Spending cuts: {fmtAmt(spendingSavings * 1000)}</span>}
-            {additionalRevenue > 0 && <span style={{ fontSize: 11, color: "#166534" }}>▪ Tax revenue: {fmtAmt(additionalRevenue * 1000)}</span>}
+          <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
+            <span style={{ fontSize: 11, color: MUTED }}>{fmtAmt(DEFICIT_B * 1000)} deficit</span>
+            <div style={{ display: "flex", gap: 12 }}>
+              {spendingSavings > 0 && <span style={{ fontSize: 11, color: BLOCK_POS }}>▪ Spending cuts: {fmtAmt(spendingSavings * 1000)}</span>}
+              {additionalRevenue > 0 && <span style={{ fontSize: 11, color: "#166534" }}>▪ Tax revenue: {fmtAmt(additionalRevenue * 1000)}</span>}
+            </div>
           </div>
-          <span style={{ fontSize: 11, color: MUTED }}>{fmtAmt(DEFICIT_B * 1000)} deficit</span>
+          <div style={{ textAlign: "right" }}>
+            <span style={{ fontSize: 11, color: MUTED, display: "block" }}>Deficit Closed</span>
+            <span style={{ fontSize: 20, fontWeight: 700, color: totalClosed >= DEFICIT_B ? BLOCK_POS : BLOCK_NEG }}>
+              {totalClosed >= DEFICIT_B ? "Surplus +" + fmtAmt((totalClosed - DEFICIT_B) * 1000) : fmtAmt(totalClosed * 1000) + " of " + fmtAmt(DEFICIT_B * 1000)}
+            </span>
+          </div>
         </div>
       </div>
 
