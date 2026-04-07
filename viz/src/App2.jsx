@@ -139,14 +139,8 @@ var PAGES = [
   },
   {
     section: 1,
-    component: "OBBBAPage",            // II.c — OBBBA scenarios
+    component: "OBBBAPage",            // II.c — OBBBA scenarios + debt pile
     title: "The One Big Beautiful Bill Act",
-    prompt: "What does that mean for the national debt?",
-  },
-  {
-    section: 1,
-    component: "ProjectedDebtPage",    // II.d — projected debt/deficit block viz, scenario toggle
-    title: "Projected Deficits & Debt",
     prompt: "What are the real-world consequences of all this?",
   },
 
@@ -350,36 +344,31 @@ var TOUR_CONFIGS = {
     { title: "Hover to highlight", body: "Hover any block to highlight that category across the grid and legend." },
     { title: "Read the legend", body: "The legend below each grid lists every category with its total. Categories are sorted largest to smallest." },
   ],
-  // Page 8 — Projected Deficits & Debt
-  8: [
-    { title: "Deficits in the next decade", body: "The top panel shows each year's projected deficit as a column of blocks. The bottom panel shows how those deficits accumulate into the national debt pile." },
-    { title: "Toggle the scenario", body: "Use the buttons at the top to switch between a scenario where tariff revenues are maintained and one where they are struck down — and see how the outlook changes." },
-    { title: "Scrub through the next decade", body: "Use the slider to see how each year's deficit is added to future debt, and how it compares to what we've already accumulated." },
-  ],
-  // Page 7 — OBBBA
+  // Page 7 — OBBBA (includes debt pile)
   7: [
     { title: "Increases in the annual deficit", body: "Over the next 10 years, tax cuts under the OBBBA will grow the amount of money the government borrows by hundreds of billions. Each year's bar shows three scenarios: what would have happened if the OBBBA wasn't passed, what will happen if President Trump is able to cover some of his tax cuts with import tariffs, and what will happen if the tariffs are struck down and that money must be borrowed.", targetId: "obbba-deficit-card" },
     { title: "Why might the tariffs be struck down?", body: "President Trump has touted his import tariffs as a way to make up the deficit spending from the OBBBA. The tariffs he announced in April 2025 were estimated by the CBO to raise $3.4 trillion over the next 10 years. However, the Supreme Court ruled he did not have the authority to apply taxes, and they were replaced by temporary duties.", targetId: "obbba-deficit-card" },
     { title: "Will the government still tax imports?", body: "Right now, it's unclear. There are ongoing lawsuits on which tariffs are legal, how high each tax will be, and whether the government has to pay back tariffs already collected. We believe that the revenue from tariffs from now till 2034 will fall somewhere between the no tariff revenue case and the CBO's projections assuming the July 2025 tariffs remain in place.", targetId: "obbba-deficit-card" },
+    { title: "Scrub through the next decade", body: "Use the slider to see how each year's deficit adds to the national debt pile. The pile shows cumulative debt held by the public — gray is what we already owed at the end of 2024." },
   ],
-  // Page 9 — Paying for the Past
-  9: [
+  // Page 8 — Paying for the Past
+  8: [
     { title: "Cents of every tax dollar", body: "The big number at the top shows how many cents of each tax dollar go straight to interest payments — money that can't be spent on anything else. In 1970 it was around 7 cents. Today it's over 16." },
     { title: "The chart tells the story", body: "Hover any year to see the exact share. Notice how it rose sharply in the 1980s as Reagan-era deficits compounded, fell during the Clinton surplus years, then began climbing again after 2008." },
   ],
-  // Page 10 — Crowding Out (text explainer, no tour needed)
-  // Page 11 — Net Interest
-  11: [
+  // Page 9 — Crowding Out (text explainer, no tour needed)
+  // Page 10 — Net Interest
+  10: [
     { title: "Compare any program", body: "Use the dropdown to select any government program. The block grids below will update to show net interest payments alongside your chosen program for that year." },
     { title: "Scrub through time", body: "Use the slider to move from 1970 to 2024 and see how both figures have changed over time. Compare how fast spending on interest has grown versus other categories." },
   ],
-  // Page 12 — Budget Dilemma
-  12: [
+  // Page 11 — Budget Dilemma
+  11: [
     { title: "Hover a slice", body: "Click any slice of the donut to see what that category costs, why it's hard to cut, and polling data on public support. Red slices are mandatory spending — legally required by statute. Green slices are discretionary." },
     { title: "The math is brutal", body: "Even eliminating every green slice entirely: all of defense, education, veterans, foreign aid. It barely covers the deficit. Any plan to balance the budget requires some combination of cuts to mandatory programs, discretionary programs, and tax increases." },
   ],
-  // Page 13 — Tax increases
-  13: [
+  // Page 12 — Balancing the Budget
+  12: [
     { title: "Drag the sliders", body: "Each slider raises the effective tax rate on that income group by up to 20 percentage points. The bar at the top fills in green as you close more of the deficit." },
     { title: "The static vs. real gap", body: "These numbers assume people keep earning and reporting the same income. In reality, higher rates lead to more deductions, income shifting, and deferral. The true revenue gain is real but smaller than what you see here." },
     { title: "Cutting spending", body: "You can also adjust spending instead of revenue. The spending slider lets you cut a portion of the budget's discretionary spending across the board. This is called budget sequestration, and happened in 2012 to offset the additional spending from the 2008 Financial Crisis." },
@@ -2730,7 +2719,7 @@ function JapanPage({ japanData }) {
 /* ── III.b.i  Net Interest ───────────────── */
 // Ported from App.jsx NetInterestPage, unchanged.
 function NetInterestPage({ spendingData }) {
-  var tour = useTour(11);
+  var tour = useTour(10);
 
   var categories = useMemo(function () {
     if (!spendingData) return [];
@@ -2844,7 +2833,7 @@ function NetInterestPage({ spendingData }) {
 //     showing how much revenue different bracket changes would raise
 // Design: TBD — likely a split card showing "cut side" vs "tax side".
 function BudgetDilemmaPage({ spendingData, summaryData }) {
-  var tour = useTour(12);
+  var tour = useTour(11);
   var _hov = useState(null); var hovSlice = _hov[0]; var setHovSlice = _hov[1];
 
   var computed = useMemo(function () {
@@ -3073,7 +3062,7 @@ function BudgetDilemmaPage({ spendingData, summaryData }) {
 
 /* ── III.d  Tax Page ─────────────────────── */
 function TaxPage({ taxData, spendingData, summaryData }) {
-  var tour = useTour(13);
+  var tour = useTour(12);
 
   // Parse CSV into lookup
   var brackets = useMemo(function () {
@@ -3636,13 +3625,12 @@ export default function App() {
     /* 4  */ <ObamaEraPage       stabilizersData={stabilizersData} stimulusData={stimulusData} />,
     /* 5  */ <DeficitPage        summaryData={summaryData} />,
     /* 6  */ <RevSpendPage       spendingData={spendingData} receiptsData={receiptsData} summaryData={summaryData} />,
-    /* 7  */ <OBBBAPage          deficitProj={deficitProj} niProj={niProj} projSummary={projSummary} />,
-    /* 8  */ <ProjectedDebtPage  deficitProj={deficitProj} projSummary={projSummary} />,
-    /* 9  */ <CrowdingOutPage    spendingData={spendingData} summaryData={summaryData} />,
-    /* 10 */ <CrowdingOutTextPage />,
-    /* 11 */ <NetInterestPage    spendingData={spendingData} />,
-    /* 12 */ <BudgetDilemmaPage  spendingData={spendingData} summaryData={summaryData} />,
-    /* 13 */ <TaxPage taxData={taxData} deficitProj={deficitProj} spendingData={spendingData} summaryData={summaryData} />,
+    /* 7  */ <OBBBAPage         deficitProj={deficitProj} niProj={niProj} projSummary={projSummary} />,
+    /* 8  */ <CrowdingOutPage   spendingData={spendingData} summaryData={summaryData} />,
+    /* 9  */ <CrowdingOutTextPage />,
+    /* 10 */ <NetInterestPage   spendingData={spendingData} />,
+    /* 11 */ <BudgetDilemmaPage spendingData={spendingData} summaryData={summaryData} />,
+    /* 12 */ <TaxPage taxData={taxData} deficitProj={deficitProj} spendingData={spendingData} summaryData={summaryData} />,
   ];
 
   return (
