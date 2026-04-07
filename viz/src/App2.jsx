@@ -484,22 +484,24 @@ function TourBtn({ onOpen }) {
   );
 }
 
-// Inline info icon with styled hover tooltip (matches TourBtn style)
+// Inline info icon with tooltip — click to toggle (works on touch devices)
 function InfoTip({ text }) {
-  var _hov = useState(false); var hov = _hov[0]; var setHov = _hov[1];
+  var _open = useState(false); var open = _open[0]; var setOpen = _open[1];
   return (
-    <div style={{ position: "relative", display: "inline-flex", alignItems: "center", flexShrink: 0 }}
-      onMouseEnter={function () { setHov(true); }}
-      onMouseLeave={function () { setHov(false); }}>
-      <span style={{ cursor: "help", fontSize: 14, color: BLUE, fontWeight: 400, lineHeight: 1 }}>ⓘ</span>
-      {hov && (
+    <div style={{ position: "relative", display: "inline-flex", alignItems: "center", flexShrink: 0 }}>
+      <button
+        onClick={function () { setOpen(!open); }}
+        aria-expanded={open}
+        style={{ cursor: "pointer", fontSize: 14, color: BLUE, fontWeight: 400, lineHeight: 1, background: "none", border: "none", padding: 0 }}
+      >ⓘ</button>
+      {open && (
         <div style={{
           position: "absolute", bottom: "calc(100% + 8px)", left: "50%", transform: "translateX(-50%)",
           background: "#fff", border: "1px solid #e5e7eb",
           boxShadow: "0 4px 20px rgba(0,0,0,0.12)",
           borderRadius: 10, padding: "14px 12px",
           width: 300, zIndex: 300,
-          pointerEvents: "none", whiteSpace: "normal",
+          whiteSpace: "normal",
         }}>
           {text.split("\n\n").map(function (para, i) {
             return <p key={i} style={{ fontSize: 11, color: "#374151", lineHeight: 1.55, margin: i === 0 ? 0 : "8px 0 0" }}>{para}</p>;
@@ -2974,6 +2976,7 @@ function BudgetDilemmaPage({ spendingData, summaryData }) {
                   style={{ cursor: "pointer", transition: "opacity 0.15s" }}
                   onMouseEnter={function () { setHovSlice(seg.slice.key); }}
                   onMouseLeave={function () { setHovSlice(null); }}
+                  onClick={function () { setHovSlice(hovSlice === seg.slice.key ? null : seg.slice.key); }}
                 />
               );
             })}
