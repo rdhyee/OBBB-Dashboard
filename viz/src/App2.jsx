@@ -1992,12 +1992,147 @@ function CrowdingOutPage({ spendingData, summaryData }) {
 
 /* ── III.a.ii  Japan Case Study ──────────── */
 function CrowdingOutTextPage() {
-  var CONSEQUENCE_BOXES = [
-    "It can increase interest rates which then cause reductions in investment in new buildings, and machinery. This can cause higher housing prices, lower productivity growth, and lower wages over time.",
-    "Large deficits during times of full employment can lead to increasing inflation.",
-    "As debt grows relative to national income the government must make those payments through a combination of tax increases and spending cuts or take other actions to deal with the debt.",
-    "A large and persistent increase in inflation, the government being unable to pay its debt, or just the anticipation of these things could spook investors leading to a rapid sell off of U.S. debt and financial instability.",
+  var _open = useState(null); var openBox = _open[0]; var setOpenBox = _open[1];
+  var _step = useState(0); var boxStep = _step[0]; var setBoxStep = _step[1];
+
+  var TOPICS = [
+    {
+      text: "It can increase interest rates which then cause reductions in investment in new buildings, and machinery. This can cause higher housing prices, lower productivity growth, and lower wages over time.",
+      color: RED,
+      steps: [
+        {
+          heading: "Crowding Out Investment",
+          body: "CBO estimates that for every dollar the federal deficit increases, private investment falls by 33 cents — with a range of 15 to 50 cents depending on how much private saving and foreign capital offset the borrowing. Over 30 years, rising debt under current law could reduce average income growth by 16% relative to a debt-stable scenario.",
+          source: "CBO, The Long-Run Effects of Federal Budget Deficits on National Saving and Private Domestic Investment, Working Paper 2014-02",
+          sourceUrl: "https://www.cbo.gov/sites/default/files/cbofiles/attachments/45140-NSPDI_workingPaper.pdf",
+        },
+        {
+          heading: "Interest Rates",
+          body: "Crowding out happens because the government competes with other borrowers in the market for loanable funds. They compete with businesses that want to borrow to buy more buildings and machinery and with people who want to borrow money for a mortgage, a car or other consumption. If the government increases its borrowing, interest rates rise to make room for that borrowing by reducing the amount of private borrowing. With higher interest rates fewer businesses want to invest and fewer people get new houses.",
+        },
+        {
+          heading: "Wait! Doesn't the Fed Set Interest Rates?",
+          body: "The Federal Reserve typically only manipulates very short term interest rates while the interest rates that matter for investment are long-term rates. Still, when the government issues debt that puts upward pressure on short-term rates leaving the Fed with a choice: buy the new debt and keep interest rates the same, or let the short-term rates rise. This can lead to inflation (see bullet point 2).",
+        },
+        {
+          heading: "Housing Costs",
+          body: "Higher interest rates have an outsized impact on housing construction which in turn leads to higher costs for new and existing homes and higher rents. As one example of this, the Philadelphia Federal Reserve Bank estimates that a '1 percentage point increase in rates reduces purchases [of homes] by 6%'",
+          source: "Philadelphia Federal Reserve Bank",
+        },
+        {
+          heading: "Offsetting Effects",
+          body: "Higher interest rates also give people an incentive to save more and can lead foreigners to invest in the U.S.. Both actions increase the amount of loanable funds available. This is the main reason why each dollar of government debt doesn't crowd out a whole dollar of investment in the U.S. But having foreigners investing in the U.S. can cause other problems when we have a fast growing national debt (see bullet point 4 above).",
+        },
+      ],
+    },
+    {
+      text: "Large deficits during times of full employment can lead to increasing inflation.",
+      color: "#f59e0b",
+      steps: [
+        {
+          heading: "Debt and Inflation",
+          body: "When the government runs a deficit it must sell bonds to the public. This puts upward pressure on interest rates which causes crowding out. The Federal Reserve can offset this to some degree by buying government bonds. But when they do this they create new money to buy the bonds. And this can lead to inflation.",
+        },
+        {
+          heading: "More Money = Inflation?",
+          body: "If the Fed buys government bonds they give newly created money to the people who sell them. They now have more money to spend on goods and services. If the economy is in recession and there are goods and services to be bought this just leads to an increase in purchases at current prices. This is typically how the Fed stimulates the economy to bring the country back from a recession.",
+        },
+        {
+          heading: "When More Money = Inflation",
+          body: "Now imagine that factories are running at full capacity and the unemployment rate is so low employers can't hire new workers. If the Fed increases the amount of money available, and people try to spend it, then the dollars looking for goods and services will exceed the total price of all available goods and services. Something has to give and that something is prices. Prices have to rise to get the dollars of demand equal to the total price of what is available to buy. That is inflation.",
+        },
+        {
+          heading: "Is Inflation Bad?",
+          body: "This is a serious question because historically, when prices have risen because of an increase in the money supply wages have typically gone up to compensate. But it usually takes wages some time to catch up and there are many other costs to inflation. For example, restaurants have to print new menus, people on fixed incomes suffer, and it becomes hard to comparison shop. Also people tend to see prices as taking away buying power while the following wage increases are what they deserve for good work. People hate inflation.",
+        },
+        {
+          heading: "Inflation + Crowding Out",
+          body: "Even if the Federal Reserve tries to keep interest rates constant to avoid crowding out investment through the market for loanable funds that doesn't mean that crowding out doesn't take place. Instead of rising interest rates it is rising prices that cause people and companies to spend less. With a fixed supply of goods and services this has to happen to allow the government to buy goods and services with the money it got from selling the bonds.",
+        },
+        {
+          heading: "Conclusion",
+          body: "Increasing the debt does not have to cause inflation (though it can). In a weak economy increasing the money supply by buying up the government debt can actually make the economy better without causing inflation. In a strong economy the Fed can suppress inflation by allowing interest rates to rise. Either way, if the economy is strong crowding out still happens either through the interest rate mechanism or the price mechanism.",
+        },
+      ],
+    },
+    {
+      text: "As debt grows relative to national income the government must make those payments through a combination of tax increases and spending cuts or take other actions to deal with the debt.",
+      color: "#8b5cf6",
+      steps: [
+        {
+          heading: "The Slow Crisis",
+          body: "With the debt growing relative to national income, it is inevitable that the interest cost of the debt grows relative to the cost of other things the government does. The government has four choices as to how to deal with this.",
+        },
+        {
+          heading: "Cutting Other Spending",
+          body: "If the government doesn't want to raise taxes, or run an even larger deficit, as interest payments rise then it will have to cut its spending. If this were easy those cuts would already have been made and we wouldn't have the deficit we have now. Later in the tour you'll have a chance to explore the difficulty of cutting government spending.",
+        },
+        {
+          heading: "Raising Taxes",
+          body: "Raising taxes enough to bring down the ratio of the debt to national income over time would solve the entire problem (as would sufficient spending cuts or combinations of tax increases and cuts). But as long as the debt is allowed to grow faster than national income, interest payments will grow as a fraction of national income requiring increasing tax rates and/or spending cuts to keep up.",
+        },
+        {
+          heading: "Inflate Away the Debt?",
+          body: "The United States is one of a number of countries that are able to sell debt denominated in its own currency. That means when we borrow we get dollars, we pay interest in dollars, and we pay back the debt in dollars. So if there is inflation the actual amount of goods and services we have to give up to pay back the debt goes down over time. Inflation is the scourge of lenders and the friend of borrowers.",
+        },
+        {
+          heading: "So Inflation is Good?",
+          body: "An unanticipated increase in inflation is good for the government budget. But, there can be very bad consequences if the government deliberately tries to inflate away the debt. Inflation is very unpopular and has costs. A big increase could spook financial markets. Ultimately this can turn a slow budget crisis into a very abrupt crisis. As can the government's fourth option: failing to pay back the debt or defaulting. We cover that under bullet point 4.",
+        },
+      ],
+    },
+    {
+      text: "A large and persistent increase in inflation, the government being unable to pay its debt, or just the anticipation of these things could spook investors leading to a rapid sell off of U.S. debt and financial instability.",
+      color: "#1e3a5f",
+      steps: [
+        {
+          heading: "The Fast Crisis",
+          body: "\"In economics, things take longer to happen than you think they will, and then they happen faster than you thought they could.\"\n\nRudiger Dornbusch\n\nSeveral things could suddenly make U.S. government bonds much less attractive investments and could lead to a rapid sell off government bonds. Let's take a look at some of them.",
+        },
+        {
+          heading: "A U.S. Government Default",
+          body: "If the government were to miss a payment on any of its debts this would call into question what debts it will pay and therefore the value of any of those debts -- including government bonds. If the debt is continuing to grow, a default could set off the expectation that the government's willingness to pay its debts was going to get worse before it got better leading to a sell off of U.S. debt.",
+        },
+        {
+          heading: "Default's Other Consequences",
+          body: "Even if a default didn't cause a crisis it would almost certainly increase the cost of financing debt for a very long time as it has for nearly every other country that has defaulted. An untrustworthy borrower has to pay a higher interest rate to get credit.",
+        },
+        {
+          heading: "Increased Inflation",
+          body: "As described in the mini-tour attached to bullet point 3, one way for a country to deal with excess debt is to increase inflation. This works because the inflation adjusted value of the money used to pay back the debt goes down with an unanticipated increase in inflation. But an attempt to deal with any substantial amount of the debt problem this way would likely spook financial markets which could also lead to a selloff.",
+        },
+        {
+          heading: "Anticipation of Crisis",
+          body: "The anticipation of a crisis can be enough to set off a crisis. As our debt grows relative to our ability to pay creditors will eventually get nervous the same way lenders do when they see people suddenly run up big credit card debts. For the U.S., fear that the U.S. may default or inflate away its debt can lead to demands that new debt pay higher interest or even a sell off of existing debt.",
+        },
+        {
+          heading: "Selloff Consequences",
+          body: "If, suddenly, many people want to sell government bonds the price of those bonds has to fall. This can lead the price of other assets like, corporate bonds and stocks, to fall.",
+        },
+        {
+          heading: "Crisis Spreads",
+          body: "U.S. Government bonds are considered a 'safe' asset so banks that are required to keep a certain amount of assets around hold many of them. If the value of safe assets drop, regulated banks have to sell assets that aren't as safe in order to buy more safe assets. This can cause the selloff to spread to places like the corporate bond market and ultimately the stock market.",
+        },
+        {
+          heading: "And Spreads Further",
+          body: "With asset prices falling everywhere, lenders don't know who will have the money to pay them back and can stop lending all together. Falling stock prices mean 401(k)s and mutual funds become worth less. People feel less wealthy so they buy less slowing the economy. Companies that can't borrow stop investing. Now we're in a recession.",
+        },
+        {
+          heading: "Conclusion",
+          body: "While some effects of a rapid sell off of U.S. debt are predictable, others are speculative. It is entirely possible that a sell off could be managed by smart actions in the government and private sectors. However, as Herbert Stein once said \"If something can't go on forever, it won't\" If we continue to grow our debt relative to our ability to pay there will eventually be costs, and they are likely to be large.",
+        },
+      ],
+    },
   ];
+
+  function handleBoxClick(i) {
+    if (openBox === i) {
+      setOpenBox(null);
+    } else {
+      setOpenBox(i);
+      setBoxStep(0);
+    }
+  }
 
   return (
     <div>
@@ -2007,11 +2142,70 @@ function CrowdingOutTextPage() {
       </p>
 
       <div style={{ display: "flex", flexDirection: "column", gap: 10, marginBottom: 20 }}>
-        {CONSEQUENCE_BOXES.map(function (text, i) {
+        {TOPICS.map(function (topic, i) {
+          var isOpen = openBox === i;
+          var cur = isOpen ? topic.steps[boxStep] : null;
+          var isLast = cur && boxStep === topic.steps.length - 1;
           return (
-            <Card key={i} style={{ borderLeft: "4px solid " + RED }}>
-              <p style={{ fontSize: 15, color: TEXT, lineHeight: 1.75, margin: 0 }}>{text}</p>
-            </Card>
+            <div key={i}>
+              <div onClick={function () { handleBoxClick(i); }} style={{ cursor: "pointer", userSelect: "none" }}>
+                <Card style={{ borderLeft: "4px solid " + topic.color }}>
+                  <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: 12 }}>
+                    <p style={{ fontSize: 15, color: TEXT, lineHeight: 1.75, margin: 0 }}>{topic.text}</p>
+                    <span style={{ fontSize: 11, color: topic.color, fontWeight: 600, whiteSpace: "nowrap", flexShrink: 0, paddingTop: 3 }}>
+                      {isOpen ? "▼ Close" : "▶ Explore"}
+                    </span>
+                  </div>
+                </Card>
+              </div>
+
+              {isOpen && cur && (
+                <div style={{ marginTop: 8 }}>
+                  <div style={{ display: "flex", gap: 6, marginBottom: 14, alignItems: "center" }}>
+                    {topic.steps.map(function (_, si) {
+                      return (
+                        <button key={si} onClick={function () { setBoxStep(si); }} style={{
+                          width: si === boxStep ? 10 : 7,
+                          height: si === boxStep ? 10 : 7,
+                          borderRadius: "50%",
+                          border: "none", padding: 0, cursor: "pointer",
+                          background: si === boxStep ? topic.color : si < boxStep ? topic.color : BORDER,
+                          opacity: si < boxStep ? 0.45 : 1,
+                          transition: "all 0.15s",
+                          flexShrink: 0,
+                        }} />
+                      );
+                    })}
+                    <span style={{ fontSize: 11, color: MUTED, marginLeft: 8 }}>{boxStep + 1} of {topic.steps.length}</span>
+                  </div>
+
+                  <Card style={{ borderLeft: "4px solid " + topic.color, marginBottom: 14, minHeight: 120 }}>
+                    <h3 style={{ fontSize: 17, fontWeight: 700, color: TEXT, margin: "0 0 10px" }}>{cur.heading}</h3>
+                    <p style={{ fontSize: 15, color: TEXT, lineHeight: 1.75, margin: "0 0 12px", whiteSpace: "pre-line" }}>{cur.body}</p>
+                    {cur.source && (
+                      <div style={{ fontSize: 11, color: MUTED, borderTop: "1px solid " + BORDER, paddingTop: 8 }}>
+                        Source:{" "}
+                        {cur.sourceUrl ? (
+                          <a href={cur.sourceUrl} target="_blank" rel="noopener noreferrer" style={{ color: MUTED, textDecoration: "underline" }}>{cur.source}</a>
+                        ) : cur.source}
+                      </div>
+                    )}
+                  </Card>
+
+                  <div style={{ display: "flex", gap: 10, marginBottom: 4 }}>
+                    {boxStep > 0 && (
+                      <button onClick={function () { setBoxStep(boxStep - 1); }} style={{ padding: "10px 20px", fontSize: 13, borderRadius: 8, cursor: "pointer", border: "1px solid " + BORDER, background: SURFACE, color: TEXT }}>← Previous</button>
+                    )}
+                    {!isLast && (
+                      <button onClick={function () { setBoxStep(boxStep + 1); }} style={{ padding: "10px 20px", fontSize: 13, borderRadius: 8, cursor: "pointer", border: "none", background: topic.color, color: "#fff", fontWeight: 600 }}>Next →</button>
+                    )}
+                    {isLast && (
+                      <button onClick={function () { setBoxStep(0); }} style={{ padding: "10px 20px", fontSize: 13, borderRadius: 8, cursor: "pointer", border: "1px solid " + BORDER, background: SURFACE, color: MUTED }}>↺ Start over</button>
+                    )}
+                  </div>
+                </div>
+              )}
+            </div>
           );
         })}
       </div>
