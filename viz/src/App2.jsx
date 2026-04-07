@@ -936,6 +936,7 @@ function DebtAccumulation({ summaryData, debtData }) {
 
   var _idx = useState(0); var yearIdx = _idx[0]; var setYearIdx = _idx[1];
   var _hovY = useState(null); var hoveredYear = _hovY[0]; var setHoveredYear = _hovY[1];
+  var _reconOpen = useState(false); var reconOpen = _reconOpen[0]; var setReconOpen = _reconOpen[1];
 
   useEffect(function () { if (yearData.length > 0) setYearIdx(0); }, [yearData.length]);
 
@@ -1070,8 +1071,16 @@ function DebtAccumulation({ summaryData, debtData }) {
         <div style={{ marginTop: 20, padding: "12px 16px", background: "#f9fafb", borderRadius: 8, border: "1px solid " + BORDER }}>
           <div style={{ fontSize: 13, fontWeight: 600, color: TEXT, marginBottom: 6, position: "relative", display: "inline-flex", alignItems: "center", gap: 6 }}>
             Debt Reconciliation — FY{cur.year}
-            <InfoTip text={"The bottom-line gross federal debt is split into debt held by the public and debt that is borrowed from the government itself. Public debt includes all of the outstanding deficits along with smaller items, like short term debt the treasury issues to cover cash needs.\n\nIntragovernmental debt is borrowed from the surplus budget of trust funds, like those that fund social security. While it still needs to be repaid, it\u2019s not directly marketable to the public and doesn\u2019t compete for investment with the private sector."} />
+            <button onClick={function () { setReconOpen(!reconOpen); }} aria-expanded={reconOpen} aria-controls="reconciliation-info" style={{ cursor: "pointer", fontSize: 14, color: BLUE, fontWeight: 400, background: "none", border: "none", padding: 0 }}>ⓘ</button>
           </div>
+          {reconOpen && (
+            <div id="reconciliation-info" style={{ fontSize: 13, color: TEXT, lineHeight: 1.7, background: "#f0f4ff", borderRadius: 8, padding: "14px 16px", marginBottom: 10, border: "1px solid " + BORDER }}>
+              <p style={{ margin: "0 0 10px" }}>You may notice that the annual deficit doesn't exactly match the change in the Gross Federal Debt. That's because some government activities affect borrowing even though they don't appear in the budget.</p>
+              <p style={{ margin: "0 0 10px" }}>One example is the way trust funds work. Programs like Social Security are required to hold Treasury bonds so that money will be available when future benefits exceed incoming payroll taxes. When these trust funds receive contributions, the Treasury issues bonds to them — increasing gross federal debt even though this doesn't change the deficit.</p>
+              <p style={{ margin: "0 0 10px" }}>Another example involves activities that are 'off-budget.' A major one today is the Federal Reserve. The Fed earns interest on the assets it holds, but it also pays interest on the reserves that banks keep with it. At the moment, the Fed is paying out more in interest than it earns, and the Treasury must make up that shortfall by issuing bonds even though it doesn't show up in the budget.</p>
+              <p style={{ margin: 0 }}>These and other cash-flow items are grouped under 'Other adjustments' in the table below. Together, they explain why the change in Gross Federal Debt can be larger or smaller than the deficit in any given year.</p>
+            </div>
+          )}
           <div style={{ fontSize: 12, color: MUTED, lineHeight: 1.8 }}>
             {[
               { label: "Pre-1970 inherited debt",                          val: fmtAmt(pre1970Debt),             color: MUTED },
@@ -1670,7 +1679,7 @@ function DeficitPage({ summaryData }) {
           <span style={{ fontSize: 26, fontWeight: 800, color: RED }}>−${(Math.abs(deficit) / 1e6).toFixed(2)}T</span>
         </div>
         <p style={{ fontSize: 14, color: TEXT, lineHeight: 1.6, margin: "0 0 16px" }}>
-          <strong style={{ color: RED }}>{deficitBlockCount} blocks</strong> of spending had no corresponding revenue — that's <strong style={{ color: RED }}>${((deficitBlockCount * BLOCK_SIZE) / 1e3 / 365).toFixed(1)}B per day</strong> added to the national debt.
+          Spending exceeded revenue by <strong style={{ color: RED }}>${(Math.abs(deficit) / 1e6).toFixed(2)} trillion</strong> — that's <strong style={{ color: RED }}>${(Math.abs(deficit) / 1e6 * 1000 / 365).toFixed(1)}B per day</strong> added to the national debt.
         </p>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(" + COLS + ", " + SZ + "px)", gap: GAP + "px" }}>
           {Array.from({ length: deficitBlockCount }).map(function (_, i) {
@@ -2287,7 +2296,7 @@ function CrowdingOutPage({ spendingData, summaryData }) {
       </div>
 
       <p style={{ fontSize: 15, color: TEXT, lineHeight: 1.75, margin: "0 0 6px" }}>
-        Of every dollar the federal government collects in taxes, <strong style={{ color: RED }}>{display ? display.pct.toFixed(1) : "—"}¢</strong> goes straight to interest payments on our debt. Instead of spending for Americans in the present day on defense, housing, food, or education, we are spending almost 1/5 of our taxes on debt interest. You may notice that there was a large increase in the 1980s. This is partly due to Reagan administration policies that increased defense spending and decreased revenue (through tax cuts), and partly to very high interest rates set by the Federal Reserve to fight the inflation of the 1970s, making borrowing more expensive.
+        In 2025 <strong style={{ color: RED }}>18.5¢</strong> — up from 7.9¢ in 1970 — of every tax dollar went to pay for interest on the debt. Instead of spending for Americans in the present day on defense, housing, food, or education, we are spending almost 1/5 of our taxes on debt interest. You may notice that there was a large increase in the 1980s. This is partly due to Reagan administration policies that increased defense spending and decreased revenue (through tax cuts), and partly to very high interest rates set by the Federal Reserve to fight the inflation of the 1970s, making borrowing more expensive.
       </p>
       <p style={{ fontSize: 13, color: MUTED, margin: "0 0 16px" }}>
         {hovRow ? hovRow.year + " — " + hovRow.pct.toFixed(1) + "¢ per tax dollar" : "Hover over any column to see the value for that year."}
