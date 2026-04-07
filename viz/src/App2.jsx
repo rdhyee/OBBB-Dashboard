@@ -353,7 +353,7 @@ var TOUR_CONFIGS = {
   ],
   // Page 8 — Paying for the Past
   8: [
-    { title: "Cents of every tax dollar", body: "The big number at the top shows how many cents of each tax dollar go straight to interest payments — money that can't be spent on anything else. In 1970 it was around 7 cents. Today it's over 16." },
+    { title: "Cents of every tax dollar", body: "The big number at the top shows how many cents of each tax dollar go straight to interest payments — money that can't be spent on anything else. In 1970 it was 7.9 cents. In 2025 it's 18.5 cents." },
     { title: "The chart tells the story", body: "Hover any year to see the exact share. Notice how it rose sharply in the 1980s as Reagan-era deficits compounded, fell during the Clinton surplus years, then began climbing again after 2008." },
   ],
   // Page 9 — Crowding Out (text explainer, no tour needed)
@@ -2012,8 +2012,8 @@ function ProjectionPanel({ years, baselineSeries, obbbaWithTariffSeries, obbbaNo
 
   var legendItems = [
     { color: C_JAN,      label: "Pre-OBBBA (Jan 2025 baseline)" },
-    { color: C_OBBBA,    label: "OBBBA w/ tariffs" },
-    { color: C_NOTARIFF, label: "OBBBA, Tariffs struck down" },
+    { color: C_OBBBA,    label: "OBBBA w/ tariffs as of 7/25" },
+    { color: C_NOTARIFF, label: "OBBBA, No tariff revenue" },
   ];
 
   var avgPctGDP = function (s) {
@@ -2021,9 +2021,9 @@ function ProjectionPanel({ years, baselineSeries, obbbaWithTariffSeries, obbbaNo
     return vals.length ? vals.reduce(function (a, v) { return a + v; }, 0) / vals.length : 0;
   };
   var summaryItems = [
-    { color: C_JAN,      label: "Pre-OBBBA 10yr",   val: tenYr(base),    avg: avgPctGDP(base),    bg: "#f3f4f6" },
-    { color: C_OBBBA,    label: "With tariffs 10yr", val: tenYr(withTar), avg: avgPctGDP(withTar), bg: "#fdf6e3" },
-    { color: C_NOTARIFF, label: "Tariffs struck down 10yr",   val: tenYr(noTar),   avg: avgPctGDP(noTar),   bg: "#fef2f2" },
+    { color: C_JAN,      label: "Pre-OBBBA Total 2025\u20132034",   val: tenYr(base),    avg: avgPctGDP(base),    bg: "#f3f4f6" },
+    { color: C_OBBBA,    label: "With tariffs as of 7/25 Total 2025\u20132034", val: tenYr(withTar), avg: avgPctGDP(withTar), bg: "#fdf6e3" },
+    { color: C_NOTARIFF, label: "No tariff revenue Total 2025\u20132034",   val: tenYr(noTar),   avg: avgPctGDP(noTar),   bg: "#fef2f2" },
   ];
 
   return (
@@ -2064,7 +2064,7 @@ function ProjectionPanel({ years, baselineSeries, obbbaWithTariffSeries, obbbaNo
                   <div style={{ fontWeight: 700, marginBottom: 2 }}>{yr}</div>
                   <div style={{ color: C_JAN }}>Baseline: {fmt(baseline)}{fmtPct(baseline, yr)}</div>
                   <div style={{ color: C_OBBBA }}>w/ tariffs: {fmt(withTariff)}{fmtPct(withTariff, yr)}</div>
-                  <div style={{ color: C_NOTARIFF }}>Tariffs struck down: {fmt(noTariff)}{fmtPct(noTariff, yr)}</div>
+                  <div style={{ color: C_NOTARIFF }}>No tariff revenue: {fmt(noTariff)}{fmtPct(noTariff, yr)}</div>
                 </div>
               )}
               <ProjBar nBaseline={nBaseline} nObbba={nObbba} nNoTariff={nNoTariff} maxRows={maxRows} colW={COL_W} blkSz={BLK_SZ} />
@@ -2290,7 +2290,7 @@ function CrowdingOutPage({ spendingData, summaryData }) {
         Of every dollar the federal government collects in taxes, <strong style={{ color: RED }}>{display ? display.pct.toFixed(1) : "—"}¢</strong> goes straight to interest payments on our debt. Instead of spending for Americans in the present day on defense, housing, food, or education, we are spending almost 1/5 of our taxes on debt interest. You may notice that there was a large increase in the 1980s. This is partly due to Reagan administration policies that increased defense spending and decreased revenue (through tax cuts), and partly to very high interest rates set by the Federal Reserve to fight the inflation of the 1970s, making borrowing more expensive.
       </p>
       <p style={{ fontSize: 13, color: MUTED, margin: "0 0 16px" }}>
-        {hovRow ? hovRow.year + " — " + hovRow.pct.toFixed(1) + "¢ per tax dollar" : "That's up from 7.5¢ in 1970. Hover any column to see that year."}
+        {hovRow ? hovRow.year + " — " + hovRow.pct.toFixed(1) + "¢ per tax dollar" : "Hover over any column to see the value for that year."}
       </p>
 
       {/* Stat callout */}
@@ -2385,8 +2385,8 @@ function CrowdingOutTextPage() {
       num: 2,
       heading: "The Reagan evidence — and its limits",
       body: "The federal deficit peaked at 6% of GDP in 1983 under Reagan — up from 2.5% in 1981 — and the 10-year Treasury yield topped 15% in the early 1980s. But the Federal Reserve under Paul Volcker had deliberately raised rates to crush the inflation of the 1970s. It is impossible to separate the deficit effect from the monetary policy effect.",
-      source: "Reaganomics — Econlib; AIER, The Federal Deficit and Debt: Trouble Ahead?",
-      sourceUrl: "https://www.econlib.org/library/Enc/Reaganomics.html",
+      source: "FRED, Federal Surplus or Deficit as % of GDP (FYFSGDA188S)",
+      sourceUrl: "https://fred.stlouisfed.org/series/FYFSGDA188S",
     },
     {
       num: 3,
@@ -2399,8 +2399,8 @@ function CrowdingOutTextPage() {
       num: 4,
       heading: "The recession exception",
       body: "Economists largely treat recession-era deficits as a special case — when the economy is weak, investors flee to the safety of Treasury bonds, pushing yields down regardless of how much the government borrows. The more widely held view is that deficits run when the economy is at or near full employment do put upward pressure on interest rates.",
-      source: "Bipartisan Policy Center, The Deficit in a Downturn (2025)",
-      sourceUrl: "https://bipartisanpolicy.org/article/the-deficit-in-a-downturn-how-have-recessions-impacted-the-federal-budget/",
+      source: "Federal Reserve Bank of St. Louis, Flight to Safety and U.S. Treasury Securities (2010)",
+      sourceUrl: "https://www.stlouisfed.org/publications/regional-economist/july-2010/flight-to-safety-and-us-treasury-securities",
     },
     {
       num: 5,
@@ -2412,9 +2412,9 @@ function CrowdingOutTextPage() {
     {
       num: 6,
       heading: "Housing costs",
-      body: "Higher interest rates have an outsized impact on housing construction. A 1 percentage point rise in mortgage rates reduces housing starts significantly, contributing directly to higher home prices. With the 30-year mortgage rate reaching 7–8% in 2023–24, housing starts fell sharply and home affordability hit historic lows.",
-      source: "AAF, Examining the Consequences of a High and Rising National Debt (2025)",
-      sourceUrl: "https://www.americanactionforum.org/insight/examining-the-consequences-of-a-high-and-rising-national-debt/",
+      body: "Higher interest rates have an outsized impact on housing construction. As owners with low rate mortgages see rates rising, they are less likely to sell into a more expensive borrowing environment, tightening housing supply. The Philadelphia Federal Reserve estimates that a \u20181 percentage point increase in rates reduces purchases by 6 percent relative to a year prior.\u2019",
+      source: "Philadelphia Federal Reserve, When Mortgage Lock-In Locks Out Homebuyers (2024)",
+      sourceUrl: "https://www.philadelphiafed.org/-/media/frbp/assets/economy/articles/economic-insights/2024/q2/eiq224-when-mortgage-lock-in-locks-out-homebuyers.pdf",
     },
   ];
 
