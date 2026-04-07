@@ -2909,8 +2909,8 @@ function BudgetDilemmaPage({ spendingData, summaryData }) {
   };
   var TYPE_LABELS = {
     interest:      "Debt Interest — legal obligation, cannot be cut",
-    mandatory:     "Mandatory spending — entitlement by law, politically untouchable",
-    discretionary: "Discretionary — theoretically cuttable",
+    mandatory:     "Mandatory spending — entitlements, very popular",
+    discretionary: "Discretionary — other government programs, many are quite popular",
   };
 
   // SVG donut chart
@@ -2964,7 +2964,7 @@ function BudgetDilemmaPage({ spendingData, summaryData }) {
       </div>
 
       <p style={{ fontSize: 15, color: TEXT, lineHeight: 1.75, margin: "0 0 10px" }}>
-        To close the deficit, the government must cut spending or raise taxes. But most of the budget is untouchable: either a legal obligation that cannot be broken, or a program so popular that cutting it is political suicide.
+        To close the deficit, the government must cut spending or raise taxes. But both raising taxes and cutting popular programs is politically unpopular. This makes it hard for politicians to do either and as a result they increasingly just leave the budget deficit to be dealt with at some future date.
       </p>
 
       <div style={{ display: "flex", gap: 24, flexWrap: "wrap", alignItems: "flex-start", marginBottom: 20 }}>
@@ -3047,35 +3047,17 @@ function BudgetDilemmaPage({ spendingData, summaryData }) {
                   </div>
                 );
               })}
-              <div style={{ marginTop: 8, padding: "12px 14px", background: "#fef2f2", borderRadius: 8, borderLeft: "3px solid " + RED }}>
-                <div style={{ fontSize: 13, color: TEXT, lineHeight: 1.6 }}>
-                  To close the {fmtAmt(computed.deficit)} deficit through spending cuts alone,
-                  you would need to eliminate every discretionary program entirely: all of defense, veterans benefits, education, housing, and foreign aid. That totals {fmtAmt(discretionary)}.
-                </div>
-                <div style={{ marginTop: 10, display: "flex", gap: 10 }}>
-                  <div style={{ flex: 1, background: "#fff", borderRadius: 6, padding: "8px 12px", textAlign: "center" }}>
-                    <div style={{ fontSize: 11, color: MUTED, marginBottom: 2 }}>Deficit</div>
-                    <div style={{ fontSize: 16, fontWeight: 700, color: RED }}>−{fmtAmt(computed.deficit)}</div>
-                  </div>
-                  <div style={{ display: "flex", alignItems: "center", fontSize: 16, color: MUTED }}>vs.</div>
-                  <div style={{ flex: 1, background: "#fff", borderRadius: 6, padding: "8px 12px", textAlign: "center" }}>
-                    <div style={{ fontSize: 11, color: MUTED, marginBottom: 2 }}>All discretionary</div>
-                    <div style={{ fontSize: 16, fontWeight: 700, color: "#2d6a4f" }}>{fmtAmt(discretionary)}</div>
-                  </div>
-                </div>
-
-              </div>
-              <p style={{ fontSize: 12, color: MUTED, margin: 0 }}>Hover a slice for details and polling data.</p>
+              <p style={{ fontSize: 15, fontWeight: 600, color: RED, margin: "12px 0 0", lineHeight: 1.6 }}>Mouse over a slice of the pie to see more details and polling data on program popularity.</p>
             </div>
           )}
         </div>
       </div>
 
       <p style={{ fontSize: 15, color: TEXT, lineHeight: 1.75, margin: "0 0 16px" }}>
-        Why is "mandatory" spending actually mandatory? Programs like Social Security, Medicare, and Medicaid are set up so that anyone who meets the eligibility criteria is legally entitled to benefits. To protect the public, the government cannot simply decide to pay less one year. Cutting them requires passing new laws, which is politically nearly impossible: 85% of Americans oppose cuts to Social Security and 75% oppose cuts to Medicaid. However, with the debt growing quickly, the problem is only getting worse.
+        Why is "mandatory" spending actually mandatory? Programs like Social Security, Medicare, and Medicaid are set up so that anyone who meets the eligibility criteria is legally entitled to benefits. Cutting them requires passing new laws which is politically difficult. For example raising retirement ages or cutting benefits would be ways to reduce Social Security or Medicare payments. Medicaid pays for care for people with few economic resources which can include older people in nursing homes. Not surprisingly, 85% of Americans oppose cuts to Social Security and 75% oppose cuts to Medicaid.
       </p>
-      <p style={{ fontSize: 15, color: TEXT, lineHeight: 1.75, margin: "0 0 6px" }}>
-        That leaves the tax side of the ledger to make up the difference.
+      <p style={{ fontSize: 15, color: TEXT, lineHeight: 1.75, margin: "0 0 16px" }}>
+        Finally, every administration and every Congress since at least the 1980s has looked for waste, fraud, or abuse to try to reduce the deficit. None have made a significant difference. It is unlikely that there is much more to be found.
       </p>
 
       <p style={{ fontSize: 12, color: MUTED }}>
