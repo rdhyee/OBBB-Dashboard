@@ -1684,12 +1684,9 @@ function DeficitPage({ summaryData }) {
   );
 }
 
-/* ── II.c  Projected Debt / Deficit ─────── */
-// TODO: projected debt and deficit block visualization.
-// Shows CBO 10-year projections as accumulating debt pile or annual deficit bars.
-// Scenario toggle: with tariffs / without tariffs.
-// Data: projections_deficit.csv, projections_summary.csv
-function ProjectedDebtPage({ deficitProj, projSummary }) {
+/* ── II.c  Projected Debt / Deficit — REMOVED per issue #308 ─────── */
+
+function ProjectedDebtPage_REMOVED({ deficitProj, projSummary }) {
   var tour = useTour(8);
   var _scenario = useState("no_tariff_revenue");
   var scenario = _scenario[0]; var setScenario = _scenario[1];
