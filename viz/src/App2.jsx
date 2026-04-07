@@ -1690,6 +1690,135 @@ function DeficitPage({ summaryData }) {
     </div>
   );
 }
+/* ── Projection bar helpers ── */
+function ProjBar({ nBaseline, nObbba, nNoTariff, maxRows }) {
+  var total      = nBaseline + nObbba + nNoTariff;
+  var myRows     = Math.ceil(Math.max(total, 1) / PROJ_COL_W);
+  var padRows    = Math.max(0, maxRows - myRows);
+  var totalCells = maxRows * PROJ_COL_W;
+  var emptyCells = padRows * PROJ_COL_W;
+  return (
+    <div style={{ display: "grid", gridTemplateColumns: "repeat(" + PROJ_COL_W + ", " + PROJ_SZ + "px)", gap: PROJ_GAP + "px", width: PROJ_COL_W * (PROJ_SZ + PROJ_GAP) - PROJ_GAP, alignSelf: "flex-end" }}>
+      {Array.from({ length: totalCells }).map(function (_, i) {
+        if (i < emptyCells) return <div key={i} style={{ width: PROJ_SZ, height: PROJ_SZ }} />;
+        var filled = i - emptyCells;
+        var color;
+        if      (filled < nNoTariff)              color = C_NOTARIFF;
+        else if (filled < nNoTariff + nObbba)     color = C_OBBBA;
+        else                                      color = C_JAN;
+        return <div key={i} style={{ width: PROJ_SZ, height: PROJ_SZ, borderRadius: 1, backgroundColor: color }} />;
+      })}
+    </div>
+  );
+}
+
+function ProjectionPanel({ years, baselineSeries, obbbaWithTariffSeries, obbbaNoTariffSeries, gdpByYear, mode }) {
+  var _hov = useState(null); var hoveredYear = _hov[0]; var setHoveredYear = _hov[1];
+  var base    = baselineSeries        || {};
+  var withTar = obbbaWithTariffSeries || {};
+  var noTar   = obbbaNoTariffSeries   || {};
+
+  var NOMINAL_BLOCK_B = 10;
+
+  function toBlocks(val, yr) {
+    if (mode === "pct") {
+      return Math.round((val / (gdpByYear[yr] || 1)) * 100 / PROJ_BLOCK_PCT);
+    }
+    return Math.round(val / NOMINAL_BLOCK_B);
+  }
+
+  function fmtTooltip(val, yr) {
+    if (val == null) return "—";
+    var dolStr = "$" + (val / 1000).toFixed(2) + "T";
+    if (mode === "pct") {
+      var pct = (val / (gdpByYear[yr] || 1) * 100).toFixed(1);
+      return dolStr + " (" + pct + "% GDP)";
+    }
+    return dolStr;
+  }
+
+  function fmtSum(val) { return val ? "$" + (val / 1000).toFixed(2) + "T" : "—"; }
+
+  var maxRows = useMemo(function () {
+    var m = 1;
+    years.forEach(function (yr) {
+      var n = (mode === "pct")
+        ? Math.round((( noTar[yr] || 0) / (gdpByYear[yr] || 1)) * 100 / PROJ_BLOCK_PCT)
+        : Math.round((noTar[yr] || 0) / NOMINAL_BLOCK_B);
+      var rows = Math.ceil(Math.max(n, 1) / PROJ_COL_W);
+      if (rows > m) m = rows;
+    });
+    return m;
+  }, [years, noTar, mode, gdpByYear]);
+
+  var colPx  = PROJ_COL_W * (PROJ_SZ + PROJ_GAP) - PROJ_GAP;
+  var tenYr  = function (s) { return years.reduce(function (a, yr) { return a + ((s || {})[yr] || 0); }, 0); };
+
+  var legendItems = [
+    { color: C_JAN,      label: "Pre-OBBBA baseline" },
+    { color: C_OBBBA,    label: "OBBBA w/ tariffs" },
+    { color: C_NOTARIFF, label: "OBBBA, tariffs struck down" },
+  ];
+
+  var summaryItems = [
+    { color: C_JAN,      label: "Pre-OBBBA 10yr",   val: tenYr(base),    bg: "#f3f4f6" },
+    { color: C_OBBBA,    label: "With tariffs 10yr", val: tenYr(withTar), bg: "#fdf6e3" },
+    { color: C_NOTARIFF, label: "No tariffs 10yr",   val: tenYr(noTar),   bg: "#fef2f2" },
+  ];
+
+  return (
+    <div>
+      <div style={{ display: "flex", gap: 20, marginBottom: 16, flexWrap: "wrap" }}>
+        {legendItems.map(function (l) {
+          return (
+            <div key={l.label} style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 12, color: MUTED }}>
+              <div style={{ width: PROJ_SZ + 2, height: PROJ_SZ + 2, borderRadius: 1, backgroundColor: l.color }} />{l.label}
+            </div>
+          );
+        })}
+      </div>
+      <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", gap: 2, overflowX: "auto" }}>
+        {years.map(function (yr) {
+          var baseline   = base[yr]    || 0;
+          var withTariff = withTar[yr] || 0;
+          var noTariff   = noTar[yr]   || 0;
+          var nBaseline  = toBlocks(baseline, yr);
+          var nObbba     = Math.max(toBlocks(withTariff, yr) - nBaseline, 0);
+          var nNoTariff  = Math.max(toBlocks(noTariff, yr) - nBaseline - nObbba, 0);
+          var isHov      = hoveredYear === yr;
+          return (
+            <div key={yr}
+              onMouseEnter={function () { setHoveredYear(yr); }}
+              onMouseLeave={function () { setHoveredYear(null); }}
+              style={{ display: "flex", flexDirection: "column", alignItems: "center", cursor: "default", position: "relative", overflow: "visible" }}>
+              {isHov && (
+                <div style={{ position: "absolute", bottom: "100%", left: "50%", transform: "translateX(-50%)", marginBottom: 6, zIndex: 10, whiteSpace: "nowrap", fontSize: 11, textAlign: "center", lineHeight: 1.6, background: "#fff", border: "1px solid #e5e7eb", borderRadius: 5, padding: "5px 9px", boxShadow: "0 2px 6px rgba(0,0,0,0.1)" }}>
+                  <div style={{ fontWeight: 700, marginBottom: 2 }}>{yr}</div>
+                  <div style={{ color: C_JAN }}>Baseline: {fmtTooltip(baseline, yr)}</div>
+                  <div style={{ color: C_OBBBA }}>w/ tariffs: {fmtTooltip(withTariff, yr)}</div>
+                  <div style={{ color: C_NOTARIFF }}>No tariffs: {fmtTooltip(noTariff, yr)}</div>
+                </div>
+              )}
+              <ProjBar nBaseline={nBaseline} nObbba={nObbba} nNoTariff={nNoTariff} maxRows={maxRows} />
+              <div style={{ fontSize: 11, color: MUTED, marginTop: 5, textAlign: "center", width: colPx }}>{yr}</div>
+            </div>
+          );
+        })}
+      </div>
+      <div style={{ marginTop: 20, display: "flex", gap: 10, flexWrap: "wrap" }}>
+        {summaryItems.map(function (s) {
+          return (
+            <div key={s.label} style={{ flex: 1, minWidth: 120, background: s.bg, borderRadius: 6, padding: "8px 12px" }}>
+              <div style={{ fontSize: 10, color: MUTED, textTransform: "uppercase", letterSpacing: 0.4, marginBottom: 2 }}>{s.label}</div>
+              <div style={{ fontSize: 15, fontWeight: 700, color: s.color }}>{fmtSum(s.val)}</div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
 function OBBBAPage({ deficitProj, niProj, projSummary }) {
   var tour = useTour(7);
 
