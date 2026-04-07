@@ -1373,8 +1373,8 @@ function AutoStabPanel({ data, stimulusByYear, yearStart, yearEnd, maxRows, labe
                 </span>
               )}
               <span style={{ fontSize: 12, color: C_STABILIZER }}>
-                Auto stabilizers: {Math.abs(hovRow.stabilizer_effect_pct).toFixed(1)}% of GDP
-              </span>ß
+                Auto stabilizers: {Math.abs(hovRow.stabilizer_effect_pct).toFixed(2)}% of GDP
+              </span>
             </div>
           </div>
         ) : (
