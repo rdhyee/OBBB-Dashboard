@@ -371,7 +371,8 @@ var TOUR_CONFIGS = {
   12: [
     { title: "Drag the sliders", body: "Each slider raises the effective tax rate on that income group by up to 20 percentage points. The bar at the top fills in green as you close more of the deficit." },
     { title: "The static vs. real gap", body: "These numbers assume people keep earning and reporting the same income. In reality, higher rates lead to more deductions, income shifting, and deferral. The true revenue gain is real but smaller than what you see here." },
-    { title: "Cutting spending", body: "You can also adjust spending instead of revenue. The spending slider lets you cut a portion of the budget's discretionary spending across the board. This is called budget sequestration, and happened in 2012 to offset the additional spending from the 2008 Financial Crisis." },
+    { title: "Cutting spending", body: "Spending is divided into two groups. Discretionary spending — defense, veterans, education — is set annually by Congress and can be cut directly. This happened in 2013 through the Budget Control Act's sequestration, which imposed across-the-board cuts after Congress failed to agree on a deficit plan. Mandatory programs require new legislation to cut." },
+    { title: "Why mandatory cuts are so hard", body: "Social Security, Medicare, and Medicaid are structured so anyone who qualifies is legally entitled to benefits — cutting them requires passing new legislation. In 1981 the Senate voted 96–0 against proposed Social Security cuts. The 1983 Greenspan Commission raised the retirement age to 67 and increased payroll taxes. While rare, the OBBBA cut Medicare spending to fund some of its tax cuts." },
     { title: "In the real world", body: "In reality, some of these effects work against you. Cutting government spending reduces growth and new investments, but increasing taxes does the same. Economists disagree on how much each factor matters." },
   ],
 };
@@ -3070,26 +3071,46 @@ function TaxPage({ taxData, spendingData, summaryData }) {
     return taxData;
   }, [taxData]);
 
-  // FY2024 discretionary — identical to BudgetDilemmaPage:
-  // totalOutlays - named mandatory categories - net interest
-  var discretionaryB = useMemo(function () {
-    if (!spendingData || !summaryData) return 1950;
-    var MANDATORY_KEYS = ["Social Security", "Medicare", "Health", "Income Security"];
+  // Per-category spending amounts (billions) — mirrors BudgetDilemmaPage slices, excl. net interest
+  var SPEND_CATS = [
+    { key: "Social Security",    label: "Social Security",         type: "mandatory" },
+    { key: "Medicare",           label: "Medicare",                type: "mandatory" },
+    { key: "Health",             label: "Medicaid & Health",       type: "mandatory" },
+    { key: "Income Security",    label: "Income Security",         type: "mandatory" },
+    { key: "National Defense",   label: "National Defense",        type: "discretionary" },
+    { key: "Veterans Benefits and Services", label: "Veterans",    type: "discretionary" },
+    { key: "Education, Training, Employment, and Social Services", label: "Education & Training", type: "discretionary" },
+    { key: "other",              label: "All Other Discretionary", type: "discretionary" },
+  ];
+  var catAmounts = useMemo(function () {
+    if (!spendingData || !summaryData) return {};
     var spendRows = spendingData.filter(function (r) { return r.year === YEAR && !String(r.category).includes("Real"); });
-    var mandatory = MANDATORY_KEYS.reduce(function (s, k) {
-      var row = spendRows.find(function (r) { return r.category === k; });
-      return s + (row ? row.amount : 0);
-    }, 0);
-    var niRow = spendRows.find(function (r) { return r.category === "Net interest"; });
-    var ni = niRow ? niRow.amount : 0;
     var sumRow = summaryData.find(function (r) { return r.year === YEAR && r.category === "Total Outlays"; });
     var totalOutlays = sumRow ? sumRow.amount : 0;
-    return (totalOutlays - mandatory - ni) / 1000; // millions → billions
+    var niRow = spendRows.find(function (r) { return r.category === "Net interest"; });
+    var ni = niRow ? niRow.amount : 0;
+    var namedKeys = ["Social Security","Medicare","Health","Income Security",
+                     "National Defense","Veterans Benefits and Services",
+                     "Education, Training, Employment, and Social Services"];
+    var out = {}; var accounted = 0;
+    namedKeys.forEach(function (k) {
+      var row = spendRows.find(function (r) { return r.category === k; });
+      var amt = row ? row.amount : 0;
+      out[k] = amt / 1000; // millions → billions
+      accounted += amt;
+    });
+    out["other"] = Math.max(0, (totalOutlays - accounted - ni) / 1000);
+    return out;
   }, [spendingData, summaryData]);
 
-  // Spending cut slider state — 0 to 100% cut
-  var _cutPct = useState(0); var cutPct = _cutPct[0]; var setCutPct = _cutPct[1];
-  var spendingSavings = (cutPct / 100) * discretionaryB; // billions saved
+  // Per-category cut slider state (0–100% per category)
+  var _cuts = useState({}); var cuts = _cuts[0]; var setCuts = _cuts[1];
+  function setCut(key, val) { setCuts(function (prev) { return Object.assign({}, prev, { [key]: val }); }); }
+  var _mandOpen = useState(true); var mandatoryOpen = _mandOpen[0]; var setMandatoryOpen = _mandOpen[1];
+  var _discOpen = useState(true); var discretionaryOpen = _discOpen[0]; var setDiscretionaryOpen = _discOpen[1];
+  var spendingSavings = SPEND_CATS.reduce(function (sum, c) {
+    return sum + ((cuts[c.key] || 0) / 100) * (catAmounts[c.key] || 0);
+  }, 0); // billions saved
 
   // Slider state: rate increase in pp per bucket (0-20)
   // State tracks absolute effective rate per bucket, initialized at current rate
@@ -3114,10 +3135,10 @@ function TaxPage({ taxData, spendingData, summaryData }) {
 
   function resetRates() {
     setRates(null);
-    setCutPct(0);
+    setCuts({});
   }
 
-  var isDirty = cutPct > 0 || brackets.some(function (b) {
+  var isDirty = SPEND_CATS.some(function (c) { return (cuts[c.key] || 0) > 0; }) || brackets.some(function (b) {
     return rates[b.bucket] !== undefined && rates[b.bucket] !== b.effective_rate_pct;
   });
 
@@ -3207,43 +3228,110 @@ function TaxPage({ taxData, spendingData, summaryData }) {
       </div>
 
       {/* Section I — Spending */}
-      <div style={{ display: "flex", alignItems: "center", gap: 12, margin: "0 0 12px" }}>
+      <div style={{ display: "flex", alignItems: "center", gap: 12, margin: "0 0 10px" }}>
         <div style={{ fontSize: 11, fontWeight: 700, color: BLOCK_POS, textTransform: "uppercase", letterSpacing: 1.5, whiteSpace: "nowrap" }}>Spending Cuts</div>
         <div style={{ flex: 1, height: 1, background: BLOCK_POS, opacity: 0.25 }} />
       </div>
 
-      {/* Discretionary spending cut slider */}
-      <Card style={{ borderLeft: "4px solid " + BLOCK_POS, padding: "16px 20px", marginBottom: 24 }}>
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 10, flexWrap: "wrap", gap: 8 }}>
-          <div>
-            <div style={{ fontSize: 15, fontWeight: 700, color: BLOCK_POS }}>Discretionary Spending Cut</div>
-            <div style={{ fontSize: 12, color: MUTED, marginTop: 2 }}>
-              FY{YEAR} discretionary total: {fmtAmt(discretionaryB * 1000)} · Across-the-board cut to all discretionary programs
-            </div>
+      {/* Mandatory sub-section */}
+      {(function () {
+        var cats = SPEND_CATS.filter(function (c) { return c.type === "mandatory"; });
+        var groupSavings = cats.reduce(function (s, c) { return s + ((cuts[c.key] || 0) / 100) * (catAmounts[c.key] || 0); }, 0);
+        return (
+          <div style={{ marginBottom: 10 }}>
+            <button onClick={function () { setMandatoryOpen(!mandatoryOpen); }} style={{
+              width: "100%", display: "flex", justifyContent: "space-between", alignItems: "center",
+              background: "#fef2f2", border: "1px solid #fecaca", borderRadius: 8,
+              padding: "9px 14px", cursor: "pointer", textAlign: "left",
+              marginBottom: mandatoryOpen ? 8 : 0,
+            }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 10, minWidth: 0 }}>
+                <span style={{ fontSize: 12, fontWeight: 700, color: RED, whiteSpace: "nowrap" }}>Mandatory Spending</span>
+                <span style={{ fontSize: 11, color: MUTED, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
+                  Social Security · Medicare · Medicaid · Income Security
+                </span>
+              </div>
+              <div style={{ display: "flex", alignItems: "center", gap: 10, flexShrink: 0 }}>
+                {groupSavings > 0 && <span style={{ fontSize: 12, fontWeight: 700, color: BLOCK_POS }}>+{fmtAmt(groupSavings * 1000)}/yr</span>}
+                <span style={{ fontSize: 12, color: MUTED }}>{mandatoryOpen ? "▾" : "▸"}</span>
+              </div>
+            </button>
+            {mandatoryOpen && (
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8 }}>
+                {cats.map(function (cat) {
+                  var amt = catAmounts[cat.key] || 0;
+                  var pct = cuts[cat.key] || 0;
+                  var saved = (pct / 100) * amt;
+                  return (
+                    <div key={cat.key} style={{ background: "#f9fafb", borderRadius: 8, padding: "10px 12px", border: "1px solid " + BORDER }}>
+                      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 2 }}>
+                        <span style={{ fontSize: 12, fontWeight: 700, color: RED }}>{cat.label}</span>
+                        <span style={{ fontSize: 11, fontWeight: 600, color: saved > 0 ? BLOCK_POS : MUTED, whiteSpace: "nowrap", marginLeft: 6 }}>
+                          {saved > 0 ? "+" + fmtAmt(saved * 1000) : fmtAmt(amt * 1000)}
+                        </span>
+                      </div>
+                      <div style={{ fontSize: 10, color: MUTED, marginBottom: 6 }}>{pct > 0 ? pct + "% cut" : "No cut"}</div>
+                      <input type="range" min={0} max={100} step={1} value={pct}
+                        onChange={function (e) { setCut(cat.key, Number(e.target.value)); }}
+                        style={{ width: "100%", accentColor: RED, cursor: "grab", display: "block" }} />
+                    </div>
+                  );
+                })}
+              </div>
+            )}
           </div>
-          <div style={{ textAlign: "right" }}>
-            <div style={{ fontSize: 11, color: MUTED }}>Savings</div>
-            <div style={{ fontSize: 18, fontWeight: 700, color: spendingSavings > 0 ? BLOCK_POS : MUTED }}>
-              {spendingSavings > 0 ? "+" + fmtAmt(spendingSavings * 1000) : "—"}
-            </div>
+        );
+      })()}
+
+      {/* Discretionary sub-section */}
+      {(function () {
+        var cats = SPEND_CATS.filter(function (c) { return c.type === "discretionary"; });
+        var groupSavings = cats.reduce(function (s, c) { return s + ((cuts[c.key] || 0) / 100) * (catAmounts[c.key] || 0); }, 0);
+        return (
+          <div style={{ marginBottom: 24 }}>
+            <button onClick={function () { setDiscretionaryOpen(!discretionaryOpen); }} style={{
+              width: "100%", display: "flex", justifyContent: "space-between", alignItems: "center",
+              background: "#f0fdf4", border: "1px solid #bbf7d0", borderRadius: 8,
+              padding: "9px 14px", cursor: "pointer", textAlign: "left",
+              marginBottom: discretionaryOpen ? 8 : 0,
+            }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 10, minWidth: 0 }}>
+                <span style={{ fontSize: 12, fontWeight: 700, color: BLOCK_POS, whiteSpace: "nowrap" }}>Discretionary Spending</span>
+                <span style={{ fontSize: 11, color: MUTED, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
+                  Defense · Veterans · Education · All Other
+                </span>
+              </div>
+              <div style={{ display: "flex", alignItems: "center", gap: 10, flexShrink: 0 }}>
+                {groupSavings > 0 && <span style={{ fontSize: 12, fontWeight: 700, color: BLOCK_POS }}>+{fmtAmt(groupSavings * 1000)}/yr</span>}
+                <span style={{ fontSize: 12, color: MUTED }}>{discretionaryOpen ? "▾" : "▸"}</span>
+              </div>
+            </button>
+            {discretionaryOpen && (
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8 }}>
+                {cats.map(function (cat) {
+                  var amt = catAmounts[cat.key] || 0;
+                  var pct = cuts[cat.key] || 0;
+                  var saved = (pct / 100) * amt;
+                  return (
+                    <div key={cat.key} style={{ background: "#f9fafb", borderRadius: 8, padding: "10px 12px", border: "1px solid " + BORDER }}>
+                      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 2 }}>
+                        <span style={{ fontSize: 12, fontWeight: 700, color: BLOCK_POS }}>{cat.label}</span>
+                        <span style={{ fontSize: 11, fontWeight: 600, color: saved > 0 ? BLOCK_POS : MUTED, whiteSpace: "nowrap", marginLeft: 6 }}>
+                          {saved > 0 ? "+" + fmtAmt(saved * 1000) : fmtAmt(amt * 1000)}
+                        </span>
+                      </div>
+                      <div style={{ fontSize: 10, color: MUTED, marginBottom: 6 }}>{pct > 0 ? pct + "% cut" : "No cut"}</div>
+                      <input type="range" min={0} max={100} step={1} value={pct}
+                        onChange={function (e) { setCut(cat.key, Number(e.target.value)); }}
+                        style={{ width: "100%", accentColor: BLOCK_POS, cursor: "grab", display: "block" }} />
+                    </div>
+                  );
+                })}
+              </div>
+            )}
           </div>
-        </div>
-        <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-          <span style={{ fontSize: 12, color: MUTED, whiteSpace: "nowrap" }}>0%</span>
-          <input type="range" min={0} max={100} step={1} value={cutPct}
-            onChange={function (e) { setCutPct(Number(e.target.value)); }}
-            style={{ flex: 1, accentColor: BLOCK_POS, cursor: "grab" }} />
-          <span style={{ fontSize: 12, color: MUTED, whiteSpace: "nowrap" }}>100%</span>
-          <div style={{ minWidth: 80, textAlign: "right" }}>
-            {cutPct > 0
-              ? <span style={{ fontSize: 13, fontWeight: 600, color: BLOCK_POS }}>{cutPct}% cut</span>
-              : <span style={{ fontSize: 13, color: MUTED }}>No cut</span>}
-          </div>
-        </div>
-        <div style={{ fontSize: 11, color: MUTED, marginTop: 6 }}>
-          Includes defense, veterans, education, transportation, foreign aid, and other annual appropriations. Does not include Social Security, Medicare, Medicaid, or net interest.
-        </div>
-      </Card>
+        );
+      })()}
 
       {/* Section II — Tax Increases */}
       <div style={{ display: "flex", alignItems: "center", gap: 12, margin: "0 0 12px" }}>
@@ -3306,12 +3394,15 @@ function TaxPage({ taxData, spendingData, summaryData }) {
         <div style={{ background: totalClosed >= DEFICIT_B ? "#f0fdf4" : "#fef2f2", borderRadius: 10, padding: "16px 20px", marginBottom: 20, borderLeft: "4px solid " + (totalClosed >= DEFICIT_B ? BLOCK_POS : BLOCK_NEG) }}>
           <div style={{ fontSize: 14, fontWeight: 600, color: TEXT, marginBottom: 8 }}>Summary</div>
           <div style={{ display: "flex", flexDirection: "column", gap: 4, fontSize: 13, color: TEXT }}>
-            {spendingSavings > 0 && (
-              <div style={{ display: "flex", justifyContent: "space-between" }}>
-                <span style={{ color: BLOCK_POS }}>Discretionary cuts ({cutPct}%)</span>
-                <span style={{ color: BLOCK_POS }}>+{fmtAmt(spendingSavings * 1000)}/yr</span>
-              </div>
-            )}
+            {spendingSavings > 0 && SPEND_CATS.filter(function (c) { return (cuts[c.key] || 0) > 0; }).map(function (c) {
+              var saved = ((cuts[c.key] || 0) / 100) * (catAmounts[c.key] || 0);
+              return (
+                <div key={c.key} style={{ display: "flex", justifyContent: "space-between" }}>
+                  <span style={{ color: BLOCK_POS }}>{c.label} cut ({cuts[c.key]}%)</span>
+                  <span style={{ color: BLOCK_POS }}>+{fmtAmt(saved * 1000)}/yr</span>
+                </div>
+              );
+            })}
             {ORDER.map(function (bucketName) {
               var b   = brackets.find(function (x) { return x.bucket === bucketName; });
               var cr = rates[bucketName] !== undefined ? rates[bucketName] : b.effective_rate_pct;
