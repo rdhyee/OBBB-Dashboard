@@ -371,8 +371,7 @@ var TOUR_CONFIGS = {
   12: [
     { title: "Drag the sliders", body: "Each slider raises the effective tax rate on that income group by up to 20 percentage points. The bar at the top fills in green as you close more of the deficit." },
     { title: "The static vs. real gap", body: "These numbers assume people keep earning and reporting the same income. In reality, higher rates lead to more deductions, income shifting, and deferral. The true revenue gain is real but smaller than what you see here." },
-    { title: "Cutting spending", body: "Spending is divided into two groups. Discretionary spending — defense, veterans, education — is set annually by Congress and can be cut directly. This happened in 2013 through the Budget Control Act's sequestration, which imposed across-the-board cuts after Congress failed to agree on a deficit plan. Mandatory programs require new legislation to cut." },
-    { title: "Why mandatory cuts are so hard", body: "Social Security, Medicare, and Medicaid are structured so anyone who qualifies is legally entitled to benefits — cutting them requires passing new legislation. In 1981 the Senate voted 96–0 against proposed Social Security cuts. The 1983 Greenspan Commission raised the retirement age to 67 and increased payroll taxes. While rare, the OBBBA cut Medicare spending to fund some of its tax cuts." },
+    { title: "Cutting spending", body: "Spending is divided into two groups. Discretionary spending — defense, veterans, education — is set annually by Congress and can be cut directly. This happened in 2013 through the Budget Control Act's sequestration, which imposed across-the-board cuts after Congress failed to agree on a deficit plan. Mandatory programs require new legislation to cut. While rare, the OBBBA cut Medicare spending to fund some of its tax cuts." },
     { title: "In the real world", body: "In reality, some of these effects work against you. Cutting government spending reduces growth and new investments, but increasing taxes does the same. Economists disagree on how much each factor matters." },
   ],
 };
@@ -1375,7 +1374,7 @@ function AutoStabPanel({ data, stimulusByYear, yearStart, yearEnd, maxRows, labe
               )}
               <span style={{ fontSize: 12, color: C_STABILIZER }}>
                 Auto stabilizers: {Math.abs(hovRow.stabilizer_effect_pct).toFixed(1)}% of GDP
-              </span>
+              </span>ß
             </div>
           </div>
         ) : (
@@ -3276,7 +3275,7 @@ function TaxPage({ taxData, spendingData, summaryData }) {
                       <div style={{ fontSize: 10, color: MUTED, marginBottom: 6 }}>{pct > 0 ? pct + "% cut" : "No cut"}</div>
                       <input type="range" min={0} max={100} step={1} value={pct}
                         onChange={function (e) { setCut(cat.key, Number(e.target.value)); }}
-                        style={{ width: "100%", accentColor: RED, cursor: "grab", display: "block" }} />
+                        style={{ width: "100%", accentColor: pct > 0 ? "#ef4444" : MUTED, cursor: "grab" }} />
                     </div>
                   );
                 })}
@@ -3326,7 +3325,7 @@ function TaxPage({ taxData, spendingData, summaryData }) {
                       <div style={{ fontSize: 10, color: MUTED, marginBottom: 6 }}>{pct > 0 ? pct + "% cut" : "No cut"}</div>
                       <input type="range" min={0} max={100} step={1} value={pct}
                         onChange={function (e) { setCut(cat.key, Number(e.target.value)); }}
-                        style={{ width: "100%", accentColor: BLOCK_POS, cursor: "grab", display: "block" }} />
+                        style={{ width: "100%", accentColor: pct > 0 ? "#22c55e" : MUTED, cursor: "grab" }} />
                     </div>
                   );
                 })}
