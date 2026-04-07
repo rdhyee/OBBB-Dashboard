@@ -147,20 +147,26 @@ var PAGES = [
   // ── Section III: What Are the Consequences? ────────────────────
   {
     section: 2,
-    component: "CrowdingOutPage",      // III.a — are we stealing from our children?
-    title: "Paying for the Past",
+    component: "ConsolesPage",         // III.a — debt misconception
+    title: "Does Government Debt Have to Be Repaid?",
+    prompt: "So then what are the long term consequences of a large deficit?",
+  },
+  {
+    section: 2,
+    component: "CrowdingOutTextPage",  // III.a.ii — consequences overview
+    title: "What Does This Mean for Future Generations?",
     prompt: "Does this play out in the real world?",
   },
   {
     section: 2,
-    component: "CrowdingOutTextPage",  // III.a.ii — Crowding out text explainer
-    title: "Our Children",
-    prompt: "One direct consequence is the rising cost of interest.",
+    component: "CrowdingOutPage",      // III.a.i — are we stealing from our children?
+    title: "Paying for the Past",
+    prompt: "How Do Interest Payments Compare to Other Budget Items?",
   },
   {
     section: 2,
     component: "NetInterestPage",      // III.b — repurposed from App.jsx page 4
-    title: "The Rising Cost of Debt Service",
+    title: "How Does the Cost of Debt Service Compare to Other Government Programs?",
     prompt: "What choices does that leave for the budget?",
   },
   {
@@ -351,24 +357,25 @@ var TOUR_CONFIGS = {
     { title: "Will the government still tax imports?", body: "Right now, it's unclear. There are ongoing lawsuits on which tariffs are legal, how high each tax will be, and whether the government has to pay back tariffs already collected. We believe that the revenue from tariffs from now till 2034 will fall somewhere between the no tariff revenue case and the CBO's projections assuming the July 2025 tariffs remain in place.", targetId: "obbba-deficit-card" },
     { title: "Scrub through the next decade", body: "Use the slider to see how each year's deficit adds to the national debt pile. The pile shows cumulative debt held by the public — gray is what we already owed at the end of 2024." },
   ],
-  // Page 8 — Paying for the Past
-  8: [
+  // Page 8 — Consoles (no tour)
+  // Page 9 — What Does This Mean for Future Generations? / consequences overview (no tour)
+  // Page 10 — Paying for the Past
+  10: [
     { title: "Cents of every tax dollar", body: "The big number at the top shows how many cents of each tax dollar go straight to interest payments — money that can't be spent on anything else. In 1970 it was around 7 cents. Today it's over 16." },
     { title: "The chart tells the story", body: "Hover any year to see the exact share. Notice how it rose sharply in the 1980s as Reagan-era deficits compounded, fell during the Clinton surplus years, then began climbing again after 2008." },
   ],
-  // Page 9 — Crowding Out (text explainer, no tour needed)
-  // Page 10 — Net Interest
-  10: [
+  // Page 11 — Net Interest
+  11: [
     { title: "Compare any program", body: "Use the dropdown to select any government program. The block grids below will update to show net interest payments alongside your chosen program for that year." },
     { title: "Scrub through time", body: "Use the slider to move from 1970 to 2024 and see how both figures have changed over time. Compare how fast spending on interest has grown versus other categories." },
   ],
-  // Page 11 — Budget Dilemma
-  11: [
+  // Page 12 — Budget Dilemma
+  12: [
     { title: "Hover a slice", body: "Click any slice of the donut to see what that category costs, why it's hard to cut, and polling data on public support. Red slices are mandatory spending — legally required by statute. Green slices are discretionary." },
     { title: "The math is brutal", body: "Even eliminating every green slice entirely: all of defense, education, veterans, foreign aid. It barely covers the deficit. Any plan to balance the budget requires some combination of cuts to mandatory programs, discretionary programs, and tax increases." },
   ],
-  // Page 12 — Balancing the Budget
-  12: [
+  // Page 13 — Balancing the Budget
+  13: [
     { title: "Drag the sliders", body: "Each slider raises the effective tax rate on that income group by up to 20 percentage points. The bar at the top fills in green as you close more of the deficit." },
     { title: "The static vs. real gap", body: "These numbers assume people keep earning and reporting the same income. In reality, higher rates lead to more deductions, income shifting, and deferral. The true revenue gain is real but smaller than what you see here." },
     { title: "Cutting spending", body: "Spending is divided into two groups. Discretionary spending — defense, veterans, education — is set annually by Congress and can be cut directly. This happened in 2013 through the Budget Control Act's sequestration, which imposed across-the-board cuts after Congress failed to agree on a deficit plan. Mandatory programs require new legislation to cut. While rare, the OBBBA cut Medicare spending to fund some of its tax cuts." },
@@ -1683,413 +1690,6 @@ function DeficitPage({ summaryData }) {
     </div>
   );
 }
-
-/* ── II.c  Projected Debt / Deficit ─────── */
-// TODO: projected debt and deficit block visualization.
-// Shows CBO 10-year projections as accumulating debt pile or annual deficit bars.
-// Scenario toggle: with tariffs / without tariffs.
-// Data: projections_deficit.csv, projections_summary.csv
-function ProjectedDebtPage({ deficitProj, projSummary }) {
-  var tour = useTour(8);
-  var _scenario = useState("no_tariff_revenue");
-  var scenario = _scenario[0]; var setScenario = _scenario[1];
-  var _hovYear = useState(null); var hovYear = _hovYear[0]; var setHovYear = _hovYear[1];
-  var _scrubYear = useState(2025); var scrubYear = _scrubYear[0]; var setScrubYear = _scrubYear[1];
-
-  var YEARS = [2025,2026,2027,2028,2029,2030,2031,2032,2033,2034,2035];
-
-  var gdpByYear = useMemo(function () {
-    if (!projSummary) return {};
-    var out = {};
-    projSummary.forEach(function (r) {
-      if (String(r.category).trim() === "GDP") {
-        var val = Number(r.amount_billions || r.value || r.amount || 0);
-        if (val > 0) out[Number(r.year)] = val;
-      }
-    });
-    return out;
-  }, [projSummary]);
-
-  // Parse projections into lookup by scenario
-  var series = useMemo(function () {
-    if (!deficitProj) return {};
-    var out = {};
-    deficitProj.forEach(function (r) {
-      if (!out[r.scenario]) out[r.scenario] = {};
-      out[r.scenario][r.year] = r.deficit_billions;
-    });
-    return out;
-  }, [deficitProj]);
-
-  var activeSeries = useMemo(function () {
-    var s = series[scenario] || {};
-    // no_tariff_revenue starts at 2026 — use feb_2026_current_law for 2025
-    if (!s[2025] && series["feb_2026_current_law"]) {
-      return Object.assign({}, s, { 2025: series["feb_2026_current_law"][2025] });
-    }
-    return s;
-  }, [series, scenario]);
-
-  // ── Panel 1: annual deficit bars ──────────────────
-  var maxDeficit = useMemo(function () {
-    return Math.max.apply(null, YEARS.map(function (y) { return activeSeries[y] || 0; }));
-  }, [activeSeries]);
-
-  var BAR_BLOCK_B  = 10;   // $10B per block
-  var BAR_BLK_SZ   = 5;
-  var BAR_BLK_GAP  = 1;
-  var BAR_CELL     = BAR_BLK_SZ + BAR_BLK_GAP;
-  var BAR_COL_WIDE = 9;    // blocks wide per year column
-  var BAR_COL_GAP  = 10;
-  var BAR_COL_W    = BAR_COL_WIDE * BAR_CELL;
-
-  var barMaxBlocks = Math.ceil(maxDeficit / BAR_BLOCK_B);
-  var barMaxRows   = Math.ceil(barMaxBlocks / BAR_COL_WIDE);
-  var barChartH    = barMaxRows * BAR_CELL;
-  var barTotalW    = YEARS.length * (BAR_COL_W + BAR_COL_GAP);
-
-  // ── Panel 2: cumulative debt pile ─────────────────
-  // Anchor: debt held by public end of 2024 ≈ $28.2T (from projections_summary)
-  var ANCHOR_DEBT_B = 28200;   // billions
-
-  var cumulativeByYear = useMemo(function () {
-    var cum = ANCHOR_DEBT_B;
-    var out = {};
-    YEARS.forEach(function (y) {
-      cum += (activeSeries[y] || 0);
-      out[y] = cum;
-    });
-    return out;
-  }, [activeSeries]);
-
-  var PILE_BLOCK_B = 10;    // $10B per block — same scale as bars
-  var PILE_COLS    = 120;   // blocks wide — wider grid
-  var PILE_SZ      = 5;     // 1px bigger blocks
-  var PILE_GAP     = 1;
-  var PILE_CELL    = PILE_SZ + PILE_GAP;
-
-  // Year colors for pile
-  var YEAR_COLORS = ["#fecaca","#fca5a5","#f87171","#ef4444","#dc2626","#b91c1c",
-                     "#991b1b","#7f1d1d","#ef4444","#dc2626","#b91c1c"];
-
-  return (
-    <div>
-      {tour.show && <Tour steps={tour.steps} onDone={tour.done} />}
-      <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", marginBottom: 6 }}>
-        <h2 style={{ fontSize: 22, fontWeight: 700, color: TEXT, margin: 0 }}>Projected Deficits & Debt (2025–2035)</h2>
-        <TourBtn onOpen={tour.reopen} />
-      </div>
-      <p style={{ fontSize: 15, color: TEXT, lineHeight: 1.75, margin: "0 0 6px" }}>
-        The Congressional Budget Office projects the federal government will run deficits totaling over $20 trillion through 2035, pushing debt held by the public past $56 trillion. These added deficits will increase the debt to 118% of GDP in 2035. The scenario shown depends on whether current tariff revenues are maintained, but this depends on change due to recent Supreme Court ruling on tariff policy. We believe that the revenue from tariffs from now until 2034 will fall somewhere between completely zeroed tariff revenues and the CBO's projections (assuming the July 1st tariffs remain in place).
-      </p>
-
-      {/* Scenario toggle */}
-      <div style={{ display: "flex", alignItems: "center", gap: 8, margin: "12px 0 20px" }}>
-        <span style={{ fontSize: 12, color: MUTED }}>Scenario:</span>
-        {[
-          { key: "no_tariff_revenue", label: "Tariffs Struck Down" },
-          { key: "feb_2026_current_law", label: "With tariff revenue" },
-        ].map(function (s) {
-          var active = scenario === s.key;
-          return (
-            <button key={s.key} onClick={function () { setScenario(s.key); }} style={{
-              padding: "4px 14px", fontSize: 12, borderRadius: 6, cursor: "pointer",
-              border: "1px solid " + (active ? RED : BORDER),
-              background: active ? RED : SURFACE,
-              color: active ? "#fff" : TEXT,
-              fontWeight: active ? 600 : 400,
-            }}>{s.label}</button>
-          );
-        })}
-      </div>
-
-      {/* Panel 1 — Annual deficit bars */}
-      <Card style={{ borderLeft: "4px solid " + RED, marginBottom: 20 }}>
-        <h3 style={{ fontSize: 15, fontWeight: 600, color: TEXT, margin: "0 0 14px" }}>Annual Deficit</h3>
-        <p style={{ fontSize: 12, color: MUTED, margin: "0 0 10px" }}>Each block = $10B. Columns grow downward.</p>
-        <div style={{ overflowX: "auto", overflowY: "visible" }}>
-          <div style={{ position: "relative", width: barTotalW, height: XAXIS_H + barChartH + 4, flexShrink: 0, overflow: "visible" }}>
-            {/* X-axis */}
-            {YEARS.map(function (y, i) {
-              return (
-                <div key={y} style={{
-                  position: "absolute", left: i * (BAR_COL_W + BAR_COL_GAP),
-                  top: 0, width: BAR_COL_W, height: XAXIS_H,
-                  display: "flex", alignItems: "flex-end", justifyContent: "center", paddingBottom: 3,
-                }}>
-                  <span style={{ fontSize: 10, fontWeight: 500, color: MUTED }}>{y}</span>
-                </div>
-              );
-            })}
-            {/* Zero line */}
-            <div style={{ position: "absolute", left: 0, top: XAXIS_H, width: barTotalW, height: 2, background: BORDER, zIndex: 1 }} />
-            {/* Bars — individual blocks with tooltip */}
-            {YEARS.map(function (y, i) {
-              var deficit = activeSeries[y] || 0;
-              var blocks  = Math.round(deficit / BAR_BLOCK_B);
-              var isHov   = hovYear === y || scrubYear === y;
-              var idx     = YEARS.indexOf(y);
-              var color   = YEAR_COLORS[idx] || RED;
-              return (
-                <div key={y}
-                  onMouseEnter={function () { setHovYear(y); }}
-                  onMouseLeave={function () { setHovYear(null); }}
-                  style={{ position: "absolute", left: i * (BAR_COL_W + BAR_COL_GAP), top: XAXIS_H, width: BAR_COL_W, height: barChartH, zIndex: 2, cursor: "default", overflow: "visible" }}>
-                  {/* Tooltip — above the bar, matching site style */}
-                  {hovYear === y && (
-                    <div style={{
-                      position: "absolute", bottom: "100%", left: "50%",
-                      transform: "translateX(-50%)", marginBottom: 6,
-                      zIndex: 20, whiteSpace: "nowrap", fontSize: 11,
-                      textAlign: "center", lineHeight: 1.6,
-                      background: "#fff", border: "1px solid #e5e7eb",
-                      borderRadius: 5, padding: "5px 9px",
-                      boxShadow: "0 2px 6px rgba(0,0,0,0.1)",
-                      pointerEvents: "none",
-                    }}>
-                      <div style={{ fontWeight: 700, marginBottom: 2 }}>{y}</div>
-                      <div style={{ color: RED }}>Deficit: ${(deficit / 1000).toFixed(2)}T{gdpByYear[y] ? " (" + (deficit / gdpByYear[y] * 100).toFixed(1) + "% of GDP)" : ""}</div>
-                    </div>
-                  )}
-                  {Array.from({ length: blocks }).map(function (_, b) {
-                    var bCol = b % BAR_COL_WIDE;
-                    var bRow = Math.floor(b / BAR_COL_WIDE);
-                    return (
-                      <div key={b} style={{
-                        position: "absolute",
-                        left: bCol * BAR_CELL, top: bRow * BAR_CELL,
-                        width: BAR_BLK_SZ, height: BAR_BLK_SZ, borderRadius: 1,
-                        backgroundColor: color,
-                        opacity: isHov ? 1 : 0.82, transition: "opacity 0.1s",
-                      }} />
-                    );
-                  })}
-                </div>
-              );
-            })}
-          </div>
-        </div>
-        {/* Year color legend */}
-        <div style={{ display: "flex", flexWrap: "wrap", gap: "4px 12px", marginTop: 12 }}>
-          {YEARS.map(function (y, i) {
-            return (
-              <div key={y} style={{ display: "flex", alignItems: "center", gap: 4, fontSize: 11, color: MUTED }}>
-                <div style={{ width: 8, height: 8, borderRadius: 1, backgroundColor: YEAR_COLORS[i] }} />
-                {y}
-              </div>
-            );
-          })}
-        </div>
-      </Card>
-
-      {/* Year scrubber — sits above the debt pile it controls */}
-      <div style={{ display: "flex", gap: 24, marginBottom: 12, flexWrap: "wrap" }}>
-        <div style={{ background: "#fef2f2", borderRadius: 8, padding: "10px 16px", flex: "1 1 140px" }}>
-          <div style={{ fontSize: 11, color: MUTED, textTransform: "uppercase", letterSpacing: 0.5 }}>Annual deficit</div>
-          <div style={{ fontSize: 20, fontWeight: 700, color: RED }}>${((activeSeries[scrubYear] || 0) / 1000).toFixed(2)}T</div>
-        </div>
-        <div style={{ background: "#fef2f2", borderRadius: 8, padding: "10px 16px", flex: "1 1 140px" }}>
-          <div style={{ fontSize: 11, color: MUTED, textTransform: "uppercase", letterSpacing: 0.5 }}>Cumulative debt</div>
-          <div style={{ fontSize: 20, fontWeight: 700, color: RED }}>${(cumulativeByYear[scrubYear] / 1000).toFixed(1)}T</div>
-        </div>
-        <div style={{ background: "#f9fafb", borderRadius: 8, padding: "10px 16px", flex: "1 1 140px" }}>
-          <div style={{ fontSize: 11, color: MUTED, textTransform: "uppercase", letterSpacing: 0.5 }}>Added since 2024</div>
-          <div style={{ fontSize: 20, fontWeight: 700, color: RED }}>${((cumulativeByYear[scrubYear] - ANCHOR_DEBT_B) / 1000).toFixed(1)}T</div>
-        </div>
-      </div>
-      <div style={{ margin: "0 0 16px", display: "flex", alignItems: "center", gap: 12 }}>
-        <span style={{ fontSize: 12, color: MUTED, whiteSpace: "nowrap" }}>Scrub year:</span>
-        <input type="range" min={0} max={YEARS.length - 1} value={YEARS.indexOf(scrubYear) === -1 ? YEARS.length - 1 : YEARS.indexOf(scrubYear)}
-          onChange={function (e) { setScrubYear(YEARS[Number(e.target.value)]); }}
-          style={{ flex: 1, accentColor: RED }} />
-        <span style={{ fontSize: 13, fontWeight: 600, color: TEXT, minWidth: 36 }}>{scrubYear}</span>
-      </div>
-
-      {/* Panel 2 — Cumulative debt pile */}
-      <Card style={{ borderLeft: "4px solid #4a0000" }}>
-        <h3 style={{ fontSize: 15, fontWeight: 600, color: TEXT, margin: "0 0 14px" }}>Cumulative Debt Held by Public</h3>
-        <p style={{ fontSize: 12, color: MUTED, margin: "0 0 10px" }}>Each block = $10B. Gray = existing debt (~$28.2T end of 2024). Colors match deficit years above.</p>
-        {/* Pile — builds up to scrubYear as slider moves */}
-        <div style={{ width: PILE_COLS * PILE_CELL }}>
-          {(function () {
-            var segments = [{ year: "anchor", count: Math.round(ANCHOR_DEBT_B / PILE_BLOCK_B), color: "#9ca3af" }];
-            YEARS.forEach(function (y, idx) {
-              if (y > scrubYear) return;   // only show years up to scrubYear
-              segments.push({ year: y, count: Math.round((activeSeries[y] || 0) / PILE_BLOCK_B), color: YEAR_COLORS[idx] || RED });
-            });
-
-            return segments.map(function (seg) {
-              if (seg.count === 0) return null;
-              var paddedCount = Math.ceil(seg.count / PILE_COLS) * PILE_COLS;
-              var rows = paddedCount / PILE_COLS;
-              var isScrub = scrubYear === seg.year;
-              var opacity = seg.year === "anchor" ? 0.7 : isScrub ? 1 : 0.8;
-              return (
-                <div key={seg.year} style={{
-                  width: PILE_COLS * PILE_CELL,
-                  height: rows * PILE_CELL,
-                  backgroundImage: "repeating-linear-gradient(to bottom, transparent 0px, transparent " + PILE_SZ + "px, rgba(255,255,255,0.3) " + PILE_SZ + "px, rgba(255,255,255,0.3) " + PILE_CELL + "px), repeating-linear-gradient(to right, " + seg.color + " 0px, " + seg.color + " " + PILE_SZ + "px, rgba(255,255,255,0.3) " + PILE_SZ + "px, rgba(255,255,255,0.3) " + PILE_CELL + "px)",
-                  opacity: opacity,
-                  outline: isScrub && seg.year !== "anchor" ? "2px solid " + seg.color : "none",
-                  outlineOffset: -1,
-                }} />
-              );
-            });
-          })()}
-        </div>
-        <div style={{ marginTop: 12, fontSize: 13, color: MUTED }}>
-          Total projected debt by 2035: <strong style={{ color: RED }}>${(cumulativeByYear[2035] / 1000).toFixed(1)}T</strong>
-        </div>
-      </Card>
-
-      <p style={{ fontSize: 12, color: MUTED, marginTop: 12 }}>Source: <a href="https://www.cbo.gov/publication/62105" target="_blank" rel="noreferrer" style={{ color: BLUE }}>CBO February 2026 Budget Projections (pub. 62105)</a>.</p>
-    </div>
-  );
-}
-
-/* ── II.d  OBBBA ─────────────────────────── */
-// Ported from App.jsx OBBBAPage.
-// Extended to support 4 scenarios once tcja_extended_no_obbba CSV data is available.
-// ProjBar and ProjectionPanel lifted verbatim from App.jsx for now.
-
-function ProjBar({ nBaseline, nObbba, nNoTariff, maxRows, colW, blkSz }) {
-  var CW = colW || PROJ_COL_W; var BS = blkSz || PROJ_SZ;
-  var total      = nBaseline + nObbba + nNoTariff;
-  var myRows     = Math.ceil(total / CW);
-  var padRows    = maxRows - myRows;
-  var totalCells = maxRows * CW;
-  var emptyCells = padRows * CW;
-  return (
-    <div style={{ display: "grid", gridTemplateColumns: "repeat(" + CW + ", " + BS + "px)", gap: PROJ_GAP + "px", width: CW * (BS + PROJ_GAP) - PROJ_GAP, alignSelf: "flex-end" }}>
-      {Array.from({ length: totalCells }).map(function (_, i) {
-        if (i < emptyCells) return <div key={i} style={{ width: PROJ_SZ, height: PROJ_SZ }} />;
-        var filled = i - emptyCells;
-        var color;
-        if      (filled < nNoTariff)             color = C_NOTARIFF;
-        else if (filled < nNoTariff + nObbba)    color = C_OBBBA;
-        else                                     color = C_JAN;
-        return <div key={i} style={{ width: PROJ_SZ, height: PROJ_SZ, borderRadius: 1, backgroundColor: color }} />;
-      })}
-    </div>
-  );
-}
-
-function ProjectionPanel({ years, baselineSeries, obbbaWithTariffSeries, obbbaNoTariffSeries, gdpByYear, mode }) {
-  var _hov = useState(null); var hoveredYear = _hov[0]; var setHoveredYear = _hov[1];
-  var base    = baselineSeries       || {};
-  var withTar = obbbaWithTariffSeries || {};
-  var noTar   = obbbaNoTariffSeries  || {};
-  var gdp     = gdpByYear || {};
-
-  function fmt(v) { return v == null ? "—" : "$" + (v / 1000).toFixed(2) + "T"; }
-  function fmtPct(v, yr) {
-    var g = gdp[yr];
-    if (!v || !g) return "";
-    return " (" + (v / g * 100).toFixed(1) + "% GDP)";
-  }
-
-  // Nominal mode: $10B per block, 10 wide (original style)
-  // Pct mode: 0.1% GDP per block, 5 wide
-  var COL_W   = mode === "pct" ? 5  : 10;
-  var BLK_SZ  = PROJ_SZ;   // same 7px block in both modes
-  var BLK_PCT = 0.1;        // % GDP per block in pct mode
-  var BLK_B   = 10;         // $B per block in nominal mode
-
-  var maxRows = useMemo(function () {
-    var m = 1;
-    years.forEach(function (yr) {
-      var n;
-      if (mode === "pct") {
-        var g = gdp[yr] || 1;
-        n = Math.ceil(Math.round((noTar[yr] || 0) / g * 1000) / COL_W);
-      } else {
-        n = Math.ceil(Math.round((noTar[yr] || 0) / BLK_B) / COL_W);
-      }
-      if (n > m) m = n;
-    });
-    return m;
-  }, [years, noTar, gdp, mode, COL_W]);
-
-  var colPx  = COL_W * (BLK_SZ + PROJ_GAP) - PROJ_GAP + 4;
-  var tenYr  = function (s) { return years.reduce(function (a, yr) { return a + ((s || {})[yr] || 0); }, 0); };
-
-  var legendItems = [
-    { color: C_JAN,      label: "Pre-OBBBA (Jan 2025 baseline)" },
-    { color: C_OBBBA,    label: "OBBBA w/ tariffs" },
-    { color: C_NOTARIFF, label: "OBBBA, Tariffs struck down" },
-  ];
-
-  var avgPctGDP = function (s) {
-    var vals = years.map(function (yr) { var g = gdp[yr]; return g ? (s[yr] || 0) / g * 100 : null; }).filter(Boolean);
-    return vals.length ? vals.reduce(function (a, v) { return a + v; }, 0) / vals.length : 0;
-  };
-  var summaryItems = [
-    { color: C_JAN,      label: "Pre-OBBBA 10yr",   val: tenYr(base),    avg: avgPctGDP(base),    bg: "#f3f4f6" },
-    { color: C_OBBBA,    label: "With tariffs 10yr", val: tenYr(withTar), avg: avgPctGDP(withTar), bg: "#fdf6e3" },
-    { color: C_NOTARIFF, label: "Tariffs struck down 10yr",   val: tenYr(noTar),   avg: avgPctGDP(noTar),   bg: "#fef2f2" },
-  ];
-
-  return (
-    <div>
-      <div style={{ display: "flex", gap: 20, marginBottom: 16, flexWrap: "wrap" }}>
-        {legendItems.map(function (l) {
-          return (
-            <div key={l.label} style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 12, color: MUTED }}>
-              <div style={{ width: PROJ_SZ, height: PROJ_SZ, borderRadius: 1, backgroundColor: l.color }} />{l.label}
-            </div>
-          );
-        })}
-      </div>
-      <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", gap: 2 }}>
-        {years.map(function (yr) {
-          var baseline   = base[yr]    || 0;
-          var withTariff = withTar[yr] || 0;
-          var noTariff   = noTar[yr]   || 0;
-          var nBaseline, nObbba, nNoTariff;
-          if (mode === "pct") {
-            var g = gdp[yr] || 1;
-            nBaseline  = Math.round((baseline    || 0) / g * 1000);
-            nObbba     = Math.max(Math.round((withTariff || 0) / g * 1000) - nBaseline, 0);
-            nNoTariff  = Math.max(Math.round((noTariff   || 0) / g * 1000) - nBaseline - nObbba, 0);
-          } else {
-            nBaseline  = Math.round((baseline    || 0) / BLK_B);
-            nObbba     = Math.max(Math.round((withTariff || 0) / BLK_B) - nBaseline, 0);
-            nNoTariff  = Math.max(Math.round((noTariff   || 0) / BLK_B) - nBaseline - nObbba, 0);
-          }
-          var isHov      = hoveredYear === yr;
-          return (
-            <div key={yr}
-              onMouseEnter={function () { setHoveredYear(yr); }}
-              onMouseLeave={function () { setHoveredYear(null); }}
-              style={{ display: "flex", flexDirection: "column", alignItems: "center", cursor: "default", position: "relative", overflow: "visible" }}>
-              {isHov && (
-                <div style={{ position: "absolute", top: "100%", left: "50%", transform: "translateX(-50%)", marginTop: 6, zIndex: 10, whiteSpace: "nowrap", fontSize: 11, textAlign: "center", lineHeight: 1.6, background: "#fff", border: "1px solid #e5e7eb", borderRadius: 5, padding: "5px 9px", boxShadow: "0 2px 6px rgba(0,0,0,0.1)" }}>
-                  <div style={{ fontWeight: 700, marginBottom: 2 }}>{yr}</div>
-                  <div style={{ color: C_JAN }}>Baseline: {fmt(baseline)}{fmtPct(baseline, yr)}</div>
-                  <div style={{ color: C_OBBBA }}>w/ tariffs: {fmt(withTariff)}{fmtPct(withTariff, yr)}</div>
-                  <div style={{ color: C_NOTARIFF }}>Tariffs struck down: {fmt(noTariff)}{fmtPct(noTariff, yr)}</div>
-                </div>
-              )}
-              <ProjBar nBaseline={nBaseline} nObbba={nObbba} nNoTariff={nNoTariff} maxRows={maxRows} colW={COL_W} blkSz={BLK_SZ} />
-              <div style={{ fontSize: 11, color: MUTED, marginTop: 5, textAlign: "center", width: colPx }}>{yr}</div>
-            </div>
-          );
-        })}
-      </div>
-      <div style={{ marginTop: 20, display: "flex", gap: 10, flexWrap: "wrap" }}>
-        {summaryItems.map(function (s) {
-          return (
-            <div key={s.label} style={{ flex: 1, minWidth: 120, background: s.bg, borderRadius: 6, padding: "8px 12px" }}>
-              <div style={{ fontSize: 10, color: MUTED, textTransform: "uppercase", letterSpacing: 0.4, marginBottom: 2 }}>{s.label}</div>
-              <div style={{ fontSize: 15, fontWeight: 700, color: s.color }}>{mode === "pct" ? s.avg.toFixed(1) + "% avg" : fmt(s.val)}</div>
-            </div>
-          );
-        })}
-      </div>
-    </div>
-  );
-}
-
 function OBBBAPage({ deficitProj, niProj, projSummary }) {
   var tour = useTour(7);
 
@@ -2242,9 +1842,27 @@ function OBBBAPage({ deficitProj, niProj, projSummary }) {
   );
 }
 
+/* ── III.a  Consoles / Debt Misconception ─── */
+function ConsolesPage() {
+  return (
+    <div>
+      <h2 style={{ fontSize: 22, fontWeight: 700, color: TEXT, margin: "0 0 16px" }}>Does Government Debt Have to Be Repaid?</h2>
+      <p style={{ fontSize: 15, color: TEXT, lineHeight: 1.75, margin: "0 0 16px" }}>
+        A common misunderstanding is that someday the government will have to pay back the debt. Because creditors have to believe that people will be able to pay off their debts during their lifetimes, people can't run up unlimited debts. But governments don't have an expected lifetime so their ability to borrow isn't limited in the same way.
+      </p>
+      <p style={{ fontSize: 15, color: TEXT, lineHeight: 1.75, margin: "0 0 16px" }}>
+        In fact many governments have issued debt that they never have to pay back — called <em>consoles</em> — and people bought them. Consoles pay interest, but the loan itself never has to be repaid. In fact, one such bond issued by the Dutch government in the 1600s was still paying interest a few years ago.
+      </p>
+      <p style={{ fontSize: 15, color: TEXT, lineHeight: 1.75, margin: "0 0 16px" }}>
+        The U.S. government doesn't issue consoles today, but it has had virtually no trouble paying off old bonds and then issuing new ones despite the growing debt. That may change in the future if the debt gets too big. But, as long as that doesn't happen, future generations will not have to pay the debt back.
+      </p>
+    </div>
+  );
+}
+
 /* ── III.a  Crowding Out ─────────────────── */
 function CrowdingOutPage({ spendingData, summaryData }) {
-  var tour = useTour(8);
+  var tour = useTour(10);
   var _hov = useState(null); var hovYear = _hov[0]; var setHovYear = _hov[1];
 
   var series = useMemo(function () {
@@ -2374,115 +1992,33 @@ function CrowdingOutPage({ spendingData, summaryData }) {
 
 /* ── III.a.ii  Japan Case Study ──────────── */
 function CrowdingOutTextPage() {
-  var _step = useState(0); var step = _step[0]; var setStep = _step[1];
-
-  var POINTS = [
-    {
-      num: 1,
-      heading: "Deficits and interest rates",
-      body: "It is widely believed among economists that large deficits lead to higher interest rates. CBO estimates that each 1 percentage point increase in the debt-to-GDP ratio raises long-run interest rates by about 2 basis points (0.02%). With debt now at 100% of GDP and projected to hit 156% by 2055, that adds up.",
-      source: "CBO, Effects of Federal Borrowing on Interest Rates and Treasury Markets (March 2025)",
-      sourceUrl: "https://www.cbo.gov/system/files/2025-03/61230-Federal_Borrowing.pdf",
-    },
-    {
-      num: 2,
-      heading: "The Reagan evidence — and its limits",
-      body: "The federal deficit peaked at 6% of GDP in 1983 under Reagan — up from 2.5% in 1981 — and the 10-year Treasury yield topped 15% in the early 1980s. But the Federal Reserve under Paul Volcker had deliberately raised rates to crush the inflation of the 1970s. It is impossible to separate the deficit effect from the monetary policy effect.",
-      source: "Reaganomics — Econlib; AIER, The Federal Deficit and Debt: Trouble Ahead?",
-      sourceUrl: "https://www.econlib.org/library/Enc/Reaganomics.html",
-    },
-    {
-      num: 3,
-      heading: "When deficits don't raise rates",
-      body: "The deficit reached 9.8% of GDP in 2009 — the largest in 60 years — yet the 10-year Treasury yield fell from 4.6% in 2007 to 3.3% in 2009, and kept falling. In 2020, the deficit hit 15% of GDP while the 10-year yield dropped from 1.85% in January to under 1% by August. In both cases the Fed's emergency rate cuts overwhelmed any upward pressure from borrowing.",
-      source: "PGPF, How Will Interest Rate Changes Affect Federal Debt and Deficits? (2021)",
-      sourceUrl: "https://www.pgpf.org/article/how-will-interest-rate-changes-affect-federal-debt-and-deficits/",
-    },
-    {
-      num: 4,
-      heading: "The recession exception",
-      body: "Economists largely treat recession-era deficits as a special case — when the economy is weak, investors flee to the safety of Treasury bonds, pushing yields down regardless of how much the government borrows. The more widely held view is that deficits run when the economy is at or near full employment do put upward pressure on interest rates.",
-      source: "Bipartisan Policy Center, The Deficit in a Downturn (2025)",
-      sourceUrl: "https://bipartisanpolicy.org/article/the-deficit-in-a-downturn-how-have-recessions-impacted-the-federal-budget/",
-    },
-    {
-      num: 5,
-      heading: "Crowding out investment",
-      body: "CBO estimates that for every dollar the federal deficit increases, private investment falls by 33 cents — with a range of 15 to 50 cents depending on how much private saving and foreign capital offset the borrowing. Over 30 years, rising debt under current law could reduce average income growth by 16% relative to a debt-stable scenario.",
-      source: "CBO, The Long-Run Effects of Federal Budget Deficits on National Saving and Private Domestic Investment, Working Paper 2014-02",
-      sourceUrl: "https://www.cbo.gov/sites/default/files/cbofiles/attachments/45140-NSPDI_workingPaper.pdf",
-    },
-    {
-      num: 6,
-      heading: "Housing costs",
-      body: "Higher interest rates have an outsized impact on housing construction. A 1 percentage point rise in mortgage rates reduces housing starts significantly, contributing directly to higher home prices. With the 30-year mortgage rate reaching 7–8% in 2023–24, housing starts fell sharply and home affordability hit historic lows.",
-      source: "AAF, Examining the Consequences of a High and Rising National Debt (2025)",
-      sourceUrl: "https://www.americanactionforum.org/insight/examining-the-consequences-of-a-high-and-rising-national-debt/",
-    },
+  var CONSEQUENCE_BOXES = [
+    "It can increase interest rates which then cause reductions in investment in new buildings, and machinery. This can cause higher housing prices, lower productivity growth, and lower wages over time.",
+    "Large deficits during times of full employment can lead to increasing inflation.",
+    "As debt grows relative to national income the government must make those payments through a combination of tax increases and spending cuts or take other actions to deal with the debt.",
+    "A large and persistent increase in inflation, the government being unable to pay its debt, or just the anticipation of these things could spook investors leading to a rapid sell off of U.S. debt and financial instability.",
   ];
-
-  var cur    = POINTS[step];
-  var isLast = step === POINTS.length - 1;
 
   return (
     <div>
-      <h2 style={{ fontSize: 22, fontWeight: 700, color: TEXT, margin: "0 0 16px" }}>Our Children</h2>
-      <p style={{ fontSize: 15, color: TEXT, lineHeight: 1.75, margin: "0 0 16px" }}>
-        Running government deficits can have mixed consequences for the economy, which is why some argue we are 'stealing from our children,' while others disagree. On one hand, persistent deficits can absorb a portion of national savings, leading to higher interest rates. As borrowing becomes more expensive, businesses may reduce investment in productive assets like factories and equipment, which can slow future economic growth, lower wages, and reduce tax revenues. Higher interest rates also directly affect households, particularly by making mortgages more costly, which can reduce housing construction and contribute to higher home prices.
-      </p>
-      <p style={{ fontSize: 15, color: TEXT, lineHeight: 1.75, margin: "0 0 16px" }}>
-        On the other hand, these effects are often softened by global capital flows: when U.S. interest rates rise, foreign investors are attracted to invest in U.S. assets. While this helps keep interest rates from rising too sharply, it contributes to a trade deficit and increases the portion of U.S. debt held by foreign investors. This means that instead of owing money primarily within the country, the U.S. owes more to external creditors.
-      </p>
-      <p style={{ fontSize: 15, color: TEXT, lineHeight: 1.75, margin: "0 0 24px" }}>
-        Overall, deficits can shift economic burdens into the future, but their actual impact depends on factors like economic conditions, global investment flows, and how borrowed funds are used.
+      <h2 style={{ fontSize: 22, fontWeight: 700, color: TEXT, margin: "0 0 16px" }}>What Does This Mean for Future Generations?</h2>
+      <p style={{ fontSize: 15, color: TEXT, lineHeight: 1.75, margin: "0 0 20px" }}>
+        A government deficit that is large relative to the size of the national economy can have numerous negative effects on the people who live there.
       </p>
 
-      {/* Crowding Out — stepped points */}
-      <div style={{ display: "flex", gap: 6, marginBottom: 20, alignItems: "center" }}>
-        {POINTS.map(function (p, i) {
+      <div style={{ display: "flex", flexDirection: "column", gap: 10, marginBottom: 20 }}>
+        {CONSEQUENCE_BOXES.map(function (text, i) {
           return (
-            <button key={i} onClick={function () { setStep(i); }} style={{
-              width: i === step ? 10 : 7,
-              height: i === step ? 10 : 7,
-              borderRadius: "50%",
-              border: "none", padding: 0, cursor: "pointer",
-              background: i < step ? BLUE : i === step ? RED : BORDER,
-              transition: "all 0.15s",
-              flexShrink: 0,
-            }} />
+            <Card key={i} style={{ borderLeft: "4px solid " + RED }}>
+              <p style={{ fontSize: 15, color: TEXT, lineHeight: 1.75, margin: 0 }}>{text}</p>
+            </Card>
           );
         })}
-        <span style={{ fontSize: 11, color: MUTED, marginLeft: 8 }}>{step + 1} of {POINTS.length}</span>
       </div>
 
-      <Card style={{ borderLeft: "4px solid " + RED, marginBottom: 24, minHeight: 140 }}>
-        <div style={{ fontSize: 11, fontWeight: 700, color: MUTED, textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 8 }}>
-          Point {cur.num}
-        </div>
-        <h3 style={{ fontSize: 17, fontWeight: 700, color: TEXT, margin: "0 0 10px" }}>{cur.heading}</h3>
-        <p style={{ fontSize: 15, color: TEXT, lineHeight: 1.75, margin: "0 0 12px" }}>{cur.body}</p>
-        {cur.source && (
-          <div style={{ fontSize: 11, color: MUTED, borderTop: "1px solid " + BORDER, paddingTop: 8 }}>
-            Source:{" "}
-            <a href={cur.sourceUrl} target="_blank" rel="noopener noreferrer"
-               style={{ color: MUTED, textDecoration: "underline" }}>
-              {cur.source}
-            </a>
-          </div>
-        )}
-      </Card>
-
-      <div style={{ display: "flex", gap: 10 }}>
-        {step > 0 && (
-          <button onClick={function () { setStep(step - 1); }} style={{ padding: "10px 20px", fontSize: 13, borderRadius: 8, cursor: "pointer", border: "1px solid " + BORDER, background: SURFACE, color: TEXT }}>← Previous</button>
-        )}
-        {!isLast && (
-          <button onClick={function () { setStep(step + 1); }} style={{ padding: "10px 20px", fontSize: 13, borderRadius: 8, cursor: "pointer", border: "none", background: "#1e3a5f", color: "#fff", fontWeight: 600 }}>Next →</button>
-        )}
-        {isLast && (
-          <button onClick={function () { setStep(0); }} style={{ padding: "10px 20px", fontSize: 13, borderRadius: 8, cursor: "pointer", border: "1px solid " + BORDER, background: SURFACE, color: MUTED }}>↺ Start over</button>
-        )}
-      </div>
+      <p style={{ fontSize: 15, color: TEXT, lineHeight: 1.75, margin: 0 }}>
+        The immediate and long-run consequences of deficits depend on many things such as economic conditions, global investment flows, and how borrowed funds are used. To explore each of the four consequences just pointed out in more detail explore the points above.
+      </p>
     </div>
   );
 }
@@ -2721,7 +2257,7 @@ function JapanPage({ japanData }) {
 /* ── III.b.i  Net Interest ───────────────── */
 // Ported from App.jsx NetInterestPage, unchanged.
 function NetInterestPage({ spendingData }) {
-  var tour = useTour(10);
+  var tour = useTour(11);
 
   var categories = useMemo(function () {
     if (!spendingData) return [];
@@ -2762,7 +2298,7 @@ function NetInterestPage({ spendingData }) {
     <div>
       {tour.show && <Tour steps={tour.steps} onDone={tour.done} />}
       <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", marginBottom: 6 }}>
-        <h2 style={{ fontSize: 22, fontWeight: 700, color: TEXT, margin: 0 }}>The Rising Cost of Debt Service</h2>
+        <h2 style={{ fontSize: 22, fontWeight: 700, color: TEXT, margin: 0 }}>How Does the Cost of Debt Service Compare to Other Government Programs?</h2>
         <TourBtn onOpen={tour.reopen} />
       </div>
       <p style={{ fontSize: 15, color: TEXT, lineHeight: 1.75, margin: "0 0 6px" }}>
@@ -2835,7 +2371,7 @@ function NetInterestPage({ spendingData }) {
 //     showing how much revenue different bracket changes would raise
 // Design: TBD — likely a split card showing "cut side" vs "tax side".
 function BudgetDilemmaPage({ spendingData, summaryData }) {
-  var tour = useTour(11);
+  var tour = useTour(12);
   var _hov = useState(null); var hovSlice = _hov[0]; var setHovSlice = _hov[1];
 
   var computed = useMemo(function () {
@@ -3065,7 +2601,7 @@ function BudgetDilemmaPage({ spendingData, summaryData }) {
 
 /* ── III.d  Tax Page ─────────────────────── */
 function TaxPage({ taxData, spendingData, summaryData }) {
-  var tour = useTour(12);
+  var tour = useTour(13);
 
   // Parse CSV into lookup
   var brackets = useMemo(function () {
@@ -3719,11 +3255,12 @@ export default function App() {
     /* 5  */ <DeficitPage        summaryData={summaryData} />,
     /* 6  */ <RevSpendPage       spendingData={spendingData} receiptsData={receiptsData} summaryData={summaryData} />,
     /* 7  */ <OBBBAPage         deficitProj={deficitProj} niProj={niProj} projSummary={projSummary} />,
-    /* 8  */ <CrowdingOutPage   spendingData={spendingData} summaryData={summaryData} />,
+    /* 8  */ <ConsolesPage />,
     /* 9  */ <CrowdingOutTextPage />,
-    /* 10 */ <NetInterestPage   spendingData={spendingData} />,
-    /* 11 */ <BudgetDilemmaPage spendingData={spendingData} summaryData={summaryData} />,
-    /* 12 */ <TaxPage taxData={taxData} deficitProj={deficitProj} spendingData={spendingData} summaryData={summaryData} />,
+    /* 10 */ <CrowdingOutPage   spendingData={spendingData} summaryData={summaryData} />,
+    /* 11 */ <NetInterestPage   spendingData={spendingData} />,
+    /* 12 */ <BudgetDilemmaPage spendingData={spendingData} summaryData={summaryData} />,
+    /* 13 */ <TaxPage taxData={taxData} deficitProj={deficitProj} spendingData={spendingData} summaryData={summaryData} />,
   ];
 
   return (
