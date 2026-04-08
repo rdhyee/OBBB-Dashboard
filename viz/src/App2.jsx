@@ -3066,33 +3066,47 @@ function TaxPage({ taxData, spendingData, summaryData }) {
       </p>
 
       {/* Progress bar */}
-      <div style={{ marginBottom: 24 }}>
-        <div style={{ height: 14, background: "#f3f4f6", borderRadius: 7, overflow: "hidden", display: "flex" }}>
-          {/* Spending savings — green segment */}
-          {spendingSavings > 0 && (
-            <div style={{ height: "100%", width: Math.min(100, spendingSavings / DEFICIT_B * 100) + "%", background: BLOCK_POS, transition: "width 0.2s ease" }} />
-          )}
-          {/* Tax revenue — second segment */}
-          {additionalRevenue > 0 && (
-            <div style={{ height: "100%", width: Math.min(100 - Math.min(100, spendingSavings / DEFICIT_B * 100), additionalRevenue / DEFICIT_B * 100) + "%", background: "#166534", transition: "width 0.2s ease" }} />
-          )}
-        </div>
-        <div style={{ display: "flex", justifyContent: "space-between", marginTop: 4 }}>
-          <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
-            <span style={{ fontSize: 11, color: MUTED }}>{fmtAmt(DEFICIT_B * 1000)} deficit</span>
-            <div style={{ display: "flex", gap: 12 }}>
-              {spendingSavings > 0 && <span style={{ fontSize: 11, color: BLOCK_POS }}>▪ Spending cuts: {fmtAmt(spendingSavings * 1000)}</span>}
-              {additionalRevenue > 0 && <span style={{ fontSize: 11, color: "#166534" }}>▪ Tax revenue: {fmtAmt(additionalRevenue * 1000)}</span>}
+      {(function () {
+        // When taxes are cut (additionalRevenue < 0), reduce the green bar by the tax loss
+        var greenBarValue = additionalRevenue < 0
+          ? Math.max(0, spendingSavings + additionalRevenue)
+          : spendingSavings;
+        // Tax bar only shows positive tax revenue (tax increases)
+        var taxBarValue = Math.max(0, additionalRevenue);
+        return (
+        <div style={{ marginBottom: 24 }}>
+          <div style={{ height: 14, background: "#f3f4f6", borderRadius: 7, overflow: "hidden", display: "flex" }}>
+            {/* Spending savings — green segment (net of tax cuts if any) */}
+            {greenBarValue > 0 && (
+              <div style={{ height: "100%", width: Math.min(100, greenBarValue / DEFICIT_B * 100) + "%", background: BLOCK_POS, transition: "width 0.2s ease" }} />
+            )}
+            {/* Tax revenue — second segment (only for tax increases) */}
+            {taxBarValue > 0 && (
+              <div style={{ height: "100%", width: Math.min(100 - Math.min(100, greenBarValue / DEFICIT_B * 100), taxBarValue / DEFICIT_B * 100) + "%", background: "#166534", transition: "width 0.2s ease" }} />
+            )}
+          </div>
+          <div style={{ display: "flex", justifyContent: "space-between", marginTop: 4 }}>
+            <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
+              <span style={{ fontSize: 11, color: MUTED }}>{fmtAmt(DEFICIT_B * 1000)} deficit</span>
+              <div style={{ display: "flex", gap: 12 }}>
+                {spendingSavings > 0 && <span style={{ fontSize: 11, color: BLOCK_POS }}>▪ Spending cuts: +{fmtAmt(spendingSavings * 1000)}</span>}
+                {additionalRevenue !== 0 && <span style={{ fontSize: 11, color: additionalRevenue > 0 ? "#166534" : RED }}>▪ Tax change: {additionalRevenue > 0 ? "+" : "−"}{fmtAmt(additionalRevenue * 1000)}</span>}
+              </div>
+            </div>
+            <div style={{ textAlign: "right" }}>
+              <span style={{ fontSize: 11, color: MUTED, display: "block" }}>{totalClosed >= 0 ? "Deficit Closed" : "Deficit Widened"}</span>
+              <span style={{ fontSize: 20, fontWeight: 700, color: totalClosed >= DEFICIT_B ? BLOCK_POS : totalClosed >= 0 ? BLOCK_NEG : RED }}>
+                {totalClosed >= DEFICIT_B
+                  ? "Surplus +" + fmtAmt((totalClosed - DEFICIT_B) * 1000)
+                  : totalClosed >= 0
+                    ? fmtAmt(totalClosed * 1000) + " of " + fmtAmt(DEFICIT_B * 1000)
+                    : "−" + fmtAmt(totalClosed * 1000) + " added"}
+              </span>
             </div>
           </div>
-          <div style={{ textAlign: "right" }}>
-            <span style={{ fontSize: 11, color: MUTED, display: "block" }}>Deficit Closed</span>
-            <span style={{ fontSize: 20, fontWeight: 700, color: totalClosed >= DEFICIT_B ? BLOCK_POS : BLOCK_NEG }}>
-              {totalClosed >= DEFICIT_B ? "Surplus +" + fmtAmt((totalClosed - DEFICIT_B) * 1000) : fmtAmt(totalClosed * 1000) + " of " + fmtAmt(DEFICIT_B * 1000)}
-            </span>
-          </div>
         </div>
-      </div>
+        );
+      })()}
 
       {/* Section I — Spending */}
       <div style={{ display: "flex", alignItems: "center", gap: 12, margin: "0 0 10px" }}>
@@ -3279,13 +3293,13 @@ function TaxPage({ taxData, spendingData, summaryData }) {
               return (
                 <div key={bucketName} style={{ display: "flex", justifyContent: "space-between" }}>
                   <span style={{ color: BUCKET_COLORS[bucketName] }}>{bucketName}: {b.effective_rate_pct}% → {cr.toFixed(1)}%</span>
-                  <span style={{ color: d > 0 ? BUCKET_COLORS[bucketName] : RED }}>{d > 0 ? "+" : ""}{fmtAmt(rev * 1000)}/yr</span>
+                  <span style={{ color: d > 0 ? BUCKET_COLORS[bucketName] : RED }}>{d > 0 ? "+" : "−"}{fmtAmt(rev * 1000)}/yr</span>
                 </div>
               );
             })}
             <div style={{ display: "flex", justifyContent: "space-between", borderTop: "1px solid " + BORDER, paddingTop: 6, marginTop: 4, fontWeight: 700 }}>
               <span>Total deficit reduction</span>
-              <span style={{ color: totalClosed >= DEFICIT_B ? BLOCK_POS : BLOCK_NEG }}>+{fmtAmt(totalClosed * 1000)}/yr</span>
+              <span style={{ color: totalClosed >= DEFICIT_B ? BLOCK_POS : totalClosed >= 0 ? BLOCK_NEG : RED }}>{totalClosed >= 0 ? "+" : "−"}{fmtAmt(totalClosed * 1000)}/yr</span>
             </div>
             <div style={{ display: "flex", justifyContent: "space-between", fontWeight: 700 }}>
               <span>Remaining deficit</span>
