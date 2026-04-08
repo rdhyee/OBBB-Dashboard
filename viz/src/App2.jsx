@@ -3298,7 +3298,7 @@ function TaxPage({ taxData, spendingData, summaryData }) {
               );
             })}
             <div style={{ display: "flex", justifyContent: "space-between", borderTop: "1px solid " + BORDER, paddingTop: 6, marginTop: 4, fontWeight: 700 }}>
-              <span>Total deficit reduction</span>
+              <span>{totalClosed >= 0 ? "Total deficit reduction" : "Net deficit increase"}</span>
               <span style={{ color: totalClosed >= DEFICIT_B ? BLOCK_POS : totalClosed >= 0 ? BLOCK_NEG : RED }}>{totalClosed >= 0 ? "+" : "−"}{fmtAmt(totalClosed * 1000)}/yr</span>
             </div>
             <div style={{ display: "flex", justifyContent: "space-between", fontWeight: 700 }}>
