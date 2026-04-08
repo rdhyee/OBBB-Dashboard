@@ -341,7 +341,7 @@ var TOUR_CONFIGS = {
   // Page 4 — Crisis Deficit Decomposition
   4: [
     { title: "Two crises, same pattern", body: "The left panel shows the 2008 financial crisis and Obama years. The right shows the COVID pandemic under Trump and Biden. Both follow the same playbook: automatic stabilizers kick in on top of deliberate stimulus legislation." },
-    { title: "Two layers", body: "Grey is the structural deficit — driven by policy choices and existing law, including stimulus bills like ARRA and the CARES Act. Amber is automatic stabilizers — programs that expand automatically without new legislation." },
+    { title: "Three layers", body: "Grey boxes depict the structural part of the deficit — parts driven by policy choices such as tax rates and foreign aid. The blue boxes depict the impact of special programs put into law to deal with crises — the stimulus in 2009 and the CARES act in 2020. Those programs add to the deficit for awhile but then phase out. The amber boxes represent changes in spending that automatically respond to a weak economy such as unemployment insurance and declining tax revenue." },
     { title: "Hover for detail", body: "Hover any year to see the exact structural deficit and automatic stabilizer contribution for that year." },
   ],
   // Page 6 — Revenue vs Spending
@@ -352,10 +352,10 @@ var TOUR_CONFIGS = {
   ],
   // Page 7 — OBBBA (includes debt pile)
   7: [
-    { title: "Increases in the annual deficit", body: "Over the next 10 years, tax cuts under the OBBBA will grow the amount of money the government borrows by hundreds of billions. Each year's bar shows three scenarios: what would have happened if the OBBBA wasn't passed, what will happen if President Trump is able to cover some of his tax cuts with import tariffs, and what will happen if the tariffs are struck down and that money must be borrowed.", targetId: "obbba-deficit-card" },
-    { title: "Why might the tariffs be struck down?", body: "President Trump has touted his import tariffs as a way to make up the deficit spending from the OBBBA. The tariffs he announced in April 2025 were estimated by the CBO to raise $3.4 trillion over the next 10 years. However, the Supreme Court ruled he did not have the authority to apply taxes, and they were replaced by temporary duties.", targetId: "obbba-deficit-card" },
-    { title: "Will the government still tax imports?", body: "Right now, it's unclear. There are ongoing lawsuits on which tariffs are legal, how high each tax will be, and whether the government has to pay back tariffs already collected. We believe that the revenue from tariffs from now till 2034 will fall somewhere between the no tariff revenue case and the CBO's projections assuming the July 2025 tariffs remain in place.", targetId: "obbba-deficit-card" },
-    { title: "Scrub through the next decade", body: "Use the slider to see how each year's deficit adds to the national debt pile. The pile shows cumulative debt held by the public — gray is what we already owed at the end of 2024." },
+    { title: "Increases in the annual deficit", body: "Over the next 10 years, tax cuts under the OBBBA will grow the amount of money the government borrows by hundreds of billions. Each year's bar shows three scenarios: what would have happened if the OBBBA wasn't passed, what will happen if President Trump is able to cover some of his tax cuts with import tariffs, and what will happen now that all the President's efforts to impose new tariffs have failed.", targetId: "obbba-deficit-card" },
+    { title: "Why might there be no offset from tariff revenue?", body: "President Trump introduced his tariffs as a way to lower the deficit. The tariffs he announced in April 2025 were estimated by the CBO to reduce the deficit by $3.4 trillion over the next 10 years. The blue blocks plus the amber blocks depict the expected situation if those tariffs had remained in place for the entire 2025-34 period. But the Supreme Court struck down those tariffs and the government is now planning refunds of the fees that were collected. The President has put new temporary tariffs into place and has promised more to come.", targetId: "obbba-deficit-card" },
+    { title: "Will the government still tax imports?", body: "Right now, it's unclear. There are ongoing lawsuits on which tariffs are legal, how high each tax will be, and whether the government has to pay back tariffs already collected. We believe that the revenue from tariffs from now till 2034 will fall somewhere between the no tariff revenue case and the CBO's projections that assumed that the July 2025 tariffs remain in place.", targetId: "obbba-deficit-card" },
+    { title: "Move through the next decade", body: "On the graph at the bottom of the page, use the slider to see how each year's deficit adds to the national debt pile. The pile shows cumulative debt held by the public — gray is what we already owed at the end of 2024." },
   ],
   // Page 8 — Consoles (no tour)
   // Page 9 — What Does This Mean for Future Generations? / consequences overview (no tour)
@@ -367,12 +367,12 @@ var TOUR_CONFIGS = {
   // Page 11 — Net Interest
   11: [
     { title: "Compare any program", body: "Use the dropdown to select any government program. The block grids below will update to show net interest payments alongside your chosen program for that year." },
-    { title: "Scrub through time", body: "Use the slider to move from 1970 to 2024 and see how both figures have changed over time. Compare how fast spending on interest has grown versus other categories." },
+    { title: "Move through time", body: "Use the slider to move from 1970 to 2024 and see how both figures have changed over time. Compare how fast spending on interest has grown versus other categories." },
   ],
   // Page 12 — Budget Dilemma
   12: [
     { title: "Hover a slice", body: "Click any slice of the donut to see what that category costs, why it's hard to cut, and polling data on public support. Red slices are mandatory spending — legally required by statute. Green slices are discretionary." },
-    { title: "The math is brutal", body: "Even eliminating every green slice entirely: all of defense, education, veterans, foreign aid. It barely covers the deficit. Any plan to balance the budget requires some combination of cuts to mandatory programs, discretionary programs, and tax increases." },
+    { title: "The math is brutal", body: "Eliminating all of defense, education, spending on veterans, and every other item on the discretionary budget would be only slightly more than what would be necessary to balance the budget. Any plan to balance the budget requires some combination of cuts to mandatory programs, discretionary programs, and tax increases." },
   ],
   // Page 13 — Balancing the Budget
   13: [
@@ -890,6 +890,9 @@ function DeficitHistoryPage({ deficitData }) {
       <p style={{ fontSize: 15, color: TEXT, lineHeight: 1.75, margin: "0 0 6px" }}>
         The United States has run a deficit in most years — but the size of those deficits relative to the economy has varied enormously. Wars, recessions, and policy choices have all left their mark on the fiscal record.
       </p>
+      <p style={{ fontSize: 15, color: TEXT, lineHeight: 1.75, margin: "0 0 6px" }}>
+        In this explorer we will frequently compare the deficit and the debt to GDP or Gross Domestic Product — a measure of all the goods and services produced in the U.S. GDP is also referred to as National Income so it is also a measure of our ability to pay back our debts. Just as creditors get worried when people run up large amounts of debt relative to their income, lenders look at the debt to GDP ratio as a sign of how likely a country is to pay its debts.
+      </p>
       <p style={{ fontSize: 13, color: MUTED, margin: "0 0 16px" }}>Each block = 0.5% of GDP. Green columns rise above the line for surplus years; red columns fall below for deficits.</p>
       <Card style={{ borderLeft: "4px solid " + RED, overflowX: "auto" }}>
         {deficitData
@@ -1009,7 +1012,7 @@ function DebtAccumulation({ summaryData, debtData }) {
         <TourBtn onOpen={tour.reopen} />
       </div>
       <p style={{ fontSize: 15, color: TEXT, lineHeight: 1.75, margin: "0 0 6px" }}>
-        Our national debt has grown to over $39 trillion as of 2026, up from $35.23 trillion as of Fiscal Year (FY) 2024. Like regular loans, as the government runs a deficit for a longer period of time, interest payments increase as well, creating a compounding effect.
+        Our national debt has grown to over $39 trillion as of 2026, up from $35.23 trillion as of Fiscal Year (FY) 2024.
       </p>
       <p style={{ margin: "0 0 20px" }}><span style={{ fontSize: 15, color: "#c0392b", fontWeight: 700 }}>Drag the slider to see how the deficit and the debt have changed since 1970.</span>{" "}<span style={{ fontSize: 13, color: MUTED }}>Each block = $10B.</span></p>
       <Card style={{ borderLeft: "4px solid " + RED }}>
@@ -1668,7 +1671,7 @@ function DeficitPage({ summaryData }) {
     <div>
       <h2 style={{ fontSize: 22, fontWeight: 700, color: TEXT, margin: "0 0 6px" }}>The Deficit — FY{YEAR}</h2>
       <p style={{ fontSize: 15, color: TEXT, lineHeight: 1.75, margin: "0 0 6px" }}>
-        In FY2024, the U.S. government ran a budget deficit of $1.83 trillion (that's roughly $5B a day!). Each year that the government runs on a deficit, it adds to our national debt.
+        In FY2024, the U.S. government ran a budget deficit of $1.83 trillion (that's roughly $5B a day!). Each year that the government runs a deficit, it adds to our national debt.
       </p>
       <p style={{ fontSize: 13, color: MUTED, margin: "0 0 20px" }}>Each block = $10B of borrowed money.</p>
       <Card style={{ borderLeft: "4px solid " + RED }}>
@@ -1926,7 +1929,7 @@ function OBBBAPage({ deficitProj, niProj, projSummary }) {
         </div>
       </div>
       <div style={{ margin: "0 0 16px", display: "flex", alignItems: "center", gap: 12 }}>
-        <span style={{ fontSize: 12, color: MUTED, whiteSpace: "nowrap" }}>Scrub year:</span>
+        <span style={{ fontSize: 12, color: MUTED, whiteSpace: "nowrap" }}>Choose year:</span>
         <input type="range" min={0} max={PILE_YEARS.length - 1}
           value={PILE_YEARS.indexOf(scrubYear) === -1 ? PILE_YEARS.length - 1 : PILE_YEARS.indexOf(scrubYear)}
           onChange={function (e) { setScrubYear(PILE_YEARS[Number(e.target.value)]); }}
@@ -1977,7 +1980,10 @@ function ConsolesPage() {
     <div>
       <h2 style={{ fontSize: 22, fontWeight: 700, color: TEXT, margin: "0 0 16px" }}>Does Government Debt Have to Be Repaid?</h2>
       <p style={{ fontSize: 15, color: TEXT, lineHeight: 1.75, margin: "0 0 16px" }}>
-        A common misunderstanding is that someday the government will have to pay back the debt. Because creditors have to believe that people will be able to pay off their debts during their lifetimes, people can't run up unlimited debts. But governments don't have an expected lifetime so their ability to borrow isn't limited in the same way.
+        A common misunderstanding is that someday the government will have to pay back the debt. They don't.
+      </p>
+      <p style={{ fontSize: 15, color: TEXT, lineHeight: 1.75, margin: "0 0 16px" }}>
+        Because creditors have to believe that people will be able to pay off their debts during their lifetimes, creditors require collateral and that loans be repaid over time. So most people end up paying back nearly all the loans they take out. But governments don't have an expected lifetime so their ability to borrow isn't limited in the same way.
       </p>
       <p style={{ fontSize: 15, color: TEXT, lineHeight: 1.75, margin: "0 0 16px" }}>
         In fact many governments have issued debt that they never have to pay back — called <em>consoles</em> — and people bought them. Consoles pay interest, but the loan itself never has to be repaid. In fact, one such bond issued by the Dutch government in the 1600s was still paying interest a few years ago.
@@ -2038,6 +2044,9 @@ function CrowdingOutPage({ spendingData, summaryData }) {
 
       <p style={{ fontSize: 15, color: TEXT, lineHeight: 1.75, margin: "0 0 6px" }}>
         Of every dollar the federal government collects in taxes, <strong style={{ color: RED }}>{display ? display.pct.toFixed(1) : "—"}¢</strong> goes straight to interest payments on our debt. Instead of spending for Americans in the present day on defense, housing, food, or education, we are spending almost 1/5 of our taxes on debt interest. You may notice that there was a large increase in the 1980s. This is partly due to Reagan administration policies that increased defense spending and decreased revenue (through tax cuts), and partly to very high interest rates set by the Federal Reserve to fight the inflation of the 1970s, making borrowing more expensive.
+      </p>
+      <p style={{ fontSize: 15, color: TEXT, lineHeight: 1.75, margin: "0 0 6px" }}>
+        The more recent increase also starts with tax cuts and is made worse by the need for more spending to deal with the COVID epidemic. The small dip starting in 2020 was mainly due to lower interest rates during the recession caused by COVID.
       </p>
       <p style={{ fontSize: 13, color: MUTED, margin: "0 0 16px" }}>
         {hovRow ? hovRow.year + " — " + hovRow.pct.toFixed(1) + "¢ per tax dollar" : "That's up from 7.5¢ in 1970. Hover any column to see that year."}
@@ -2141,7 +2150,7 @@ function CrowdingOutTextPage() {
         },
         {
           heading: "Wait! Doesn't the Fed Set Interest Rates?",
-          body: "The Federal Reserve typically only manipulates very short term interest rates while the interest rates that matter for investment are long-term rates. Still, when the government issues debt that puts upward pressure on short-term rates leaving the Fed with a choice: buy the new debt and keep interest rates the same, or let the short-term rates rise. This can lead to inflation (see bullet point 2).",
+          body: "The Federal Reserve typically only manipulates very short term interest rates while the interest rates that matter for investment are long-term rates. Still, when the government issues debt that puts upward pressure on short-term rates leaving the Fed with a choice: let short-term rates rise to allow crowding out, or keep interest rates the same which can lead to inflation (see bullet point 2).",
         },
         {
           heading: "Housing Costs",
@@ -2150,7 +2159,7 @@ function CrowdingOutTextPage() {
         },
         {
           heading: "Offsetting Effects",
-          body: "Higher interest rates also give people an incentive to save more and can lead foreigners to invest in the U.S.. Both actions increase the amount of loanable funds available. This is the main reason why each dollar of government debt doesn't crowd out a whole dollar of investment in the U.S. But having foreigners investing in the U.S. can cause other problems when we have a fast growing national debt (see bullet point 4 above).",
+          body: "Higher interest rates also give people an incentive to save more and can lead foreigners to invest in the U.S.. Both actions increase the amount of loanable funds available so interest rates don't have to rise as much. This is the main reason why each dollar of government debt doesn't crowd out a whole dollar of investment in the U.S. But having foreigners investing in the U.S. can cause other problems when we have a fast growing national debt (see bullet point 4 below).",
         },
       ],
     },
@@ -2172,15 +2181,15 @@ function CrowdingOutTextPage() {
         },
         {
           heading: "Is Inflation Bad?",
-          body: "This is a serious question because historically, when prices have risen because of an increase in the money supply wages have typically gone up to compensate. But it usually takes wages some time to catch up and there are many other costs to inflation. For example, restaurants have to print new menus, people on fixed incomes suffer, and it becomes hard to comparison shop. Also people tend to see prices as taking away buying power while the following wage increases are what they deserve for good work. People hate inflation.",
+          body: "This is a serious question because historically, when prices have risen because of an increase in the money supply, wages have typically gone up to compensate. But it usually takes wages some time to catch up and there are many other costs to inflation. For example, restaurants have to print new menus, people on fixed incomes suffer, and it becomes hard to comparison shop. Also people tend to see prices as taking away buying power while the following wage increases are what they deserve for good work. People hate inflation.",
         },
         {
           heading: "Inflation + Crowding Out",
-          body: "Even if the Federal Reserve tries to keep interest rates constant to avoid crowding out investment through the market for loanable funds that doesn't mean that crowding out doesn't take place. Instead of rising interest rates it is rising prices that cause people and companies to spend less. With a fixed supply of goods and services this has to happen to allow the government to buy goods and services with the money it got from selling the bonds.",
+          body: "Even if the Fed tries to keep interest rates constant to avoid crowding out, that doesn't mean that crowding out won't take place. Instead of rising interest rates it is rising prices that cause people and companies to spend less. With a fixed supply of goods and services this has to happen to allow the government to buy goods and services with the money it got from selling the bonds.",
         },
         {
           heading: "Conclusion",
-          body: "Increasing the debt does not have to cause inflation (though it can). In a weak economy increasing the money supply by buying up the government debt can actually make the economy better without causing inflation. In a strong economy the Fed can suppress inflation by allowing interest rates to rise. Either way, if the economy is strong crowding out still happens either through the interest rate mechanism or the price mechanism.",
+          body: "Increasing the debt does not have to cause inflation (though it can). In a weak economy increasing the money supply by buying up the government debt can actually make the economy better without causing inflation. In a strong economy the Fed can suppress inflation by allowing interest rates to rise. Either way, if the economy is strong crowding out still happens — either through the interest rate mechanism or the price mechanism.",
         },
       ],
     },
@@ -2228,11 +2237,11 @@ function CrowdingOutTextPage() {
         },
         {
           heading: "Increased Inflation",
-          body: "As described in the mini-tour attached to bullet point 3, one way for a country to deal with excess debt is to increase inflation. This works because the inflation adjusted value of the money used to pay back the debt goes down with an unanticipated increase in inflation. But an attempt to deal with any substantial amount of the debt problem this way would likely spook financial markets which could also lead to a selloff.",
+          body: "As described in the mini-tour attached to bullet point 3, one way for a country to deal with excess debt is to increase inflation. This works because the inflation adjusted value of the money used to pay back the debt goes down with an unanticipated increase in inflation. But an attempt to deal with any substantial amount of the debt problem this way would likely spook financial markets which could also lead to a selloff of U.S. debt.",
         },
         {
           heading: "Anticipation of Crisis",
-          body: "The anticipation of a crisis can be enough to set off a crisis. As our debt grows relative to our ability to pay creditors will eventually get nervous the same way lenders do when they see people suddenly run up big credit card debts. For the U.S., fear that the U.S. may default or inflate away its debt can lead to demands that new debt pay higher interest or even a sell off of existing debt.",
+          body: "The anticipation of a crisis can be enough to set off a crisis. As our debt grows relative to our ability to pay creditors will eventually get nervous the same way lenders do when they see people suddenly run up big credit card debts. For the U.S., fear that it may default or inflate away its debt can lead to demands that new debt pay higher interest or even a sell off of existing debt.",
         },
         {
           heading: "Selloff Consequences",
@@ -2240,7 +2249,7 @@ function CrowdingOutTextPage() {
         },
         {
           heading: "Crisis Spreads",
-          body: "U.S. Government bonds are considered a 'safe' asset so banks that are required to keep a certain amount of assets around hold many of them. If the value of safe assets drop, regulated banks have to sell assets that aren't as safe in order to buy more safe assets. This can cause the selloff to spread to places like the corporate bond market and ultimately the stock market.",
+          body: "U.S. Government bonds are considered a 'safe' asset so banks that are required to keep a certain amount of assets hold many of them. If the value of safe assets drop, regulated banks have to sell assets that aren't as safe in order to buy more safe assets. This can cause the selloff to spread to places like the corporate bond market and ultimately the stock market.",
         },
         {
           heading: "And Spreads Further",
@@ -2858,25 +2867,22 @@ function BudgetDilemmaPage({ spendingData, summaryData }) {
               <div style={{ fontSize: 12, color: MUTED, marginBottom: 10 }}>{((hovData.amount / computed.totalOutlays) * 100).toFixed(1)}% of total spending</div>
               {hovData.type === "interest" && (
                 <p style={{ fontSize: 13, color: TEXT, lineHeight: 1.6, margin: 0 }}>
-                  Interest payments are a legal obligation — missing them would constitute a sovereign default, destroying the US credit rating and triggering a global financial crisis.
+                  Interest payments are a legal obligation — missing them would constitute a sovereign default. This could hurt the US credit rating and increase the interest rate the government would have to pay on its new debt. Much worse it could trigger a financial crisis and a recession.
                 </p>
               )}
-              {hovData.type === "mandatory" && (
+              {hovData.type === "mandatory" && hovData.poll && hovData.pollSrc && (
                 <p style={{ fontSize: 13, color: TEXT, lineHeight: 1.6, margin: 0 }}>
-                  "Mandatory" means spending is set by statute — anyone who meets eligibility criteria is entitled to benefits by law. Congress would have to pass new legislation to cut it.
-                  {hovData.poll && hovData.pollSrc && (
                     <span style={{ display: "block", marginTop: 8, color: RED, fontWeight: 600 }}>
                       {hovData.poll} —{" "}
                       {hovData.pollUrl
                         ? <a href={hovData.pollUrl} target="_blank" rel="noreferrer" style={{ color: RED }}>{hovData.pollSrc}</a>
                         : hovData.pollSrc}
                     </span>
-                  )}
                 </p>
               )}
               {hovData.type === "discretionary" && (
                 <p style={{ fontSize: 13, color: TEXT, lineHeight: 1.6, margin: 0 }}>
-                  Discretionary spending is set annually by Congress and is theoretically cuttable. But eliminating all of it — defense, education, infrastructure, foreign aid — would still leave a large deficit.
+                  {hovData.key === "other" && "This category contains a long list of government programs including NASA, national parks, highway funds, the FBI and other federal law enforcement agencies, and the salaries of air traffic controllers. Many programs are popular. All have a constituency that wants them to be kept in place."}
                   {hovData.poll && hovData.pollSrc && (
                     <span style={{ display: "block", marginTop: 8, color: RED, fontWeight: 600 }}>
                       {hovData.poll} —{" "}
@@ -3159,7 +3165,7 @@ function TaxPage({ taxData, spendingData, summaryData }) {
               <div style={{ display: "flex", alignItems: "center", gap: 10, minWidth: 0 }}>
                 <span style={{ fontSize: 12, fontWeight: 700, color: BLOCK_POS, whiteSpace: "nowrap" }}>Discretionary Spending</span>
                 <span style={{ fontSize: 11, color: MUTED, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
-                  Defense · Veterans · Education · All Other
+                  Defense · Veterans · Education · All Other (examples: NASA, housing subsidies, law enforcement)
                 </span>
               </div>
               <div style={{ display: "flex", alignItems: "center", gap: 10, flexShrink: 0 }}>
