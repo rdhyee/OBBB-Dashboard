@@ -178,7 +178,7 @@ var PAGES = [
   {
     section: 2,
     component: "TaxPage",
-    title: "Raising Taxes",
+    title: "Balancing the Budget?",
     prompt: null,  // last page
   },
 
@@ -361,7 +361,7 @@ var TOUR_CONFIGS = {
   // Page 9 — What Does This Mean for Future Generations? / consequences overview (no tour)
   // Page 10 — Paying for the Past
   10: [
-    { title: "Cents of every tax dollar", body: "The big number at the top shows how many cents of each tax dollar go straight to interest payments — money that can't be spent on anything else. In 1970 it was around 7 cents. Today it's over 16." },
+    { title: "Cents of every tax dollar", body: "The big number at the top shows how many cents of each tax dollar go straight to interest payments — money that can't be spent on anything else. In 1970 it was 7.9 cents. In 2025 it's 18.5 cents." },
     { title: "The chart tells the story", body: "Hover any year to see the exact share. Notice how it rose sharply in the 1980s as Reagan-era deficits compounded, fell during the Clinton surplus years, then began climbing again after 2008." },
   ],
   // Page 11 — Net Interest
@@ -1380,8 +1380,8 @@ function AutoStabPanel({ data, stimulusByYear, yearStart, yearEnd, maxRows, labe
                 </span>
               )}
               <span style={{ fontSize: 12, color: C_STABILIZER }}>
-                Auto stabilizers: {Math.abs(hovRow.stabilizer_effect_pct).toFixed(1)}% of GDP
-              </span>ß
+                Auto stabilizers: {Math.abs(hovRow.stabilizer_effect_pct).toFixed(2)}% of GDP
+              </span>
             </div>
           </div>
         ) : (
@@ -1677,7 +1677,7 @@ function DeficitPage({ summaryData }) {
           <span style={{ fontSize: 26, fontWeight: 800, color: RED }}>−${(Math.abs(deficit) / 1e6).toFixed(2)}T</span>
         </div>
         <p style={{ fontSize: 14, color: TEXT, lineHeight: 1.6, margin: "0 0 16px" }}>
-          <strong style={{ color: RED }}>{deficitBlockCount} blocks</strong> of spending had no corresponding revenue — that's <strong style={{ color: RED }}>${((deficitBlockCount * BLOCK_SIZE) / 1e3 / 365).toFixed(1)}B per day</strong> added to the national debt.
+          Spending exceeded revenue by <strong style={{ color: RED }}>${(Math.abs(deficit) / 1e6).toFixed(2)} trillion</strong> — that's <strong style={{ color: RED }}>${((deficitBlockCount * BLOCK_SIZE) / 1e3 / 365).toFixed(1)}B per day</strong> added to the national debt.
         </p>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(" + COLS + ", " + SZ + "px)", gap: GAP + "px" }}>
           {Array.from({ length: deficitBlockCount }).map(function (_, i) {
@@ -1761,9 +1761,9 @@ function ProjectionPanel({ years, baselineSeries, obbbaWithTariffSeries, obbbaNo
   ];
 
   var summaryItems = [
-    { color: C_JAN,      label: "Pre-OBBBA 10yr",   val: tenYr(base),    bg: "#f3f4f6" },
-    { color: C_OBBBA,    label: "With tariffs 10yr", val: tenYr(withTar), bg: "#fdf6e3" },
-    { color: C_NOTARIFF, label: "No tariffs 10yr",   val: tenYr(noTar),   bg: "#fef2f2" },
+    { color: C_JAN,      label: "Pre-OBBBA Total 2025-2034",   val: tenYr(base),    bg: "#f3f4f6" },
+    { color: C_OBBBA,    label: "With tariffs Total 2025-2034", val: tenYr(withTar), bg: "#fdf6e3" },
+    { color: C_NOTARIFF, label: "No tariffs Total 2025-2034",   val: tenYr(noTar),   bg: "#fef2f2" },
   ];
 
   return (
