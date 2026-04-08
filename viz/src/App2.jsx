@@ -315,7 +315,7 @@ function Legend({ sources, hoveredCat, setHoveredCat }) {
 var TOUR_CONFIGS = {
   // Page 0 — Intro
   0: [
-    { title: "Welcome to Visualize Policy", body: "Throughout this site you'll see ? buttons like the one you just clicked. They open guided tours that explain how to read and interact with each chart." },
+    { title: "Welcome to Visualize Policy's Deficit/Debt Explorer", body: "Throughout the Explorer you will see ? buttons like the one above this box. They open guided tours that explain how to understand and interact with each page." },
     { title: "Move forward with the question boxes", body: "At the bottom of each page is a question box. Click it to advance to the next page — each question leads naturally into the next topic." },
     { title: "Jump anywhere with the menu", body: "The Menu button in the top-right lets you jump to any page directly. It shows all three sections and every page within them." },
   ],
@@ -457,7 +457,7 @@ function Tour({ steps, onDone }) {
 function useTour(pageIndex) {
   var steps = TOUR_CONFIGS[pageIndex] || null;
   var hasTour = !!steps;
-  var _show = useState(hasTour);
+  var _show = useState(pageIndex === 0 && hasTour);
   var show = _show[0]; var setShow = _show[1];
   function done()   { setShow(false); }
   function reopen() { setShow(true); }
