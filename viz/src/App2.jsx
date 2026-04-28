@@ -36,7 +36,7 @@ var BLOCK_NEG = "#dc2626";   // deficit / spending — red
 var C_JAN      = "#6b7280";   // Scenario 1 — Jan 2025 baseline (neutral grey)
 var C_TCJA     = "#2ca02c";   // Scenario 2 — TCJA extended, no other OBBBA
 var C_OBBBA    = "#c8860a";   // Scenario 3 — OBBBA w/ tariffs
-var C_NOTARIFF = "#991b1b";   // Scenario 4 — OBBBA, tariffs struck down (dark red)
+var C_NOTARIFF = "#991b1b";   // Scenario 4 — OBBBA with no new tariff revenue (dark red)
 
 // Section accent colors
 var S1_COLOR = "#1e3a5f";   // Section I  — How Did We Get Here
@@ -1757,7 +1757,7 @@ function ProjectionPanel({ years, baselineSeries, obbbaWithTariffSeries, obbbaNo
   var legendItems = [
     { color: C_JAN,      label: "Pre-OBBBA baseline" },
     { color: C_OBBBA,    label: "OBBBA w/ tariffs" },
-    { color: C_NOTARIFF, label: "OBBBA, tariffs struck down" },
+    { color: C_NOTARIFF, label: "OBBBA with no new tariff revenue" },
   ];
 
   var summaryItems = [
@@ -1882,7 +1882,7 @@ function OBBBAPage({ deficitProj, niProj, projSummary }) {
         <TourBtn onOpen={tour.reopen} />
       </div>
       <p style={{ fontSize: 15, color: TEXT, lineHeight: 1.75, margin: "0 0 6px" }}>
-        The One Big Beautiful Bill Act (OBBBA) was passed in July 2025 as President Trump's flagship budget bill. It adds trillions to our debt over the next ten years. The combination of extending tax cuts and massive increases in defense and border spending make it the most costly budget bill in history. The OBBBA locks in a federal deficit through 2035. Click on the tour to see how this is worsened by President Trump's proposed tariffs.
+        The One Big Beautiful Bill Act (OBBBA) was passed in July 2025 as President Trump's flagship budget bill. It adds trillions to our debt over the next ten years. The combination of extending tax cuts and massive increases in defense and border spending make it the most costly budget bill in history. The OBBBA locks in a federal deficit through 2035. Here you can see how the OBBBA affects future deficits and the debt over time with and without an increase in tariff revenue from President Trump's promised tariffs.
       </p>
       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", margin: "0 0 20px", flexWrap: "wrap", gap: 12 }}>
         <p style={{ fontSize: 13, color: MUTED, margin: 0 }}>
@@ -1977,7 +1977,7 @@ function ConsolesPage() {
     <div>
       <h2 style={{ fontSize: 22, fontWeight: 700, color: TEXT, margin: "0 0 16px" }}>Does Government Debt Have to Be Repaid?</h2>
       <p style={{ fontSize: 15, color: TEXT, lineHeight: 1.75, margin: "0 0 16px" }}>
-        A common misunderstanding is that someday the government will have to pay back the debt. Because creditors have to believe that people will be able to pay off their debts during their lifetimes, people can't run up unlimited debts. But governments don't have an expected lifetime so their ability to borrow isn't limited in the same way.
+        A common misunderstanding is that someday governments will have to pay back the debt. Because creditors have to believe that people will be able to pay off their debts during their lifetimes, people can't run up unlimited debts. But governments don't have an expected lifetime so their ability to borrow isn't limited in the same way.
       </p>
       <p style={{ fontSize: 15, color: TEXT, lineHeight: 1.75, margin: "0 0 16px" }}>
         In fact many governments have issued debt that they never have to pay back — called <em>consoles</em> — and people bought them. Consoles pay interest, but the loan itself never has to be repaid. In fact, one such bond issued by the Dutch government in the 1600s was still paying interest a few years ago.
