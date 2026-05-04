@@ -78,6 +78,48 @@ var SPEND_SHORT = {
 };
 
 // ─────────────────────────────────────────────
+// REAL-WORLD IMPACT ESTIMATES  (per $1B in spending cuts)
+// Each entry: per_billion = people/jobs per $1B cut, label = display text, source = citation
+// ─────────────────────────────────────────────
+var SPEND_IMPACT = {
+  "Social Security": {
+    per_billion: 44600,
+    label: "people's full annual Social Security benefit",
+    source: "SSA (2024): 65.5M beneficiaries, avg. $22,443/yr — SSA Monthly Statistical Snapshot Dec 2024",
+  },
+  "Medicare": {
+    per_billion: 60500,
+    label: "Medicare beneficiaries' annual federal coverage",
+    source: "CMS (2024): 67.6M enrolled, $1,118B total outlays — CMS NHE Accounts & Medicare Enrollment Dashboard",
+  },
+  "Health": {
+    per_billion: 128700,
+    label: "people could lose Medicaid coverage",
+    source: "CMS (2024): $614B federal Medicaid, ~79M enrollees — CMS-64 Expenditure Report & Medicaid Enrollment Data",
+  },
+  "Income Security": {
+    per_billion: 105000,
+    label: "people could lose income support",
+    source: "OMB/USDA (FY2024): ~60M recipients across SNAP (41.7M), UI, SSI, housing assistance; ~$570B total",
+  },
+  "National Defense": {
+    per_billion: 7000,
+    label: "defense industry jobs supported",
+    source: "Congressional Research Service: ~7,000 jobs per $1B in defense spending (direct + contractor)",
+  },
+  "Veterans Benefits and Services": {
+    per_billion: 21600,
+    label: "veterans could lose access to VA services",
+    source: "VA (FY2024): $310B budget, 6.7M veterans and survivors served — VA FY2024 Budget Submission",
+  },
+  "Education, Training, Employment, and Social Services": {
+    per_billion: 191000,
+    label: "students' annual Pell Grant",
+    source: "ED (FY2024): $33B Pell Grant for 6.3M students, avg. $5,238/yr — Federal Student Aid Office",
+  },
+};
+
+// ─────────────────────────────────────────────
 // BUDGET CATEGORIES  (shared by TaxPage + EconomicImpactPage)
 // ─────────────────────────────────────────────
 var SPEND_CATS = [
@@ -102,6 +144,7 @@ var SECTIONS = [
   { id: 0, label: "I. How Did We Get Here?",        color: S1_COLOR },
   { id: 1, label: "II. Where Are We Going?",         color: S2_COLOR },
   { id: 2, label: "III. What Are the Consequences?", color: S3_COLOR },
+  { id: 3, label: "IV. What Can You Do?",            color: "#1e3a5f" },
 ];
 
 var PAGES = [
@@ -199,6 +242,14 @@ var PAGES = [
     section: 2,
     component: "EconomicImpactPage",
     title: "Economic Feedback Effects",
+    prompt: "So who voted for all this?",
+  },
+
+  // ── Section IV: What Can You Do? ───────────────────────────────
+  {
+    section: 3,
+    component: "RepresentativesPage",
+    title: "Your Representatives' Fiscal Record",
     prompt: null,
   },
 
@@ -211,6 +262,12 @@ function fmtAmt(v) {
   var abs = Math.abs(v);
   if (abs >= 1e6) return "$" + (abs / 1e6).toFixed(2) + "T";
   return "$" + Math.round(abs / 1e3) + "B";
+}
+
+function fmtImpact(n) {
+  if (n >= 1e6) return (n / 1e6).toFixed(1) + "M";
+  if (n >= 1e4) return Math.round(n / 1e3) + "K";
+  return n.toLocaleString();
 }
 
 function useCSV(path) {
@@ -421,6 +478,12 @@ var TOUR_CONFIGS = {
     { title: "Keynesian demand drag", body: "When the government spends less or taxes more, households and firms have less to spend. In the short run, this reduces GDP. The multiplier tells us how much: a $1 cut to income-support programs shrinks GDP by about $1.50 in year one; a $1 defense cut by about $1.00. Note: these are stimulus-period CBO estimates (2009–2015) and may be somewhat higher than today's multipliers." },
     { title: "Behavioral tax offset", body: "Higher rates prompt avoidance: more deductions, income shifting to lower-taxed forms, and deferred realization. JCT's analysis of the 2017 tax law estimated a roughly 26% behavioral offset overall, concentrated at top brackets. We apply similar estimates here." },
     { title: "Long-run crowding-in", body: "A smaller deficit means the government borrows less, leaving more capital available for private investment. CBO estimates roughly $0.50 of additional GDP per $1 of sustained deficit reduction over a decade — the crowding-in effect. This is a long-run gain, not visible in year one." },
+  ],
+  // Page 15 — Representatives Fiscal Record
+  15: [
+    { title: "Enter your ZIP code", body: "Type your 5-digit ZIP to see your two senators and House representative. If your ZIP spans multiple districts, you'll be asked to pick the right one." },
+    { title: "Reading the vote table", body: "Each row is a major piece of legislation with its official CBO 10-year cost or savings estimate. Red rows are bills that added to the deficit; green rows reduced it. The color reflects fiscal impact, not party." },
+    { title: "Take action", body: "Call the phone number listed or visit the member's website to send a message about deficit policy. Congressional offices track constituent contact volume — calls and messages do matter." },
   ],
 };
 
@@ -3160,6 +3223,11 @@ function TaxPage({ taxData, spendingData, summaryData, cuts, setCuts, ratesRaw, 
                       <input type="range" min={0} max={100} step={1} value={pct}
                         onChange={function (e) { setCut(cat.key, Number(e.target.value)); }}
                         style={{ width: "100%", accentColor: pct > 0 ? "#ef4444" : MUTED, cursor: "grab" }} />
+                      {pct > 0 && SPEND_IMPACT[cat.key] && (
+                        <div style={{ fontSize: 10, color: "#92400e", marginTop: 5, lineHeight: 1.4, borderTop: "1px dashed #fde68a", paddingTop: 4 }}>
+                          ≈ {fmtImpact(Math.round(saved * SPEND_IMPACT[cat.key].per_billion))} {SPEND_IMPACT[cat.key].label}
+                        </div>
+                      )}
                     </div>
                   );
                 })}
@@ -3210,6 +3278,11 @@ function TaxPage({ taxData, spendingData, summaryData, cuts, setCuts, ratesRaw, 
                       <input type="range" min={0} max={100} step={1} value={pct}
                         onChange={function (e) { setCut(cat.key, Number(e.target.value)); }}
                         style={{ width: "100%", accentColor: pct > 0 ? "#22c55e" : MUTED, cursor: "grab" }} />
+                      {pct > 0 && SPEND_IMPACT[cat.key] && (
+                        <div style={{ fontSize: 10, color: "#166534", marginTop: 5, lineHeight: 1.4, borderTop: "1px dashed #bbf7d0", paddingTop: 4 }}>
+                          ≈ {fmtImpact(Math.round(saved * SPEND_IMPACT[cat.key].per_billion))} {SPEND_IMPACT[cat.key].label}
+                        </div>
+                      )}
                     </div>
                   );
                 })}
@@ -3623,6 +3696,413 @@ function EconomicImpactPage({ taxData, spendingData, summaryData, cuts, ratesRaw
 
 
 // ─────────────────────────────────────────────
+// REPRESENTATIVES PAGE — helpers
+// ─────────────────────────────────────────────
+
+function partyCode(party) {
+  if (party === "Republican") return "R";
+  if (party === "Democrat" || party === "Democratic") return "D";
+  return "I";
+}
+
+function partyBgColor(party) {
+  var code = partyCode(party);
+  if (code === "R") return "#dc2626";
+  if (code === "D") return "#1d4ed8";
+  return "#7c3aed";
+}
+
+function voteStyle(optKey, cboCost, emergency) {
+  if (!optKey) return { bg: "transparent", text: MUTED, label: "—" };
+  var k = String(optKey);
+  if (k === "+" || k === "yea") {
+    if (emergency) return { bg: "#fffbeb", text: "#92400e", label: "Yea" };
+    return cboCost > 0
+      ? { bg: "#fef2f2", text: "#991b1b", label: "Yea" }
+      : { bg: "#f0fdf4", text: "#166534", label: "Yea" };
+  }
+  if (k === "-" || k === "nay") {
+    return cboCost > 0
+      ? { bg: "#f0fdf4", text: "#166534", label: "Nay" }
+      : { bg: "#fefce8", text: "#854d0e", label: "Nay" };
+  }
+  if (k === "0") return { bg: "#f9fafb", text: MUTED, label: "Absent" };
+  if (k === "P") return { bg: "#f9fafb", text: MUTED, label: "Present" };
+  if (k === "voice") return { bg: "#f9fafb", text: MUTED, label: "Voice vote" };
+  return { bg: "transparent", text: MUTED, label: k };
+}
+
+function fmtCBO(b) {
+  var abs = Math.abs(b);
+  var sign = b >= 0 ? "+" : "−";
+  if (abs >= 1000) return sign + "$" + (abs / 1000).toFixed(1) + "T";
+  return sign + "$" + Math.round(abs) + "B";
+}
+
+var US_STATE_LIST = [
+  "AK","AL","AR","AZ","CA","CO","CT","DC","DE","FL","GA","HI",
+  "IA","ID","IL","IN","KS","KY","LA","MA","MD","ME","MI","MN",
+  "MO","MS","MT","NC","ND","NE","NH","NJ","NM","NV","NY","OH",
+  "OK","OR","PA","RI","SC","SD","TN","TX","UT","VA","VT","WA",
+  "WI","WV","WY",
+];
+
+// ─────────────────────────────────────────────
+// REP CARD
+// ─────────────────────────────────────────────
+
+function RepCard({ rep, keyVotesData, rollCalls }) {
+  var _imgErr = useState(false); var imgErr = _imgErr[0]; var setImgErr = _imgErr[1];
+
+  var pc     = partyCode(rep.party);
+  var pColor = partyBgColor(rep.party);
+  var isSen  = rep.chamber === "senate";
+  var label  = isSen ? "Sen." : "Rep.";
+  var locStr = isSen ? rep.state : rep.state + "-" + rep.district;
+
+  var voteRows = useMemo(function () {
+    if (!keyVotesData) return [];
+    return keyVotesData.votes.map(function (bill) {
+      var isVoiceVote  = bill.id === "cares_2020" && !isSen;
+      var wasInOffice  = rep.first_elected_year <= bill.year;
+
+      var optKey = null;
+      if (isVoiceVote) {
+        optKey = "voice";
+      } else if (wasInOffice) {
+        var chamber = isSen ? "senate" : "house";
+        var map = rollCalls && rollCalls[bill.id] && rollCalls[bill.id][chamber];
+        if (map) optKey = map[rep.bioguide_id] || null;
+      }
+      return { bill: bill, optKey: optKey, wasInOffice: wasInOffice, isVoiceVote: isVoiceVote };
+    });
+  }, [keyVotesData, rollCalls, rep, isSen]);
+
+  return (
+    <div style={{
+      background: SURFACE, borderRadius: 12, border: "1px solid " + BORDER,
+      boxShadow: "0 1px 6px rgba(0,0,0,0.05)",
+      width: 280, minWidth: 260, flexShrink: 0, flexGrow: 1, maxWidth: 320,
+      display: "flex", flexDirection: "column",
+    }}>
+
+      {/* Header */}
+      <div style={{ padding: "14px 14px 10px", borderBottom: "1px solid " + BORDER, display: "flex", gap: 10, alignItems: "flex-start" }}>
+        <div style={{ flexShrink: 0 }}>
+          {!imgErr ? (
+            <img
+              src={"https://bioguide.congress.gov/photo/" + rep.bioguide_id + ".jpg"}
+              onError={function () { setImgErr(true); }}
+              alt={rep.name.official_full}
+              style={{ width: 52, height: 52, borderRadius: "50%", objectFit: "cover", border: "2px solid " + BORDER }}
+            />
+          ) : (
+            <div style={{ width: 52, height: 52, borderRadius: "50%", background: "#e5e7eb", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 17, fontWeight: 800, color: MUTED, flexShrink: 0 }}>
+              {rep.name.first[0]}{rep.name.last[0]}
+            </div>
+          )}
+        </div>
+        <div style={{ minWidth: 0 }}>
+          <div style={{ fontSize: 12, fontWeight: 800, color: TEXT, lineHeight: 1.25, marginBottom: 4 }}>
+            {label} {rep.name.official_full}
+          </div>
+          <div style={{ display: "flex", gap: 5, alignItems: "center", flexWrap: "wrap" }}>
+            <span style={{ background: pColor, color: "#fff", fontSize: 10, fontWeight: 700, padding: "2px 7px", borderRadius: 4 }}>{pc}</span>
+            <span style={{ fontSize: 11, color: MUTED }}>{locStr}</span>
+            <span style={{ fontSize: 10, color: MUTED }}>· Since {rep.first_elected_year}</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Vote table */}
+      <div style={{ padding: "10px 14px", flexGrow: 1 }}>
+        <div style={{ fontSize: 10, fontWeight: 700, color: MUTED, textTransform: "uppercase", letterSpacing: 0.8, marginBottom: 7 }}>
+          Vote record · CBO 10-yr cost/savings
+        </div>
+        <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 10.5 }}>
+          <tbody>
+            {voteRows.map(function (row) {
+              var st     = row.wasInOffice ? voteStyle(row.optKey, row.bill.cbo_10yr_b, row.bill.emergency) : null;
+              var cboClr = row.bill.cbo_10yr_b > 0 ? BLOCK_NEG : BLOCK_POS;
+              return (
+                <tr key={row.bill.id} style={{ borderBottom: "1px solid #f3f4f6" }}>
+                  <td style={{ padding: "3.5px 4px 3.5px 0", color: TEXT, fontWeight: 600, whiteSpace: "nowrap" }}>{row.bill.short_name}</td>
+                  <td style={{ padding: "3.5px 3px", color: MUTED, whiteSpace: "nowrap" }}>{row.bill.year}</td>
+                  <td style={{ padding: "3.5px 4px", color: cboClr, fontWeight: 600, whiteSpace: "nowrap", textAlign: "right" }}>{fmtCBO(row.bill.cbo_10yr_b)}</td>
+                  <td style={{ padding: "3.5px 0 3.5px 6px", textAlign: "right", whiteSpace: "nowrap" }}>
+                    {!row.wasInOffice ? (
+                      <span style={{ fontSize: 9, color: MUTED }}>Not in office</span>
+                    ) : st ? (
+                      <span style={{ background: st.bg, color: st.text, fontSize: 9.5, fontWeight: 700, padding: "2px 6px", borderRadius: 4, display: "inline-block" }}>
+                        {st.label}
+                      </span>
+                    ) : (
+                      <span style={{ fontSize: 9, color: MUTED }}>—</span>
+                    )}
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+
+        {/* Legend */}
+        <div style={{ display: "flex", gap: 10, marginTop: 7, fontSize: 9, color: MUTED, flexWrap: "wrap" }}>
+          <span style={{ display: "flex", alignItems: "center", gap: 3 }}>
+            <span style={{ width: 8, height: 8, borderRadius: 2, background: "#fef2f2", border: "1px solid #fca5a5", display: "inline-block" }} />
+            Voted for cost
+          </span>
+          <span style={{ display: "flex", alignItems: "center", gap: 3 }}>
+            <span style={{ width: 8, height: 8, borderRadius: 2, background: "#f0fdf4", border: "1px solid #86efac", display: "inline-block" }} />
+            Voted for savings
+          </span>
+          <span style={{ display: "flex", alignItems: "center", gap: 3 }}>
+            <span style={{ width: 8, height: 8, borderRadius: 2, background: "#fefce8", border: "1px solid #fde047", display: "inline-block" }} />
+            Blocked savings
+          </span>
+        </div>
+      </div>
+
+      {rollCalls === null && (
+        <div style={{ padding: "8px 14px", borderTop: "1px solid " + BORDER, fontSize: 10, color: MUTED }}>
+          Vote record loading…
+        </div>
+      )}
+
+      {/* Contact footer */}
+      <div style={{ padding: "10px 14px", borderTop: "1px solid " + BORDER, display: "flex", gap: 7, flexWrap: "wrap" }}>
+        {rep.phone && (
+          <a href={"tel:1" + rep.phone.replace(/\D/g, "")}
+            style={{ display: "flex", alignItems: "center", gap: 4, fontSize: 10.5, fontWeight: 600, color: "#1e3a5f", background: "#eff6ff", borderRadius: 6, padding: "5px 9px", textDecoration: "none", border: "1px solid #bfdbfe" }}>
+            📞 {rep.phone}
+          </a>
+        )}
+        {rep.website && (
+          <a href={rep.website} target="_blank" rel="noreferrer"
+            style={{ display: "flex", alignItems: "center", gap: 4, fontSize: 10.5, fontWeight: 600, color: TEXT, background: "#f9fafb", borderRadius: 6, padding: "5px 9px", textDecoration: "none", border: "1px solid " + BORDER }}>
+            Website →
+          </a>
+        )}
+      </div>
+    </div>
+  );
+}
+
+// ─────────────────────────────────────────────
+// REPRESENTATIVES PAGE
+// ─────────────────────────────────────────────
+
+function RepresentativesPage({ legislators, keyVotesData, rollCalls, zipDistricts }) {
+  var _zip       = useState("");  var zipInput = _zip[0]; var setZipInput = _zip[1];
+  var _reps      = useState(null); var foundReps = _reps[0]; var setFoundReps = _reps[1];
+  var _err       = useState(null); var error = _err[0]; var setError = _err[1];
+  var _manual    = useState(false); var showManual = _manual[0]; var setShowManual = _manual[1];
+  var _selState  = useState(""); var selState = _selState[0]; var setSelState = _selState[1];
+  var _selDist   = useState(""); var selDist = _selDist[0]; var setSelDist = _selDist[1];
+  var _multiOpts = useState(null); var multiOpts = _multiOpts[0]; var setMultiOpts = _multiOpts[1];
+
+  var districtsByState = useMemo(function () {
+    if (!legislators) return {};
+    var out = {};
+    legislators.forEach(function (r) {
+      if (r.chamber !== "house" || r.district === null) return;
+      if (!out[r.state]) out[r.state] = [];
+      if (!out[r.state].includes(r.district)) out[r.state].push(r.district);
+    });
+    return out;
+  }, [legislators]);
+
+  function doLookup(state, district) {
+    if (!legislators) return;
+    var d = district === null ? null : Number(district);
+    var senators  = legislators.filter(function (r) { return r.chamber === "senate" && r.state === state; });
+    var houseMems = legislators.filter(function (r) {
+      if (r.chamber !== "house" || r.state !== state) return false;
+      if (d === null) return true;                 // at-large fallback
+      return r.district === d || (d === 0 && r.district === 0);
+    });
+    if (senators.length === 0 && houseMems.length === 0) {
+      setError("No representatives found for " + state + (d ? " district " + d : "") + ". Check your ZIP or try the manual selector.");
+      setFoundReps(null);
+      return;
+    }
+    setError(null);
+    setFoundReps({ state: state, district: d, senators: senators, houseMember: houseMems[0] || null, zipUsed: zipInput });
+  }
+
+  function handleZipSubmit(e) {
+    e.preventDefault();
+    var z = zipInput.trim();
+    if (!/^\d{5}$/.test(z)) { setError("Please enter a valid 5-digit ZIP code."); return; }
+    if (!zipDistricts) {
+      setShowManual(true);
+      setError("ZIP lookup data hasn't loaded yet — use the manual selector below.");
+      return;
+    }
+    var val = zipDistricts[z];
+    if (!val) {
+      setError("ZIP " + z + " not found. Try the manual selector below.");
+      setShowManual(true);
+      return;
+    }
+    // val is "STATE-DISTRICT" e.g. "NY-8" or could be an array ["NY-8","NY-9"]
+    var vals = Array.isArray(val) ? val : [val];
+    if (vals.length > 1) {
+      setMultiOpts(vals);
+      setFoundReps(null);
+      setError(null);
+      return;
+    }
+    setMultiOpts(null);
+    var parts = vals[0].split("-");
+    var state = parts[0];
+    var dist  = parts.length > 1 ? parseInt(parts[1]) : null;
+    doLookup(state, dist);
+  }
+
+  function handleManualSubmit(e) {
+    e.preventDefault();
+    if (!selState) { setError("Please select your state."); return; }
+    var distNums = districtsByState[selState] || [];
+    var d = selDist !== "" ? Number(selDist) : (distNums.length === 1 ? distNums[0] : null);
+    if (d === null && distNums.length > 1) {
+      setError("Please select your congressional district.");
+      return;
+    }
+    setZipInput(""); // clear ZIP field so display shows manual selection
+    doLookup(selState, d);
+  }
+
+  var allReps = foundReps
+    ? [].concat(foundReps.senators || []).concat(foundReps.houseMember ? [foundReps.houseMember] : [])
+    : [];
+
+  return (
+    <div style={{ fontFamily: "'Segoe UI', system-ui, sans-serif", color: TEXT, maxWidth: 980, margin: "0 auto", paddingBottom: 40 }}>
+
+      {/* Header */}
+      <div style={{ marginBottom: 24 }}>
+        <div style={{ fontSize: 11, fontWeight: 700, color: MUTED, letterSpacing: 1.5, textTransform: "uppercase", marginBottom: 6 }}>Section IV — What Can You Do?</div>
+        <h2 style={{ fontSize: 22, fontWeight: 800, color: TEXT, margin: "0 0 10px", lineHeight: 1.25 }}>Your Representatives' Fiscal Record</h2>
+        <p style={{ fontSize: 13, color: MUTED, lineHeight: 1.65, margin: 0, maxWidth: 620 }}>
+          Enter your ZIP code to see how your senators and representative voted on the eight largest fiscal bills since 2017.
+          Each vote is shown alongside the official CBO 10-year cost or savings estimate. No editorial scoring — just the votes and the numbers.
+        </p>
+      </div>
+
+      {/* ZIP form */}
+      <form onSubmit={handleZipSubmit} style={{ display: "flex", gap: 8, alignItems: "center", marginBottom: 12, flexWrap: "wrap" }}>
+        <input
+          type="text" inputMode="numeric" placeholder="5-digit ZIP code"
+          value={zipInput}
+          onChange={function (e) { setZipInput(e.target.value.replace(/\D/g, "").slice(0, 5)); setError(null); }}
+          maxLength={5}
+          style={{
+            border: "1.5px solid " + BORDER, borderRadius: 8,
+            padding: "9px 14px", fontSize: 14, fontFamily: "inherit",
+            width: 155, outline: "none", color: TEXT,
+          }}
+        />
+        <button type="submit" style={{
+          background: "#1e3a5f", color: "#fff", border: "none",
+          borderRadius: 8, padding: "9px 18px", fontSize: 13,
+          fontWeight: 700, cursor: "pointer",
+        }}>
+          Find My Reps
+        </button>
+      </form>
+
+      {error && <div style={{ fontSize: 12, color: AMBER, marginBottom: 10 }}>{error}</div>}
+
+      {/* Multiple district disambiguation */}
+      {multiOpts && (
+        <div style={{ marginBottom: 16, padding: "12px 14px", background: "#fffbeb", borderRadius: 8, border: "1px solid #fde68a" }}>
+          <div style={{ fontSize: 12, fontWeight: 700, color: "#92400e", marginBottom: 8 }}>
+            Your ZIP spans multiple congressional districts — which one?
+          </div>
+          <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+            {multiOpts.map(function (opt, i) {
+              var parts = opt.split("-");
+              var state = parts[0]; var dist = parts[1] ? parseInt(parts[1]) : null;
+              return (
+                <button key={i} onClick={function () { setMultiOpts(null); doLookup(state, dist); }}
+                  style={{ background: "#fff", border: "1px solid #fde68a", borderRadius: 6, padding: "6px 12px", fontSize: 12, cursor: "pointer", fontWeight: 600, color: "#92400e" }}>
+                  {opt}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      )}
+
+      {/* Manual selector toggle */}
+      <button onClick={function () { setShowManual(!showManual); }}
+        style={{ background: "none", border: "none", fontSize: 12, color: BLUE, cursor: "pointer", padding: 0, textDecoration: "underline", marginBottom: showManual ? 10 : 4 }}>
+        {showManual ? "Hide manual selector" : "Don't know your ZIP? Select state & district manually"}
+      </button>
+
+      {/* Manual selector */}
+      {showManual && (
+        <form onSubmit={handleManualSubmit} style={{ display: "flex", gap: 8, alignItems: "center", marginBottom: 16, flexWrap: "wrap" }}>
+          <select value={selState} onChange={function (e) { setSelState(e.target.value); setSelDist(""); }}
+            style={{ border: "1.5px solid " + BORDER, borderRadius: 8, padding: "8px 10px", fontSize: 13, fontFamily: "inherit", color: TEXT }}>
+            <option value="">— State —</option>
+            {US_STATE_LIST.map(function (s) { return <option key={s} value={s}>{s}</option>; })}
+          </select>
+          {selState && districtsByState[selState] && districtsByState[selState].length > 1 && (
+            <select value={selDist} onChange={function (e) { setSelDist(e.target.value); }}
+              style={{ border: "1.5px solid " + BORDER, borderRadius: 8, padding: "8px 10px", fontSize: 13, fontFamily: "inherit", color: TEXT }}>
+              <option value="">— House District —</option>
+              {(districtsByState[selState] || []).slice().sort(function (a, b) { return a - b; }).map(function (d) {
+                return <option key={d} value={d}>{selState}-{d}</option>;
+              })}
+            </select>
+          )}
+          <button type="submit" style={{ background: "#1e3a5f", color: "#fff", border: "none", borderRadius: 8, padding: "9px 18px", fontSize: 13, fontWeight: 700, cursor: "pointer" }}>
+            Go
+          </button>
+        </form>
+      )}
+
+      {/* Rep cards */}
+      {foundReps && allReps.length > 0 && (
+        <div>
+          <div style={{ fontSize: 12, color: MUTED, marginBottom: 14 }}>
+            Showing reps for <strong>{foundReps.state}{foundReps.district ? "-" + foundReps.district : ""}</strong>
+            {foundReps.zipUsed && <span> (ZIP {foundReps.zipUsed})</span>}
+          </div>
+
+          <div style={{ display: "flex", gap: 14, flexWrap: "wrap" }}>
+            {allReps.map(function (rep) {
+              return <RepCard key={rep.bioguide_id} rep={rep} keyVotesData={keyVotesData} rollCalls={rollCalls} />;
+            })}
+          </div>
+
+          {/* Methodology */}
+          <div style={{ marginTop: 24, padding: "14px 16px", background: "#f8fafc", borderRadius: 10, border: "1px solid " + BORDER, fontSize: 11, color: MUTED, lineHeight: 1.65 }}>
+            <strong style={{ color: TEXT }}>Data & methodology:</strong>{" "}
+            Vote records are from official{" "}
+            <a href="https://clerk.house.gov" target="_blank" rel="noreferrer" style={{ color: BLUE }}>House Clerk</a>{" "}and{" "}
+            <a href="https://www.senate.gov" target="_blank" rel="noreferrer" style={{ color: BLUE }}>Senate</a>{" "}records via{" "}
+            <a href="https://www.govtrack.us" target="_blank" rel="noreferrer" style={{ color: BLUE }}>GovTrack</a>.
+            Fiscal impact figures are official{" "}
+            <a href="https://www.cbo.gov" target="_blank" rel="noreferrer" style={{ color: BLUE }}>CBO/JCT</a>{" "}10-year cost estimates at time of scoring.
+            Members not in office when a bill passed are excluded from that vote.
+            <strong> CARES Act (2020):</strong> House passed by voice vote — no individual records exist.
+            <strong> FRA 2023 caveat:</strong> The $1.5T savings figure is largely discretionary cap projections, not guaranteed hard savings (~$10B mandatory component).
+            ZIP-to-district mapping via U.S. Census Bureau ZCTA data (2020).
+          </div>
+        </div>
+      )}
+
+      {!legislators && (
+        <div style={{ fontSize: 13, color: MUTED, padding: "20px 0" }}>Loading representative data…</div>
+      )}
+    </div>
+  );
+}
+
+// ─────────────────────────────────────────────
 // NAVIGATION SHELL
 // ─────────────────────────────────────────────
 var SLIDE_MS = 320;
@@ -3869,12 +4349,17 @@ export default function App() {
   var japanData       = useCSV("japan_case_study.csv");
   var taxData         = useCSV("tax_brackets.csv");
   var multipliersData = useJSON("fiscal_multipliers.json");
+  var legislators     = useJSON("legislators-current.json");
+  var keyVotesData    = useJSON("key_votes.json");
+  // rollCalls and zipDistricts are optional — page renders gracefully without them
+  var rollCalls       = useJSON("roll_calls.json");
+  var zipDistricts    = useJSON("zip_districts.json");
 
   var _p  = useState(0);    var page          = _p[0];  var setPage          = _p[1];
   var _bc = useState({});   var budgetCuts     = _bc[0]; var setBudgetCuts     = _bc[1];
   var _br = useState(null); var budgetRatesRaw = _br[0]; var setBudgetRatesRaw = _br[1];
 
-  var loading = !spendingData || !receiptsData || !summaryData || !debtData || !deficitProj || !niProj || !deficitData || !debtPctData || !stabilizersData || !stimulusData || !crowdingData || !taxData || !multipliersData;
+  var loading = !spendingData || !receiptsData || !summaryData || !debtData || !deficitProj || !niProj || !deficitData || !debtPctData || !stabilizersData || !stimulusData || !crowdingData || !taxData || !multipliersData || !legislators || !keyVotesData || !rollCalls;
 
   if (loading) {
     return (
@@ -3904,6 +4389,8 @@ export default function App() {
                ratesRaw={budgetRatesRaw} setRatesRaw={setBudgetRatesRaw} />,
     /* 14 */ <EconomicImpactPage taxData={taxData} spendingData={spendingData} summaryData={summaryData}
                cuts={budgetCuts} ratesRaw={budgetRatesRaw} multipliersData={multipliersData} />,
+    /* 15 */ <RepresentativesPage legislators={legislators} keyVotesData={keyVotesData}
+               rollCalls={rollCalls} zipDistricts={zipDistricts} />,
   ];
 
   return (
