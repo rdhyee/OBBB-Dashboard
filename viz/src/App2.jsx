@@ -78,6 +78,20 @@ var SPEND_SHORT = {
 };
 
 // ─────────────────────────────────────────────
+// BUDGET CATEGORIES  (shared by TaxPage + EconomicImpactPage)
+// ─────────────────────────────────────────────
+var SPEND_CATS = [
+  { key: "Social Security",    label: "Social Security",         type: "mandatory" },
+  { key: "Medicare",           label: "Medicare",                type: "mandatory" },
+  { key: "Health",             label: "Medicaid & Health",       type: "mandatory" },
+  { key: "Income Security",    label: "Income Security",         type: "mandatory" },
+  { key: "National Defense",   label: "National Defense",        type: "discretionary" },
+  { key: "Veterans Benefits and Services", label: "Veterans",    type: "discretionary" },
+  { key: "Education, Training, Employment, and Social Services", label: "Education & Training", type: "discretionary" },
+  { key: "other",              label: "All Other Discretionary", type: "discretionary" },
+];
+
+// ─────────────────────────────────────────────
 // SECTION + PAGE MANIFEST
 //
 // Each entry is one page.  The `section` field
@@ -179,7 +193,13 @@ var PAGES = [
     section: 2,
     component: "TaxPage",
     title: "Balancing the Budget?",
-    prompt: null,  // last page
+    prompt: "What does this mean for the economy?",
+  },
+  {
+    section: 2,
+    component: "EconomicImpactPage",
+    title: "Economic Feedback Effects",
+    prompt: null,
   },
 
 ];
@@ -204,6 +224,20 @@ function useCSV(path) {
         if (cancelled) return;
         setData(Papa.parse(txt.trim(), { header: true, dynamicTyping: true, skipEmptyLines: true }).data);
       })
+      .catch(function (e) { console.error("Failed to load", path, e); });
+    return function () { cancelled = true; };
+  }, [path]);
+  return data;
+}
+
+function useJSON(path) {
+  var _s = useState(null);
+  var data = _s[0]; var setData = _s[1];
+  useEffect(function () {
+    var cancelled = false;
+    fetch("/" + path)
+      .then(function (r) { return r.json(); })
+      .then(function (json) { if (!cancelled) setData(json); })
       .catch(function (e) { console.error("Failed to load", path, e); });
     return function () { cancelled = true; };
   }, [path]);
@@ -380,6 +414,13 @@ var TOUR_CONFIGS = {
     { title: "The static vs. real gap", body: "These numbers assume people keep earning and reporting the same income. In reality, higher rates lead to more deductions, income shifting, and deferral. The true revenue gain is real but smaller than what you see here." },
     { title: "Cutting spending", body: "Spending is divided into two groups. Discretionary spending — defense, veterans, education — is set annually by Congress and can be cut directly. This happened in 2013 through the Budget Control Act's sequestration, which imposed across-the-board cuts after Congress failed to agree on a deficit plan. Mandatory programs require new legislation to cut. While rare, the OBBBA cut Medicare spending to fund some of its tax cuts." },
     { title: "In the real world", body: "In reality, some of these effects work against you. Cutting government spending reduces growth and new investments, but increasing taxes does the same. Economists disagree on how much each factor matters." },
+  ],
+  // Page 14 — Economic Feedback Effects
+  14: [
+    { title: "Static vs. dynamic scoring", body: "The previous page showed the raw arithmetic: raise taxes, cut spending, the deficit shrinks by that much. Dynamic scoring asks what happens next — people change their behavior, and the economy responds." },
+    { title: "Keynesian demand drag", body: "When the government spends less or taxes more, households and firms have less to spend. In the short run, this reduces GDP. The multiplier tells us how much: a $1 cut to income-support programs shrinks GDP by about $1.50 in year one; a $1 defense cut by about $1.00. Note: these are stimulus-period CBO estimates (2009–2015) and may be somewhat higher than today's multipliers." },
+    { title: "Behavioral tax offset", body: "Higher rates prompt avoidance: more deductions, income shifting to lower-taxed forms, and deferred realization. JCT's analysis of the 2017 tax law estimated a roughly 26% behavioral offset overall, concentrated at top brackets. We apply similar estimates here." },
+    { title: "Long-run crowding-in", body: "A smaller deficit means the government borrows less, leaving more capital available for private investment. CBO estimates roughly $0.50 of additional GDP per $1 of sustained deficit reduction over a decade — the crowding-in effect. This is a long-run gain, not visible in year one." },
   ],
 };
 
@@ -2923,7 +2964,7 @@ function BudgetDilemmaPage({ spendingData, summaryData }) {
 }
 
 /* ── III.d  Tax Page ─────────────────────── */
-function TaxPage({ taxData, spendingData, summaryData }) {
+function TaxPage({ taxData, spendingData, summaryData, cuts, setCuts, ratesRaw, setRatesRaw }) {
   var tour = useTour(13);
 
   // Parse CSV into lookup
@@ -2932,17 +2973,6 @@ function TaxPage({ taxData, spendingData, summaryData }) {
     return taxData;
   }, [taxData]);
 
-  // Per-category spending amounts (billions) — mirrors BudgetDilemmaPage slices, excl. net interest
-  var SPEND_CATS = [
-    { key: "Social Security",    label: "Social Security",         type: "mandatory" },
-    { key: "Medicare",           label: "Medicare",                type: "mandatory" },
-    { key: "Health",             label: "Medicaid & Health",       type: "mandatory" },
-    { key: "Income Security",    label: "Income Security",         type: "mandatory" },
-    { key: "National Defense",   label: "National Defense",        type: "discretionary" },
-    { key: "Veterans Benefits and Services", label: "Veterans",    type: "discretionary" },
-    { key: "Education, Training, Employment, and Social Services", label: "Education & Training", type: "discretionary" },
-    { key: "other",              label: "All Other Discretionary", type: "discretionary" },
-  ];
   var catAmounts = useMemo(function () {
     if (!spendingData || !summaryData) return {};
     var spendRows = spendingData.filter(function (r) { return r.year === YEAR && !String(r.category).includes("Real"); });
@@ -2964,8 +2994,6 @@ function TaxPage({ taxData, spendingData, summaryData }) {
     return out;
   }, [spendingData, summaryData]);
 
-  // Per-category cut slider state (0–100% per category)
-  var _cuts = useState({}); var cuts = _cuts[0]; var setCuts = _cuts[1];
   function setCut(key, val) { setCuts(function (prev) { return Object.assign({}, prev, { [key]: val }); }); }
   var _mandOpen = useState(true); var mandatoryOpen = _mandOpen[0]; var setMandatoryOpen = _mandOpen[1];
   var _discOpen = useState(true); var discretionaryOpen = _discOpen[0]; var setDiscretionaryOpen = _discOpen[1];
@@ -2973,10 +3001,7 @@ function TaxPage({ taxData, spendingData, summaryData }) {
     return sum + ((cuts[c.key] || 0) / 100) * (catAmounts[c.key] || 0);
   }, 0); // billions saved
 
-  // Slider state: rate increase in pp per bucket (0-20)
-  // State tracks absolute effective rate per bucket, initialized at current rate
-  var _rates = useState(null);
-  var ratesRaw = _rates[0]; var setRates = _rates[1];
+  var setRates = setRatesRaw;
 
   // Initialize from data once loaded
   var rates = useMemo(function () {
@@ -2995,7 +3020,7 @@ function TaxPage({ taxData, spendingData, summaryData }) {
   }
 
   function resetRates() {
-    setRates(null);
+    setRatesRaw(null);
     setCuts({});
   }
 
@@ -3309,6 +3334,294 @@ function TaxPage({ taxData, spendingData, summaryData }) {
 }
 
 
+/* ── III.e  Economic Feedback Effects ──────── */
+function EconomicImpactPage({ taxData, spendingData, summaryData, cuts, ratesRaw, multipliersData }) {
+  var tour = useTour(14);
+
+  var brackets = useMemo(function () {
+    if (!taxData) return [];
+    return taxData;
+  }, [taxData]);
+
+  var rates = useMemo(function () {
+    if (ratesRaw) return ratesRaw;
+    var init = {};
+    brackets.forEach(function (b) { init[b.bucket] = b.effective_rate_pct; });
+    return init;
+  }, [ratesRaw, brackets]);
+
+  var catAmounts = useMemo(function () {
+    if (!spendingData || !summaryData) return {};
+    var spendRows = spendingData.filter(function (r) { return r.year === YEAR && !String(r.category).includes("Real"); });
+    var sumRow = summaryData.find(function (r) { return r.year === YEAR && r.category === "Total Outlays"; });
+    var totalOutlays = sumRow ? sumRow.amount : 0;
+    var niRow = spendRows.find(function (r) { return r.category === "Net interest"; });
+    var ni = niRow ? niRow.amount : 0;
+    var namedKeys = ["Social Security","Medicare","Health","Income Security",
+                     "National Defense","Veterans Benefits and Services",
+                     "Education, Training, Employment, and Social Services"];
+    var out = {}; var accounted = 0;
+    namedKeys.forEach(function (k) {
+      var row = spendRows.find(function (r) { return r.category === k; });
+      var amt = row ? row.amount : 0;
+      out[k] = amt / 1000;
+      accounted += amt;
+    });
+    out["other"] = Math.max(0, (totalOutlays - accounted - ni) / 1000);
+    return out;
+  }, [spendingData, summaryData]);
+
+  // Index multiplier data by key for O(1) lookup
+  var spendMultMap = useMemo(function () {
+    if (!multipliersData) return {};
+    var m = {};
+    multipliersData.spending_multipliers.forEach(function (x) { m[x.category] = x.estimate; });
+    return m;
+  }, [multipliersData]);
+
+  var taxMultMap = useMemo(function () {
+    if (!multipliersData) return {};
+    var m = {};
+    multipliersData.tax_multipliers.forEach(function (x) { m[x.bucket] = x.estimate; });
+    return m;
+  }, [multipliersData]);
+
+  var behavMap = useMemo(function () {
+    if (!multipliersData) return {};
+    var m = {};
+    multipliersData.behavioral_offsets.forEach(function (x) { m[x.bucket] = x.estimate; });
+    return m;
+  }, [multipliersData]);
+
+  var crowdInRatio = multipliersData ? multipliersData.crowding_in.gdp_per_dollar_deficit_reduction_central : 0.5;
+
+  var US_GDP_REF = 28000; // $B, approximate 2024 GDP — used only for % display
+
+  // Core calculations
+  var staticSpendSaved = SPEND_CATS.reduce(function (sum, c) {
+    return sum + ((cuts[c.key] || 0) / 100) * (catAmounts[c.key] || 0);
+  }, 0);
+
+  var staticRevByBracket = useMemo(function () {
+    var m = {};
+    brackets.forEach(function (b) {
+      var cr = rates[b.bucket] !== undefined ? rates[b.bucket] : b.effective_rate_pct;
+      m[b.bucket] = (cr - b.effective_rate_pct) * b.revenue_per_1pp_b;
+    });
+    return m;
+  }, [brackets, rates]);
+
+  var staticTaxRev = brackets.reduce(function (sum, b) {
+    return sum + (staticRevByBracket[b.bucket] || 0);
+  }, 0);
+
+  var totalBehavLoss = brackets.reduce(function (sum, b) {
+    var rev = staticRevByBracket[b.bucket] || 0;
+    return sum + Math.max(0, rev) * (behavMap[b.bucket] || 0);
+  }, 0);
+
+  var dynamicTaxRev      = staticTaxRev - totalBehavLoss;
+  var dynamicDeficitRed  = staticSpendSaved + dynamicTaxRev;
+
+  var gdpDragSpending = SPEND_CATS.reduce(function (sum, c) {
+    var saved = ((cuts[c.key] || 0) / 100) * (catAmounts[c.key] || 0);
+    return sum + saved * (spendMultMap[c.key] || 1.0);
+  }, 0);
+
+  var gdpDragTax = brackets.reduce(function (sum, b) {
+    var rev = staticRevByBracket[b.bucket] || 0;
+    return sum + Math.max(0, rev) * (taxMultMap[b.bucket] || 0.5);
+  }, 0);
+
+  var totalGDPDrag   = gdpDragSpending + gdpDragTax;
+  var longRunGDPGain = dynamicDeficitRed * crowdInRatio;
+
+  var hasChanges = staticSpendSaved > 0 || staticTaxRev !== 0;
+
+  var ORDER = ["Under $25K", "$25K to $75K", "$75K to $200K", "$200K to $1M", "Over $1M"];
+  var BUCKET_COLORS = {
+    "Under $25K": "#4a8b6f", "$25K to $75K": "#3d7d60", "$75K to $200K": "#6b7a00",
+    "$200K to $1M": "#dc2626", "Over $1M": "#991b1b",
+  };
+
+  function pctGDP(b) { return (Math.abs(b) / US_GDP_REF * 100).toFixed(2); }
+
+  return (
+    <div>
+      {tour.show && <Tour steps={tour.steps} onDone={tour.done} />}
+      <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", marginBottom: 6 }}>
+        <h2 style={{ fontSize: 22, fontWeight: 700, color: TEXT, margin: 0 }}>Economic Feedback Effects</h2>
+        <TourBtn onOpen={tour.reopen} />
+      </div>
+
+      <p style={{ fontSize: 15, color: TEXT, lineHeight: 1.75, margin: "0 0 8px" }}>
+        The previous page showed the static changes in our deficit. However, changes in government programs this drastic have effects on the rest of the economy. Businesses and taxpayers react to tax cuts, for example, by producing and investing more, growing the overall economy. At the same time, spending cuts force people who receive government funding, like federal employees, researchers on government grants, or recipients of welfare, to spend and produce less. These effects are difficult to estimate precisely, but you can see how national incomes might change as a response to your plan.
+      </p>
+      <p style={{ fontSize: 13, color: MUTED, lineHeight: 1.6, margin: "0 0 24px" }}>
+        Note: Spending-demand multipliers are drawn from CBO's ARRA analyses (2009–2015), which assume a near-zero interest-rate environment. Today's multipliers may be somewhat lower. All figures are annual unless stated otherwise.
+      </p>
+
+      {!hasChanges ? (
+        <Card style={{ background: "#f8fafc", border: "1px dashed " + BORDER, textAlign: "center", padding: "36px 24px" }}>
+          <div style={{ fontSize: 28, marginBottom: 12 }}>←</div>
+          <div style={{ fontSize: 15, color: MUTED, lineHeight: 1.6 }}>
+            Go back to the previous page and move the sliders to see economic feedback effects.
+          </div>
+        </Card>
+      ) : (
+        <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+
+          {/* Card 1 — Adjusted Revenue Estimate */}
+          <Card>
+            <div style={{ fontSize: 13, fontWeight: 700, color: MUTED, textTransform: "uppercase", letterSpacing: 1.2, marginBottom: 14 }}>
+              Adjusted Revenue Estimate
+            </div>
+            <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+              <div style={{ display: "flex", justifyContent: "space-between", fontSize: 14, color: TEXT }}>
+                <span>Static tax revenue change</span>
+                <span style={{ fontWeight: 600, color: staticTaxRev >= 0 ? BLOCK_POS : BLOCK_NEG }}>
+                  {staticTaxRev >= 0 ? "+" : ""}{fmtAmt(staticTaxRev * 1000)}/yr
+                </span>
+              </div>
+              {totalBehavLoss > 0 && (
+                <div style={{ display: "flex", justifyContent: "space-between", fontSize: 14, color: TEXT }}>
+                  <span>
+                    − Behavioral offset{" "}
+                    <span style={{ fontSize: 12, color: MUTED }}>(avoidance, sheltering, income shifting)</span>
+                  </span>
+                  <span style={{ fontWeight: 600, color: BLOCK_NEG }}>−{fmtAmt(totalBehavLoss * 1000)}/yr</span>
+                </div>
+              )}
+              <div style={{ borderTop: "1px solid " + BORDER, paddingTop: 8, display: "flex", justifyContent: "space-between", fontSize: 15, fontWeight: 700 }}>
+                <span>Dynamic tax revenue</span>
+                <span style={{ color: dynamicTaxRev >= 0 ? BLOCK_POS : BLOCK_NEG }}>
+                  {dynamicTaxRev >= 0 ? "+" : ""}{fmtAmt(dynamicTaxRev * 1000)}/yr
+                </span>
+              </div>
+              {staticSpendSaved > 0 && (
+                <div style={{ display: "flex", justifyContent: "space-between", fontSize: 15, fontWeight: 700 }}>
+                  <span>Spending savings (unchanged)</span>
+                  <span style={{ color: BLOCK_POS }}>+{fmtAmt(staticSpendSaved * 1000)}/yr</span>
+                </div>
+              )}
+              <div style={{ borderTop: "2px solid " + BORDER, paddingTop: 8, display: "flex", justifyContent: "space-between", fontSize: 16, fontWeight: 800 }}>
+                <span>Dynamic deficit reduction</span>
+                <span style={{ color: dynamicDeficitRed > 0 ? BLOCK_POS : BLOCK_NEG }}>
+                  {dynamicDeficitRed > 0 ? "+" : ""}{fmtAmt(dynamicDeficitRed * 1000)}/yr
+                </span>
+              </div>
+            </div>
+            {totalBehavLoss > 0 && (
+              <div style={{ marginTop: 12, fontSize: 11, color: MUTED, lineHeight: 1.5 }}>
+                Per-bracket behavioral offsets: JCT macroeconomic analysis of the 2017 Tax Cuts and Jobs Act (JCX-69-17). Overall ~26% dynamic offset concentrated at top brackets.
+              </div>
+            )}
+          </Card>
+
+          {/* Card 2 — Year-1 GDP Impact */}
+          <Card>
+            <div style={{ fontSize: 13, fontWeight: 700, color: MUTED, textTransform: "uppercase", letterSpacing: 1.2, marginBottom: 14 }}>
+              Year-1 GDP Impact
+            </div>
+            <p style={{ fontSize: 13, color: MUTED, lineHeight: 1.55, margin: "0 0 14px" }}>
+              Fiscal multipliers measure how much GDP changes per $1 of spending cut or tax increase in the first year. A multiplier of 1.5 means a $100B cut reduces GDP by about $150B.
+            </p>
+            {gdpDragSpending > 0 && (
+              <div style={{ marginBottom: 12 }}>
+                <div style={{ fontSize: 12, fontWeight: 700, color: MUTED, textTransform: "uppercase", letterSpacing: 1, marginBottom: 6 }}>Spending cuts</div>
+                {SPEND_CATS.filter(function (c) { return (cuts[c.key] || 0) > 0; }).map(function (c) {
+                  var saved = ((cuts[c.key] || 0) / 100) * (catAmounts[c.key] || 0);
+                  var drag  = saved * (spendMultMap[c.key] || 1.0);
+                  return (
+                    <div key={c.key} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", fontSize: 13, color: TEXT, marginBottom: 4 }}>
+                      <span>{c.label} <span style={{ fontSize: 11, color: MUTED }}>× {(spendMultMap[c.key] || 1.0).toFixed(1)} multiplier</span></span>
+                      <span style={{ color: BLOCK_NEG, fontWeight: 600 }}>−{fmtAmt(drag * 1000)}</span>
+                    </div>
+                  );
+                })}
+              </div>
+            )}
+            {gdpDragTax > 0 && (
+              <div style={{ marginBottom: 12 }}>
+                <div style={{ fontSize: 12, fontWeight: 700, color: MUTED, textTransform: "uppercase", letterSpacing: 1, marginBottom: 6 }}>Tax increases</div>
+                {ORDER.map(function (bucket) {
+                  var rev = staticRevByBracket[bucket] || 0;
+                  if (rev <= 0) return null;
+                  var drag = rev * (taxMultMap[bucket] || 0.5);
+                  return (
+                    <div key={bucket} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", fontSize: 13, color: TEXT, marginBottom: 4 }}>
+                      <span style={{ color: BUCKET_COLORS[bucket] }}>{bucket} <span style={{ fontSize: 11, color: MUTED }}>× {(taxMultMap[bucket] || 0.5).toFixed(1)} multiplier</span></span>
+                      <span style={{ color: BLOCK_NEG, fontWeight: 600 }}>−{fmtAmt(drag * 1000)}</span>
+                    </div>
+                  );
+                })}
+              </div>
+            )}
+            <div style={{ borderTop: "2px solid " + BORDER, paddingTop: 10, display: "flex", justifyContent: "space-between", fontSize: 15, fontWeight: 800 }}>
+              <span>Total year-1 GDP drag</span>
+              <span style={{ color: BLOCK_NEG }}>−{fmtAmt(totalGDPDrag * 1000)} ({pctGDP(totalGDPDrag)}% of GDP)</span>
+            </div>
+            <div style={{ marginTop: 10, fontSize: 11, color: MUTED, lineHeight: 1.5 }}>
+              Source: CBO, "Estimated Impact of the American Recovery and Reinvestment Act" (Feb 2015), Table 2 multiplier ranges. Estimates reflect a near-ZLB environment; current-period multipliers may be somewhat lower. Effects fade as the economy adjusts — typically most of the demand drag resolves within 2–3 years.
+            </div>
+          </Card>
+
+          {/* Card 3 — Long-run Crowding-in */}
+          <Card>
+            <div style={{ fontSize: 13, fontWeight: 700, color: MUTED, textTransform: "uppercase", letterSpacing: 1.2, marginBottom: 14 }}>
+              Long-run GDP Gain (≈10 Years)
+            </div>
+            <p style={{ fontSize: 13, color: MUTED, lineHeight: 1.55, margin: "0 0 14px" }}>
+              A lower deficit means the government borrows less, leaving more capital available for private investment. That investment raises the productive capital stock and grows the economy over the long run — the crowding-in effect.
+            </p>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", fontSize: 15, fontWeight: 800 }}>
+              <span>Crowding-in GDP gain</span>
+              <span style={{ color: longRunGDPGain > 0 ? BLOCK_POS : MUTED }}>
+                {longRunGDPGain > 0 ? "+" : ""}{fmtAmt(longRunGDPGain * 1000)}/yr (+{pctGDP(longRunGDPGain)}% of GDP)
+              </span>
+            </div>
+            <div style={{ marginTop: 6, fontSize: 12, color: MUTED }}>
+              Applies to dynamic deficit reduction of {fmtAmt(dynamicDeficitRed * 1000)}/yr × {crowdInRatio} (CBO central estimate)
+            </div>
+            <div style={{ marginTop: 10, fontSize: 11, color: MUTED, lineHeight: 1.5 }}>
+              Source: CBO, "The Long-Run Effects of Federal Budget Deficits on National Saving, Private Domestic Investment, and International Capital Flows" (2013). Central estimate: $1 deficit reduction → $0.50 additional GDP by ≈year 10 (via capital-stock channel). This is a long-run steady-state effect, not a year-1 figure.
+            </div>
+          </Card>
+
+          {/* Net summary callout */}
+          <div style={{ background: "#f8fafc", borderRadius: 10, padding: "16px 20px", border: "1px solid " + BORDER }}>
+            <div style={{ fontSize: 13, fontWeight: 700, color: TEXT, marginBottom: 10 }}>Bottom line</div>
+            <div style={{ display: "flex", flexDirection: "column", gap: 6, fontSize: 13, color: TEXT }}>
+              <div style={{ display: "flex", justifyContent: "space-between" }}>
+                <span>Short-run cost (year-1 GDP contraction)</span>
+                <span style={{ color: BLOCK_NEG, fontWeight: 600 }}>−{fmtAmt(totalGDPDrag * 1000)}</span>
+              </div>
+              <div style={{ display: "flex", justifyContent: "space-between" }}>
+                <span>Long-run benefit (annual GDP gain by ~2034)</span>
+                <span style={{ color: BLOCK_POS, fontWeight: 600 }}>+{fmtAmt(longRunGDPGain * 1000)}/yr</span>
+              </div>
+              <div style={{ borderTop: "1px solid " + BORDER, paddingTop: 6, fontSize: 12, color: MUTED, lineHeight: 1.55 }}>
+                These effects work in opposite directions on different timescales. The short-run contraction typically fades within 2–3 years. The long-run gain accumulates gradually as deficit reduction compounds over time.
+              </div>
+            </div>
+          </div>
+
+        </div>
+      )}
+
+      <p style={{ fontSize: 12, color: MUTED, marginTop: 20 }}>
+        Multiplier sources:{" "}
+        <a href="https://www.cbo.gov/publication/49958" target="_blank" rel="noreferrer" style={{ color: BLUE }}>CBO ARRA analysis (2015)</a>;{" "}
+        <a href="https://www.journals.uchicago.edu/doi/abs/10.1086/701424" target="_blank" rel="noreferrer" style={{ color: BLUE }}>Zidar (2019), JPE</a>;{" "}
+        <a href="https://www.jct.gov/publications/2017/jcx-69-17/" target="_blank" rel="noreferrer" style={{ color: BLUE }}>JCT TCJA analysis (2017)</a>;{" "}
+        <a href="https://www.cbo.gov/sites/default/files/cbofiles/attachments/45140-NSPDI_workingPaper.pdf" target="_blank" rel="noreferrer" style={{ color: BLUE }}>CBO deficit-investment working paper (2013)</a>.
+        Point estimates used; actual effects depend on monetary policy, economic conditions, and policy interactions.
+      </p>
+    </div>
+  );
+}
+
+
 // ─────────────────────────────────────────────
 // NAVIGATION SHELL
 // ─────────────────────────────────────────────
@@ -3511,7 +3824,7 @@ function PageShell({ page, setPage, children, prompt }) {
         transform: ty, opacity: visible ? 1 : 0,
         transition: "transform " + SLIDE_MS + "ms cubic-bezier(0.4,0,0.2,1), opacity " + SLIDE_MS + "ms ease",
       }}>
-        {content}
+        {visible ? children : content}
       </div>
 
       {/* Forward prompt button */}
@@ -3555,10 +3868,13 @@ export default function App() {
   var crowdingData    = useCSV("crowding_out.csv");
   var japanData       = useCSV("japan_case_study.csv");
   var taxData         = useCSV("tax_brackets.csv");
+  var multipliersData = useJSON("fiscal_multipliers.json");
 
-  var _p = useState(0); var page = _p[0]; var setPage = _p[1];
+  var _p  = useState(0);    var page          = _p[0];  var setPage          = _p[1];
+  var _bc = useState({});   var budgetCuts     = _bc[0]; var setBudgetCuts     = _bc[1];
+  var _br = useState(null); var budgetRatesRaw = _br[0]; var setBudgetRatesRaw = _br[1];
 
-  var loading = !spendingData || !receiptsData || !summaryData || !debtData || !deficitProj || !niProj || !deficitData || !debtPctData || !stabilizersData || !stimulusData || !crowdingData || !taxData;
+  var loading = !spendingData || !receiptsData || !summaryData || !debtData || !deficitProj || !niProj || !deficitData || !debtPctData || !stabilizersData || !stimulusData || !crowdingData || !taxData || !multipliersData;
 
   if (loading) {
     return (
@@ -3583,7 +3899,11 @@ export default function App() {
     /* 10 */ <CrowdingOutPage   spendingData={spendingData} summaryData={summaryData} />,
     /* 11 */ <NetInterestPage   spendingData={spendingData} />,
     /* 12 */ <BudgetDilemmaPage spendingData={spendingData} summaryData={summaryData} />,
-    /* 13 */ <TaxPage taxData={taxData} deficitProj={deficitProj} spendingData={spendingData} summaryData={summaryData} />,
+    /* 13 */ <TaxPage taxData={taxData} spendingData={spendingData} summaryData={summaryData}
+               cuts={budgetCuts} setCuts={setBudgetCuts}
+               ratesRaw={budgetRatesRaw} setRatesRaw={setBudgetRatesRaw} />,
+    /* 14 */ <EconomicImpactPage taxData={taxData} spendingData={spendingData} summaryData={summaryData}
+               cuts={budgetCuts} ratesRaw={budgetRatesRaw} multipliersData={multipliersData} />,
   ];
 
   return (

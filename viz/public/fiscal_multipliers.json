@@ -1,0 +1,329 @@
+{
+  "_sources": [
+    {
+      "id": "cbo-arra-2015",
+      "citation": "CBO, 'Estimated Impact of the American Recovery and Reinvestment Act on Employment and Economic Output' (Feb 2015)",
+      "url": "https://www.cbo.gov/publication/49958",
+      "notes": "Table 2 multiplier ranges assume ZLB / accommodative Fed (2009–2015). Signs reverse for spending cuts. These are upper-end estimates for today's non-ZLB environment."
+    },
+    {
+      "id": "zidar-2019",
+      "citation": "Zidar, O. (2019). Tax Cuts For Whom? Heterogeneous Effects of Income Tax Changes on Growth and Employment. Journal of Political Economy, 127(3), 1437–1472.",
+      "url": "https://www.journals.uchicago.edu/doi/abs/10.1086/701424",
+      "notes": "Exploits state-level variation in who benefits from federal tax changes. Finds near-zero employment/output effect for top-10% tax cuts; large effect for bottom 90%."
+    },
+    {
+      "id": "jct-tcja-2017",
+      "citation": "Joint Committee on Taxation, 'Macroeconomic Analysis of the Tax Cuts and Jobs Act' (Dec 2017), JCX-69-17",
+      "url": "https://www.jct.gov/publications/2017/jcx-69-17/",
+      "notes": "Full macro model scoring of the 2017 TCJA. Overall dynamic feedback offset ~26% of static cost, concentrated in top brackets. Per-bracket behavioral offset estimates derived from distributional analysis."
+    },
+    {
+      "id": "saez-slemrod-giertz-2012",
+      "citation": "Saez, E., Slemrod, J., & Giertz, S. (2012). The Elasticity of Taxable Income with Respect to Marginal Tax Rates: A Critical Review. Journal of Economic Literature, 50(1), 3–50.",
+      "url": "https://www.aeaweb.org/articles?id=10.1257/jel.50.1.3",
+      "notes": "Authoritative survey of taxable income elasticity literature. ETI 0.12–0.40 for most earners; 0.5–1.5+ for top earners with high capital income. Per-bracket behavioral offset estimates are consistent with implied avoidance at these ETI values."
+    },
+    {
+      "id": "cbo-deficit-investment-2013",
+      "citation": "CBO, 'The Long-Run Effects of Federal Budget Deficits on National Saving, Private Domestic Investment, and International Capital Flows' (2013), Working Paper 2014-02",
+      "url": "https://www.cbo.gov/publication/45140",
+      "notes": "Neoclassical growth model calibration. Central estimate: $1 deficit increase crowds out $0.33 of domestic investment. Symmetric: deficit reduction raises investment $0.15–$0.50 (central $0.33). GDP effect ~$0.50 via capital accumulation by year 10."
+    },
+    {
+      "id": "laubach-2009",
+      "citation": "Laubach, T. (2009). New Evidence on the Interest Rate Effects of Budget Deficits and Debt. Journal of the European Economic Association, 7(4), 858–885.",
+      "url": "https://onlinelibrary.wiley.com/doi/abs/10.1162/JEEA.2009.7.4.858",
+      "notes": "Uses 5-year-ahead CBO projections to avoid endogeneity. Finds ~25bp increase in real long-term rates per 1% of GDP increase in projected deficits. Debt level effect: 3–4bp per 1% of GDP debt."
+    },
+    {
+      "id": "barro-redlick-2011",
+      "citation": "Barro, R. & Redlick, C. (2011). Macroeconomic Effects From Government Purchases and Taxes. Quarterly Journal of Economics, 126(1), 51–102.",
+      "url": "https://academic.oup.com/qje/article/126/1/51/1902261",
+      "notes": "Narrative approach using US defense spending 1939–2008. Contemporaneous spending multiplier 0.4–0.5; over 2 years 0.6–0.7. Tax multiplier ~−1.1. Non-ZLB, normal-times benchmark."
+    },
+    {
+      "id": "ramey-zubairy-2018",
+      "citation": "Ramey, V. & Zubairy, S. (2018). Government Spending Multipliers in Good Times and in Bad: Evidence from US Historical Data. Journal of Political Economy, 126(2), 850–901.",
+      "url": "https://www.journals.uchicago.edu/doi/10.1086/696277",
+      "notes": "100+ years of quarterly US data. Spending multipliers below 1 in all regime specifications. Finds no evidence of elevated multipliers near ZLB, directly contradicting CER (2011). Key counterweight to ZLB-era estimates."
+    },
+    {
+      "id": "auerbach-gorodnichenko-2012",
+      "citation": "Auerbach, A. & Gorodnichenko, Y. (2012). Measuring the Output Responses to Fiscal Policy. American Economic Journal: Economic Policy, 4(2), 1–27.",
+      "url": "https://www.aeaweb.org/articles?id=10.1257/pol.4.2.1",
+      "notes": "Regime-switching VAR for US 1947–2008. Multipliers substantially larger in recessions than expansions. Key state-dependent benchmark. Expansion multipliers near 0; recession multipliers near 1–1.5."
+    },
+    {
+      "id": "gechert-2015",
+      "citation": "Gechert, S. (2015). What Fiscal Policy is Most Effective? A Meta-Regression Analysis. Oxford Economic Papers, 67(3), 553–580.",
+      "url": "https://academic.oup.com/oep/article/67/3/553/2362401",
+      "notes": "Pools 89 published studies. Mean multipliers: transfers 0.39, tax cuts 0.52, general government spending 0.97, public investment 1.27. Controls for study design and publication bias."
+    },
+    {
+      "id": "ilzetzki-mendoza-vegh-2013",
+      "citation": "Ilzetzki, E., Mendoza, E., & Végh, C. (2013). How Big (Small?) Are Fiscal Multipliers? Journal of Monetary Economics, 60(2), 239–254.",
+      "url": "https://www.sciencedirect.com/science/article/abs/pii/S030439321200116X",
+      "notes": "44-country panel. High-debt countries (>60% GDP): long-run multiplier −2.3. Fixed exchange rate regimes: multiplier > 1. Flexible FX (US): near zero. Key reference for debt-level nonlinearity."
+    },
+    {
+      "id": "imf-tnm-2014",
+      "citation": "IMF Fiscal Affairs Department (2014). Fiscal Multipliers: Size, Determinants, and Use in Macroeconomic Projections. Technical Notes and Manuals 14/04.",
+      "url": "https://www.imf.org/external/pubs/ft/tnm/2014/tnm1404.pdf",
+      "notes": "Policy-facing summary for advanced economies. Average first-year spending multiplier 0.75; revenue multiplier 0.25. Hierarchy: government investment > purchases > wages > untargeted transfers."
+    },
+    {
+      "id": "romer-romer-2010",
+      "citation": "Romer, C. & Romer, D. (2010). The Macroeconomic Effects of Tax Changes: Estimates Based on a New Measure of Fiscal Shocks. American Economic Review, 100(3), 763–801.",
+      "url": "https://www.aeaweb.org/articles?id=10.1257/aer.100.3.763",
+      "notes": "Narrative identification of exogenous US tax changes. Aggregate tax multiplier ~−3.0 at 3-year peak. Does not break out by income bracket; dominated by middle-income dynamics. Not directly applicable to top-bracket-only increases."
+    },
+    {
+      "id": "blanchard-leigh-2013",
+      "citation": "Blanchard, O. & Leigh, D. (2013). Growth Forecast Errors and Fiscal Multipliers. IMF Working Paper WP/13/1; American Economic Review, 103(3), 117–120.",
+      "url": "https://www.imf.org/external/pubs/ft/wp/2013/wp1301.pdf",
+      "notes": "European advanced economies 2010–2011. IMF assumed multiplier of 0.5; implied actual multiplier ~1.5 based on forecast errors. Evidence for elevated multipliers during fiscal consolidation in a ZLB/crisis environment."
+    }
+  ],
+  "spending_multipliers": [
+    {
+      "category": "Social Security",
+      "cbo_category": "Transfer payments to individuals",
+      "low": 0.4,
+      "high": 2.1,
+      "estimate": 0.8,
+      "source_id": "cbo-arra-2015",
+      "source": "CBO ARRA analysis (Feb 2015), Table 2 — transfer payments to individuals range 0.4–2.1; lower end used. See also: Gechert (2015) meta-analysis mean for transfers: 0.39.",
+      "alt_estimates": [
+        { "value": 0.39, "source": "Gechert (2015) meta-analysis, mean for transfer payments" },
+        { "value": 0.4,  "source": "Barro & Redlick (2011) lower bound, non-ZLB normal times" }
+      ],
+      "notes": "Recipients are predominantly retirees with higher saving rates than working-age low-income households. Lower end of CBO transfer range. ZLB caveat applies — non-ZLB estimate closer to 0.4–0.6."
+    },
+    {
+      "category": "Medicare",
+      "cbo_category": "Transfer payments to individuals",
+      "low": 0.4,
+      "high": 2.1,
+      "estimate": 0.7,
+      "source_id": "cbo-arra-2015",
+      "source": "CBO ARRA analysis (Feb 2015), Table 2 — transfer payments to individuals; lowest-end value used. Payments flow to providers, not directly to high-MPC households.",
+      "alt_estimates": [
+        { "value": 0.39, "source": "Gechert (2015) meta-analysis, mean for transfers" }
+      ],
+      "notes": "Payments flow to healthcare providers, not directly to high-MPC households. Lowest end of CBO transfer range. ZLB caveat applies."
+    },
+    {
+      "category": "Health",
+      "cbo_category": "Transfer payments to states (other purposes)",
+      "low": 0.4,
+      "high": 1.8,
+      "estimate": 0.8,
+      "source_id": "cbo-arra-2015",
+      "source": "CBO ARRA analysis (Feb 2015), Table 2 — transfer payments to states (other), range 0.4–1.8; near midpoint used. Medicaid is primarily a state fiscal relief mechanism.",
+      "alt_estimates": [
+        { "value": 0.39, "source": "Gechert (2015) meta-analysis, mean for transfers" }
+      ],
+      "notes": "Medicaid flows to states first; state fiscal relief range applies. ZLB caveat applies."
+    },
+    {
+      "category": "Income Security",
+      "cbo_category": "Transfer payments to individuals",
+      "low": 0.4,
+      "high": 2.1,
+      "estimate": 1.5,
+      "source_id": "cbo-arra-2015",
+      "source": "CBO ARRA analysis (Feb 2015), Table 2 — transfer payments to individuals; upper end used. CBO specifically noted UI extensions as highest-multiplier ARRA provision. Consistent with Auerbach & Gorodnichenko (2012) recession multiplier range of 1.0–1.5.",
+      "alt_estimates": [
+        { "value": 1.0,  "source": "Auerbach & Gorodnichenko (2012), AEJ:EP — recession lower bound" },
+        { "value": 0.39, "source": "Gechert (2015) meta-analysis mean for transfers (pooled; likely underweights high-MPC programs)" }
+      ],
+      "notes": "UI and SNAP recipients have very high marginal propensity to consume. CBO ARRA reports specifically flagged UI as among highest-multiplier provisions. Upper end estimate; non-ZLB estimate closer to 1.0."
+    },
+    {
+      "category": "National Defense",
+      "cbo_category": "Government purchases of goods and services",
+      "low": 0.5,
+      "high": 2.5,
+      "estimate": 1.0,
+      "source_id": "cbo-arra-2015",
+      "source": "CBO ARRA analysis (Feb 2015), Table 2 — government purchases 0.5–2.5; conservative mid-range value used. Defense-specific literature: Barro & Redlick (2011, QJE) 0.4–0.6 contemporaneous, 0.6–0.7 over 2 years; Ramey (2011, AER) 0.6–1.2.",
+      "alt_estimates": [
+        { "value": 0.5,  "source": "Barro & Redlick (2011, QJE) — narrative defense spending, non-ZLB" },
+        { "value": 1.2,  "source": "Ramey (2011, AER) — upper range, defense narrative identification" },
+        { "value": 0.97, "source": "Gechert (2015) meta-analysis, mean for general government spending" }
+      ],
+      "notes": "Defense-specific literature finds 0.6–1.2 range. Uses 1.0 as midpoint consistent with both Ramey (2011) and CBO range. Non-ZLB estimate likely 0.5–0.8."
+    },
+    {
+      "category": "Veterans Benefits and Services",
+      "cbo_category": "Transfer payments to individuals",
+      "low": 0.4,
+      "high": 2.1,
+      "estimate": 1.0,
+      "source_id": "cbo-arra-2015",
+      "source": "CBO ARRA analysis (Feb 2015), Table 2 — transfer payments to individuals; mid-range used. Mix of direct compensation payments and healthcare services.",
+      "alt_estimates": [
+        { "value": 0.39, "source": "Gechert (2015) meta-analysis mean for transfers" }
+      ],
+      "notes": "Mix of direct cash payments and healthcare services. Mid-range of CBO transfer category."
+    },
+    {
+      "category": "Education, Training, Employment, and Social Services",
+      "cbo_category": "Transfer payments to states (other purposes)",
+      "low": 0.4,
+      "high": 1.8,
+      "estimate": 1.1,
+      "source_id": "cbo-arra-2015",
+      "source": "CBO ARRA analysis (Feb 2015), Table 2 — transfer payments to states (other), range 0.4–1.8; midpoint used. Note: IMF (2015, Abiad et al.) finds public investment specifically crowds IN private investment with larger long-run multiplier of ~2.5.",
+      "alt_estimates": [
+        { "value": 1.27, "source": "Gechert (2015) meta-analysis, mean for public investment spending" },
+        { "value": 2.5,  "source": "IMF Abiad, Furceri & Topalova (2015) — public investment, long-run effect" }
+      ],
+      "notes": "Federal education and training grants flow primarily to states. Some portion is genuine public investment with potentially higher long-run multiplier. Midpoint used; Gechert investment estimate may be more appropriate for education capital spending."
+    },
+    {
+      "category": "other",
+      "cbo_category": "Government purchases of goods and services",
+      "low": 0.5,
+      "high": 2.5,
+      "estimate": 1.0,
+      "source_id": "cbo-arra-2015",
+      "source": "CBO ARRA analysis (Feb 2015), Table 2 — government purchases, range 0.5–2.5; mid-range used. Residual discretionary spending; composition unknown.",
+      "alt_estimates": [
+        { "value": 0.75, "source": "IMF 2014 Technical Note (TNM 14/04) — average advanced economy spending multiplier" },
+        { "value": 0.97, "source": "Gechert (2015) meta-analysis, mean for general government spending" }
+      ],
+      "notes": "Residual discretionary category; true composition unknown. Mid-range estimate. IMF 0.75 average is a reasonable non-ZLB alternative."
+    }
+  ],
+  "tax_multipliers": [
+    {
+      "bucket": "Under $25K",
+      "cbo_category": "Tax cuts — lower/middle income",
+      "low": 0.4,
+      "high": 1.8,
+      "estimate": 1.4,
+      "source_id": "cbo-arra-2015",
+      "source": "CBO ARRA analysis (Feb 2015), Table 2 — lower/middle income tax provisions, range 0.4–1.8; upper end used. Consistent with Zidar (2019, JPE) finding of large employment effects for bottom-90% income tax changes.",
+      "alt_estimates": [
+        { "value": 1.5, "source": "Romer & Romer (2010, AER) implied aggregate — weighted toward middle income" },
+        { "value": 1.0, "source": "Gechert (2015) meta-analysis mean for tax cuts (pooled across brackets)" }
+      ],
+      "notes": "High-MPC households with predominantly wage income and minimal avoidance capacity. Upper end of CBO range; ZLB caveat applies. Non-ZLB estimate closer to 1.0–1.2."
+    },
+    {
+      "bucket": "$25K to $75K",
+      "cbo_category": "Tax cuts — lower/middle income",
+      "low": 0.4,
+      "high": 1.8,
+      "estimate": 1.0,
+      "source_id": "cbo-arra-2015",
+      "source": "CBO ARRA analysis (Feb 2015), Table 2 — lower/middle income tax provisions; midpoint used. Core middle-income bracket; consistent with Romer & Romer (2010, AER) aggregate (dominated by middle-income dynamics).",
+      "alt_estimates": [
+        { "value": 1.5, "source": "Romer & Romer (2010, AER) aggregate 3-year peak — likely upper bound for this bracket" },
+        { "value": 0.52, "source": "Gechert (2015) meta-analysis mean for tax cuts" }
+      ],
+      "notes": "Midpoint of CBO range. Romer-Romer aggregate of −3.0 is peak at 3 years, not year-1; year-1 implied is closer to 1.0–1.5. ZLB caveat applies."
+    },
+    {
+      "bucket": "$75K to $200K",
+      "cbo_category": "Tax cuts — lower/middle income",
+      "low": 0.4,
+      "high": 1.8,
+      "estimate": 0.7,
+      "source_id": "cbo-arra-2015",
+      "source": "CBO ARRA analysis (Feb 2015), Table 2 — lower/middle income provisions; lower portion used reflecting higher saving rate. Approaching Zidar (2019) top-10% boundary where effects attenuate.",
+      "alt_estimates": [
+        { "value": 0.52, "source": "Gechert (2015) meta-analysis mean for tax cuts (pooled)" },
+        { "value": 0.4,  "source": "CBO ARRA lower bound for this category" }
+      ],
+      "notes": "Upper-middle income; higher saving rate, growing access to tax sheltering. Lower portion of CBO range."
+    },
+    {
+      "bucket": "$200K to $1M",
+      "cbo_category": "Corporate/high-income provisions",
+      "low": 0.0,
+      "high": 0.4,
+      "estimate": 0.4,
+      "source_id": "cbo-arra-2015",
+      "source": "CBO ARRA analysis (Feb 2015), Table 2 — high-income/corporate provisions, range 0.0–0.4; upper bound used as these are individuals (not corporations) with some consumption response. Consistent with Zidar (2019, JPE): near-zero employment effect for top-10% income changes.",
+      "alt_estimates": [
+        { "value": 0.0,  "source": "Zidar (2019, JPE) — near-zero GDP effect for top-10% income group" },
+        { "value": 0.52, "source": "Gechert (2015) meta mean for tax cuts (caution: pooled across brackets, dominated by middle income)" }
+      ],
+      "notes": "High income; growing income-shifting capacity. Upper bound of CBO's corporate/high-income range used for individual earners."
+    },
+    {
+      "bucket": "Over $1M",
+      "cbo_category": "Corporate/high-income provisions",
+      "low": 0.0,
+      "high": 0.4,
+      "estimate": 0.3,
+      "source_id": "cbo-arra-2015",
+      "source": "CBO ARRA analysis (Feb 2015), Table 2 — high-income/corporate provisions; lower end used reflecting maximum avoidance capacity. Consistent with Zidar (2019, JPE) near-zero top-bracket result.",
+      "alt_estimates": [
+        { "value": 0.0, "source": "Zidar (2019, JPE) — near-zero for top-10% income group; this bracket is solidly top-0.1%" }
+      ],
+      "notes": "Top income group. Strongest income-shifting and deferral behavior (carried interest, capital gains timing, offshore vehicles). Low end of CBO range."
+    }
+  ],
+  "behavioral_offsets": [
+    {
+      "bucket": "Under $25K",
+      "estimate": 0.05,
+      "source_id": "jct-tcja-2017",
+      "source": "JCT JCX-69-17 (2017) implied distribution; Saez, Slemrod & Giertz (2012, JEL) ETI survey — ETI near 0.05–0.10 for low-income wage earners implies ~5% offset at moderate rate increases.",
+      "eti_implied_range": [0.02, 0.07],
+      "notes": "Minimal avoidance channels: predominantly W-2 wage income, few retirement or business income options. ETI literature (Saez et al. 2012) consistently finds near-zero ETI at bottom of income distribution."
+    },
+    {
+      "bucket": "$25K to $75K",
+      "estimate": 0.08,
+      "source_id": "jct-tcja-2017",
+      "source": "JCT JCX-69-17 (2017) implied distribution; Saez, Slemrod & Giertz (2012, JEL) — ETI ~0.10–0.20 for middle-income earners implies 8–12% offset.",
+      "eti_implied_range": [0.05, 0.12],
+      "notes": "Some ability to adjust 401(k) contributions, itemized deductions, and timing of bonus income. ETI survey (Saez et al. 2012) midpoint for this bracket."
+    },
+    {
+      "bucket": "$75K to $200K",
+      "estimate": 0.12,
+      "source_id": "jct-tcja-2017",
+      "source": "JCT JCX-69-17 (2017) implied distribution; Saez, Slemrod & Giertz (2012, JEL) — ETI ~0.20–0.35 for upper-middle earners. Pass-through income and self-employment begin to matter.",
+      "eti_implied_range": [0.08, 0.18],
+      "notes": "Moderate avoidance capacity: retirement accounts, itemized deductions, some pass-through income timing."
+    },
+    {
+      "bucket": "$200K to $1M",
+      "estimate": 0.20,
+      "source_id": "jct-tcja-2017",
+      "source": "JCT JCX-69-17 (2017) — overall 26% dynamic offset concentrated in top brackets; Saez, Slemrod & Giertz (2012, JEL) — ETI 0.40–0.60 for high-income earners with substantial capital and business income.",
+      "eti_implied_range": [0.12, 0.28],
+      "notes": "Significant income-shifting capacity: pass-through entity elections, deferred compensation, capital gains realization timing, charitable giving strategies."
+    },
+    {
+      "bucket": "Over $1M",
+      "estimate": 0.25,
+      "source_id": "jct-tcja-2017",
+      "source": "JCT JCX-69-17 (2017) — ~26% overall dynamic offset with heaviest concentration at top; Saez, Slemrod & Giertz (2012, JEL) — ETI 0.5–1.5 for top earners with high capital income; Kopczuk (2005) finds high ETI for very-top earners driven by avoidance.",
+      "eti_implied_range": [0.18, 0.40],
+      "notes": "Maximum avoidance capacity: carried interest treatment, offshore deferral, charitable vehicles, capital gains timing. JCT TCJA aggregate offset (~26%) is predominantly concentrated here and at $200K–$1M bracket."
+    }
+  ],
+  "crowding_in": {
+    "investment_per_dollar_deficit_reduction_low": 0.15,
+    "investment_per_dollar_deficit_reduction_high": 0.50,
+    "investment_per_dollar_deficit_reduction_central": 0.33,
+    "gdp_per_dollar_deficit_reduction_central": 0.50,
+    "gdp_per_dollar_deficit_reduction_open_economy_adjustment": 0.30,
+    "source_id": "cbo-deficit-investment-2013",
+    "source": "CBO Working Paper 2014-02 (2013) — neoclassical growth model calibration. Central: $1 deficit reduction → $0.33 domestic investment → ~$0.50 GDP by year 10. Interest rate channel: Laubach (2009, JEEA) ~25bp rate reduction per 1% of GDP deficit reduction. Open-economy adjustment: US floats FX and draws global capital, reducing domestic investment response; Ilzetzki, Mendoza & Végh (2013, JME) find near-zero multipliers in flexible-FX advanced economies.",
+    "alt_estimates": [
+      { "value": 0.10, "source": "Lower bound: open-economy + r<g environment (Blanchard 2019, AEA) — government borrowing competes in global capital market; real rate already below growth rate" },
+      { "value": 0.30, "source": "Open-economy adjustment to CBO central: Ilzetzki et al. (2013) suggests flexible-FX economies have substantially smaller domestic crowding effects" },
+      { "value": 0.50, "source": "CBO 2013 central estimate — closed-economy Solow model, full-employment benchmark" },
+      { "value": 0.80, "source": "Upper bound: high-debt environment with meaningful risk premium channel; Laubach (2009) interest rate sensitivity implies larger investment response at current debt levels" }
+    ],
+    "notes": "CBO central estimate ($0.50) assumes a closed economy at full employment — likely an upper bound for the US. Open-economy adjustment (~0.30) more appropriate given floating dollar and global capital integration. Composition caveat: cuts to public investment (infrastructure, R&D, education) may crowd OUT private capital rather than in — the $0.50 figure applies to transfer cuts, not investment cuts."
+  }
+}
